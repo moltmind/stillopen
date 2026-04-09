@@ -1,12 +1,16 @@
 /**
- * HomeEdge Chatbot — Standalone embed script
+ * StillOpen Chatbot — Standalone embed script
+ *
+ * The 24/7 AI front desk widget. Plumbers (and other home services trades)
+ * drop this single script tag into their site and get a floating chat bubble
+ * that answers customer questions, books jobs, and captures deposits via the
+ * StillOpen Cloudflare Worker.
  *
  * HOW TO EMBED:
- * Add this single line before </body> in index.html:
- *   <script src="chatbot.js"></script>
+ * Add this single line before </body> in the customer's website:
+ *   <script src="https://app.stillopen.ai/chatbot.js"></script>
  *
- * IMPORTANT: Replace the WORKER_URL below with your actual Cloudflare Worker URL.
- * Example: https://homeedge-chat.moltmind.workers.dev
+ * The WORKER_URL below points at the deployed Cloudflare Worker for StillOpen.
  */
 
 (function () {
@@ -14,27 +18,36 @@
 
   // ─── CONFIG ──────────────────────────────────────────────────────────────────
   const WORKER_URL =
-    "https://homeedge-chat.moltmind.workers.dev";
+    "https://stillopen-production.moltmind.workers.dev";
 
   const OPENING_MESSAGE =
-    "Hey! I'm the HomeEdge Assistant. I help real estate agents understand what HomeEdge can do for their business. What's your biggest challenge right now — getting more listings, standing out from other agents, or something else?";
+    "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book a job for you right now. What's going on?";
 
+  // ─── COLORS (Day 2 placeholder palette) ──────────────────────────────────────
+  // PLACEHOLDER from the Day 2 rip pass. Neutral white-bg + dark slate text +
+  // single blue accent. Aaron's call: do NOT carry HomeEdge's navy+cyan+gold
+  // into StillOpen's first deployable surface.
+  //
+  // The KEY NAMES below are legacy from HomeEdge (navy, cyan, gold). The
+  // VALUES are StillOpen neutral. Paul rewrites both keys and values during
+  // the brand voice session by Day 10. Until then, a search-and-replace on
+  // ${COLORS.navy} → background, ${COLORS.cyan} → accent, etc. is the migration.
   const COLORS = {
-    navy: "#0B1426",
-    navyLight: "#132038",
-    navyBorder: "#1E3050",
-    cyan: "#00D4FF",
-    cyanDim: "rgba(0,212,255,0.12)",
-    gold: "#F5A623",
-    goldHover: "#E09410",
-    white: "#FFFFFF",
-    textMuted: "#8BA3C0",
-    userBubble: "#00D4FF",
-    userText: "#0B1426",
-    botBubble: "#1A2E4A",
-    botText: "#E8F0F8",
-    online: "#22C55E",
-    shadow: "rgba(0,0,0,0.5)",
+    navy:        "#FFFFFF",              // chat window background (was dark)
+    navyLight:   "#F8FAFC",              // header + input row background
+    navyBorder:  "#E2E8F0",              // border lines
+    cyan:        "#2563EB",              // primary accent (buttons, focus, bubble)
+    cyanDim:     "rgba(37,99,235,0.10)",
+    gold:        "#2563EB",              // send button (collapsed to accent for now)
+    goldHover:   "#1D4ED8",              // send button hover
+    white:       "#1E293B",              // primary text — now dark slate, name is legacy
+    textMuted:   "#64748B",              // muted/placeholder text
+    userBubble:  "#2563EB",              // user message background
+    userText:    "#FFFFFF",              // user message text
+    botBubble:   "#F1F5F9",              // bot message background
+    botText:     "#1E293B",              // bot message text
+    online:      "#22C55E",              // online dot (universal green, kept)
+    shadow:      "rgba(15,23,42,0.15)",  // soft drop shadow
   };
   // ─────────────────────────────────────────────────────────────────────────────
 
@@ -64,19 +77,19 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: linear-gradient(135deg, ${COLORS.cyan} 0%, #0099CC 100%);
+      background: ${COLORS.cyan};
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,212,255,0.4), 0 2px 8px ${COLORS.shadow};
+      box-shadow: 0 4px 20px rgba(37,99,235,0.25), 0 2px 8px ${COLORS.shadow};
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       z-index: 9998;
     }
     #he-bubble:hover {
       transform: scale(1.08);
-      box-shadow: 0 6px 28px rgba(0,212,255,0.55), 0 2px 10px ${COLORS.shadow};
+      box-shadow: 0 6px 28px rgba(37,99,235,0.35), 0 2px 10px ${COLORS.shadow};
     }
     #he-bubble:active {
       transform: scale(0.96);
@@ -136,7 +149,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.08);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(37,99,235,0.06);
       z-index: 9997;
       transform-origin: bottom right;
       transform: scale(0.85) translateY(16px);
@@ -164,7 +177,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: linear-gradient(135deg, ${COLORS.cyan} 0%, #0099CC 100%);
+      background: ${COLORS.cyan};
       display: flex;
       align-items: center;
       justify-content: center;
@@ -391,17 +404,17 @@
 
   // Bubble button
   root.innerHTML = `
-    <button id="he-bubble" aria-label="Open HomeEdge chat">
+    <button id="he-bubble" aria-label="Open chat">
       <svg class="he-chat-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2C6.477 2 2 6.163 2 11.333c0 2.742 1.234 5.204 3.2 6.933L4 22l4.933-1.867A10.8 10.8 0 0 0 12 20.667c5.523 0 10-4.163 10-9.334C22 6.163 17.523 2 12 2Z"/>
       </svg>
       <svg class="he-close-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6 6 18M6 6l12 12" stroke="#0B1426" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M18 6 6 18M6 6l12 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
       </svg>
       <span id="he-badge" role="status" aria-label="Unread messages">1</span>
     </button>
 
-    <div id="he-window" role="dialog" aria-label="HomeEdge chat window">
+    <div id="he-window" role="dialog" aria-label="Chat window">
       <div id="he-header">
         <div id="he-avatar">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -410,7 +423,7 @@
           <div id="he-online-dot"></div>
         </div>
         <div id="he-header-info">
-          <div id="he-header-title">HomeEdge Assistant</div>
+          <div id="he-header-title">Front Desk</div>
           <div id="he-header-status">Online</div>
         </div>
       </div>
@@ -560,7 +573,7 @@
       setTyping(false);
       appendMessage(
         "bot",
-        "I'm having trouble connecting right now. Please email gethomeedge@gmail.com or try again in a moment."
+        "I'm having trouble connecting right now. Please call the business directly or try again in a moment."
       );
       setInputDisabled(false);
     }
