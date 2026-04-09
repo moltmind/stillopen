@@ -20,6 +20,25 @@
   const WORKER_URL =
     "https://app.stillopen.ai";
 
+  // Per-plumber ID read from the script tag's data-plumber-id attribute.
+  // Embed pattern:
+  //   <script src=".../chatbot.js" data-plumber-id="mike-ingrilli"></script>
+  // The worker uses this to load kb:{plumberId} from KV and prepend the
+  // per-plumber context block to the base SYSTEM_PROMPT. If absent, the
+  // worker falls back to a generic home-services front-desk prompt.
+  const PLUMBER_ID = (function () {
+    try {
+      if (document.currentScript && document.currentScript.dataset) {
+        return document.currentScript.dataset.plumberId || null;
+      }
+      const scripts = document.querySelectorAll('script[src*="chatbot.js"]');
+      for (const s of scripts) {
+        if (s.dataset && s.dataset.plumberId) return s.dataset.plumberId;
+      }
+    } catch (e) {}
+    return null;
+  })();
+
   const OPENING_MESSAGE =
     "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book a job for you right now. What's going on?";
 
@@ -547,6 +566,7 @@
         body: JSON.stringify({
           messages: conversationHistory,
           sessionCount: sessionCount,
+          plumberId: PLUMBER_ID,
         }),
       });
 
