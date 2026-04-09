@@ -18,7 +18,7 @@
 
   // ─── CONFIG ──────────────────────────────────────────────────────────────────
   const WORKER_URL =
-    "https://stillopen-production.moltmind.workers.dev";
+    "https://app.stillopen.ai";
 
   const OPENING_MESSAGE =
     "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book a job for you right now. What's going on?";
