@@ -1,0 +1,31 @@
+# Secrets & credentials
+.env
+*.env
+credentials*
+keys.rtf
+.mcp.json
+
+# System files
+.DS_Store
+
+# Backend (deployed separately via Wrangler)
+worker.js
+wrangler.toml
+.wrangler/
+
+# Node
+node_modules/
+package-lock.json
+
+# Personal / sensitive
+*.docx
+*.pptx
+*.rtf
+leads/
+
+# AI tooling
+.aidesigner/*
+!.aidesigner/.gitkeep
+.claude/
+.agents/
+backups/

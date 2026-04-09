@@ -1,0 +1,8 @@
+{
+  "name": "stillopen",
+  "private": true,
+  "description": "24/7 AI front desk for home services trades",
+  "dependencies": {
+    "playwright": "^1.59.1"
+  }
+}
