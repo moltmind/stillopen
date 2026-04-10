@@ -3,18 +3,244 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StillOpen &mdash; 24/7 AI front desk for home services</title>
-  <meta name="description" content="Your sign says closed. StillOpen stays open. A 24/7 AI front desk for plumbers, HVAC, and electricians &mdash; answers customer questions, books jobs into your calendar, and takes a deposit on your Stripe account.">
+  <title>StillOpen — 24/7 AI front desk for plumbers</title>
+  <meta name="description" content="Your sign says closed. StillOpen stays open. A 24/7 AI front desk for plumbers that answers the phone, books the job, and takes a deposit on your Stripe.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://stillopen.ai/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:#ffffff;color:#1e293b;line-height:1.5;">
-  <main style="max-width:720px;margin:0 auto;padding:80px 24px 120px;">
-    <h1 style="font-size:56px;line-height:1.05;margin:0 0 20px;font-weight:800;letter-spacing:-0.02em;">StillOpen</h1>
-    <p style="font-size:26px;line-height:1.35;margin:0 0 40px;color:#475569;font-weight:500;">Your sign says closed. StillOpen stays open.</p>
-    <p style="font-size:19px;line-height:1.6;margin:0 0 24px;">A 24/7 AI front desk for home services trades. It answers customer questions using your real pricing and schedule, books the job into your calendar, and takes a deposit on your Stripe account &mdash; so the caller is committed before they hang up. You wake up to a job on the calendar and money in the bank.</p>
-    <p style="font-size:19px;line-height:1.6;margin:0 0 40px;">It sounds like your own receptionist, because it knows your business. It does not sound like a chatbot.</p>
-    <p style="font-size:15px;line-height:1.6;margin:0;color:#94a3b8;">Launching soon. This is a placeholder page while the real product is being built.</p>
-  </main>
+<body class="bg-white text-slate-800 font-sans antialiased">
+
+  <!-- ─── HERO ─────────────────────────────────────────────────────── -->
+  <section class="max-w-3xl mx-auto px-6 pt-24 pb-16 sm:pt-32 sm:pb-20">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+      The 2 AM call you missed last night was a $900 job.
+    </h1>
+    <p class="text-lg sm:text-xl text-slate-500 font-medium mb-8 max-w-2xl">
+      Your sign says closed. StillOpen stays open. A 24/7 AI front desk for plumbers that answers the phone, books the job, and takes a deposit on your Stripe. You wake up to work on the calendar and money in the bank.
+    </p>
+    <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">
+      I built this because I was watching good plumbers lose the emergency jobs to Roto-Rooter every night. Not because they were bad plumbers. Because they were asleep, or with their kids, or on another job with their hands in a wall. The phone rang. It went to voicemail. By the time they heard it the next morning, the customer had already called somebody else. I got tired of watching it happen. So I built a front desk that stays open when you can't.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 items-start">
+      <a href="#pricing" class="inline-block bg-blue-600 text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-blue-700 transition-colors text-base">
+        Show me how it sounds for my shop
+      </a>
+    </div>
+    <p class="text-sm text-slate-400 mt-3 max-w-md">
+      Paste your website URL. We train the bot on your real pricing and service menu in about 60 seconds. Then you talk to it like a customer would and see if it sounds right.
+    </p>
+  </section>
+
+  <!-- ─── WHAT IT DOES ─────────────────────────────────────────────── -->
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-10">Three things, done right.</h2>
+      <div class="space-y-10">
+        <div>
+          <h3 class="text-lg font-bold mb-2">1. It answers the phone when you can't.</h3>
+          <p class="text-slate-600 leading-relaxed">The chat widget sits on your existing website. A customer comes in at 7 PM or 2 AM or Sunday afternoon. The bot answers their questions using your real prices and your real service menu. No made-up numbers. No generic FAQ. No "our agents are offline" dead end.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-2">2. It books the job into your calendar.</h3>
+          <p class="text-slate-600 leading-relaxed">When the customer wants to book, the bot pulls your real availability from Google Calendar and drops the appointment in. Customer name, phone, address, problem description, time window. You wake up to a real event on your calendar, not an email you have to chase.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-2">3. It takes a deposit on your Stripe.</h3>
+          <p class="text-slate-600 leading-relaxed">For emergency work, the bot asks for a small deposit before it confirms. Not to nickel-and-dime the customer. To hold the slot and commit a real human to the job. The customer pays through your Stripe account. Money hits your bank. The customer shows up. Roto-Rooter doesn't get the call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHO IT IS FOR ────────────────────────────────────────────── -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Built for plumbers who answer their own phone.</h2>
+      <p class="text-slate-600 leading-relaxed mb-6">
+        You run 1-5 trucks. You answer the phone when it rings because you're the business. You have a website. You've got a Google Calendar or a paper calendar you're ready to move off of. You've got a Stripe account or you're willing to set one up in about 4 minutes. That's it. If you can use email, you can use StillOpen.
+      </p>
+      <p class="text-slate-600 leading-relaxed">
+        StillOpen isn't a dispatch system. It isn't a CRM. It isn't an answering service that charges you $400 a month and still can't book or collect. It isn't a chatbot widget that forwards leads to an email inbox you check once a day. It's a front desk that takes the call and closes it. That's what it does. That's all it does.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─────────────────────────────────────────────── -->
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-10">Setup takes 15 minutes. Not 15 days.</h2>
+      <div class="space-y-8">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+          <div>
+            <h3 class="font-bold mb-1">Sign up and connect your tools.</h3>
+            <p class="text-slate-600">Email, Google Calendar, Stripe. OAuth does the handshakes. You don't have to hire anybody to set it up, and you don't have to hire me.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+          <div>
+            <h3 class="font-bold mb-1">Point it at your website.</h3>
+            <p class="text-slate-600">The bot reads your site and pulls your prices, your service menu, your service area, your hours. You review what it learned and fix anything it got wrong.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+          <div>
+            <h3 class="font-bold mb-1">Drop the snippet on your site.</h3>
+            <p class="text-slate-600">One line of code you copy and paste. If that sentence sounds scary, your web guy can do it in 30 seconds. The bot's live the moment the snippet lands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ──────────────────────────────────────────────────── -->
+  <section id="pricing" class="py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-10">$49. $97. $197. Pick the one that fits your shop.</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+
+        <!-- Starter -->
+        <div class="border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-lg mb-1">Starter</h3>
+          <p class="text-3xl font-extrabold mb-4">$49<span class="text-base font-normal text-slate-400">/mo</span></p>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Chat on your website. Books to your Google Calendar. Takes deposits on your Stripe. Owner notification when a job lands. If you're running 1-2 trucks and you want the basics right, this is the tier.
+          </p>
+        </div>
+
+        <!-- Pro -->
+        <div class="border-2 border-blue-600 rounded-xl p-6 relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Most popular</div>
+          <h3 class="font-bold text-lg mb-1">Pro</h3>
+          <p class="text-3xl font-extrabold mb-4">$97<span class="text-base font-normal text-slate-400">/mo</span></p>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Everything in Starter, plus connects to your CRM if you use one (Housecall Pro, Jobber, Google Sheets fallback). Text notifications. Missed-call-text-back. Up to 3 users.
+          </p>
+        </div>
+
+        <!-- Elite -->
+        <div class="border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-lg mb-1">Elite</h3>
+          <p class="text-3xl font-extrabold mb-4">$197<span class="text-base font-normal text-slate-400">/mo</span></p>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Everything in Pro, plus automated follow-up and review requests, after-hours voicemail handling, customer memory so the bot remembers who Mike is next time he calls, and unlimited users.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-400 mt-6">
+        No setup fee for the first 10 plumbers. After that, a one-time $297 setup fee covers the knowledge ingestion tuning and a walkthrough call with me. Cancel any time. It's month to month.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── FOUNDER BIO ──────────────────────────────────────────────── -->
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Who built this.</h2>
+      <blockquote class="text-slate-600 leading-relaxed text-base sm:text-lg border-l-4 border-blue-600 pl-6">
+        I'm Cole. I'm a steel building erector by trade. I build hospitals, warehouses, and aircraft hangars for a living. I taught myself to build software at five in the morning in the basement because the guy I work for doesn't deserve another year of my life and my kids need me home. I built StillOpen because I was watching good plumbers lose real money every night the phone rang and nobody picked up. I'm not a marketer. I'm not a coach. I'm a guy who makes it work. I wanted to make it work for you too.
+      </blockquote>
+      <p class="text-sm text-slate-400 mt-4">Cole Faith. Wisconsin. Founder, StillOpen.</p>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ──────────────────────────────────────────────────────── -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-10">Questions plumbers ask me.</h2>
+      <div class="space-y-8">
+
+        <div>
+          <h3 class="font-bold mb-2">Will it sound like a chatbot?</h3>
+          <p class="text-slate-600 leading-relaxed">No. It sounds like a receptionist who's worked at your shop for years, because it knows your shop. It knows your prices, your service menu, your hours, and your service area. It doesn't make things up. If it doesn't know something, it says so honestly and tells the customer you'll call back.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-2">What if it books a job I can't make?</h3>
+          <p class="text-slate-600 leading-relaxed">It pulls your real Google Calendar availability. If you're booked, it doesn't book over you. You can block out personal time and it honors it. If you need to move an appointment, you move it the same way you'd move any other calendar event and the customer gets a text.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-2">What about the deposit? What if the customer cancels?</h3>
+          <p class="text-slate-600 leading-relaxed">Deposits are on your Stripe account, not ours. You control the refund policy the same way you'd handle any other customer payment. Most of my early plumbers keep a flat $50 to $100 emergency deposit that goes toward the job total. If the customer cancels outside your window, you keep it. Your rules, your money.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-2">Does it work with my CRM?</h3>
+          <p class="text-slate-600 leading-relaxed">At the Starter tier, it writes to Google Calendar and sends you an email notification. At the Pro tier, it connects to Housecall Pro, Jobber, or a Google Sheets fallback. If you use something else, tell me and I'll look at it.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-2">How long does setup actually take?</h3>
+          <p class="text-slate-600 leading-relaxed">Fifteen minutes from signup to live chatbot on your website. If it takes longer than that, something's wrong and I want to know.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-2">What if I don't like it?</h3>
+          <p class="text-slate-600 leading-relaxed">Cancel in one click. No phone call, no cancellation survey, no "are you sure." You keep everything that was in your calendar and everything that hit your Stripe. I don't hold your data hostage.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CLOSING CTA ──────────────────────────────────────────────── -->
+  <section class="bg-slate-50 py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">See it work on your website. Then decide.</h2>
+      <p class="text-slate-600 leading-relaxed mb-8 max-w-xl mx-auto">
+        You don't have to take my word for it. Paste your website URL below. We train the bot on your real pricing and service menu in about 60 seconds. Then you talk to it the way a customer would. If it sounds right, start at $49 a month. If it doesn't, close the tab and we won't bother you.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <a href="#pricing" class="inline-block bg-blue-600 text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-blue-700 transition-colors text-base">
+          Show me how it sounds for my shop
+        </a>
+      </div>
+      <p class="text-sm text-slate-400 mt-3">
+        Or <a href="#pricing" class="underline hover:text-slate-600">start at $49 a month</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+  <footer class="py-10 border-t border-slate-100">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-slate-500 text-sm font-medium mb-3">A 24/7 AI front desk for plumbers. Built by a guy who makes it work.</p>
+      <div class="flex justify-center gap-4 text-xs text-slate-400 mb-4">
+        <a href="#pricing" class="hover:text-slate-600">Pricing</a>
+        <span class="text-slate-200">|</span>
+        <a href="#" class="hover:text-slate-600">FAQ</a>
+        <span class="text-slate-200">|</span>
+        <a href="mailto:cole@stillopen.ai" class="hover:text-slate-600">Contact</a>
+        <span class="text-slate-200">|</span>
+        <a href="#" class="hover:text-slate-600">Privacy</a>
+        <span class="text-slate-200">|</span>
+        <a href="#" class="hover:text-slate-600">Terms</a>
+      </div>
+      <p class="text-xs text-slate-300">&copy; 2026 StillOpen</p>
+    </div>
+  </footer>
+
+  <!-- Chatbot widget (loads the StillOpen chat bubble on the landing page itself) -->
+  <script src="https://app.stillopen.ai/chatbot.js"></script>
 </body>
 </html>
