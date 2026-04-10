@@ -39,6 +39,35 @@
     return null;
   })();
 
+  // Inline mode: renders inside a container div instead of as a floating bubble.
+  // Used by the demo funnel on the landing page.
+  // Embed: <script src="chatbot.js" data-mode="inline" data-container="my-div"></script>
+  const INLINE_MODE = (function () {
+    try {
+      if (document.currentScript && document.currentScript.dataset) {
+        return document.currentScript.dataset.mode === "inline";
+      }
+      const scripts = document.querySelectorAll('script[src*="chatbot.js"]');
+      for (const s of scripts) {
+        if (s.dataset && s.dataset.mode === "inline") return true;
+      }
+    } catch (e) {}
+    return false;
+  })();
+
+  const INLINE_CONTAINER = (function () {
+    try {
+      if (document.currentScript && document.currentScript.dataset) {
+        return document.currentScript.dataset.container || null;
+      }
+      const scripts = document.querySelectorAll('script[src*="chatbot.js"]');
+      for (const s of scripts) {
+        if (s.dataset && s.dataset.container) return s.dataset.container;
+      }
+    } catch (e) {}
+    return null;
+  })();
+
   const OPENING_MESSAGE =
     "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book a job for you right now. What's going on?";
 
@@ -471,7 +500,34 @@
     </div>
   `;
 
-  document.body.appendChild(root);
+  // Mount: inline mode goes into the specified container, floating mode appends to body
+  if (INLINE_MODE && INLINE_CONTAINER) {
+    const container = document.getElementById(INLINE_CONTAINER);
+    if (container) {
+      container.appendChild(root);
+      // In inline mode: hide the bubble, show the window immediately, fill the container
+      const bubbleEl = root.querySelector("#he-bubble");
+      if (bubbleEl) bubbleEl.style.display = "none";
+      const windowEl = root.querySelector("#he-window");
+      if (windowEl) {
+        windowEl.style.position = "relative";
+        windowEl.style.bottom = "auto";
+        windowEl.style.right = "auto";
+        windowEl.style.width = "100%";
+        windowEl.style.height = "100%";
+        windowEl.style.borderRadius = "0";
+        windowEl.style.border = "none";
+        windowEl.style.display = "flex";
+        windowEl.style.opacity = "1";
+        windowEl.style.pointerEvents = "auto";
+        windowEl.style.transform = "none";
+      }
+    } else {
+      document.body.appendChild(root);
+    }
+  } else {
+    document.body.appendChild(root);
+  }
 
   // ─── ELEMENT REFS ────────────────────────────────────────────────────────────
   const bubble    = document.getElementById("he-bubble");
@@ -638,4 +694,12 @@
       badge.classList.add("visible");
     }
   }, 4000);
+
+  // ─── INLINE MODE: auto-open and show opening message immediately ────────────
+  if (INLINE_MODE && INLINE_CONTAINER) {
+    isOpen = true;
+    showOpening();
+    // Focus the input after a short delay
+    setTimeout(() => { if (input) input.focus(); }, 500);
+  }
 })();
