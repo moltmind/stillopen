@@ -140,6 +140,15 @@
             try {
                 Clerk.load({
                     ui: window.__internal_ClerkUICtor ? { ClerkUI: window.__internal_ClerkUICtor } : undefined,
+                    // Force Clerk to send users to the dashboard after any sign-in
+                    // flow — including the auto-sign-in from ?__clerk_ticket= URLs
+                    // in the onboarding email. Without this, Clerk falls back to
+                    // whatever "after sign-in URL" is configured in the dashboard,
+                    // which defaults to the homepage and breaks the onboarding loop.
+                    signInForceRedirectUrl: '/app/dashboard.html',
+                    signUpForceRedirectUrl: '/app/dashboard.html',
+                    signInFallbackRedirectUrl: '/app/dashboard.html',
+                    signUpFallbackRedirectUrl: '/app/dashboard.html',
                     appearance: {
                         variables: {
                             colorBackground: '#191a1b',
@@ -163,6 +172,8 @@
                     }
 
                     Clerk.mountSignIn(document.getElementById('clerk-sign-in'), {
+                        forceRedirectUrl: '/app/dashboard.html',
+                        fallbackRedirectUrl: '/app/dashboard.html',
                         appearance: {
                             variables: {
                                 colorBackground: 'transparent',
