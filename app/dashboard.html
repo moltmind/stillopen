@@ -9,173 +9,720 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script defer crossorigin="anonymous" src="https://dear-crab-95.clerk.accounts.dev/npm/@clerk/ui@1/dist/ui.browser.js"></script>
     <script defer crossorigin="anonymous" data-clerk-publishable-key="pk_test_ZGVhci1jcmFiLTk1LmNsZXJrLmFjY291bnRzLmRldiQ" src="https://dear-crab-95.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js"></script>
     <style>
         :root {
-            --bg: #191a1b;
-            --bg-raised: rgba(255,255,255,0.02);
-            --bg-raised-hover: rgba(255,255,255,0.04);
-            --text-primary: #f7f8f8;
-            --text-secondary: #d0d6e0;
-            --text-tertiary: #8a8f98;
-            --text-quaternary: #62666d;
+            --bg: #0a0a0b;
+            --bg-surface: #111113;
+            --bg-raised: #18181b;
+            --bg-hover: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --text-quaternary: #52525b;
             --brand: #5e6ad2;
-            --accent: #7170ff;
-            --border-subtle: rgba(255,255,255,0.05);
-            --border-standard: rgba(255,255,255,0.08);
-            --success: #4ade80;
+            --brand-glow: rgba(94,106,210,0.15);
+            --brand-border: rgba(94,106,210,0.3);
+            --accent: #818cf8;
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.1);
+            --success: #34d399;
+            --success-glow: rgba(52,211,153,0.15);
             --error: #f87171;
             --warning: #fbbf24;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --sidebar-width: 240px;
         }
+
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text-primary); font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; }
 
-        /* Header */
-        header { position: sticky; top: 0; z-index: 30; background: rgba(25,26,27,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); }
-        .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 56px; max-width: 960px; margin: 0 auto; }
-        .brand-name { font-size: 16px; font-weight: 700; color: var(--brand); letter-spacing: -0.02em; }
-        .header-nav { display: flex; align-items: center; gap: 16px; }
-        .header-nav a { font-size: 13px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
-        .header-nav a:hover { color: var(--text-primary); }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
 
-        /* Main */
-        main { max-width: 960px; margin: 0 auto; padding: 32px 24px; }
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: var(--bg-surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 16px;
+            z-index: 40;
+            transition: transform 0.3s ease;
+        }
 
-        /* Welcome */
-        .welcome { margin-bottom: 32px; }
-        .welcome h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-        .welcome p { font-size: 14px; color: var(--text-tertiary); }
-        .tier-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(94,106,210,0.12); color: var(--brand); margin-left: 8px; }
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 8px;
+            margin-bottom: 32px;
+        }
+        .sidebar-brand .brand-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 12px rgba(52,211,153,0.5);
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 8px rgba(52,211,153,0.4); }
+            50% { box-shadow: 0 0 16px rgba(52,211,153,0.7); }
+        }
+        .sidebar-brand .brand-text {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+        .sidebar-brand .brand-status {
+            font-size: 11px;
+            color: var(--success);
+            margin-left: auto;
+            font-weight: 500;
+        }
 
-        /* Stats grid */
-        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
-        .stat-card { background: var(--bg-raised); border: 1px solid var(--border-standard); border-radius: 12px; padding: 20px; }
-        .stat-card .stat-label { font-size: 12px; color: var(--text-tertiary); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-        .stat-card .stat-label i { color: var(--brand); }
-        .stat-card .stat-value { font-size: 28px; font-weight: 700; }
+        .sidebar-nav { flex: 1; display: flex; flex-direction: column; gap: 2px; }
 
-        /* Cards grid */
-        .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
-        .card { background: var(--bg-raised); border: 1px solid var(--border-standard); border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
-        .card:hover { border-color: rgba(94,106,210,0.3); }
-        .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-        .card-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(94,106,210,0.08); display: flex; align-items: center; justify-content: center; }
-        .card-icon i { color: var(--brand); font-size: 18px; }
-        .card-title { font-size: 15px; font-weight: 600; }
+        .nav-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-quaternary);
+            padding: 16px 12px 8px;
+        }
 
-        /* Embed code */
-        .embed-box { background: var(--bg); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; color: var(--text-tertiary); line-height: 1.6; overflow-x: auto; position: relative; white-space: pre-wrap; word-break: break-all; }
-        .copy-btn { position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; border-radius: 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-standard); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; color: var(--text-tertiary); }
-        .copy-btn:hover { background: rgba(255,255,255,0.1); }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .nav-item:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+        .nav-item.active {
+            background: var(--brand-glow);
+            color: var(--brand);
+            border-color: var(--brand-border);
+        }
+        .nav-item i { font-size: 18px; width: 20px; text-align: center; }
 
-        /* Status dot */
-        .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-        .status-dot.green { background: var(--success); box-shadow: 0 0 8px rgba(74,222,128,0.4); }
-        .status-dot.yellow { background: var(--warning); }
-        .status-dot.red { background: var(--error); }
+        .sidebar-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+        }
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--brand-glow);
+            border: 1px solid var(--brand-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--brand);
+        }
+        .user-info { flex: 1; min-width: 0; }
+        .user-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .user-tier { font-size: 11px; color: var(--text-tertiary); }
 
-        /* Integration row */
-        .integration-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
-        .integration-row + .integration-row { border-top: 1px solid var(--border-subtle); }
-        .integration-info { display: flex; align-items: center; gap: 10px; }
-        .integration-info .name { font-size: 14px; font-weight: 500; }
-        .integration-info .desc { font-size: 12px; color: var(--text-tertiary); }
+        /* Main content */
+        .main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            min-height: 100vh;
+            padding: 32px 40px;
+            max-width: 1100px;
+        }
 
-        .btn-sm { padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 500; border: 1px solid var(--border-standard); background: var(--bg-raised); color: var(--text-primary); cursor: pointer; transition: all 0.2s; font-family: inherit; }
-        .btn-sm:hover { border-color: var(--brand); }
+        /* Page header */
+        .page-header {
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fade-up 0.5s ease forwards;
+        }
+        .page-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 4px;
+        }
+        .page-header p {
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
 
-        /* Quick actions */
-        .quick-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-        .action-card { background: var(--bg-raised); border: 1px solid var(--border-standard); border-radius: 10px; padding: 16px; text-decoration: none; color: var(--text-primary); transition: all 0.2s; text-align: center; }
-        .action-card:hover { border-color: rgba(94,106,210,0.3); background: var(--bg-raised-hover); }
-        .action-card i { font-size: 24px; color: var(--brand); margin-bottom: 8px; display: block; }
-        .action-card .action-label { font-size: 13px; font-weight: 500; }
-        .action-card .action-desc { font-size: 11px; color: var(--text-tertiary); margin-top: 4px; }
+        @keyframes fade-up {
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        #loading { text-align: center; padding: 80px 0; }
-        .loading-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
-        .loading-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); opacity: 0.4; animation: dot-bounce 1s infinite; }
-        .loading-dots span:nth-child(2) { animation-delay: 0.15s; }
-        .loading-dots span:nth-child(3) { animation-delay: 0.3s; }
-        @keyframes dot-bounce { 0%, 80%, 100% { transform: scale(1); opacity: 0.4; } 40% { transform: scale(1.3); opacity: 1; } }
-        .hidden { display: none !important; }
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fade-up 0.5s ease 0.1s forwards;
+        }
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--brand), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .stat-card:hover { border-color: var(--border-hover); }
+        .stat-card:hover::before { opacity: 1; }
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .stat-label i { color: var(--text-quaternary); font-size: 16px; }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+        .stat-note {
+            font-size: 11px;
+            color: var(--text-quaternary);
+            margin-top: 8px;
+        }
 
-        /* Onboarding wizard */
-        .onboarding-card { background: linear-gradient(135deg, rgba(94,106,210,0.08), rgba(113,112,255,0.04)); border: 1px solid rgba(94,106,210,0.25); border-radius: 14px; padding: 28px; margin-bottom: 32px; }
-        .onboarding-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-        .onboarding-header h2 { font-size: 18px; font-weight: 700; }
+        /* Section grid */
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fade-up 0.5s ease 0.2s forwards;
+        }
+        .section-grid.full { grid-template-columns: 1fr; }
+
+        /* Card */
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+        .card:hover { border-color: var(--border-hover); }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .card-icon.purple { background: var(--brand-glow); color: var(--brand); }
+        .card-icon.green { background: var(--success-glow); color: var(--success); }
+        .card-title { font-size: 14px; font-weight: 600; }
+
+        /* Onboarding */
+        .onboarding-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--brand-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fade-up 0.5s ease 0.15s forwards;
+        }
+        .onboarding-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--brand), var(--accent), var(--brand));
+            background-size: 200% 100%;
+            animation: shimmer 3s ease infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .onboarding-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+        .onboarding-header h2 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
         .onboarding-subtitle { font-size: 13px; color: var(--text-tertiary); margin-bottom: 24px; }
-        .onboarding-steps { display: flex; flex-direction: column; gap: 12px; }
-        .onboarding-step { display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-subtle); border-radius: 10px; transition: border-color 0.2s; }
-        .onboarding-step.done { border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.04); }
-        .onboarding-step.active { border-color: var(--brand); }
-        .step-circle { width: 32px; height: 32px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--border-standard); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--text-tertiary); flex-shrink: 0; }
-        .onboarding-step.done .step-circle { background: var(--success); border-color: var(--success); color: #0a0a0a; }
+        .onboarding-progress {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .progress-segment {
+            flex: 1;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--bg-hover);
+            transition: background 0.4s ease;
+        }
+        .progress-segment.done { background: var(--success); }
+        .progress-segment.active { background: var(--brand); }
+
+        .onboarding-steps { display: flex; flex-direction: column; gap: 10px; }
+        .onboarding-step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px;
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all 0.2s ease;
+        }
+        .onboarding-step.done { border-color: rgba(52,211,153,0.2); background: rgba(52,211,153,0.03); }
+        .onboarding-step.active { border-color: var(--brand-border); background: var(--brand-glow); }
+        .step-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1.5px solid var(--border-hover);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .onboarding-step.done .step-circle { background: var(--success); border-color: var(--success); color: #0a0a0b; }
         .onboarding-step.active .step-circle { background: var(--brand); border-color: var(--brand); color: #fff; }
         .step-body { flex: 1; }
-        .step-body .step-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-        .step-body .step-desc { font-size: 12px; color: var(--text-tertiary); margin-bottom: 12px; }
+        .step-body .step-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .step-body .step-desc { font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px; }
         .step-body .step-action { display: flex; gap: 8px; align-items: center; }
-        .step-body input[type="url"] { flex: 1; background: var(--bg); border: 1px solid var(--border-standard); color: var(--text-primary); border-radius: 6px; padding: 8px 12px; font-size: 13px; outline: none; font-family: inherit; }
+
+        .step-body input[type="url"] {
+            flex: 1;
+            background: var(--bg);
+            border: 1px solid var(--border-hover);
+            color: var(--text-primary);
+            border-radius: 8px;
+            padding: 9px 12px;
+            font-size: 13px;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
         .step-body input[type="url"]:focus { border-color: var(--brand); }
-        .step-btn { padding: 8px 16px; border-radius: 6px; background: var(--brand); color: #fff; border: none; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap; }
-        .step-btn:hover { opacity: 0.9; }
-        .step-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .kb-preview { margin-top: 12px; padding: 12px; background: var(--bg); border: 1px solid var(--border-subtle); border-radius: 6px; font-size: 12px; color: var(--text-secondary); }
+        .step-body input[type="url"]::placeholder { color: var(--text-quaternary); }
+
+        .step-btn {
+            padding: 9px 18px;
+            border-radius: 8px;
+            background: var(--brand);
+            color: #fff;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .step-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .step-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+        .kb-preview {
+            margin-top: 12px;
+            padding: 12px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
         .kb-preview strong { color: var(--text-primary); }
         .step-error { color: var(--error); font-size: 12px; margin-top: 8px; }
 
-        @media (max-width: 640px) {
+        /* Embed box */
+        .embed-box {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 16px;
+            padding-right: 48px;
+            font-family: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 11.5px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+            overflow-x: auto;
+            position: relative;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-tertiary);
+        }
+        .copy-btn:hover { background: var(--bg-raised); border-color: var(--border-hover); color: var(--text-primary); }
+
+        /* Integration row */
+        .integration-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+        .integration-row + .integration-row { border-top: 1px solid var(--border); }
+        .integration-info { display: flex; align-items: center; gap: 12px; }
+        .integration-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--bg-raised);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+        .integration-name { font-size: 13px; font-weight: 500; }
+        .integration-desc { font-size: 11px; color: var(--text-tertiary); }
+
+        .status-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+        .status-dot.green { background: var(--success); box-shadow: 0 0 8px rgba(52,211,153,0.5); }
+        .status-dot.yellow { background: var(--warning); }
+        .status-dot.red { background: var(--error); }
+
+        .btn-sm {
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            background: var(--bg-raised);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .btn-sm:hover { border-color: var(--brand); background: var(--brand-glow); }
+
+        .status-badge {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .status-badge.active { background: var(--success-glow); color: var(--success); }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fade-up 0.5s ease 0.3s forwards;
+        }
+        .action-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.25s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .action-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, var(--brand-glow), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .action-card:hover { border-color: var(--brand-border); transform: translateY(-2px); }
+        .action-card:hover::after { opacity: 1; }
+        .action-card i { font-size: 24px; color: var(--brand); margin-bottom: 10px; display: block; position: relative; z-index: 1; }
+        .action-label { font-size: 13px; font-weight: 600; position: relative; z-index: 1; }
+        .action-desc { font-size: 11px; color: var(--text-tertiary); margin-top: 4px; position: relative; z-index: 1; }
+
+        /* Chat preview */
+        .chat-preview-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fade-up 0.5s ease 0.25s forwards;
+            margin-bottom: 28px;
+        }
+        .chat-preview-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chat-preview-header .title { display: flex; align-items: center; gap: 10px; }
+        .chat-preview-header .title i { color: var(--brand); font-size: 18px; }
+        .chat-preview-header .title span { font-size: 14px; font-weight: 600; }
+        .chat-preview-body {
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-quaternary);
+            font-size: 13px;
+        }
+        .chat-preview-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Section label */
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-quaternary);
+            margin-bottom: 14px;
+        }
+
+        /* Loading */
+        #loading { text-align: center; padding: 120px 0; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .loading-spinner {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--border);
+            border-top-color: var(--brand);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .hidden { display: none !important; }
+
+        /* Mobile */
+        .mobile-header {
+            display: none;
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mobile-header .brand-text { font-size: 16px; font-weight: 700; }
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 22px;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 35;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.open { display: block; }
+            .mobile-header { display: flex; }
+            .main { margin-left: 0; padding: 24px 16px; }
             .stats { grid-template-columns: 1fr; }
-            .cards { grid-template-columns: 1fr; }
+            .section-grid { grid-template-columns: 1fr; }
             .quick-actions { grid-template-columns: 1fr; }
-            main { padding: 24px 16px; }
-            .onboarding-step { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <span class="brand-name">StillOpen</span>
-            <div class="header-nav">
-                <a href="/app/settings.html"><i class="ph ph-gear"></i> Settings</a>
-                <a href="#" id="sign-out-link"><i class="ph ph-sign-out"></i> Sign out</a>
-            </div>
-        </div>
-    </header>
+    <!-- Mobile header -->
+    <div class="mobile-header">
+        <span class="brand-text" style="color: var(--text-primary);">StillOpen</span>
+        <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="ph ph-list"></i></button>
+    </div>
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
-    <main>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-dot"></div>
+            <span class="brand-text">StillOpen</span>
+            <span class="brand-status">Live</span>
+        </div>
+
+        <div class="sidebar-nav">
+            <div class="nav-label">Menu</div>
+            <a class="nav-item active" href="/app/dashboard.html">
+                <i class="ph ph-squares-four"></i> Dashboard
+            </a>
+            <a class="nav-item" href="#" onclick="testChat(event)">
+                <i class="ph ph-chat-circle-dots"></i> Test Chat
+            </a>
+            <a class="nav-item" href="/app/settings.html">
+                <i class="ph ph-sliders-horizontal"></i> Settings
+            </a>
+
+            <div class="nav-label">Integrations</div>
+            <a class="nav-item" href="#" onclick="connectCalendar()">
+                <i class="ph ph-calendar"></i> Google Calendar
+            </a>
+            <a class="nav-item" href="https://dashboard.stripe.com" target="_blank">
+                <i class="ph ph-stripe-logo"></i> Stripe
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <div class="user-avatar" id="user-avatar">?</div>
+                <div class="user-info">
+                    <div class="user-name" id="sidebar-user-name">Loading...</div>
+                    <div class="user-tier" id="sidebar-tier">Starter</div>
+                </div>
+            </div>
+            <a class="nav-item" href="#" id="sign-out-link">
+                <i class="ph ph-sign-out"></i> Sign out
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main">
+
         <div id="loading">
-            <div class="loading-dots"><span></span><span></span><span></span></div>
+            <div class="loading-spinner"></div>
             <p style="font-size: 13px; color: var(--text-tertiary);">Loading your dashboard...</p>
         </div>
 
         <div id="dashboard" class="hidden">
 
-            <!-- Welcome -->
-            <div class="welcome">
-                <h1>Welcome back, <span id="user-name">there</span><span class="tier-badge" id="tier-badge">Starter</span></h1>
-                <p>Your AI front desk is <span class="status-dot green"></span> online and answering calls</p>
+            <!-- Page header -->
+            <div class="page-header">
+                <h1>Welcome back, <span id="user-name">there</span></h1>
+                <p>Your AI front desk is online and answering calls 24/7</p>
             </div>
 
-            <!-- Onboarding wizard (shown only if setup incomplete) -->
+            <!-- Onboarding wizard -->
             <div class="onboarding-card hidden" id="onboarding-card">
                 <div class="onboarding-header">
-                    <i class="ph ph-rocket-launch" style="color: var(--brand); font-size: 22px;"></i>
-                    <h2>Let's get you set up</h2>
+                    <i class="ph-duotone ph-rocket-launch" style="color: var(--brand); font-size: 22px;"></i>
+                    <h2>Get your AI front desk live</h2>
                 </div>
-                <p class="onboarding-subtitle">Three quick steps and your AI front desk is live on your website.</p>
+                <p class="onboarding-subtitle">Three steps. Five minutes. Then your phone never goes to voicemail again.</p>
+
+                <div class="onboarding-progress">
+                    <div class="progress-segment" id="progress-1"></div>
+                    <div class="progress-segment" id="progress-2"></div>
+                    <div class="progress-segment" id="progress-3"></div>
+                </div>
 
                 <div class="onboarding-steps">
-                    <!-- Step 1: Scan website -->
                     <div class="onboarding-step active" id="step-scrape">
                         <div class="step-circle" id="step-scrape-circle">1</div>
                         <div class="step-body">
                             <div class="step-title">Scan your website</div>
-                            <div class="step-desc">We'll pull your business info, services, hours, and service area to train your AI.</div>
+                            <div class="step-desc">We pull your services, hours, and service area to train your AI.</div>
                             <div class="step-action">
                                 <input type="url" id="onboard-url" placeholder="https://yourbusiness.com" />
                                 <button class="step-btn" id="scrape-btn" onclick="doScrape()">Scan</button>
@@ -184,12 +731,11 @@
                         </div>
                     </div>
 
-                    <!-- Step 2: Connect Google Calendar -->
                     <div class="onboarding-step" id="step-calendar">
                         <div class="step-circle" id="step-calendar-circle">2</div>
                         <div class="step-body">
                             <div class="step-title">Connect Google Calendar</div>
-                            <div class="step-desc">So your AI can check availability and book real jobs into your calendar.</div>
+                            <div class="step-desc">Your AI checks availability and books real jobs into your calendar.</div>
                             <div class="step-action">
                                 <button class="step-btn" id="calendar-btn" onclick="connectCalendar()">
                                     <i class="ph ph-calendar-plus"></i> Connect Calendar
@@ -198,12 +744,11 @@
                         </div>
                     </div>
 
-                    <!-- Step 3: Copy embed code -->
                     <div class="onboarding-step" id="step-embed">
                         <div class="step-circle" id="step-embed-circle">3</div>
                         <div class="step-body">
                             <div class="step-title">Add to your website</div>
-                            <div class="step-desc">Paste this one line into your website's HTML. That's it.</div>
+                            <div class="step-desc">One line of code. Paste it anywhere in your HTML.</div>
                             <div class="embed-box" style="position: relative; margin-top: 8px;">
                                 <code id="embed-code-wizard">Loading...</code>
                                 <button class="copy-btn" onclick="copyEmbedWizard()" title="Copy">
@@ -216,31 +761,34 @@
             </div>
 
             <!-- Stats -->
+            <div class="section-label">This Month</div>
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-label"><i class="ph ph-chat-circle-dots"></i> Conversations</div>
                     <div class="stat-value" id="stat-conversations">0</div>
+                    <div class="stat-note">Customer chats handled by AI</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label"><i class="ph ph-calendar-check"></i> Bookings</div>
                     <div class="stat-value" id="stat-bookings">0</div>
+                    <div class="stat-note">Jobs booked into your calendar</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label"><i class="ph ph-currency-dollar"></i> Deposits</div>
                     <div class="stat-value" id="stat-deposits">$0</div>
+                    <div class="stat-note">Collected via Stripe</div>
                 </div>
             </div>
 
-            <!-- Cards -->
-            <div class="cards">
-
+            <!-- Cards row -->
+            <div class="section-grid">
                 <!-- Embed Code -->
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-icon"><i class="ph ph-code"></i></div>
+                        <div class="card-icon purple"><i class="ph ph-code"></i></div>
                         <div class="card-title">Embed Code</div>
                     </div>
-                    <p style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 12px;">Add this to your website to activate your AI front desk:</p>
+                    <p style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 12px;">Add this to your website:</p>
                     <div class="embed-box" style="position: relative;">
                         <code id="embed-code">Loading...</code>
                         <button class="copy-btn" onclick="copyEmbed()" title="Copy">
@@ -252,44 +800,44 @@
                 <!-- Integrations -->
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-icon"><i class="ph ph-plugs-connected"></i></div>
+                        <div class="card-icon green"><i class="ph ph-plugs-connected"></i></div>
                         <div class="card-title">Integrations</div>
                     </div>
                     <div class="integration-row">
                         <div class="integration-info">
-                            <span class="status-dot" id="gcal-dot"></span>
+                            <div class="integration-icon"><i class="ph ph-calendar"></i></div>
                             <div>
-                                <div class="name">Google Calendar</div>
-                                <div class="desc" id="gcal-desc">Not connected</div>
+                                <div class="integration-name">Google Calendar</div>
+                                <div class="integration-desc" id="gcal-desc">Not connected</div>
                             </div>
                         </div>
                         <button class="btn-sm" id="gcal-btn" onclick="connectCalendar()">Connect</button>
                     </div>
                     <div class="integration-row">
                         <div class="integration-info">
-                            <span class="status-dot green"></span>
+                            <div class="integration-icon"><i class="ph ph-credit-card"></i></div>
                             <div>
-                                <div class="name">Stripe</div>
-                                <div class="desc">Collecting deposits</div>
+                                <div class="integration-name">Stripe</div>
+                                <div class="integration-desc">Collecting deposits</div>
                             </div>
                         </div>
-                        <span style="font-size: 12px; color: var(--success);">Active</span>
+                        <span class="status-badge active">Active</span>
                     </div>
                     <div class="integration-row">
                         <div class="integration-info">
-                            <span class="status-dot green"></span>
+                            <div class="integration-icon"><i class="ph ph-robot"></i></div>
                             <div>
-                                <div class="name">AI Chat</div>
-                                <div class="desc">Powered by Claude</div>
+                                <div class="integration-name">AI Chat</div>
+                                <div class="integration-desc">Powered by Claude</div>
                             </div>
                         </div>
-                        <span style="font-size: 12px; color: var(--success);">Active</span>
+                        <span class="status-badge active">Active</span>
                     </div>
                 </div>
             </div>
 
             <!-- Quick Actions -->
-            <h2 style="font-size: 15px; font-weight: 600; margin-bottom: 12px;">Quick Actions</h2>
+            <div class="section-label">Quick Actions</div>
             <div class="quick-actions">
                 <a href="/app/settings.html" class="action-card">
                     <i class="ph ph-paint-brush"></i>
@@ -309,17 +857,22 @@
             </div>
 
         </div>
-    </main>
+    </div>
 
     <script>
     const WORKER_URL = "https://app.stillopen.ai";
+
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('sidebar-overlay').classList.toggle('open');
+    }
 
     function copyEmbed() {
         var code = document.getElementById('embed-code').textContent;
         navigator.clipboard.writeText(code).then(function() {
             var icon = document.getElementById('copy-icon');
             icon.className = 'ph ph-check';
-            icon.style.color = '#4ade80';
+            icon.style.color = '#34d399';
             setTimeout(function() { icon.className = 'ph ph-copy'; icon.style.color = ''; }, 2000);
         });
     }
@@ -334,41 +887,52 @@
 
     function testChat(e) {
         e.preventDefault();
-        // Open the demo chat in a new tab with the user's plumberId
         var userId = Clerk.user?.id || '';
-        window.open(WORKER_URL + '/demo-chat?plumberId=' + userId, '_blank');
+        window.open('https://stillopen.ai/?demo=' + userId, '_blank');
     }
 
     function checkCalendarStatus() {
         var params = new URLSearchParams(window.location.search);
-        var dot = document.getElementById('gcal-dot');
         var desc = document.getElementById('gcal-desc');
         var btn = document.getElementById('gcal-btn');
         if (params.get('gcal') === 'connected') {
-            dot.className = 'status-dot green';
             desc.textContent = 'Connected';
             btn.textContent = 'Connected';
             btn.disabled = true;
             btn.style.opacity = '0.5';
             window.history.replaceState({}, '', '/app/dashboard.html');
-        } else {
-            dot.className = 'status-dot yellow';
         }
+    }
+
+    function animateCounter(el, target, prefix) {
+        prefix = prefix || '';
+        var duration = 800;
+        var start = 0;
+        var startTime = null;
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = prefix + Math.floor(eased * target);
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        if (target > 0) requestAnimationFrame(step);
     }
 
     function renderDashboard(user) {
         var firstName = user.firstName || user.emailAddresses?.[0]?.emailAddress?.split('@')[0] || 'there';
         document.getElementById('user-name').textContent = firstName;
+        document.getElementById('sidebar-user-name').textContent = firstName;
 
         var tier = (user.publicMetadata && user.publicMetadata.subscription_tier) || 'starter';
-        var badge = document.getElementById('tier-badge');
-        badge.textContent = tier.charAt(0).toUpperCase() + tier.slice(1);
+        document.getElementById('sidebar-tier').textContent = tier.charAt(0).toUpperCase() + tier.slice(1) + ' Plan';
 
-        // Generate embed code with user's ID as plumberId
+        var initial = firstName.charAt(0).toUpperCase();
+        document.getElementById('user-avatar').textContent = initial;
+
         var embedCode = '<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="' + user.id + '"><\/script>';
         document.getElementById('embed-code').textContent = embedCode;
 
-        // Load real stats from the worker
         loadStats();
     }
 
@@ -380,34 +944,27 @@
             });
             if (!res.ok) return;
             var data = await res.json();
-            document.getElementById('stat-conversations').textContent = data.conversations || 0;
-            document.getElementById('stat-bookings').textContent = data.bookings || 0;
-            document.getElementById('stat-deposits').textContent = '$' + (data.deposits || 0);
+            animateCounter(document.getElementById('stat-conversations'), data.conversations || 0);
+            animateCounter(document.getElementById('stat-bookings'), data.bookings || 0);
+            animateCounter(document.getElementById('stat-deposits'), data.deposits || 0, '$');
         } catch (err) {
             console.log('Failed to load stats:', err);
         }
     }
 
-    // --- ONBOARDING WIZARD LOGIC ---
+    // --- ONBOARDING WIZARD ---
     var _onboardingState = { scraped: false, calendar: false };
 
     async function checkOnboardingState() {
-        // Show the wizard if user hasn't completed setup
-        // We detect this by: (a) no KB in config AND (b) no ?gcal=connected param
         var needsOnboarding = !localStorage.getItem('so_onboarding_done');
         var params = new URLSearchParams(window.location.search);
 
-        // If coming back from calendar connect, mark step 2 as done
         if (params.get('gcal') === 'connected') {
             _onboardingState.calendar = true;
             localStorage.setItem('so_gcal_connected', 'true');
         }
-        if (localStorage.getItem('so_gcal_connected') === 'true') {
-            _onboardingState.calendar = true;
-        }
-        if (localStorage.getItem('so_scraped') === 'true') {
-            _onboardingState.scraped = true;
-        }
+        if (localStorage.getItem('so_gcal_connected') === 'true') _onboardingState.calendar = true;
+        if (localStorage.getItem('so_scraped') === 'true') _onboardingState.scraped = true;
 
         if (needsOnboarding) {
             document.getElementById('onboarding-card').classList.remove('hidden');
@@ -416,40 +973,43 @@
     }
 
     function updateWizardUI() {
-        // Step 1: scrape
         var step1 = document.getElementById('step-scrape');
         var step1Circle = document.getElementById('step-scrape-circle');
+        var p1 = document.getElementById('progress-1');
         if (_onboardingState.scraped) {
             step1.classList.remove('active');
             step1.classList.add('done');
             step1Circle.innerHTML = '<i class="ph-bold ph-check"></i>';
+            p1.classList.add('done');
+        } else {
+            p1.classList.add('active');
         }
 
-        // Step 2: calendar
         var step2 = document.getElementById('step-calendar');
         var step2Circle = document.getElementById('step-calendar-circle');
+        var p2 = document.getElementById('progress-2');
         if (_onboardingState.calendar) {
             step2.classList.remove('active');
             step2.classList.add('done');
             step2Circle.innerHTML = '<i class="ph-bold ph-check"></i>';
+            p2.classList.add('done');
         } else if (_onboardingState.scraped) {
             step2.classList.add('active');
+            p2.classList.add('active');
         }
 
-        // Step 3: embed code - always shows but "active" when first two are done
         var step3 = document.getElementById('step-embed');
-        var step3Circle = document.getElementById('step-embed-circle');
+        var p3 = document.getElementById('progress-3');
         if (_onboardingState.scraped && _onboardingState.calendar) {
             step3.classList.add('active');
+            p3.classList.add('active');
         }
 
-        // Populate embed code
         if (Clerk && Clerk.user) {
             var embedCode = '<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="' + Clerk.user.id + '"><\/script>';
             document.getElementById('embed-code-wizard').textContent = embedCode;
         }
 
-        // If all three complete, let user dismiss
         if (_onboardingState.scraped && _onboardingState.calendar) {
             localStorage.setItem('so_onboarding_done', 'true');
         }
@@ -466,7 +1026,7 @@
         }
 
         btn.disabled = true;
-        btn.innerHTML = '<i class="ph ph-spinner"></i> Scanning...';
+        btn.textContent = 'Scanning...';
         resultDiv.innerHTML = '<div style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;">This takes about 60 seconds. Hang tight...</div>';
 
         try {
@@ -489,7 +1049,7 @@
                 if (kb.phone) preview += '<div><strong>Phone:</strong> ' + kb.phone + '</div>';
                 if (kb.service_area && kb.service_area.length) preview += '<div><strong>Service area:</strong> ' + kb.service_area.join(', ') + '</div>';
                 if (kb.services && kb.services.length) preview += '<div><strong>Services:</strong> ' + kb.services.slice(0, 4).join(', ') + (kb.services.length > 4 ? '...' : '') + '</div>';
-                preview += '<div style="margin-top: 8px; color: var(--success);"><i class="ph-fill ph-check-circle"></i> Looks good? Your AI is trained on this data.</div>';
+                preview += '<div style="margin-top: 8px; color: var(--success);"><i class="ph-fill ph-check-circle"></i> Your AI is trained on this data.</div>';
                 preview += '</div>';
                 resultDiv.innerHTML = preview;
                 _onboardingState.scraped = true;
@@ -512,28 +1072,25 @@
         navigator.clipboard.writeText(code).then(function() {
             var icon = document.getElementById('copy-icon-wizard');
             icon.className = 'ph ph-check';
-            icon.style.color = '#4ade80';
+            icon.style.color = '#34d399';
             setTimeout(function() { icon.className = 'ph ph-copy'; icon.style.color = ''; }, 2000);
         });
     };
 
-    // Sign out
     document.getElementById('sign-out-link').addEventListener('click', function(e) {
         e.preventDefault();
         if (Clerk) Clerk.signOut().then(function() { window.location.href = '/app/login.html'; });
     });
 
-    // Init
     window.addEventListener('load', function() {
         function tryInit() {
             if (typeof Clerk === 'undefined') return false;
             try {
                 Clerk.load({
-                    ui: window.__internal_ClerkUICtor ? { ClerkUI: window.__internal_ClerkUICtor } : undefined,
                     appearance: {
                         variables: {
-                            colorBackground: '#191a1b',
-                            colorText: '#f7f8f8',
+                            colorBackground: '#0a0a0b',
+                            colorText: '#fafafa',
                             colorPrimary: '#5e6ad2',
                             fontFamily: 'Inter, sans-serif',
                         }
