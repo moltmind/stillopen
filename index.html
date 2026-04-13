@@ -173,6 +173,45 @@
     .demo-status {
       text-align: center; padding: 20px 0; color: var(--text-tertiary); font-size: 14px;
     }
+    /* Demo skeleton loader */
+    .demo-skeleton {
+      background: var(--bg-surface); border: 1px solid var(--border-hover);
+      border-radius: var(--radius); height: 420px; margin: 16px 0;
+      overflow: hidden; padding: 16px; display: flex; flex-direction: column;
+    }
+    .skel-header {
+      display: flex; align-items: center; gap: 10px;
+      padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 16px;
+    }
+    .skel-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--bg-hover); }
+    .skel-bar { height: 10px; border-radius: 5px; background: var(--bg-hover); }
+    .skel-bar.w60 { width: 60%; }
+    .skel-bar.w40 { width: 40%; }
+    .skel-bar.w75 { width: 75%; }
+    .skel-bar.w50 { width: 50%; }
+    .skel-messages { flex: 1; display: flex; flex-direction: column; gap: 14px; padding-top: 8px; }
+    .skel-msg {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .skel-msg.right { align-items: flex-end; }
+    .skel-msg.left { align-items: flex-start; }
+    .skel-bubble {
+      height: 36px; border-radius: 12px; background: var(--bg-hover);
+      animation: skel-pulse 1.8s ease-in-out infinite;
+    }
+    .skel-msg.left .skel-bubble { width: 65%; border-bottom-left-radius: 4px; }
+    .skel-msg.right .skel-bubble { width: 45%; border-bottom-right-radius: 4px; background: rgba(79,91,189,0.15); }
+    @keyframes skel-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    .skel-msg:nth-child(2) .skel-bubble { animation-delay: 0.2s; }
+    .skel-msg:nth-child(3) .skel-bubble { animation-delay: 0.4s; }
+    .skel-msg:nth-child(4) .skel-bubble { animation-delay: 0.6s; }
+    .skel-input {
+      margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border);
+    }
+    .skel-input .skel-bar { height: 36px; width: 100%; border-radius: 8px; }
     .demo-status .spinner {
       display: inline-block; width: 16px; height: 16px;
       border: 2px solid var(--border-hover); border-top-color: var(--accent);
@@ -878,6 +917,25 @@
       statusEl.style.display = "block";
       chatEl.style.display = "none";
       ctaEl.style.display = "none";
+
+      // Show skeleton loader
+      var skelEl = document.getElementById("demo-skeleton-" + location);
+      if (!skelEl) {
+        var skelHtml = '<div class="demo-skeleton" id="demo-skeleton-' + location + '">' +
+          '<div class="skel-header"><div class="skel-dot"></div><div class="skel-bar w60"></div></div>' +
+          '<div class="skel-messages">' +
+          '<div class="skel-msg left"><div class="skel-bubble"></div></div>' +
+          '<div class="skel-msg right"><div class="skel-bubble"></div></div>' +
+          '<div class="skel-msg left"><div class="skel-bubble"></div></div>' +
+          '<div class="skel-msg right"><div class="skel-bubble"></div></div>' +
+          '</div>' +
+          '<div class="skel-input"><div class="skel-bar"></div></div>' +
+          '</div>';
+        statusEl.insertAdjacentHTML('afterend', skelHtml);
+        skelEl = document.getElementById("demo-skeleton-" + location);
+      }
+      if (skelEl) skelEl.style.display = "flex";
+
       let msgIdx = 0;
       statusEl.innerHTML = '<span class="spinner"></span>' + statusMessages[0];
       const statusInterval = setInterval(() => {
@@ -912,6 +970,10 @@
           return false;
         }
 
+        // Hide skeleton
+        var skelDone = document.getElementById("demo-skeleton-" + location);
+        if (skelDone) skelDone.style.display = "none";
+
         statusEl.innerHTML = "Meet your front desk" + (data.businessName && data.businessName !== "Your Business" ? " for " + data.businessName : "") + ".";
         chatEl.style.display = "block";
         chatEl.innerHTML = "";
@@ -926,6 +988,8 @@
 
       } catch (err) {
         clearInterval(statusInterval);
+        var skelErr = document.getElementById("demo-skeleton-" + location);
+        if (skelErr) skelErr.style.display = "none";
         statusEl.innerHTML = "Network error. Check your connection and try again.";
         btn.disabled = false;
         btn.textContent = "Try again";
