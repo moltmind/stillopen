@@ -3,946 +3,512 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StillOpen | 24/7 AI Front Desk for Plumbers</title>
-  <meta name="description" content="Your sign says closed. StillOpen stays open. A 24/7 AI front desk for plumbers that answers the phone, books the job, and takes a deposit on your Stripe.">
+  <title>StillOpen | 24/7 AI Front Desk for Home Services</title>
+  <meta name="description" content="Your sign says closed. StillOpen stays open. A 24/7 AI front desk that answers the phone, books the job, and takes a deposit on your Stripe.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://stillopen.ai/">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="StillOpen | 24/7 AI Front Desk for Plumbers">
+  <meta property="og:title" content="StillOpen | 24/7 AI Front Desk for Home Services">
   <meta property="og:description" content="Your sign says closed. StillOpen stays open. A 24/7 AI front desk that answers the phone, books the job, and takes a deposit on your Stripe.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stillopen.ai/">
 
-  <!-- Inter Variable with geometric alternates -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Design Tokens (Linear System) ────────────────────────── */
     :root {
-      /* Surfaces */
-      --bg-marketing: #08090a;
-      --bg-panel: #0f1011;
-      --bg-surface: #191a1b;
-      --bg-elevated: #28282c;
-
-      /* Text */
-      --text-primary: #f7f8f8;
-      --text-secondary: #d0d6e0;
-      --text-tertiary: #8a8f98;
-      --text-quaternary: #62666d;
-
-      /* Brand */
+      --bg: #050506;
+      --bg-surface: #0c0c0e;
+      --bg-raised: #141416;
+      --bg-hover: #1a1a1e;
+      --text-primary: #fafafa;
+      --text-secondary: #b4b4bd;
+      --text-tertiary: #71717a;
+      --text-quaternary: #52525b;
       --brand: #5e6ad2;
-      --accent: #7170ff;
-      --accent-hover: #828fff;
-
-      /* Borders */
-      --border-subtle: rgba(255,255,255,0.05);
-      --border-standard: rgba(255,255,255,0.08);
-      --border-solid: #23252a;
-
-      /* Surfaces */
-      --card-bg: rgba(255,255,255,0.02);
-      --card-bg-hover: rgba(255,255,255,0.04);
-      --button-ghost-bg: rgba(255,255,255,0.02);
+      --accent: #818cf8;
+      --accent-hover: #a5b4fc;
+      --brand-glow: rgba(94,106,210,0.12);
+      --brand-border: rgba(94,106,210,0.25);
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.1);
+      --success: #34d399;
+      --radius: 12px;
+      --radius-lg: 16px;
     }
 
-    /* ── Base ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
-      font-family: 'Inter', -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
-      font-feature-settings: 'cv01', 'ss03';
-      background: var(--bg-marketing);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--bg);
       color: var(--text-primary);
-      line-height: 1.5;
-      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-
     a { color: inherit; text-decoration: none; }
 
-    /* ── Typography Scale ─────────────────────────────────────── */
-    .display {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 510;
-      line-height: 1.0;
-      letter-spacing: -1.056px;
-      color: var(--text-primary);
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .display-xl {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 510;
-      line-height: 1.0;
-      letter-spacing: -1.584px;
-      color: var(--text-primary);
-    }
-
-    .heading-1 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 400;
-      line-height: 1.13;
-      letter-spacing: -0.704px;
-    }
-
-    .heading-2 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      line-height: 1.33;
-      letter-spacing: -0.288px;
-    }
-
-    .heading-3 {
-      font-size: 1.25rem;
-      font-weight: 590;
-      line-height: 1.33;
-      letter-spacing: -0.24px;
-    }
-
-    .body-large {
-      font-size: 1.125rem;
-      font-weight: 400;
-      line-height: 1.6;
-      letter-spacing: -0.165px;
-      color: var(--text-tertiary);
-    }
-
-    .body {
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      color: var(--text-secondary);
-    }
-
-    .body-medium {
-      font-size: 1rem;
-      font-weight: 510;
-      line-height: 1.5;
-    }
-
-    .small {
-      font-size: 0.9375rem;
-      font-weight: 400;
-      line-height: 1.6;
-      letter-spacing: -0.165px;
-      color: var(--text-tertiary);
-    }
-
-    .caption {
-      font-size: 0.8125rem;
-      font-weight: 510;
-      line-height: 1.5;
-      letter-spacing: -0.13px;
-      color: var(--text-quaternary);
-    }
-
-    .label {
-      font-size: 0.75rem;
-      font-weight: 510;
-      line-height: 1.4;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* ── Layout ───────────────────────────────────────────────── */
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .container-narrow {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    section {
-      padding: 96px 0;
-    }
-
-    @media (max-width: 640px) {
-      section { padding: 64px 0; }
-    }
-
-    /* ── Nav ──────────────────────────────────────────────────── */
+    /* Nav */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(8, 9, 10, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-subtle);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(5,5,6,0.8);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
     }
-
-    .nav-wordmark {
-      font-size: 1rem;
-      font-weight: 590;
-      color: var(--text-primary);
-      letter-spacing: -0.24px;
+    .nav-wordmark { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
+    .nav-wordmark span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-tertiary); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-cta {
+      padding: 8px 20px; border-radius: 8px; background: var(--brand); color: #fff;
+      font-size: 13px; font-weight: 600; transition: all 0.2s;
     }
-
-    .nav-wordmark span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .nav-links a {
-      font-size: 0.8125rem;
-      font-weight: 510;
-      color: var(--text-secondary);
-      transition: color 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-primary);
-    }
-
+    .nav-cta:hover { background: var(--accent); }
     @media (max-width: 640px) {
-      .nav-links .nav-link-text { display: none; }
+      .nav-links .hide-mobile { display: none; }
+      .nav-inner { padding: 0 16px; }
     }
 
-    /* ── Buttons ──────────────────────────────────────────────── */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--brand);
-      color: #fff;
-      font-size: 0.875rem;
-      font-weight: 510;
-      padding: 10px 20px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.1s ease;
-      font-family: inherit;
-      font-feature-settings: 'cv01', 'ss03';
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
-    .btn-primary:active {
-      transform: scale(0.98);
-    }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--button-ghost-bg);
-      color: #e2e4e7;
-      font-size: 0.875rem;
-      font-weight: 510;
-      padding: 10px 20px;
-      border-radius: 6px;
-      border: 1px solid rgb(36, 40, 44);
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease;
-      font-family: inherit;
-      font-feature-settings: 'cv01', 'ss03';
-    }
-
-    .btn-ghost:hover {
-      background: var(--card-bg-hover);
-      border-color: rgba(255,255,255,0.12);
-    }
-
-    .btn-large {
-      padding: 14px 28px;
-      font-size: 1rem;
-    }
-
-    /* ── Hero ─────────────────────────────────────────────────── */
+    /* Hero */
     .hero {
-      padding-top: 160px;
-      padding-bottom: 96px;
       position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
       overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 600px;
-      background: radial-gradient(ellipse at center, rgba(94, 106, 210, 0.08) 0%, transparent 70%);
-      pointer-events: none;
+    .hero-video-wrap {
+      position: absolute; inset: 0; z-index: 0;
     }
-
-    .hero-headline {
-      max-width: 780px;
+    .hero-video-wrap video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-video-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(5,5,6,0.3) 0%, rgba(5,5,6,0.6) 40%, rgba(5,5,6,0.95) 80%, var(--bg) 100%),
+        linear-gradient(to right, rgba(5,5,6,0.7) 0%, transparent 50%, rgba(5,5,6,0.7) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 160px 32px 80px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 100px;
+      background: var(--brand-glow); border: 1px solid var(--brand-border);
+      font-size: 12px; font-weight: 600; color: var(--accent);
+      margin-bottom: 28px;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--success);
+      box-shadow: 0 0 8px rgba(52,211,153,0.6);
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 6px rgba(52,211,153,0.4); }
+      50% { box-shadow: 0 0 14px rgba(52,211,153,0.8); }
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      max-width: 700px;
       margin-bottom: 24px;
     }
-
-    .hero-subhead {
-      max-width: 620px;
-      margin-bottom: 32px;
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
-    .hero-story {
-      max-width: 620px;
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 580px;
       margin-bottom: 40px;
-      color: var(--text-tertiary);
-      font-size: 1rem;
-      line-height: 1.7;
     }
 
-    .hero-cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .hero-helper {
-      max-width: 440px;
-      color: var(--text-quaternary);
-      font-size: 0.8125rem;
-      line-height: 1.5;
-    }
-
-    /* ── Feature Cards ────────────────────────────────────────── */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 768px) {
-      .features-grid { grid-template-columns: 1fr; }
-    }
-
-    .feature-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-standard);
-      border-radius: 12px;
-      padding: 32px 28px;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .feature-card:hover {
-      background: var(--card-bg-hover);
-      border-color: rgba(255,255,255,0.12);
-    }
-
-    .feature-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(94, 106, 210, 0.15);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 590;
-      margin-bottom: 20px;
-    }
-
-    .feature-card h3 {
-      font-size: 1.125rem;
-      font-weight: 590;
-      letter-spacing: -0.165px;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .feature-card p {
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      color: var(--text-tertiary);
-      letter-spacing: -0.165px;
-    }
-
-    /* ── Audience Section ─────────────────────────────────────── */
-    .audience-section {
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .audience-content {
-      max-width: 620px;
-    }
-
-    .audience-content p {
-      color: var(--text-tertiary);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-
-    .audience-content p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ── Steps ────────────────────────────────────────────────── */
-    .steps-section {
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 768px) {
-      .steps-grid { grid-template-columns: 1fr; }
-    }
-
-    .step-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-standard);
-      border-radius: 12px;
-      padding: 32px 28px;
-    }
-
-    .step-number {
-      font-size: 0.6875rem;
-      font-weight: 510;
-      color: var(--text-quaternary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-    }
-
-    .step-card h3 {
-      font-size: 1.125rem;
-      font-weight: 590;
-      letter-spacing: -0.165px;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .step-card p {
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      color: var(--text-tertiary);
-      letter-spacing: -0.165px;
-    }
-
-    /* ── Pricing ──────────────────────────────────────────────── */
-    .pricing-section {
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    @media (max-width: 768px) {
-      .pricing-grid { grid-template-columns: 1fr; }
-    }
-
-    .pricing-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-standard);
-      border-radius: 12px;
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .pricing-card.featured {
-      border-color: var(--brand);
-      background: rgba(94, 106, 210, 0.04);
-      position: relative;
-    }
-
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--brand);
-      color: #fff;
-      font-size: 0.6875rem;
-      font-weight: 590;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      white-space: nowrap;
-    }
-
-    .pricing-tier {
-      font-size: 0.8125rem;
-      font-weight: 510;
-      color: var(--text-tertiary);
-      margin-bottom: 8px;
-    }
-
-    .pricing-amount {
-      font-size: 2.5rem;
-      font-weight: 510;
-      letter-spacing: -1px;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-
-    .pricing-amount span {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--text-quaternary);
-    }
-
-    .pricing-desc {
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      color: var(--text-tertiary);
-      letter-spacing: -0.165px;
-      margin-top: 16px;
-      flex: 1;
-    }
-
-    .pricing-cta {
-      margin-top: 24px;
-    }
-
-    .pricing-note {
-      color: var(--text-quaternary);
-      font-size: 0.8125rem;
-      line-height: 1.5;
-      max-width: 620px;
-    }
-
-    /* ── Founder ──────────────────────────────────────────────── */
-    .founder-section {
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .founder-quote {
-      max-width: 620px;
-      border-left: 2px solid var(--brand);
-      padding-left: 24px;
-      color: var(--text-secondary);
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      font-weight: 400;
-    }
-
-    .founder-attribution {
-      margin-top: 20px;
-      color: var(--text-quaternary);
-      font-size: 0.8125rem;
-      font-weight: 510;
-    }
-
-    /* ── FAQ ──────────────────────────────────────────────────── */
-    .faq-section {
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .faq-list {
-      max-width: 720px;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .faq-item:first-child {
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 24px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      font-family: inherit;
-      font-feature-settings: 'cv01', 'ss03';
-      font-size: 1rem;
-      font-weight: 510;
-      color: var(--text-primary);
-      text-align: left;
-      line-height: 1.4;
-    }
-
-    .faq-question:hover {
-      color: var(--accent);
-    }
-
-    .faq-icon {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      margin-left: 16px;
-      color: var(--text-quaternary);
-      transition: transform 0.2s ease;
-    }
-
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 400px;
-      padding-bottom: 24px;
-    }
-
-    .faq-answer p {
-      font-size: 0.9375rem;
-      line-height: 1.7;
-      color: var(--text-tertiary);
-      letter-spacing: -0.165px;
-    }
-
-    /* ── Closing CTA ─────────────────────────────────────────── */
-    .closing-section {
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-    }
-
-    .closing-body {
-      max-width: 560px;
-      margin: 0 auto 32px;
-      color: var(--text-tertiary);
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .closing-secondary {
-      margin-top: 16px;
-      color: var(--text-quaternary);
-      font-size: 0.8125rem;
-    }
-
-    .closing-secondary a {
-      color: var(--accent);
-      transition: color 0.15s ease;
-    }
-
-    .closing-secondary a:hover {
-      color: var(--accent-hover);
-    }
-
-    /* ── Footer ───────────────────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 40px 0;
-    }
-
-    .footer-inner {
-      text-align: center;
-    }
-
-    .footer-tagline {
-      font-size: 0.875rem;
-      font-weight: 510;
-      color: var(--text-tertiary);
-      margin-bottom: 16px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      font-size: 0.8125rem;
-      font-weight: 510;
-      color: var(--text-quaternary);
-      transition: color 0.15s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-secondary);
-    }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: var(--text-quaternary);
-    }
-
-    /* ── Section Headers ─────────────────────────────────────── */
-    .section-label {
-      display: inline-block;
-      font-size: 0.6875rem;
-      font-weight: 510;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-    }
-
-    .section-heading {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 510;
-      line-height: 1.13;
-      letter-spacing: -0.704px;
-      color: var(--text-primary);
-      margin-bottom: 48px;
-    }
-
-    .section-heading-tight {
-      margin-bottom: 24px;
-    }
-
-    /* ── Demo Funnel ──────────────────────────────────────────── */
-    .demo-funnel {
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .demo-form {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
+    /* Demo funnel */
+    .demo-funnel { max-width: 520px; }
+    .demo-form { display: flex; gap: 8px; margin-bottom: 10px; }
     .demo-input {
-      flex: 1;
-      padding: 14px 18px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-standard);
-      border-radius: 10px;
-      color: var(--text-primary);
-      font-size: 1rem;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.15s;
+      flex: 1; padding: 14px 18px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border-hover);
+      border-radius: 10px; color: var(--text-primary);
+      font-size: 15px; font-family: inherit; outline: none; transition: border-color 0.2s;
     }
-
-    .demo-input:focus {
-      border-color: var(--accent);
-    }
-
-    .demo-input::placeholder {
-      color: var(--text-quaternary);
-    }
-
+    .demo-input:focus { border-color: var(--brand); }
+    .demo-input::placeholder { color: var(--text-quaternary); }
     .demo-btn {
-      white-space: nowrap;
-      flex-shrink: 0;
+      white-space: nowrap; flex-shrink: 0;
+      padding: 14px 24px; border-radius: 10px; background: var(--brand); color: #fff;
+      font-size: 15px; font-weight: 600; border: none; cursor: pointer;
+      font-family: inherit; transition: all 0.2s;
     }
-
+    .demo-btn:hover { background: var(--accent); transform: translateY(-1px); }
+    .demo-btn:disabled { opacity: 0.5; transform: none; cursor: not-allowed; }
+    .demo-helper {
+      font-size: 13px; color: var(--text-quaternary); max-width: 440px;
+    }
     .demo-status {
-      text-align: center;
-      padding: 20px 0;
-      color: var(--text-tertiary);
-      font-size: 0.9375rem;
+      text-align: center; padding: 20px 0; color: var(--text-tertiary); font-size: 14px;
     }
-
     .demo-status .spinner {
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--border-standard);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin-right: 8px;
-      vertical-align: middle;
+      display: inline-block; width: 16px; height: 16px;
+      border: 2px solid var(--border-hover); border-top-color: var(--accent);
+      border-radius: 50%; animation: spin 0.8s linear infinite;
+      margin-right: 8px; vertical-align: middle;
     }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
+    @keyframes spin { to { transform: rotate(360deg); } }
     .demo-chat-container {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-standard);
-      border-radius: 12px;
-      height: 420px;
-      margin: 16px 0;
-      overflow: hidden;
-      position: relative;
+      background: var(--bg-surface); border: 1px solid var(--border-hover);
+      border-radius: var(--radius); height: 420px; margin: 16px 0;
+      overflow: hidden; position: relative;
     }
-
-    .demo-cta-after {
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    .demo-cta-text {
-      color: var(--text-secondary);
-      font-size: 1.125rem;
-      margin-bottom: 16px;
-    }
-
+    .demo-cta-after { text-align: center; padding: 20px 0; }
+    .demo-cta-text { color: var(--text-secondary); font-size: 17px; margin-bottom: 16px; }
     @media (max-width: 640px) {
-      .demo-form {
-        flex-direction: column;
-      }
-      .demo-chat-container {
-        height: 360px;
-      }
+      .demo-form { flex-direction: column; }
+      .demo-chat-container { height: 360px; }
+      .hero-content { padding: 120px 16px 60px; }
     }
+
+    /* Section defaults */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 100px 0; }
+    @media (max-width: 640px) { section { padding: 64px 0; } .container { padding: 0 16px; } }
+    .section-label {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .section-heading {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.03em;
+      margin-bottom: 48px; max-width: 600px;
+    }
+
+    /* Social proof bar */
+    .proof-bar {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 40px 0;
+      background: var(--bg-surface);
+    }
+    .proof-grid {
+      display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
+    }
+    .proof-item { text-align: center; }
+    .proof-value {
+      font-size: 36px; font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .proof-label { font-size: 13px; color: var(--text-tertiary); font-weight: 500; }
+
+    /* Feature cards */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brand), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 10px;
+      background: var(--brand-glow); color: var(--accent);
+      font-size: 13px; font-weight: 700; margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 17px; font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .feature-card p { font-size: 14px; line-height: 1.7; color: var(--text-tertiary); }
+
+    /* Audience */
+    .audience-section { border-top: 1px solid var(--border); }
+    .audience-content { max-width: 640px; }
+    .audience-content p { color: var(--text-tertiary); font-size: 15px; line-height: 1.8; margin-bottom: 24px; }
+    .audience-content p:last-child { margin-bottom: 0; }
+
+    /* Steps */
+    .steps-section { border-top: 1px solid var(--border); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step-card {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      transition: border-color 0.2s;
+    }
+    .step-card:hover { border-color: var(--border-hover); }
+    .step-number {
+      font-size: 11px; font-weight: 600; color: var(--text-quaternary);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;
+    }
+    .step-card h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .step-card p { font-size: 14px; line-height: 1.7; color: var(--text-tertiary); }
+
+    /* Pricing */
+    .pricing-section { border-top: 1px solid var(--border); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .pricing-card {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      display: flex; flex-direction: column; transition: all 0.3s;
+    }
+    .pricing-card:hover { border-color: var(--border-hover); }
+    .pricing-card.featured { border-color: var(--brand); background: rgba(94,106,210,0.04); position: relative; }
+    .pricing-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--brand); color: #fff;
+      font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 100px; white-space: nowrap;
+    }
+    .pricing-tier { font-size: 13px; font-weight: 600; color: var(--text-tertiary); margin-bottom: 8px; }
+    .pricing-amount {
+      font-size: 44px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px;
+    }
+    .pricing-amount span { font-size: 16px; font-weight: 400; color: var(--text-quaternary); }
+    .pricing-desc { font-size: 14px; line-height: 1.7; color: var(--text-tertiary); margin-top: 16px; flex: 1; }
+    .pricing-cta { margin-top: 24px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--brand); color: #fff; font-size: 14px; font-weight: 600;
+      padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--bg-raised); color: var(--text-primary); font-size: 14px; font-weight: 600;
+      padding: 12px 24px; border-radius: 8px; border: 1px solid var(--border-hover);
+      cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .btn-ghost:hover { border-color: var(--brand); background: var(--brand-glow); }
+    .pricing-note { color: var(--text-quaternary); font-size: 13px; line-height: 1.6; max-width: 620px; }
+
+    /* Founder */
+    .founder-section { border-top: 1px solid var(--border); }
+    .founder-card {
+      max-width: 700px;
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 48px 40px;
+    }
+    .founder-quote {
+      border-left: 3px solid var(--brand); padding-left: 24px;
+      color: var(--text-secondary); font-size: 16px; line-height: 1.8;
+    }
+    .founder-attribution {
+      margin-top: 24px; padding-left: 27px;
+      color: var(--text-quaternary); font-size: 13px; font-weight: 600;
+    }
+    /* VSL slot (hidden until video exists) */
+    .vsl-slot { display: none; margin-bottom: 32px; border-radius: var(--radius); overflow: hidden; }
+
+    /* FAQ */
+    .faq-section { border-top: 1px solid var(--border); }
+    .faq-list { max-width: 720px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none; padding: 24px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 600;
+      color: var(--text-primary); text-align: left; line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--accent); }
+    .faq-icon {
+      flex-shrink: 0; width: 20px; height: 20px; margin-left: 16px;
+      color: var(--text-quaternary); transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 24px; }
+    .faq-answer p { font-size: 14px; line-height: 1.8; color: var(--text-tertiary); }
+
+    /* Closing CTA */
+    .closing-section { border-top: 1px solid var(--border); text-align: center; }
+    .closing-body { max-width: 560px; margin: 0 auto 32px; color: var(--text-tertiary); font-size: 15px; line-height: 1.8; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 40px 0; }
+    .footer-inner { text-align: center; }
+    .footer-tagline { font-size: 14px; font-weight: 600; color: var(--text-tertiary); margin-bottom: 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; font-weight: 500; color: var(--text-quaternary); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    .footer-copy { font-size: 12px; color: var(--text-quaternary); }
   </style>
 </head>
 <body>
 
-  <!-- ── Nav ─────────────────────────────────────────────────── -->
   <nav>
     <div class="nav-inner">
       <a href="/" class="nav-wordmark">Still<span>Open</span></a>
       <div class="nav-links">
-        <a href="#features" class="nav-link-text">Features</a>
-        <a href="#pricing" class="nav-link-text">Pricing</a>
-        <a href="#faq" class="nav-link-text">FAQ</a>
-        <a href="#pricing" class="btn-primary">Start at $49/mo</a>
+        <a href="#features" class="hide-mobile">Features</a>
+        <a href="#pricing" class="hide-mobile">Pricing</a>
+        <a href="#faq" class="hide-mobile">FAQ</a>
+        <a href="#pricing" class="nav-cta">Start at $49/mo</a>
       </div>
     </div>
   </nav>
 
-  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <!-- Hero with video background -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-headline">
-        <h1 class="display-xl">The 2 AM call you missed last night was a $900 job.</h1>
-      </div>
-      <div class="hero-subhead">
-        <p class="body-large">Your sign says closed. StillOpen stays open. A 24/7 AI front desk for plumbers that answers the phone, books the job, and takes a deposit on your Stripe. You wake up to work on the calendar and money in the bank.</p>
-      </div>
-      <div class="hero-story">
-        <p>I built this because I was watching good plumbers lose the emergency jobs to Roto-Rooter every night. Not because they were bad plumbers. Because they were asleep, or with their kids, or on another job with their hands in a wall. The phone rang. It went to voicemail. By the time they heard it the next morning, the customer had already called somebody else. I got tired of watching it happen. So I built a front desk that stays open when you can't.</p>
-      </div>
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline poster="">
+        <source src="hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge"><div class="dot"></div> AI Front Desk, Always On</div>
+      <h1>The 2 AM call you missed last night was a <span class="highlight">$900 job.</span></h1>
+      <p class="hero-sub">Your sign says closed. StillOpen stays open. A 24/7 AI front desk that answers the phone, books the job, and takes a deposit on your Stripe. You wake up to work on the calendar and money in the bank.</p>
       <div class="demo-funnel" id="demo-funnel-hero">
         <form class="demo-form" onsubmit="return startDemo(event, 'hero')">
           <input type="url" class="demo-input" placeholder="Paste your website URL" required />
-          <button type="submit" class="btn-primary btn-large demo-btn">See my front desk</button>
+          <button type="submit" class="demo-btn">See my front desk</button>
         </form>
-        <p class="hero-helper">We train the bot on your real pricing and service menu in about 60 seconds. Then you talk to it like a customer would.</p>
+        <p class="demo-helper">We train the bot on your real pricing and services in about 60 seconds. Then you talk to it like a customer would.</p>
         <div class="demo-status" id="demo-status-hero" style="display:none;"></div>
         <div class="demo-chat-container" id="demo-chat-hero" style="display:none;"></div>
         <div class="demo-cta-after" id="demo-cta-hero" style="display:none;">
           <p class="demo-cta-text">That's your front desk. Running 24/7 on your website.</p>
-          <a href="#pricing" class="btn-primary btn-large">Want this? Start at $49/mo</a>
+          <a href="#pricing" class="btn-primary" style="padding:14px 28px;font-size:15px;">Want this? Start at $49/mo</a>
         </div>
-      </div>
-      <div class="hero-cta-group" style="margin-top:1rem;">
-        <a href="#pricing" class="btn-ghost btn-large">See pricing</a>
       </div>
     </div>
   </section>
 
-  <!-- ── What It Does ────────────────────────────────────────── -->
+  <!-- Social proof bar -->
+  <div class="proof-bar reveal">
+    <div class="container">
+      <div class="proof-grid">
+        <div class="proof-item">
+          <div class="proof-value" data-count="112">0</div>
+          <div class="proof-label">Businesses demo'd</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-value">24/7</div>
+          <div class="proof-label">Always answering</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-value">60s</div>
+          <div class="proof-label">Setup to live demo</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-value">$0</div>
+          <div class="proof-label">To try it right now</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What it does -->
   <section id="features">
     <div class="container">
-      <span class="section-label">What it does</span>
-      <h2 class="section-heading">Three things, done right.</h2>
+      <div class="reveal">
+        <span class="section-label">What it does</span>
+        <h2 class="section-heading">Three things, done right.</h2>
+      </div>
       <div class="features-grid">
-
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-number">1</div>
           <h3>It answers the phone when you can't.</h3>
           <p>The chat widget sits on your existing website. A customer comes in at 7 PM or 2 AM or Sunday afternoon. The bot answers their questions using your real prices and your real service menu. No made-up numbers. No generic FAQ. No "our agents are offline" dead end.</p>
         </div>
-
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-number">2</div>
           <h3>It books the job into your calendar.</h3>
           <p>When the customer wants to book, the bot pulls your real availability from Google Calendar and drops the appointment in. Customer name, phone, address, problem description, time window. You wake up to a real event on your calendar, not an email you have to chase.</p>
         </div>
-
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-number">3</div>
           <h3>It takes a deposit on your Stripe.</h3>
           <p>For emergency work, the bot asks for a small deposit before it confirms. Not to nickel-and-dime the customer. To hold the slot and commit a real human to the job. The customer pays through your Stripe account. Money hits your bank. The customer shows up. Roto-Rooter doesn't get the call.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── Who It Is For ───────────────────────────────────────── -->
+  <!-- Who it's for -->
   <section class="audience-section">
     <div class="container">
-      <span class="section-label">Who it's for</span>
-      <h2 class="section-heading section-heading-tight">Built for plumbers who answer their own phone.</h2>
-      <div class="audience-content">
+      <div class="reveal">
+        <span class="section-label">Who it's for</span>
+        <h2 class="section-heading">Built for trades who answer their own phone.</h2>
+      </div>
+      <div class="audience-content reveal">
         <p>You run 1-5 trucks. You answer the phone when it rings because you're the business. You have a website. You've got a Google Calendar or a paper calendar you're ready to move off of. You've got a Stripe account or you're willing to set one up in about 4 minutes. That's it. If you can use email, you can use StillOpen.</p>
         <p>StillOpen isn't a dispatch system. It isn't a CRM. It isn't an answering service that charges you $400 a month and still can't book or collect. It isn't a chatbot widget that forwards leads to an email inbox you check once a day. It's a front desk that takes the call and closes it. That's what it does. That's all it does.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── How It Works ────────────────────────────────────────── -->
+  <!-- How it works -->
   <section class="steps-section">
     <div class="container">
-      <span class="section-label">How it works</span>
-      <h2 class="section-heading">Setup takes 15 minutes. Not 15 days.</h2>
+      <div class="reveal">
+        <span class="section-label">How it works</span>
+        <h2 class="section-heading">Setup takes 15 minutes. Not 15 days.</h2>
+      </div>
       <div class="steps-grid">
-
-        <div class="step-card">
+        <div class="step-card reveal">
           <div class="step-number">Step 01</div>
           <h3>Sign up and connect your tools.</h3>
           <p>Email, Google Calendar, Stripe. OAuth does the handshakes. You don't have to hire anybody to set it up, and you don't have to hire me.</p>
         </div>
-
-        <div class="step-card">
+        <div class="step-card reveal">
           <div class="step-number">Step 02</div>
           <h3>Point it at your website.</h3>
           <p>The bot reads your site and pulls your prices, your service menu, your service area, your hours. You review what it learned and fix anything it got wrong.</p>
         </div>
-
-        <div class="step-card">
+        <div class="step-card reveal">
           <div class="step-number">Step 03</div>
           <h3>Drop the snippet on your site.</h3>
           <p>One line of code you copy and paste. If that sentence sounds scary, your web guy can do it in 30 seconds. The bot's live the moment the snippet lands.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── Pricing ─────────────────────────────────────────────── -->
+  <!-- Pricing -->
   <section id="pricing" class="pricing-section">
     <div class="container">
-      <span class="section-label">Pricing</span>
-      <h2 class="section-heading">$49. $97. $197. Pick the one that fits your shop.</h2>
-      <div class="pricing-grid">
-
-        <!-- Starter -->
+      <div class="reveal">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-heading">$49. $97. $197. Pick the one that fits your shop.</h2>
+      </div>
+      <div class="pricing-grid reveal">
         <div class="pricing-card">
           <div class="pricing-tier">Starter</div>
           <div class="pricing-amount">$49<span>/mo</span></div>
@@ -951,8 +517,6 @@
             <a href="https://app.stillopen.ai/checkout?tier=starter" class="btn-ghost" style="width:100%;text-align:center;">Get started</a>
           </div>
         </div>
-
-        <!-- Pro -->
         <div class="pricing-card featured">
           <div class="pricing-badge">Most popular</div>
           <div class="pricing-tier">Pro</div>
@@ -962,8 +526,6 @@
             <a href="https://app.stillopen.ai/checkout?tier=pro" class="btn-primary" style="width:100%;text-align:center;">Get started</a>
           </div>
         </div>
-
-        <!-- Elite -->
         <div class="pricing-card">
           <div class="pricing-tier">Elite</div>
           <div class="pricing-amount">$197<span>/mo</span></div>
@@ -972,120 +534,113 @@
             <a href="https://app.stillopen.ai/checkout?tier=elite" class="btn-ghost" style="width:100%;text-align:center;">Get started</a>
           </div>
         </div>
-
       </div>
-      <p class="pricing-note">No setup fee for the first 10 plumbers. After that, a one-time $297 setup fee covers the knowledge ingestion tuning and a walkthrough call with me. Cancel any time. It's month to month.</p>
+      <p class="pricing-note reveal">No setup fee for the first 10 customers. After that, a one-time $297 setup fee covers the knowledge ingestion tuning and a walkthrough call with me. Cancel any time. It's month to month.</p>
     </div>
   </section>
 
-  <!-- ── Founder ─────────────────────────────────────────────── -->
+  <!-- Founder -->
   <section class="founder-section">
     <div class="container">
-      <span class="section-label">Who built this</span>
-      <h2 class="section-heading section-heading-tight">Who built this.</h2>
-      <blockquote class="founder-quote">
-        I'm Cole. I'm a steel building erector by trade. I build hospitals, warehouses, and aircraft hangars for a living. I taught myself to build software at five in the morning in the basement because the guy I work for doesn't deserve another year of my life and my kids need me home. I built StillOpen because I was watching good plumbers lose real money every night the phone rang and nobody picked up. I'm not a marketer. I'm not a coach. I'm a guy who makes it work. I wanted to make it work for you too.
-      </blockquote>
-      <p class="founder-attribution">Cole Faith. Wisconsin. Founder, StillOpen.</p>
+      <div class="reveal">
+        <span class="section-label">Who built this</span>
+        <h2 class="section-heading">Who built this.</h2>
+      </div>
+      <!-- VSL slot: hidden until v1.mp4 exists -->
+      <div class="vsl-slot" id="vsl-slot">
+        <video controls preload="metadata" style="width:100%;border-radius:12px;">
+          <source src="vsl/v1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="founder-card reveal">
+        <blockquote class="founder-quote">
+          I'm Cole. I'm a steel building erector by trade. I build hospitals, warehouses, and aircraft hangars for a living. I taught myself to build software at five in the morning in the basement because the guy I work for doesn't deserve another year of my life and my kids need me home. I built StillOpen because I was watching good plumbers lose real money every night the phone rang and nobody picked up. I'm not a marketer. I'm not a coach. I'm a guy who makes it work. I wanted to make it work for you too.
+        </blockquote>
+        <p class="founder-attribution">Cole Faith. Wisconsin. Founder, StillOpen.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ── FAQ ─────────────────────────────────────────────────── -->
+  <!-- FAQ -->
   <section id="faq" class="faq-section">
     <div class="container">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-heading">Questions plumbers ask me.</h2>
-      <div class="faq-list">
-
+      <div class="reveal">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-heading">Questions plumbers ask me.</h2>
+      </div>
+      <div class="faq-list reveal">
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
             Will it sound like a chatbot?
             <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg>
           </button>
-          <div class="faq-answer">
-            <p>No. It sounds like a receptionist who's worked at your shop for years, because it knows your shop. It knows your prices, your service menu, your hours, and your service area. It doesn't make things up. If it doesn't know something, it says so honestly and tells the customer you'll call back.</p>
-          </div>
+          <div class="faq-answer"><p>No. It sounds like a receptionist who's worked at your shop for years, because it knows your shop. It knows your prices, your service menu, your hours, and your service area. It doesn't make things up. If it doesn't know something, it says so honestly and tells the customer you'll call back.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
             What if it books a job I can't make?
             <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg>
           </button>
-          <div class="faq-answer">
-            <p>It pulls your real Google Calendar availability. If you're booked, it doesn't book over you. You can block out personal time and it honors it. If you need to move an appointment, you move it the same way you'd move any other calendar event and the customer gets a text.</p>
-          </div>
+          <div class="faq-answer"><p>It pulls your real Google Calendar availability. If you're booked, it doesn't book over you. You can block out personal time and it honors it. If you need to move an appointment, you move it the same way you'd move any other calendar event and the customer gets a text.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
             What about the deposit? What if the customer cancels?
             <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg>
           </button>
-          <div class="faq-answer">
-            <p>Deposits are on your Stripe account, not ours. You control the refund policy the same way you'd handle any other customer payment. Most of my early plumbers keep a flat $50 to $100 emergency deposit that goes toward the job total. If the customer cancels outside your window, you keep it. Your rules, your money.</p>
-          </div>
+          <div class="faq-answer"><p>Deposits are on your Stripe account, not ours. You control the refund policy the same way you'd handle any other customer payment. Most of my early customers keep a flat $50 to $100 emergency deposit that goes toward the job total. If the customer cancels outside your window, you keep it. Your rules, your money.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
             Does it work with my CRM?
             <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg>
           </button>
-          <div class="faq-answer">
-            <p>At the Starter tier, it writes to Google Calendar and sends you an email notification. At the Pro tier, it connects to Housecall Pro, Jobber, or a Google Sheets fallback. If you use something else, tell me and I'll look at it.</p>
-          </div>
+          <div class="faq-answer"><p>At the Starter tier, it writes to Google Calendar and sends you an email notification. At the Pro tier, it connects to Housecall Pro, Jobber, or a Google Sheets fallback. If you use something else, tell me and I'll look at it.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
             How long does setup actually take?
             <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg>
           </button>
-          <div class="faq-answer">
-            <p>Fifteen minutes from signup to live chatbot on your website. If it takes longer than that, something's wrong and I want to know.</p>
-          </div>
+          <div class="faq-answer"><p>Fifteen minutes from signup to live chatbot on your website. If it takes longer than that, something's wrong and I want to know.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
             What if I don't like it?
             <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg>
           </button>
-          <div class="faq-answer">
-            <p>Cancel in one click. No phone call, no cancellation survey, no "are you sure." You keep everything that was in your calendar and everything that hit your Stripe. I don't hold your data hostage.</p>
-          </div>
+          <div class="faq-answer"><p>Cancel in one click. No phone call, no cancellation survey, no "are you sure." You keep everything that was in your calendar and everything that hit your Stripe. I don't hold your data hostage.</p></div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── Closing CTA ─────────────────────────────────────────── -->
+  <!-- Closing CTA -->
   <section id="closing" class="closing-section">
     <div class="container">
-      <span class="section-label">Try it now</span>
-      <h2 class="section-heading section-heading-tight">See it work on your website. Then decide.</h2>
-      <p class="closing-body">You don't have to take my word for it. Paste your website URL below. We train the bot on your real pricing and service menu in about 60 seconds. Then you talk to it the way a customer would. If it sounds right, start at $49 a month. If it doesn't, close the tab and we won't bother you.</p>
-      <div class="demo-funnel" id="demo-funnel-closing">
+      <div class="reveal">
+        <span class="section-label">Try it now</span>
+        <h2 class="section-heading" style="margin-left:auto;margin-right:auto;text-align:center;">See it work on your website. Then decide.</h2>
+      </div>
+      <p class="closing-body reveal">You don't have to take my word for it. Paste your website URL below. We train the bot on your real pricing and service menu in about 60 seconds. Then you talk to it the way a customer would. If it sounds right, start at $49 a month. If it doesn't, close the tab and we won't bother you.</p>
+      <div class="demo-funnel reveal" id="demo-funnel-closing" style="margin:0 auto;">
         <form class="demo-form" onsubmit="return startDemo(event, 'closing')">
           <input type="url" class="demo-input" placeholder="Paste your website URL" required />
-          <button type="submit" class="btn-primary btn-large demo-btn">See my front desk</button>
+          <button type="submit" class="demo-btn">See my front desk</button>
         </form>
         <div class="demo-status" id="demo-status-closing" style="display:none;"></div>
         <div class="demo-chat-container" id="demo-chat-closing" style="display:none;"></div>
         <div class="demo-cta-after" id="demo-cta-closing" style="display:none;">
           <p class="demo-cta-text">That's your front desk. Running 24/7 on your website.</p>
-          <a href="#pricing" class="btn-primary btn-large">Want this? Start at $49/mo</a>
+          <a href="#pricing" class="btn-primary" style="padding:14px 28px;font-size:15px;">Want this? Start at $49/mo</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Footer ──────────────────────────────────────────────── -->
   <footer>
     <div class="container footer-inner">
-      <p class="footer-tagline">A 24/7 AI front desk for plumbers. Built by a guy who makes it work.</p>
+      <p class="footer-tagline">A 24/7 AI front desk for home services. Built by a guy who makes it work.</p>
       <div class="footer-links">
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
@@ -1097,13 +652,47 @@
     </div>
   </footer>
 
-  <!-- Chatbot widget (floating mode for general visitors) -->
+  <!-- Chatbot widget -->
   <script src="https://app.stillopen.ai/chatbot.js"></script>
 
-  <!-- Demo funnel logic -->
   <script>
-    const WORKER = "https://app.stillopen.ai";
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
 
+    // Animated counter for proof bar
+    document.querySelectorAll('[data-count]').forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-count'));
+      var counted = false;
+      var countObserver = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !counted) {
+          counted = true;
+          var duration = 1200;
+          var startTime = null;
+          function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target);
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target;
+          }
+          requestAnimationFrame(step);
+        }
+      }, { threshold: 0.5 });
+      countObserver.observe(el);
+    });
+
+    // Demo funnel
+    const WORKER = "https://app.stillopen.ai";
     const statusMessages = [
       "Reading your website...",
       "Learning your services...",
@@ -1123,12 +712,10 @@
 
       if (!url) return false;
 
-      // Disable form
       input.disabled = true;
       btn.disabled = true;
       btn.textContent = "Training...";
 
-      // Show rotating status messages
       statusEl.style.display = "block";
       chatEl.style.display = "none";
       ctaEl.style.display = "none";
@@ -1166,21 +753,16 @@
           return false;
         }
 
-        // Success — render inline chatbot
         statusEl.innerHTML = "Meet your front desk" + (data.businessName && data.businessName !== "Your Business" ? " for " + data.businessName : "") + ".";
         chatEl.style.display = "block";
         chatEl.innerHTML = "";
 
-        // Create an iframe pointing to a minimal chat page, or inject the widget inline
         const iframe = document.createElement("iframe");
         iframe.src = WORKER + "/demo-chat?plumberId=" + encodeURIComponent(data.plumberId);
         iframe.style.cssText = "width:100%;height:100%;border:none;border-radius:12px;";
         chatEl.appendChild(iframe);
 
-        // Show the conversion CTA
         ctaEl.style.display = "block";
-
-        // Scroll to the chat
         chatEl.scrollIntoView({ behavior: "smooth", block: "center" });
 
       } catch (err) {
@@ -1194,7 +776,7 @@
       return false;
     }
 
-    // Auto-load demo from URL parameter (for pre-seeded outreach links)
+    // Auto-load demo from URL parameter
     (function() {
       const params = new URLSearchParams(window.location.search);
       const demoId = params.get("demo");
@@ -1217,6 +799,14 @@
         }
       }
     })();
+
+    // VSL slot: show if video exists
+    var vslVideo = document.querySelector('#vsl-slot video source');
+    if (vslVideo) {
+      fetch(vslVideo.src, { method: 'HEAD' }).then(function(r) {
+        if (r.ok) document.getElementById('vsl-slot').style.display = 'block';
+      }).catch(function() {});
+    }
   </script>
 
 </body>
