@@ -978,10 +978,13 @@
         chatEl.style.display = "block";
         chatEl.innerHTML = "";
 
-        const iframe = document.createElement("iframe");
-        iframe.src = WORKER + "/demo-chat?plumberId=" + encodeURIComponent(data.plumberId);
-        iframe.style.cssText = "width:100%;height:100%;border:none;border-radius:12px;";
-        chatEl.appendChild(iframe);
+        // Load chatbot directly on the page (no iframe, avoids Cloudflare challenge issues)
+        var chatScript = document.createElement("script");
+        chatScript.src = WORKER + "/chatbot.js";
+        chatScript.setAttribute("data-plumber-id", data.plumberId);
+        chatScript.setAttribute("data-mode", "inline");
+        chatScript.setAttribute("data-container", "demo-chat-" + location);
+        chatEl.appendChild(chatScript);
 
         ctaEl.style.display = "block";
         chatEl.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -1012,10 +1015,12 @@
           statusEl.innerHTML = "Loading your front desk...";
           chatEl.style.display = "block";
           chatEl.innerHTML = "";
-          const iframe = document.createElement("iframe");
-          iframe.src = WORKER + "/demo-chat?plumberId=" + encodeURIComponent(demoId);
-          iframe.style.cssText = "width:100%;height:100%;border:none;border-radius:12px;";
-          chatEl.appendChild(iframe);
+          var demoScript = document.createElement("script");
+          demoScript.src = WORKER + "/chatbot.js";
+          demoScript.setAttribute("data-plumber-id", demoId);
+          demoScript.setAttribute("data-mode", "inline");
+          demoScript.setAttribute("data-container", "demo-chat-hero");
+          chatEl.appendChild(demoScript);
           statusEl.innerHTML = "Your front desk is ready. Talk to it.";
           if (ctaEl) ctaEl.style.display = "block";
           chatEl.scrollIntoView({ behavior: "smooth", block: "center" });
