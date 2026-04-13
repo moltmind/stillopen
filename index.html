@@ -26,11 +26,11 @@
       --text-secondary: #b4b4bd;
       --text-tertiary: #71717a;
       --text-quaternary: #52525b;
-      --brand: #5e6ad2;
-      --accent: #818cf8;
-      --accent-hover: #a5b4fc;
-      --brand-glow: rgba(94,106,210,0.12);
-      --brand-border: rgba(94,106,210,0.25);
+      --brand: #4f5bbd;
+      --accent: #6d7cf0;
+      --accent-hover: #8b9af5;
+      --brand-glow: rgba(79,91,189,0.10);
+      --brand-border: rgba(79,91,189,0.22);
       --border: rgba(255,255,255,0.06);
       --border-hover: rgba(255,255,255,0.1);
       --success: #34d399;
@@ -135,7 +135,7 @@
       margin-bottom: 24px;
     }
     .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--accent), #c084fc);
+      background: linear-gradient(135deg, #6d7cf0, #93a3f8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -414,10 +414,6 @@
     <div class="container">
       <div class="proof-grid">
         <div class="proof-item">
-          <div class="proof-value" data-count="112">0</div>
-          <div class="proof-label">Businesses demo'd</div>
-        </div>
-        <div class="proof-item">
           <div class="proof-value">24/7</div>
           <div class="proof-label">Always answering</div>
         </div>
@@ -426,8 +422,12 @@
           <div class="proof-label">Setup to live demo</div>
         </div>
         <div class="proof-item">
-          <div class="proof-value">$0</div>
-          <div class="proof-label">To try it right now</div>
+          <div class="proof-value">Real</div>
+          <div class="proof-label">Books into your calendar</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-value">Stripe</div>
+          <div class="proof-label">Deposits to your bank</div>
         </div>
       </div>
     </div>
@@ -535,6 +535,24 @@
           </div>
         </div>
       </div>
+      <div class="reveal" style="display:flex;gap:32px;flex-wrap:wrap;align-items:center;margin-bottom:24px;">
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-tertiary);font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 5.5L15 6.2L11.5 9.5L12.4 14.5L8 12.2L3.6 14.5L4.5 9.5L1 6.2L6 5.5L8 1Z" fill="var(--success)"/></svg>
+          No contracts
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-tertiary);font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 5.5L15 6.2L11.5 9.5L12.4 14.5L8 12.2L3.6 14.5L4.5 9.5L1 6.2L6 5.5L8 1Z" fill="var(--success)"/></svg>
+          Cancel anytime
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-tertiary);font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 5.5L15 6.2L11.5 9.5L12.4 14.5L8 12.2L3.6 14.5L4.5 9.5L1 6.2L6 5.5L8 1Z" fill="var(--success)"/></svg>
+          Powered by Stripe
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-tertiary);font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 5.5L15 6.2L11.5 9.5L12.4 14.5L8 12.2L3.6 14.5L4.5 9.5L1 6.2L6 5.5L8 1Z" fill="var(--success)"/></svg>
+          We load your pricing for you
+        </span>
+      </div>
       <p class="pricing-note reveal">No setup fee for the first 10 customers. After that, a one-time $297 setup fee covers the knowledge ingestion tuning and a walkthrough call with me. Cancel any time. It's month to month.</p>
     </div>
   </section>
@@ -566,7 +584,8 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">FAQ</span>
-        <h2 class="section-heading">Questions plumbers ask me.</h2>
+        <h2 class="section-heading">Questions people ask me.</h2>
+        <p style="font-size:14px;color:var(--text-quaternary);margin-top:-32px;margin-bottom:40px;">No contracts. No setup fees. Cancel anytime. We'll even load your pricing for you.</p>
       </div>
       <div class="faq-list reveal">
         <div class="faq-item">
