@@ -81,21 +81,21 @@
   // the brand voice session by Day 10. Until then, a search-and-replace on
   // ${COLORS.navy} → background, ${COLORS.cyan} → accent, etc. is the migration.
   const COLORS = {
-    navy:        "#FFFFFF",              // chat window background (was dark)
-    navyLight:   "#F8FAFC",              // header + input row background
-    navyBorder:  "#E2E8F0",              // border lines
-    cyan:        "#2563EB",              // primary accent (buttons, focus, bubble)
-    cyanDim:     "rgba(37,99,235,0.10)",
-    gold:        "#2563EB",              // send button (collapsed to accent for now)
-    goldHover:   "#1D4ED8",              // send button hover
-    white:       "#1E293B",              // primary text — now dark slate, name is legacy
-    textMuted:   "#64748B",              // muted/placeholder text
-    userBubble:  "#2563EB",              // user message background
+    navy:        "#0c0c0e",              // chat window background (dark)
+    navyLight:   "#111114",              // header + input row background
+    navyBorder:  "rgba(255,255,255,0.08)", // border lines
+    cyan:        "#4f5bbd",              // primary accent (brand indigo)
+    cyanDim:     "rgba(79,91,189,0.10)",
+    gold:        "#4f5bbd",              // send button (brand indigo)
+    goldHover:   "#6d7cf0",              // send button hover
+    white:       "#fafafa",              // primary text
+    textMuted:   "#71717a",              // muted/placeholder text
+    userBubble:  "#4f5bbd",              // user message background (brand)
     userText:    "#FFFFFF",              // user message text
-    botBubble:   "#F1F5F9",              // bot message background
-    botText:     "#1E293B",              // bot message text
-    online:      "#22C55E",              // online dot (universal green, kept)
-    shadow:      "rgba(15,23,42,0.15)",  // soft drop shadow
+    botBubble:   "#18181b",              // bot message background (dark raised)
+    botText:     "#b4b4bd",              // bot message text (secondary)
+    online:      "#34d399",              // online dot (success green)
+    shadow:      "rgba(0,0,0,0.4)",      // drop shadow
   };
   // ─────────────────────────────────────────────────────────────────────────────
 
@@ -145,7 +145,7 @@
     #he-bubble svg {
       width: 28px;
       height: 28px;
-      fill: ${COLORS.navy};
+      fill: #FFFFFF;
       transition: opacity 0.2s ease;
     }
     #he-bubble .he-close-icon {
@@ -173,7 +173,7 @@
       display: none;
       align-items: center;
       justify-content: center;
-      border: 2px solid #fff;
+      border: 2px solid ${COLORS.navy};
       animation: he-badge-pop 0.3s cubic-bezier(0.34,1.56,0.64,1);
     }
     #he-badge.visible {
@@ -235,7 +235,7 @@
     #he-avatar svg {
       width: 20px;
       height: 20px;
-      fill: ${COLORS.navy};
+      fill: #FFFFFF;
     }
     #he-online-dot {
       position: absolute;
@@ -290,7 +290,7 @@
       background: transparent;
     }
     #he-messages::-webkit-scrollbar-thumb {
-      background: ${COLORS.navyBorder};
+      background: rgba(255,255,255,0.1);
       border-radius: 2px;
     }
 
@@ -424,7 +424,7 @@
     #he-send svg {
       width: 18px;
       height: 18px;
-      fill: ${COLORS.navy};
+      fill: #FFFFFF;
     }
 
     /* Mobile */
