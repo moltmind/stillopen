@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer crossorigin="anonymous" src="https://dear-crab-95.clerk.accounts.dev/npm/@clerk/ui@1/dist/ui.browser.js"></script>
     <script defer crossorigin="anonymous" data-clerk-publishable-key="pk_test_ZGVhci1jcmFiLTk1LmNsZXJrLmFjY291bnRzLmRldiQ" src="https://dear-crab-95.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js"></script>
     <style>
         :root {
@@ -1087,6 +1088,7 @@
             if (typeof Clerk === 'undefined') return false;
             try {
                 Clerk.load({
+                    ui: window.__internal_ClerkUICtor ? { ClerkUI: window.__internal_ClerkUICtor } : undefined,
                     appearance: {
                         variables: {
                             colorBackground: '#0a0a0b',
