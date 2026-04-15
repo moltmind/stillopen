@@ -141,6 +141,20 @@
                 </div>
             </div>
 
+            <!-- Billing -->
+            <div class="card">
+                <h2 class="card-title"><i class="ph ph-credit-card"></i> Billing</h2>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0;">
+                    <div>
+                        <div style="font-size: 14px; font-weight: 500;">Subscription & Invoices</div>
+                        <div style="font-size: 12px; color: var(--text-tertiary);">Update your card, view invoices, or cancel anytime</div>
+                    </div>
+                    <button class="btn-connect" onclick="manageSubscription()">
+                        <i class="ph ph-arrow-square-out"></i> Manage
+                    </button>
+                </div>
+            </div>
+
             <!-- Your Brand -->
             <div class="card">
                 <h2 class="card-title"><i class="ph ph-paint-brush"></i> Your Brand</h2>
@@ -287,6 +301,15 @@
         // Redirect to OAuth init with auth token in header isn't possible via redirect,
         // so we open a new window that will handle the auth flow
         window.location.href = WORKER_URL + "/google-oauth-init?token=" + encodeURIComponent(token);
+    }
+
+    async function manageSubscription() {
+        var token = await getToken();
+        if (!token) {
+            alert('Please sign in first.');
+            return;
+        }
+        window.location.href = WORKER_URL + "/billing-portal?token=" + encodeURIComponent(token);
     }
 
     function checkGoogleCalendarStatus() {
