@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Plumbing Works, LLC | Kenosha & Racine Counties, WI | 35+ Years Experience</title>
+    <meta name="description" content="Family owned and operated plumbing company serving Southeast Wisconsin for over 35 years. New construction, remodels, water heaters, water treatment, and service plumbing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --brown: #78350f;
+            --brown-light: #92400e;
+            --cream: #f7f5f0;
+            --accent: #b45309;
+            --accent-light: #d97706;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border: #d9d4c7;
+            --bg-alt: #ffffff;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            background: var(--brown);
+            color: var(--cream);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .top-bar-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            flex-wrap: wrap;
+        }
+        .top-bar strong { color: #fbbf24; }
+
+        header {
+            background: var(--cream);
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+        }
+        .header-inner {
+            max-width: 1100px; margin: 0 auto; padding: 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 24px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--brown);
+        }
+        .logo-mark {
+            width: 48px; height: 48px; border-radius: 8px;
+            background: var(--accent); color: var(--cream);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+        }
+        .logo-text {
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1;
+        }
+        .logo-text small {
+            display: block; font-size: 11px; font-weight: 500; color: var(--text-muted);
+            letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;
+        }
+        nav ul {
+            list-style: none; display: flex; gap: 28px; align-items: center;
+        }
+        nav a {
+            color: var(--brown); text-decoration: none; font-weight: 500; font-size: 15px;
+        }
+        nav a:hover { color: var(--accent); }
+        .header-phone {
+            background: var(--accent); color: var(--cream);
+            padding: 10px 20px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 15px;
+            transition: background 0.15s;
+        }
+        .header-phone:hover { background: var(--accent-light); }
+        .hide-mobile { display: block; }
+        @media (max-width: 720px) {
+            nav ul li:not(:last-child) { display: none; }
+            .hide-mobile { display: none; }
+        }
+
+        .hero {
+            padding: 64px 20px 80px;
+            background:
+                linear-gradient(135deg, rgba(120,53,15,0.93) 0%, rgba(120,53,15,0.83) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%2392400e" stroke-width="1" fill="none" opacity="0.3"/></svg>');
+            color: var(--cream);
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+        }
+        @media (max-width: 860px) {
+            .hero-inner { grid-template-columns: 1fr; }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(180,83,9,0.18); border: 1px solid rgba(217,119,6,0.4);
+            color: #fbbf24; padding: 6px 14px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; margin-bottom: 20px;
+        }
+        .hero-badge::before {
+            content: ""; width: 8px; height: 8px; border-radius: 50%;
+            background: #fbbf24; box-shadow: 0 0 8px #fbbf24;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5.5vw, 52px);
+            font-weight: 800; line-height: 1.05; letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+        .hero h1 em {
+            font-style: normal; color: #fbbf24;
+        }
+        .hero p {
+            font-size: 18px; color: #e8ddd0; max-width: 520px; margin-bottom: 32px;
+        }
+        .hero-cta {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--accent); color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: background 0.15s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--accent-light); }
+        .btn-ghost {
+            background: transparent; color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 600; font-size: 16px;
+            border: 2px solid rgba(245,241,232,0.3);
+            transition: border-color 0.15s;
+        }
+        .btn-ghost:hover { border-color: var(--cream); }
+
+        .hero-card {
+            background: var(--cream); color: var(--text);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .hero-card h3 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px;
+        }
+        .hero-card h4 {
+            font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px;
+        }
+        .hero-card p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; }
+        .hero-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hero-card li {
+            font-size: 14px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-card li::before {
+            content: "\2713"; color: #16a34a; font-weight: 800; font-size: 14px;
+        }
+
+        section { padding: 72px 20px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-eyebrow {
+            display: block; font-size: 13px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800; letter-spacing: -1px; line-height: 1.1;
+            color: var(--brown); margin-bottom: 16px; max-width: 720px;
+        }
+        .section-lede {
+            font-size: 18px; color: var(--text-muted); max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .services-section { background: var(--bg-alt); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--cream);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .service-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+        .service-card h3 {
+            font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--brown);
+        }
+        .service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+        .service-card .price {
+            font-size: 14px; font-weight: 600; color: var(--accent);
+        }
+
+        .about-section { background: var(--brown); color: var(--cream); }
+        .about-section .section-title { color: var(--cream); }
+        .about-section .section-lede { color: #e8ddd0; }
+        .about-section .section-eyebrow { color: #fbbf24; }
+        .about-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px; margin-top: 40px;
+        }
+        .stat {
+            padding: 20px 0; border-top: 1px solid rgba(245,241,232,0.15);
+        }
+        .stat .num {
+            font-size: 42px; font-weight: 800; letter-spacing: -1.5px;
+            color: #fbbf24; line-height: 1;
+        }
+        .stat .label {
+            font-size: 14px; color: #e8ddd0; margin-top: 8px; font-weight: 500;
+        }
+
+        .area-section { background: var(--bg-alt); }
+        .area-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+        }
+        .area-tag {
+            background: var(--cream); border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 100px; font-size: 14px;
+            font-weight: 500; color: var(--brown);
+        }
+
+        .hours-section { background: var(--cream); }
+        .hours-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) { .hours-grid { grid-template-columns: 1fr; } }
+        .hours-card {
+            background: var(--bg-alt); padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .hours-card h3 {
+            font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--brown);
+        }
+        .hours-card .row {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px;
+        }
+        .hours-card .row:last-child { border: none; }
+        .hours-card .row .day { color: var(--text-muted); }
+        .hours-card .row .hrs { font-weight: 600; color: var(--brown); }
+        .emergency-card {
+            background: var(--accent); color: var(--cream); padding: 28px; border-radius: 10px;
+        }
+        .emergency-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .emergency-card p { font-size: 15px; margin-bottom: 18px; opacity: 0.95; }
+        .emergency-card .big-number {
+            font-size: 26px; font-weight: 800; letter-spacing: -0.5px;
+            background: rgba(0,0,0,0.2); padding: 14px 18px; border-radius: 6px;
+            text-align: center; letter-spacing: 1px;
+        }
+
+        .cta-section { background: var(--cream); text-align: center; }
+        .cta-section .section-title { margin: 0 auto 16px; }
+        .cta-section .section-lede { margin: 0 auto 32px; }
+
+        footer {
+            background: var(--brown); color: #e8ddd0; padding: 40px 20px 24px;
+            font-size: 14px;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) {
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+        footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+        footer a { color: #e8ddd0; text-decoration: none; display: block; margin-bottom: 6px; }
+        footer a:hover { color: var(--cream); }
+        .footer-bottom {
+            max-width: 1100px; margin: 32px auto 0;
+            padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15);
+            font-size: 12px; color: #9aa6b4; text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div><strong>Family Owned &amp; Operated.</strong> 35+ years serving Southeast Wisconsin. Licensed &amp; Insured.</div>
+        <div>Kenosha &amp; Racine Counties</div>
+    </div>
+</div>
+
+<header>
+    <div class="header-inner">
+        <a href="#top" class="logo">
+            <div class="logo-mark">PW</div>
+            <div class="logo-text">
+                The Plumbing Works
+                <small>Southeast Wisconsin</small>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#services" class="hide-mobile">Services</a></li>
+                <li><a href="#area" class="hide-mobile">Service Area</a></li>
+                <li><a href="#hours" class="hide-mobile">Hours</a></li>
+                <li><a href="tel:+12628573924" class="header-phone">Call (262) 857-3924</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div>
+            <span class="hero-badge">35+ Years Experience</span>
+            <h1>Southeast Wisconsin's trusted plumber for <em>over three decades.</em></h1>
+            <p>Family owned and operated plumbing company serving Kenosha and Racine Counties. From new home construction to water treatment, we handle it all with the care your home deserves.</p>
+            <div class="hero-cta">
+                <a href="tel:+12628573924" class="btn-primary">Call (262) 857-3924</a>
+                <a href="#services" class="btn-ghost">Our services</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <h3>Why Choose Us?</h3>
+            <h4>Three decades of doing it right.</h4>
+            <p>We are a family business that treats your home like our own. No shortcuts, no surprises on the bill. Just solid plumbing work.</p>
+            <ul>
+                <li>35+ years of experience</li>
+                <li>Family owned and operated</li>
+                <li>New construction and remodels</li>
+                <li>Water treatment specialists</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="services-section" id="services">
+    <div class="section-inner">
+        <span class="section-eyebrow">What we do</span>
+        <h2 class="section-title">Full-service plumbing, from the ground up.</h2>
+        <p class="section-lede">The Plumbing Works handles everything from new home plumbing to water treatment systems. Over 35 years of hands-on experience in Southeast Wisconsin.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>New Home Plumbing</h3>
+                <p>Complete plumbing installation for new construction. We work with your builder from rough-in through final fixture hookup to make sure everything is done right the first time.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Remodel Plumbing</h3>
+                <p>Kitchen and bathroom remodels, fixture upgrades, and repiping for renovations. We coordinate with your contractor to keep the project moving on schedule.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Basement Build-Outs</h3>
+                <p>Adding a bathroom, wet bar, or laundry to your basement? We handle the plumbing side of your basement finishing project from start to finish.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Service Plumbing</h3>
+                <p>Repairs, maintenance, and troubleshooting for your existing plumbing. Leaky faucets, running toilets, slow drains, and everything in between.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Water Heaters</h3>
+                <p>Installation, repair, and replacement of gas and electric water heaters. When yours stops working, we get hot water flowing again fast.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Water Treatment</h3>
+                <p>Water softeners, filtration systems, and treatment solutions for your home. We also offer water treatment equipment rentals so you can try before you buy.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Equipment Rentals</h3>
+                <p>Not ready to buy a water treatment system? Rent one from us. We install, maintain, and service the equipment so you just enjoy cleaner water.</p>
+                <div class="price">Ask about rentals</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="section-inner">
+        <span class="section-eyebrow">The company</span>
+        <h2 class="section-title">Family owned. Three decades strong. That is how we do it.</h2>
+        <p class="section-lede">The Plumbing Works, LLC is a family owned and operated plumbing company with over 35 years of experience serving Southeast Wisconsin. We build trust by showing up on time, doing quality work, and treating every customer like a neighbor.</p>
+
+        <div class="about-grid">
+            <div class="stat"><div class="num">35+</div><div class="label">Years in business</div></div>
+            <div class="stat"><div class="num">Family</div><div class="label">Owned and operated</div></div>
+            <div class="stat"><div class="num">2</div><div class="label">Counties served</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">Estimates on every job</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="area-section" id="area">
+    <div class="section-inner">
+        <span class="section-eyebrow">Where we work</span>
+        <h2 class="section-title">Serving Kenosha and Racine Counties.</h2>
+        <p class="section-lede">We cover Southeast Wisconsin, including all of these communities and the surrounding areas.</p>
+
+        <div class="area-tags">
+            <span class="area-tag">Bristol</span>
+            <span class="area-tag">Burlington</span>
+            <span class="area-tag">Silver Lake</span>
+            <span class="area-tag">Twin Lakes</span>
+            <span class="area-tag">Union Grove</span>
+            <span class="area-tag">Kenosha County</span>
+            <span class="area-tag">Racine County</span>
+            <span class="area-tag">And surrounding areas</span>
+        </div>
+    </div>
+</section>
+
+<section class="hours-section" id="hours">
+    <div class="section-inner">
+        <span class="section-eyebrow">When we work</span>
+        <h2 class="section-title">Regular business hours, Monday through Friday.</h2>
+
+        <div class="hours-grid">
+            <div class="hours-card">
+                <h3>Office Hours</h3>
+                <div class="row"><span class="day">Monday</span><span class="hrs">7:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Tuesday</span><span class="hrs">7:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Wednesday</span><span class="hrs">7:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Thursday</span><span class="hrs">7:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Friday</span><span class="hrs">7:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Saturday</span><span class="hrs">Closed</span></div>
+                <div class="row"><span class="day">Sunday</span><span class="hrs">Closed</span></div>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Give Us a Call</h3>
+                <p>Have a plumbing question or need a quote? Call us during business hours and we will get you taken care of. 35 years of experience is just a phone call away.</p>
+                <div class="big-number">(262) 857-3924</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="contact">
+    <div class="section-inner">
+        <span class="section-eyebrow">Get a free estimate</span>
+        <h2 class="section-title">One call. 35 years of experience behind it.</h2>
+        <p class="section-lede">The Plumbing Works serves Bristol, Burlington, Silver Lake, Twin Lakes, Union Grove, and all of Kenosha and Racine Counties. Call us or chat with our team in the corner.</p>
+        <a href="tel:+12628573924" class="btn-primary">Call (262) 857-3924</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            <h4>The Plumbing Works, LLC</h4>
+            <p>Family owned and operated plumbing company serving Southeast Wisconsin for over 35 years. New construction, remodels, service plumbing, water heaters, and water treatment.</p>
+            <p style="margin-top: 12px;">Kenosha &amp; Racine Counties<br>Licensed &amp; Insured</p>
+        </div>
+        <div>
+            <h4>Services</h4>
+            <a href="#services">New home plumbing</a>
+            <a href="#services">Remodel plumbing</a>
+            <a href="#services">Basement build-outs</a>
+            <a href="#services">Service plumbing</a>
+            <a href="#services">Water heaters</a>
+            <a href="#services">Water treatment</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <a href="tel:+12628573924">(262) 857-3924</a>
+            <p style="margin-top: 12px;">Southeast Wisconsin<br>Kenosha &amp; Racine Counties</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 The Plumbing Works, LLC. Southeast Wisconsin. All rights reserved.
+    </div>
+</footer>
+
+<!-- StillOpen chat widget -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="user_3CQITTKg9Fys52gYCxWj4isI9g9"></script>
+
+</body>
+</html>

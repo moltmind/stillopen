@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drains R Us | Wilmot, WI | Drain Cleaning & Plumbing | 20+ Years</title>
+    <meta name="description" content="Family-owned drain cleaning and plumbing company serving Kenosha and Racine Counties since 2003. BBB A+ rated. Free estimates. Call (262) 632-8200.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bright: #1d4ed8;
+            --bright-light: #2563eb;
+            --cream: #f7f5f0;
+            --accent: #1d4ed8;
+            --accent-light: #2563eb;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border: #d9d4c7;
+            --bg-alt: #ffffff;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            background: #1e3a5f;
+            color: var(--cream);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .top-bar-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            flex-wrap: wrap;
+        }
+        .top-bar strong { color: #60a5fa; }
+
+        header {
+            background: var(--cream);
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+        }
+        .header-inner {
+            max-width: 1100px; margin: 0 auto; padding: 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 24px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--bright);
+        }
+        .logo-mark {
+            width: 48px; height: 48px; border-radius: 8px;
+            background: var(--bright); color: var(--cream);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+        }
+        .logo-text {
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1;
+        }
+        .logo-text small {
+            display: block; font-size: 11px; font-weight: 500; color: var(--text-muted);
+            letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;
+        }
+        nav ul {
+            list-style: none; display: flex; gap: 28px; align-items: center;
+        }
+        nav a {
+            color: var(--bright); text-decoration: none; font-weight: 500; font-size: 15px;
+        }
+        nav a:hover { color: var(--bright-light); }
+        .header-phone {
+            background: var(--bright); color: var(--cream);
+            padding: 10px 20px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 15px;
+            transition: background 0.15s;
+        }
+        .header-phone:hover { background: var(--bright-light); }
+        .hide-mobile { display: block; }
+        @media (max-width: 720px) {
+            nav ul li:not(:last-child) { display: none; }
+            .hide-mobile { display: none; }
+        }
+
+        .hero {
+            padding: 64px 20px 80px;
+            background:
+                linear-gradient(135deg, rgba(29,78,216,0.93) 0%, rgba(29,78,216,0.83) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%232563eb" stroke-width="1" fill="none" opacity="0.3"/></svg>');
+            color: var(--cream);
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+        }
+        @media (max-width: 860px) {
+            .hero-inner { grid-template-columns: 1fr; }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(96,165,250,0.18); border: 1px solid rgba(96,165,250,0.4);
+            color: #bfdbfe; padding: 6px 14px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; margin-bottom: 20px;
+        }
+        .hero-badge::before {
+            content: ""; width: 8px; height: 8px; border-radius: 50%;
+            background: #60a5fa; box-shadow: 0 0 8px #60a5fa;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5.5vw, 52px);
+            font-weight: 800; line-height: 1.05; letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+        .hero h1 em {
+            font-style: normal; color: #60a5fa;
+        }
+        .hero p {
+            font-size: 18px; color: #dbeafe; max-width: 520px; margin-bottom: 32px;
+        }
+        .hero-cta {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #2563eb; color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: background 0.15s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: #3b82f6; }
+        .btn-ghost {
+            background: transparent; color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 600; font-size: 16px;
+            border: 2px solid rgba(245,241,232,0.3);
+            transition: border-color 0.15s;
+        }
+        .btn-ghost:hover { border-color: var(--cream); }
+
+        .hero-card {
+            background: var(--cream); color: var(--text);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .hero-card h3 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--bright); margin-bottom: 12px;
+        }
+        .hero-card h4 {
+            font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px;
+        }
+        .hero-card p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; }
+        .hero-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hero-card li {
+            font-size: 14px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-card li::before {
+            content: "\2713"; color: #16a34a; font-weight: 800; font-size: 14px;
+        }
+
+        section { padding: 72px 20px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-eyebrow {
+            display: block; font-size: 13px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--bright); margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800; letter-spacing: -1px; line-height: 1.1;
+            color: var(--bright); margin-bottom: 16px; max-width: 720px;
+        }
+        .section-lede {
+            font-size: 18px; color: var(--text-muted); max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .services-section { background: var(--bg-alt); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--cream);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .service-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--bright);
+        }
+        .service-card h3 {
+            font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--bright);
+        }
+        .service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+        .service-card .price {
+            font-size: 14px; font-weight: 600; color: var(--bright);
+        }
+
+        .about-section { background: #1e3a5f; color: var(--cream); }
+        .about-section .section-title { color: var(--cream); }
+        .about-section .section-lede { color: #dbeafe; }
+        .about-section .section-eyebrow { color: #60a5fa; }
+        .about-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px; margin-top: 40px;
+        }
+        .stat {
+            padding: 20px 0; border-top: 1px solid rgba(245,241,232,0.15);
+        }
+        .stat .num {
+            font-size: 42px; font-weight: 800; letter-spacing: -1.5px;
+            color: #60a5fa; line-height: 1;
+        }
+        .stat .label {
+            font-size: 14px; color: #dbeafe; margin-top: 8px; font-weight: 500;
+        }
+
+        .area-section { background: var(--bg-alt); }
+        .area-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+        }
+        .area-tag {
+            background: var(--cream); border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 100px; font-size: 14px;
+            font-weight: 500; color: var(--bright);
+        }
+
+        .hours-section { background: var(--cream); }
+        .hours-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) { .hours-grid { grid-template-columns: 1fr; } }
+        .hours-card {
+            background: var(--bg-alt); padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .hours-card h3 {
+            font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--bright);
+        }
+        .hours-card .row {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px;
+        }
+        .hours-card .row:last-child { border: none; }
+        .hours-card .row .day { color: var(--text-muted); }
+        .hours-card .row .hrs { font-weight: 600; color: var(--bright); }
+        .emergency-card {
+            background: var(--bright); color: var(--cream); padding: 28px; border-radius: 10px;
+        }
+        .emergency-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .emergency-card p { font-size: 15px; margin-bottom: 18px; opacity: 0.95; }
+        .emergency-card .big-number {
+            font-size: 26px; font-weight: 800; letter-spacing: -0.5px;
+            background: rgba(0,0,0,0.2); padding: 14px 18px; border-radius: 6px;
+            text-align: center; letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .emergency-card .alt-number {
+            font-size: 18px; font-weight: 600;
+            text-align: center; opacity: 0.9;
+        }
+
+        .cta-section { background: var(--cream); text-align: center; }
+        .cta-section .section-title { margin: 0 auto 16px; }
+        .cta-section .section-lede { margin: 0 auto 32px; }
+
+        footer {
+            background: #1e3a5f; color: #dbeafe; padding: 40px 20px 24px;
+            font-size: 14px;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) {
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+        footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+        footer a { color: #dbeafe; text-decoration: none; display: block; margin-bottom: 6px; }
+        footer a:hover { color: var(--cream); }
+        .footer-bottom {
+            max-width: 1100px; margin: 32px auto 0;
+            padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15);
+            font-size: 12px; color: #9aa6b4; text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div><strong>BBB A+ Rated.</strong> Family-owned since 2003. Free estimates on every job.</div>
+        <div>Kenosha &amp; Racine Counties</div>
+    </div>
+</div>
+
+<header>
+    <div class="header-inner">
+        <a href="#top" class="logo">
+            <div class="logo-mark">DR</div>
+            <div class="logo-text">
+                Drains R Us
+                <small>Wilmot, Wisconsin</small>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#services" class="hide-mobile">Services</a></li>
+                <li><a href="#area" class="hide-mobile">Service Area</a></li>
+                <li><a href="#hours" class="hide-mobile">Hours</a></li>
+                <li><a href="tel:+12626328200" class="header-phone">Call (262) 632-8200</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div>
+            <span class="hero-badge">BBB A+ Certified</span>
+            <h1>Clogged drain? We clear it. <em>That is what we do.</em></h1>
+            <p>Family-owned drain cleaning and plumbing company serving Kenosha and Racine Counties since 2003. Over 20 years of keeping Southeast Wisconsin flowing. Free estimates on every job.</p>
+            <div class="hero-cta">
+                <a href="tel:+12626328200" class="btn-primary">Call (262) 632-8200</a>
+                <a href="#services" class="btn-ghost">Our services</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <h3>Why Drains R Us?</h3>
+            <h4>20+ years. Thousands of drains cleared.</h4>
+            <p>We are the drain specialists. When it is clogged, backed up, or broken, we fix it. Simple as that.</p>
+            <ul>
+                <li>BBB A+ certified</li>
+                <li>4.5/5 Google rating</li>
+                <li>5/5 on Angie's List</li>
+                <li>Free estimates on every job</li>
+                <li>Family-owned since 2003</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="services-section" id="services">
+    <div class="section-inner">
+        <span class="section-eyebrow">What we do</span>
+        <h2 class="section-title">Drain cleaning, plumbing, and sewer repairs.</h2>
+        <p class="section-lede">Drains R Us specializes in drain cleaning and repair, plumbing services, and sewer laterals. Over 20 years of experience in Kenosha and Racine Counties.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Drain Cleaning</h3>
+                <p>Clogged kitchen drains, bathroom drains, floor drains, and main sewer lines. We clear the blockage and get things flowing again. Fast, clean, and done right.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Drain Repairs</h3>
+                <p>Cracked, broken, or collapsed drain lines. We diagnose the problem and repair or replace the damaged section so it does not keep coming back.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Plumbing Services</h3>
+                <p>General plumbing repairs and maintenance. Leaky pipes, running toilets, faucet replacements, and more. We handle it all.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Sewer Lateral Repairs</h3>
+                <p>The sewer lateral connects your home to the municipal sewer. When it fails, you need someone who knows what they are doing. That is us.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Drain Installation</h3>
+                <p>New drain lines for additions, remodels, or replacement of old systems. We install it right so you do not have to think about it again.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Fixture Cleaning &amp; Repair</h3>
+                <p>Sinks, tubs, showers, and toilets. If it drains water, we clean it and fix it. Simple, reliable service every time.</p>
+                <div class="price">Free estimate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="section-inner">
+        <span class="section-eyebrow">The company</span>
+        <h2 class="section-title">Family-owned since 2003. A+ rated. That speaks for itself.</h2>
+        <p class="section-lede">Drains R Us has been serving Kenosha and Racine Counties for over 20 years. We are a family-owned operation with a BBB A+ rating and top marks on Google and Angie's List. We show up, we fix it, and we stand behind our work.</p>
+
+        <div class="about-grid">
+            <div class="stat"><div class="num">20+</div><div class="label">Years in business</div></div>
+            <div class="stat"><div class="num">A+</div><div class="label">BBB certified rating</div></div>
+            <div class="stat"><div class="num">4.5</div><div class="label">Google rating (out of 5)</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">Estimates on every job</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="area-section" id="area">
+    <div class="section-inner">
+        <span class="section-eyebrow">Where we work</span>
+        <h2 class="section-title">Serving Kenosha County and Racine County.</h2>
+        <p class="section-lede">Based in Wilmot, Wisconsin. We serve all of Kenosha and Racine Counties and the surrounding communities.</p>
+
+        <div class="area-tags">
+            <span class="area-tag">Wilmot</span>
+            <span class="area-tag">Kenosha</span>
+            <span class="area-tag">Racine</span>
+            <span class="area-tag">Kenosha County</span>
+            <span class="area-tag">Racine County</span>
+            <span class="area-tag">And surrounding areas</span>
+        </div>
+    </div>
+</section>
+
+<section class="hours-section" id="hours">
+    <div class="section-inner">
+        <span class="section-eyebrow">When we answer</span>
+        <h2 class="section-title">Regular hours plus after-hours availability.</h2>
+
+        <div class="hours-grid">
+            <div class="hours-card">
+                <h3>Office Hours</h3>
+                <div class="row"><span class="day">Monday</span><span class="hrs">8:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Tuesday</span><span class="hrs">8:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Wednesday</span><span class="hrs">8:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Thursday</span><span class="hrs">8:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Friday</span><span class="hrs">8:00 AM - 5:00 PM</span></div>
+                <div class="row"><span class="day">Saturday</span><span class="hrs">Call for availability</span></div>
+                <div class="row"><span class="day">Sunday</span><span class="hrs">Call for availability</span></div>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Two Numbers to Reach Us</h3>
+                <p>Need a drain cleared or a plumbing repair? Call either number. Weekends and after hours, give us a call and we will do our best to get to you.</p>
+                <div class="big-number">(262) 632-8200</div>
+                <div class="alt-number">Toll-free: (855) 204-2399</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="contact">
+    <div class="section-inner">
+        <span class="section-eyebrow">Get a free estimate</span>
+        <h2 class="section-title">One call. 20+ years of drain expertise behind it.</h2>
+        <p class="section-lede">Drains R Us serves all of Kenosha and Racine Counties from our home base in Wilmot, Wisconsin. Call us or chat with our team in the corner.</p>
+        <a href="tel:+12626328200" class="btn-primary">Call (262) 632-8200</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            <h4>Drains R Us</h4>
+            <p>Family-owned drain cleaning and plumbing company serving Kenosha and Racine Counties since 2003. BBB A+ rated. Free estimates on every job.</p>
+            <p style="margin-top: 12px;">PO Box 272, Wilmot, WI 53192<br>Licensed &amp; Insured</p>
+        </div>
+        <div>
+            <h4>Services</h4>
+            <a href="#services">Drain cleaning</a>
+            <a href="#services">Drain repairs</a>
+            <a href="#services">Plumbing services</a>
+            <a href="#services">Sewer laterals</a>
+            <a href="#services">Drain installation</a>
+            <a href="#services">Fixture repair</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <a href="tel:+12626328200">(262) 632-8200</a>
+            <a href="tel:+18552042399">(855) 204-2399</a>
+            <p style="margin-top: 12px;">Wilmot, WI 53192<br>Kenosha &amp; Racine Counties</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Drains R Us. Wilmot, WI. All rights reserved.
+    </div>
+</footer>
+
+<!-- StillOpen chat widget -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="user_3CQITcUNyzMoLoVVqYPujfnMUaP"></script>
+
+</body>
+</html>
