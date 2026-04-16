@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri-County Plumbing, L.L.C. | Chippewa Falls, WI | Veteran-Owned</title>
+    <meta name="description" content="Navy veteran-owned plumbing company serving the Chippewa Valley since 2008. Residential, commercial, water heaters, new construction. Veteran and senior discounts.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy-red: #1e3a5f;
+            --navy-light: #2a4d75;
+            --cream: #f7f5f0;
+            --flag: #b91c1c;
+            --flag-light: #dc2626;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border: #d9d4c7;
+            --bg-alt: #ffffff;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            background: var(--navy-red);
+            color: var(--cream);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .top-bar-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            flex-wrap: wrap;
+        }
+        .top-bar strong { color: #93c5fd; }
+
+        header {
+            background: var(--cream);
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+        }
+        .header-inner {
+            max-width: 1100px; margin: 0 auto; padding: 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 24px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--navy-red);
+        }
+        .logo-mark {
+            width: 48px; height: 48px; border-radius: 8px;
+            background: var(--navy-red); color: var(--cream);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+        }
+        .logo-text {
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1;
+        }
+        .logo-text small {
+            display: block; font-size: 11px; font-weight: 500; color: var(--text-muted);
+            letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;
+        }
+        nav ul {
+            list-style: none; display: flex; gap: 28px; align-items: center;
+        }
+        nav a {
+            color: var(--navy-red); text-decoration: none; font-weight: 500; font-size: 15px;
+        }
+        nav a:hover { color: var(--flag); }
+        .header-phone {
+            background: var(--flag); color: var(--cream);
+            padding: 10px 20px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 15px;
+            transition: background 0.15s;
+        }
+        .header-phone:hover { background: var(--flag-light); }
+        .hide-mobile { display: block; }
+        @media (max-width: 720px) {
+            nav ul li:not(:last-child) { display: none; }
+            .hide-mobile { display: none; }
+        }
+
+        .hero {
+            padding: 64px 20px 80px;
+            background:
+                linear-gradient(135deg, rgba(30,58,95,0.93) 0%, rgba(30,58,95,0.83) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%232a4d75" stroke-width="1" fill="none" opacity="0.3"/></svg>');
+            color: var(--cream);
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+        }
+        @media (max-width: 860px) {
+            .hero-inner { grid-template-columns: 1fr; }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(185,28,28,0.18); border: 1px solid rgba(220,38,38,0.4);
+            color: #fca5a5; padding: 6px 14px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; margin-bottom: 20px;
+        }
+        .hero-badge::before {
+            content: ""; width: 8px; height: 8px; border-radius: 50%;
+            background: #fca5a5; box-shadow: 0 0 8px #fca5a5;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5.5vw, 52px);
+            font-weight: 800; line-height: 1.05; letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+        .hero h1 em {
+            font-style: normal; color: #93c5fd;
+        }
+        .hero p {
+            font-size: 18px; color: #cfd8e3; max-width: 520px; margin-bottom: 32px;
+        }
+        .hero-cta {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--flag); color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: background 0.15s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--flag-light); }
+        .btn-ghost {
+            background: transparent; color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 600; font-size: 16px;
+            border: 2px solid rgba(245,241,232,0.3);
+            transition: border-color 0.15s;
+        }
+        .btn-ghost:hover { border-color: var(--cream); }
+
+        .hero-card {
+            background: var(--cream); color: var(--text);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .hero-card h3 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--flag); margin-bottom: 12px;
+        }
+        .hero-card h4 {
+            font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px;
+        }
+        .hero-card p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; }
+        .hero-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hero-card li {
+            font-size: 14px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-card li::before {
+            content: "\2713"; color: #16a34a; font-weight: 800; font-size: 14px;
+        }
+
+        section { padding: 72px 20px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-eyebrow {
+            display: block; font-size: 13px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--flag); margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800; letter-spacing: -1px; line-height: 1.1;
+            color: var(--navy-red); margin-bottom: 16px; max-width: 720px;
+        }
+        .section-lede {
+            font-size: 18px; color: var(--text-muted); max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .services-section { background: var(--bg-alt); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--cream);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .service-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--flag);
+        }
+        .service-card h3 {
+            font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--navy-red);
+        }
+        .service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+        .service-card .price {
+            font-size: 14px; font-weight: 600; color: var(--flag);
+        }
+
+        .about-section { background: var(--navy-red); color: var(--cream); }
+        .about-section .section-title { color: var(--cream); }
+        .about-section .section-lede { color: #cfd8e3; }
+        .about-section .section-eyebrow { color: #93c5fd; }
+        .about-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px; margin-top: 40px;
+        }
+        .stat {
+            padding: 20px 0; border-top: 1px solid rgba(245,241,232,0.15);
+        }
+        .stat .num {
+            font-size: 42px; font-weight: 800; letter-spacing: -1.5px;
+            color: #93c5fd; line-height: 1;
+        }
+        .stat .label {
+            font-size: 14px; color: #cfd8e3; margin-top: 8px; font-weight: 500;
+        }
+
+        .area-section { background: var(--bg-alt); }
+        .area-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+        }
+        .area-tag {
+            background: var(--cream); border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 100px; font-size: 14px;
+            font-weight: 500; color: var(--navy-red);
+        }
+
+        .hours-section { background: var(--cream); }
+        .hours-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) { .hours-grid { grid-template-columns: 1fr; } }
+        .hours-card {
+            background: var(--bg-alt); padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .hours-card h3 {
+            font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--navy-red);
+        }
+        .hours-card .row {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px;
+        }
+        .hours-card .row:last-child { border: none; }
+        .hours-card .row .day { color: var(--text-muted); }
+        .hours-card .row .hrs { font-weight: 600; color: var(--navy-red); }
+        .emergency-card {
+            background: var(--flag); color: var(--cream); padding: 28px; border-radius: 10px;
+        }
+        .emergency-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .emergency-card p { font-size: 15px; margin-bottom: 18px; opacity: 0.95; }
+        .emergency-card .big-number {
+            font-size: 26px; font-weight: 800; letter-spacing: -0.5px;
+            background: rgba(0,0,0,0.2); padding: 14px 18px; border-radius: 6px;
+            text-align: center; letter-spacing: 1px;
+        }
+
+        .cta-section { background: var(--cream); text-align: center; }
+        .cta-section .section-title { margin: 0 auto 16px; }
+        .cta-section .section-lede { margin: 0 auto 32px; }
+
+        footer {
+            background: var(--navy-red); color: #cfd8e3; padding: 40px 20px 24px;
+            font-size: 14px;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) {
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+        footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+        footer a { color: #cfd8e3; text-decoration: none; display: block; margin-bottom: 6px; }
+        footer a:hover { color: var(--cream); }
+        .footer-bottom {
+            max-width: 1100px; margin: 32px auto 0;
+            padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15);
+            font-size: 12px; color: #9aa6b4; text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div><strong>Navy veteran-owned and operated.</strong> Serving the Chippewa Valley since 2008. Fully licensed and insured.</div>
+        <div>Veteran &amp; senior discounts available</div>
+    </div>
+</div>
+
+<header>
+    <div class="header-inner">
+        <a href="#top" class="logo">
+            <div class="logo-mark">TC</div>
+            <div class="logo-text">
+                Tri-County Plumbing
+                <small>Chippewa Falls, WI</small>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#services" class="hide-mobile">Services</a></li>
+                <li><a href="#area" class="hide-mobile">Service Area</a></li>
+                <li><a href="#hours" class="hide-mobile">Hours</a></li>
+                <li><a href="tel:+17153792683" class="header-phone">Call (715) 379-2683</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div>
+            <span class="hero-badge">Veteran-Owned</span>
+            <h1>Built on discipline. Backed by <em>a decade of honest work.</em></h1>
+            <p>Tri-County Plumbing is a Navy veteran-owned shop in Chippewa Falls serving the entire valley. We bring the same standard of service we learned in uniform to every job we take on.</p>
+            <div class="hero-cta">
+                <a href="tel:+17153792683" class="btn-primary">Call (715) 379-2683</a>
+                <a href="#services" class="btn-ghost">Our services</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <h3>Why Tri-County</h3>
+            <h4>Honest work from people who earned your trust.</h4>
+            <p>We show up when we say we will. We charge what we quote. And we stand behind every job. That is how we were trained and that is how we run this business.</p>
+            <ul>
+                <li>Navy veteran-owned and operated</li>
+                <li>Fully licensed and insured</li>
+                <li>Veteran and senior discounts</li>
+                <li>Emergency services available</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="services-section" id="services">
+    <div class="section-inner">
+        <span class="section-eyebrow">What we do</span>
+        <h2 class="section-title">Residential. Commercial. Water heaters. New builds.</h2>
+        <p class="section-lede">Tri-County Plumbing handles jobs across the Chippewa Valley. We keep our scope focused so that every job we take on gets our full attention.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Residential Plumbing</h3>
+                <p>Faucet repairs, toilet replacements, repiping, garbage disposals, sump pumps. If it is in your house and carries water, we fix it.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Commercial Plumbing</h3>
+                <p>Offices, restaurants, retail spaces, and light industrial. We bring the same reliability to commercial work that our residential customers count on.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Water Heater Install &amp; Repair</h3>
+                <p>Gas and electric water heaters. Installation, repair, and full replacement. No hot water is not something anyone should put up with for long.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>New Construction</h3>
+                <p>Complete plumbing for new homes and commercial buildings. Rough-in through final fixtures. We work with your builder from the start.</p>
+                <div class="price">Free estimate</div>
+            </div>
+            <div class="service-card">
+                <h3>Emergency Services</h3>
+                <p>Burst pipes, flooding, sewer backups. We offer emergency service outside regular hours because plumbing problems do not check the calendar.</p>
+                <div class="price">Call for availability</div>
+            </div>
+            <div class="service-card">
+                <h3>Veteran &amp; Senior Discounts</h3>
+                <p>We offer discounts to fellow veterans and senior citizens. Just ask when you call. It is our way of looking out for the people who looked out for us.</p>
+                <div class="price">Ask about discounts</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="section-inner">
+        <span class="section-eyebrow">The shop</span>
+        <h2 class="section-title">Navy veteran-owned. Serving the valley since 2008.</h2>
+        <p class="section-lede">Tri-County Plumbing was founded with a simple idea: work hard, be honest, treat people right. The Navy taught discipline and accountability. This business runs on both.</p>
+
+        <div class="about-grid">
+            <div class="stat"><div class="num">2008</div><div class="label">Founded in Chippewa Falls</div></div>
+            <div class="stat"><div class="num">USN</div><div class="label">Navy veteran-owned</div></div>
+            <div class="stat"><div class="num">8+</div><div class="label">Communities served</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">Estimates on every job</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="area-section" id="area">
+    <div class="section-inner">
+        <span class="section-eyebrow">Where we work</span>
+        <h2 class="section-title">Covering the Chippewa Valley and beyond.</h2>
+        <p class="section-lede">We serve communities across three counties. If you are in the valley, we will come to you.</p>
+
+        <div class="area-tags">
+            <span class="area-tag">Chippewa Falls</span>
+            <span class="area-tag">Eau Claire</span>
+            <span class="area-tag">Altoona</span>
+            <span class="area-tag">Chetek</span>
+            <span class="area-tag">Menomonie</span>
+            <span class="area-tag">Bloomer</span>
+            <span class="area-tag">Stanley</span>
+            <span class="area-tag">Lake Holcombe</span>
+        </div>
+    </div>
+</section>
+
+<section class="hours-section" id="hours">
+    <div class="section-inner">
+        <span class="section-eyebrow">When we answer</span>
+        <h2 class="section-title">Regular hours and emergency availability.</h2>
+
+        <div class="hours-grid">
+            <div class="hours-card">
+                <h3>Office Hours</h3>
+                <div class="row"><span class="day">Monday</span><span class="hrs">7 AM - 4 PM</span></div>
+                <div class="row"><span class="day">Tuesday</span><span class="hrs">7 AM - 4 PM</span></div>
+                <div class="row"><span class="day">Wednesday</span><span class="hrs">7 AM - 4 PM</span></div>
+                <div class="row"><span class="day">Thursday</span><span class="hrs">7 AM - 4 PM</span></div>
+                <div class="row"><span class="day">Friday</span><span class="hrs">7 AM - 4 PM</span></div>
+                <div class="row"><span class="day">Saturday</span><span class="hrs">Emergency only</span></div>
+                <div class="row"><span class="day">Sunday</span><span class="hrs">Emergency only</span></div>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Emergency Service</h3>
+                <p>Burst pipe, flooding, or sewer backup outside business hours? Call us. We offer emergency services because problems do not wait for Monday morning.</p>
+                <div class="big-number">(715) 379-2683</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="contact">
+    <div class="section-inner">
+        <span class="section-eyebrow">Get a free estimate</span>
+        <h2 class="section-title">Veteran-owned. Valley-proven. One call does it.</h2>
+        <p class="section-lede">Tri-County Plumbing serves Chippewa Falls, Eau Claire, Altoona, Menomonie, Bloomer, and the entire Chippewa Valley. Veteran and senior discounts available.</p>
+        <div style="margin-bottom: 12px;">
+            <a href="tel:+17153792683" class="btn-primary">Call (715) 379-2683</a>
+        </div>
+        <p style="font-size: 14px; color: var(--text-muted);">
+            <a href="mailto:tricoplumbing@yahoo.com" style="color: var(--flag); text-decoration: none; font-weight: 600;">tricoplumbing@yahoo.com</a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            <h4>Tri-County Plumbing, L.L.C.</h4>
+            <p>Navy veteran-owned and operated plumbing company serving the Chippewa Valley since 2008. Residential, commercial, water heaters, and new construction. Fully licensed and insured.</p>
+            <p style="margin-top: 12px;">Veteran &amp; Senior Discounts Available</p>
+        </div>
+        <div>
+            <h4>Services</h4>
+            <a href="#services">Residential plumbing</a>
+            <a href="#services">Commercial plumbing</a>
+            <a href="#services">Water heater install</a>
+            <a href="#services">New construction</a>
+            <a href="#services">Emergency services</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <a href="tel:+17153792683">(715) 379-2683</a>
+            <a href="mailto:tricoplumbing@yahoo.com">tricoplumbing@yahoo.com</a>
+            <p style="margin-top: 12px;">Chippewa Falls, WI 54729<br>Serving the Chippewa Valley</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Tri-County Plumbing, L.L.C. Chippewa Falls, WI. All rights reserved.
+    </div>
+</footer>
+
+<!-- StillOpen chat widget -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="user_3CQIlI3cL6LvjoRUz79zW57EWYO"></script>
+
+</body>
+</html>
