@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RJ Rasmussen Plumbing & Heating | Plover, WI | 24/7 Emergency Service</title>
-    <meta name="description" content="40+ years of plumbing, HVAC, and remodeling in Central Wisconsin. Commercial and residential. Amana brand partner. 24/7 emergency on-call. Plover, WI.">
+    <title>Walsh Plumbing | Kenosha, WI | 24/7 Emergency Plumber Since 1953</title>
+    <meta name="description" content="Family-owned plumber serving Kenosha, WI and surrounding areas since 1953. 24/7/365 emergency service. Drains, water heaters, leak repair, sump pumps. Call (262) 862-2424.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --steel: #374151;
-            --steel-light: #4b5563;
+            --forest: #064e3b;
+            --forest-light: #047857;
             --cream: #f7f5f0;
-            --accent: #374151;
-            --accent-light: #4b5563;
-            --highlight: #60a5fa;
+            --green-accent: #10b981;
+            --green-pale: #a7f3d0;
             --text: #1a1a1a;
             --text-muted: #5a5a5a;
             --border: #d9d4c7;
@@ -32,7 +31,7 @@
         }
 
         .top-bar {
-            background: var(--steel);
+            background: var(--forest);
             color: var(--cream);
             padding: 8px 0;
             font-size: 14px;
@@ -42,7 +41,7 @@
             display: flex; justify-content: space-between; align-items: center; gap: 16px;
             flex-wrap: wrap;
         }
-        .top-bar strong { color: var(--highlight); }
+        .top-bar strong { color: var(--green-accent); }
 
         header {
             background: var(--cream);
@@ -55,11 +54,11 @@
         }
         .logo {
             display: flex; align-items: center; gap: 12px;
-            text-decoration: none; color: var(--steel);
+            text-decoration: none; color: var(--forest);
         }
         .logo-mark {
             width: 48px; height: 48px; border-radius: 8px;
-            background: var(--accent); color: var(--cream);
+            background: var(--forest-light); color: var(--cream);
             display: flex; align-items: center; justify-content: center;
             font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
         }
@@ -74,16 +73,16 @@
             list-style: none; display: flex; gap: 28px; align-items: center;
         }
         nav a {
-            color: var(--steel); text-decoration: none; font-weight: 500; font-size: 15px;
+            color: var(--forest); text-decoration: none; font-weight: 500; font-size: 15px;
         }
-        nav a:hover { color: var(--accent-light); }
+        nav a:hover { color: var(--forest-light); }
         .header-phone {
-            background: var(--accent); color: var(--cream);
+            background: var(--forest-light); color: var(--cream);
             padding: 10px 20px; border-radius: 6px;
             text-decoration: none; font-weight: 700; font-size: 15px;
             transition: background 0.15s;
         }
-        .header-phone:hover { background: var(--accent-light); }
+        .header-phone:hover { background: var(--green-accent); }
         .hide-mobile { display: block; }
         @media (max-width: 720px) {
             nav ul li:not(:last-child) { display: none; }
@@ -93,8 +92,8 @@
         .hero {
             padding: 64px 20px 80px;
             background:
-                linear-gradient(135deg, rgba(55,65,81,0.93) 0%, rgba(55,65,81,0.83) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%234b5563" stroke-width="1" fill="none" opacity="0.3"/></svg>');
+                linear-gradient(135deg, rgba(6,78,59,0.93) 0%, rgba(6,78,59,0.83) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%23047857" stroke-width="1" fill="none" opacity="0.3"/></svg>');
             color: var(--cream);
         }
         .hero-inner {
@@ -106,13 +105,13 @@
         }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(96,165,250,0.18); border: 1px solid rgba(96,165,250,0.4);
-            color: var(--highlight); padding: 6px 14px; border-radius: 100px;
+            background: rgba(16,185,129,0.18); border: 1px solid rgba(16,185,129,0.4);
+            color: var(--green-pale); padding: 6px 14px; border-radius: 100px;
             font-size: 13px; font-weight: 600; margin-bottom: 20px;
         }
         .hero-badge::before {
             content: ""; width: 8px; height: 8px; border-radius: 50%;
-            background: var(--highlight); box-shadow: 0 0 8px var(--highlight);
+            background: var(--green-accent); box-shadow: 0 0 8px var(--green-accent);
             animation: pulse 2s infinite;
         }
         @keyframes pulse {
@@ -124,22 +123,22 @@
             margin-bottom: 20px;
         }
         .hero h1 em {
-            font-style: normal; color: var(--highlight);
+            font-style: normal; color: var(--green-accent);
         }
         .hero p {
-            font-size: 18px; color: #d1d5db; max-width: 520px; margin-bottom: 32px;
+            font-size: 18px; color: #cfd8e3; max-width: 520px; margin-bottom: 32px;
         }
         .hero-cta {
             display: flex; gap: 12px; flex-wrap: wrap;
         }
         .btn-primary {
-            background: var(--accent); color: var(--cream);
+            background: var(--forest-light); color: var(--cream);
             padding: 14px 26px; border-radius: 6px;
             text-decoration: none; font-weight: 700; font-size: 16px;
             display: inline-flex; align-items: center; gap: 8px;
             transition: background 0.15s; border: none; cursor: pointer;
         }
-        .btn-primary:hover { background: var(--accent-light); }
+        .btn-primary:hover { background: var(--green-accent); }
         .btn-ghost {
             background: transparent; color: var(--cream);
             padding: 14px 26px; border-radius: 6px;
@@ -157,7 +156,7 @@
         }
         .hero-card h3 {
             font-size: 13px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px;
+            letter-spacing: 1.5px; color: var(--forest-light); margin-bottom: 12px;
         }
         .hero-card h4 {
             font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px;
@@ -176,12 +175,12 @@
         .section-eyebrow {
             display: block; font-size: 13px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 12px;
+            color: var(--forest-light); margin-bottom: 12px;
         }
         .section-title {
             font-size: clamp(28px, 4vw, 40px);
             font-weight: 800; letter-spacing: -1px; line-height: 1.1;
-            color: var(--steel); margin-bottom: 16px; max-width: 720px;
+            color: var(--forest); margin-bottom: 16px; max-width: 720px;
         }
         .section-lede {
             font-size: 18px; color: var(--text-muted); max-width: 640px;
@@ -202,20 +201,20 @@
         }
         .service-card:hover {
             transform: translateY(-2px);
-            border-color: var(--accent);
+            border-color: var(--forest-light);
         }
         .service-card h3 {
-            font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--steel);
+            font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--forest);
         }
         .service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
         .service-card .price {
-            font-size: 14px; font-weight: 600; color: var(--accent);
+            font-size: 14px; font-weight: 600; color: var(--forest-light);
         }
 
-        .about-section { background: var(--steel); color: var(--cream); }
+        .about-section { background: var(--forest); color: var(--cream); }
         .about-section .section-title { color: var(--cream); }
-        .about-section .section-lede { color: #d1d5db; }
-        .about-section .section-eyebrow { color: var(--highlight); }
+        .about-section .section-lede { color: #c5e8d8; }
+        .about-section .section-eyebrow { color: var(--green-accent); }
         .about-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px; margin-top: 40px;
@@ -225,10 +224,10 @@
         }
         .stat .num {
             font-size: 42px; font-weight: 800; letter-spacing: -1.5px;
-            color: var(--highlight); line-height: 1;
+            color: var(--green-accent); line-height: 1;
         }
         .stat .label {
-            font-size: 14px; color: #d1d5db; margin-top: 8px; font-weight: 500;
+            font-size: 14px; color: #c5e8d8; margin-top: 8px; font-weight: 500;
         }
 
         .area-section { background: var(--bg-alt); }
@@ -238,7 +237,7 @@
         .area-tag {
             background: var(--cream); border: 1px solid var(--border);
             padding: 8px 16px; border-radius: 100px; font-size: 14px;
-            font-weight: 500; color: var(--steel);
+            font-weight: 500; color: var(--forest);
         }
 
         .hours-section { background: var(--cream); }
@@ -251,7 +250,7 @@
             border: 1px solid var(--border);
         }
         .hours-card h3 {
-            font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--steel);
+            font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--forest);
         }
         .hours-card .row {
             display: flex; justify-content: space-between;
@@ -259,9 +258,9 @@
         }
         .hours-card .row:last-child { border: none; }
         .hours-card .row .day { color: var(--text-muted); }
-        .hours-card .row .hrs { font-weight: 600; color: var(--steel); }
+        .hours-card .row .hrs { font-weight: 600; color: var(--forest); }
         .emergency-card {
-            background: var(--accent); color: var(--cream); padding: 28px; border-radius: 10px;
+            background: var(--forest-light); color: var(--cream); padding: 28px; border-radius: 10px;
         }
         .emergency-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
         .emergency-card p { font-size: 15px; margin-bottom: 18px; opacity: 0.95; }
@@ -276,7 +275,7 @@
         .cta-section .section-lede { margin: 0 auto 32px; }
 
         footer {
-            background: var(--steel); color: #d1d5db; padding: 40px 20px 24px;
+            background: var(--forest); color: #c5e8d8; padding: 40px 20px 24px;
             font-size: 14px;
         }
         .footer-inner {
@@ -287,12 +286,12 @@
             .footer-inner { grid-template-columns: 1fr; }
         }
         footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
-        footer a { color: #d1d5db; text-decoration: none; display: block; margin-bottom: 6px; }
+        footer a { color: #c5e8d8; text-decoration: none; display: block; margin-bottom: 6px; }
         footer a:hover { color: var(--cream); }
         .footer-bottom {
             max-width: 1100px; margin: 32px auto 0;
             padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15);
-            font-size: 12px; color: #9ca3af; text-align: center;
+            font-size: 12px; color: #7fb8a0; text-align: center;
         }
     </style>
 </head>
@@ -300,18 +299,18 @@
 
 <div class="top-bar">
     <div class="top-bar-inner">
-        <div><strong>24/7 Emergency On-Call.</strong> 40+ years serving Central Wisconsin. Amana brand partner.</div>
-        <div>Founded 1982 | Plover, WI</div>
+        <div><strong>24/7/365 Emergency Service.</strong> Family-owned since 1953. Fully licensed &amp; insured.</div>
+        <div>Serving Kenosha, Racine &amp; Lake County</div>
     </div>
 </div>
 
 <header>
     <div class="header-inner">
         <a href="#top" class="logo">
-            <div class="logo-mark">RJ</div>
+            <div class="logo-mark">WP</div>
             <div class="logo-text">
-                RJ Rasmussen Plumbing &amp; Heating
-                <small>Plover, WI</small>
+                Walsh Plumbing
+                <small>Kenosha, WI &bull; Est. 1953</small>
             </div>
         </a>
         <nav>
@@ -319,7 +318,7 @@
                 <li><a href="#services" class="hide-mobile">Services</a></li>
                 <li><a href="#area" class="hide-mobile">Service Area</a></li>
                 <li><a href="#hours" class="hide-mobile">Hours</a></li>
-                <li><a href="tel:+17153414893" class="header-phone">Call (715) 341-4893</a></li>
+                <li><a href="tel:+12628622424" class="header-phone">Call (262) 862-2424</a></li>
             </ul>
         </nav>
     </div>
@@ -328,23 +327,23 @@
 <section class="hero" id="top">
     <div class="hero-inner">
         <div>
-            <span class="hero-badge">40+ Years Strong</span>
-            <h1>Four decades of trust. Built on <em>showing up.</em></h1>
-            <p>RJ Rasmussen Plumbing and Heating has served Central Wisconsin since 1982. Commercial, residential, new construction, remodels, and service calls. We do the work right.</p>
+            <span class="hero-badge">Available 24/7/365</span>
+            <h1>70+ years of fixing it right. <em>Day or night.</em></h1>
+            <p>Walsh Plumbing has been the family you call when pipes burst, drains back up, or the water heater quits. Three generations serving Kenosha and beyond. We answer the phone every single day of the year.</p>
             <div class="hero-cta">
-                <a href="tel:+17153414893" class="btn-primary">Call (715) 341-4893</a>
+                <a href="tel:+12628622424" class="btn-primary">Call (262) 862-2424</a>
                 <a href="#services" class="btn-ghost">Our services</a>
             </div>
         </div>
         <div class="hero-card">
-            <h3>Emergency?</h3>
-            <h4>Burst pipe? No heat? Sewer backup?</h4>
-            <p>Call us any hour. Our on-call team responds 24/7. That is how it has worked since 1982.</p>
+            <h3>Emergency? Call now.</h3>
+            <h4>Burst pipe? Sewer backup? Flooding?</h4>
+            <p>We pick up the phone 24 hours a day, 365 days a year. Holidays, weekends, the middle of the night. That is the Walsh Plumbing promise.</p>
             <ul>
-                <li>24/7 emergency on-call</li>
-                <li>40+ years of experience</li>
-                <li>Amana brand partner</li>
-                <li>Commercial and residential</li>
+                <li>24/7/365 emergency response</li>
+                <li>Leak containment and burst pipes</li>
+                <li>Sewer backup and frozen pipes</li>
+                <li>Fully licensed and insured</li>
             </ul>
         </div>
     </div>
@@ -353,65 +352,70 @@
 <section class="services-section" id="services">
     <div class="section-inner">
         <span class="section-eyebrow">What we do</span>
-        <h2 class="section-title">Plumbing, HVAC, remodels, and new construction since 1982.</h2>
-        <p class="section-lede">RJ Rasmussen handles the full range of plumbing and mechanical work. From a leaky faucet to a ground-up commercial build, one team does it all.</p>
+        <h2 class="section-title">Every plumbing problem. One family to call.</h2>
+        <p class="section-lede">Walsh Plumbing handles everything from a slow drain to a full sewer line replacement. Family-owned, fully licensed, and on call around the clock.</p>
 
         <div class="services-grid">
             <div class="service-card">
-                <h3>Commercial Plumbing</h3>
-                <p>Restaurants, retail, offices, industrial. Code-compliant commercial plumbing for new builds, remodels, and ongoing maintenance.</p>
-                <div class="price">Free estimate</div>
+                <h3>Drain &amp; Sewer Cleaning</h3>
+                <p>Clogged kitchen drains, backed-up sewers, slow bathroom drains. We clear the line and diagnose the root cause so the problem does not come back.</p>
+                <div class="price">Free quote</div>
             </div>
             <div class="service-card">
-                <h3>Residential Plumbing</h3>
-                <p>Faucets, fixtures, water heaters, sump pumps, re-pipes, and drain cleaning. Every residential plumbing job handled right the first time.</p>
-                <div class="price">Free estimate</div>
+                <h3>Water Heater Repair &amp; Replacement</h3>
+                <p>No hot water is no way to start the day. We repair and replace water heaters fast. Tank and tankless options available.</p>
+                <div class="price">Free quote</div>
             </div>
             <div class="service-card">
-                <h3>HVAC Systems</h3>
-                <p>Heating and air conditioning installs, repairs, and maintenance. Proud Amana brand partner. We keep buildings comfortable year-round.</p>
-                <div class="price">Free estimate</div>
+                <h3>Leak Detection &amp; Pipe Repair</h3>
+                <p>Hidden leaks cause big damage. We find them, fix them, and make sure your pipes are solid. From pinhole leaks to full repiping.</p>
+                <div class="price">Free quote</div>
             </div>
             <div class="service-card">
-                <h3>Commercial Remodels</h3>
-                <p>Full mechanical scope for commercial remodel projects. Plumbing, HVAC, and specialty mechanical coordinated with your general contractor.</p>
-                <div class="price">Free estimate</div>
+                <h3>Sump Pumps &amp; Ejector Pumps</h3>
+                <p>Basement flooding is not something you gamble on. We install, repair, and replace sump pumps and ejector pumps to keep your basement dry.</p>
+                <div class="price">Free quote</div>
             </div>
             <div class="service-card">
-                <h3>Residential Remodels</h3>
-                <p>Kitchen and bathroom remodels, basement finishes, and additions. We handle the plumbing and mechanical so your project stays on track.</p>
-                <div class="price">Free estimate</div>
+                <h3>Fixture Installation</h3>
+                <p>New faucets, sinks, toilets, and showerheads. We install fixtures right so they work right and look right.</p>
+                <div class="price">Free quote</div>
             </div>
             <div class="service-card">
-                <h3>New Construction</h3>
-                <p>Complete plumbing and HVAC for new homes and commercial buildings. Rough-in through final. We work with your builder from permit to punchlist.</p>
-                <div class="price">Free estimate</div>
+                <h3>Bathroom &amp; Kitchen Plumbing</h3>
+                <p>Remodeling the kitchen or bathroom? We handle the plumbing side so your contractor can keep the project moving on schedule.</p>
+                <div class="price">Free quote</div>
             </div>
             <div class="service-card">
-                <h3>Specialty Mechanical</h3>
-                <p>Custom mechanical systems, process piping, and specialty installations that go beyond standard plumbing and HVAC. 40+ years of problem-solving.</p>
-                <div class="price">Free estimate</div>
+                <h3>Water Softeners &amp; Filtration</h3>
+                <p>Hard water ruins fixtures and leaves scale on everything. We install water softener and filtration systems that solve the problem for good.</p>
+                <div class="price">Free quote</div>
             </div>
             <div class="service-card">
-                <h3>Service Calls</h3>
-                <p>Something broken? We diagnose it, quote it, and fix it. Residential and commercial service calls with 24/7 emergency on-call availability.</p>
-                <div class="price">Call anytime</div>
+                <h3>Garbage Disposal Installation</h3>
+                <p>New garbage disposal or replacing a worn-out unit? We handle the install cleanly and test it before we leave.</p>
+                <div class="price">Free quote</div>
+            </div>
+            <div class="service-card">
+                <h3>24/7 Emergency Plumbing</h3>
+                <p>Burst pipes, frozen pipes, sewer backups, and leak containment. We respond any hour, any day, all year. Call us and we send a truck.</p>
+                <div class="price">Call any time</div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="about-section">
+<section class="about-section" id="about">
     <div class="section-inner">
-        <span class="section-eyebrow">The company</span>
-        <h2 class="section-title">Since 1982. Reliable, experienced, and still showing up every day.</h2>
-        <p class="section-lede">RJ Rasmussen Plumbing and Heating has been a trusted name in Central Wisconsin for over 40 years. We build long-lasting relationships by doing honest work at fair prices.</p>
+        <span class="section-eyebrow">The shop</span>
+        <h2 class="section-title">Family-owned since 1953. Three generations strong.</h2>
+        <p class="section-lede">Walsh Plumbing is a family-owned and operated plumbing company that has been serving Kenosha, Racine, and Lake County for over 70 years. We are fully licensed and insured. We show up on time, quote fair, and get the job done right.</p>
 
         <div class="about-grid">
-            <div class="stat"><div class="num">40+</div><div class="label">Years in business</div></div>
-            <div class="stat"><div class="num">24/7</div><div class="label">Emergency on-call</div></div>
-            <div class="stat"><div class="num">1982</div><div class="label">Founded in Plover, WI</div></div>
-            <div class="stat"><div class="num">Free</div><div class="label">Estimates on every job</div></div>
+            <div class="stat"><div class="num">70+</div><div class="label">Years in business</div></div>
+            <div class="stat"><div class="num">24/7</div><div class="label">365 days a year</div></div>
+            <div class="stat"><div class="num">1953</div><div class="label">Year founded</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">Quotes on every job</div></div>
         </div>
     </div>
 </section>
@@ -419,20 +423,17 @@
 <section class="area-section" id="area">
     <div class="section-inner">
         <span class="section-eyebrow">Where we work</span>
-        <h2 class="section-title">Serving Plover, Stevens Point, and all of Central Wisconsin.</h2>
-        <p class="section-lede">We cover the greater Portage County area and surrounding communities. If you are in Central Wisconsin, we will be there.</p>
+        <h2 class="section-title">Serving Kenosha, Racine, and Northern Illinois.</h2>
+        <p class="section-lede">We cover southeastern Wisconsin and northern Lake County, IL. If you are in our area, we will be there.</p>
 
         <div class="area-tags">
-            <span class="area-tag">Plover</span>
-            <span class="area-tag">Stevens Point</span>
-            <span class="area-tag">Whiting</span>
-            <span class="area-tag">Junction City</span>
-            <span class="area-tag">Amherst</span>
-            <span class="area-tag">Rosholt</span>
-            <span class="area-tag">Mosinee</span>
-            <span class="area-tag">Wausau</span>
-            <span class="area-tag">Wisconsin Rapids</span>
-            <span class="area-tag">Marshfield</span>
+            <span class="area-tag">Kenosha, WI</span>
+            <span class="area-tag">Pleasant Prairie, WI</span>
+            <span class="area-tag">Racine, WI</span>
+            <span class="area-tag">Salem Lakes, WI</span>
+            <span class="area-tag">Trevor, WI</span>
+            <span class="area-tag">Lake County, IL</span>
+            <span class="area-tag">Antioch, IL</span>
             <span class="area-tag">And surrounding areas</span>
         </div>
     </div>
@@ -441,24 +442,24 @@
 <section class="hours-section" id="hours">
     <div class="section-inner">
         <span class="section-eyebrow">When we answer</span>
-        <h2 class="section-title">Regular hours and 24/7 emergency on-call.</h2>
+        <h2 class="section-title">We pick up the phone 24/7/365.</h2>
 
         <div class="hours-grid">
             <div class="hours-card">
-                <h3>Office hours</h3>
-                <div class="row"><span class="day">Monday</span><span class="hrs">7:00 AM - 4:30 PM</span></div>
-                <div class="row"><span class="day">Tuesday</span><span class="hrs">7:00 AM - 4:30 PM</span></div>
-                <div class="row"><span class="day">Wednesday</span><span class="hrs">7:00 AM - 4:30 PM</span></div>
-                <div class="row"><span class="day">Thursday</span><span class="hrs">7:00 AM - 4:30 PM</span></div>
-                <div class="row"><span class="day">Friday</span><span class="hrs">7:00 AM - 4:30 PM</span></div>
-                <div class="row"><span class="day">Saturday</span><span class="hrs">Emergency only</span></div>
-                <div class="row"><span class="day">Sunday</span><span class="hrs">Emergency only</span></div>
+                <h3>Availability</h3>
+                <div class="row"><span class="day">Monday</span><span class="hrs">24 Hours</span></div>
+                <div class="row"><span class="day">Tuesday</span><span class="hrs">24 Hours</span></div>
+                <div class="row"><span class="day">Wednesday</span><span class="hrs">24 Hours</span></div>
+                <div class="row"><span class="day">Thursday</span><span class="hrs">24 Hours</span></div>
+                <div class="row"><span class="day">Friday</span><span class="hrs">24 Hours</span></div>
+                <div class="row"><span class="day">Saturday</span><span class="hrs">24 Hours</span></div>
+                <div class="row"><span class="day">Sunday</span><span class="hrs">24 Hours</span></div>
             </div>
 
             <div class="emergency-card">
-                <h3>24/7 Emergency On-Call</h3>
-                <p>Burst pipe, no heat, flooding, sewer backup. Call any time. Our on-call team responds because that is what 40 years of service looks like.</p>
-                <div class="big-number">(715) 341-4893</div>
+                <h3>24/7/365 Emergency Line</h3>
+                <p>Burst pipe, flooding, sewer backup, frozen pipes. Call any time, any day, any holiday. We pick up because that is what we do. We have been doing it since 1953.</p>
+                <div class="big-number">(262) 862-2424</div>
             </div>
         </div>
     </div>
@@ -466,43 +467,42 @@
 
 <section class="cta-section" id="contact">
     <div class="section-inner">
-        <span class="section-eyebrow">Get a free estimate</span>
-        <h2 class="section-title">One call. 40 years of trust behind it.</h2>
-        <p class="section-lede">RJ Rasmussen Plumbing and Heating serves Plover, Stevens Point, Wausau, Wisconsin Rapids, and all of Central Wisconsin. Call us or chat with our front desk in the corner.</p>
-        <a href="tel:+17153414893" class="btn-primary">Call (715) 341-4893</a>
+        <span class="section-eyebrow">Get a free quote</span>
+        <h2 class="section-title">One family. One phone number. 70+ years of trust.</h2>
+        <p class="section-lede">Walsh Plumbing serves Kenosha, Pleasant Prairie, Racine, Salem Lakes, Lake County, and beyond. Call us any time or chat with our front desk in the corner.</p>
+        <a href="tel:+12628622424" class="btn-primary">Call (262) 862-2424</a>
     </div>
 </section>
 
 <footer>
     <div class="footer-inner">
         <div>
-            <h4>RJ Rasmussen Plumbing &amp; Heating</h4>
-            <p>Serving Central Wisconsin since 1982. Commercial and residential plumbing, HVAC, remodels, and new construction. Amana brand partner. 40+ years of reliable work.</p>
-            <p style="margin-top: 12px;">2441 Willow Dr., Plover, WI 54467<br>Fully Licensed &amp; Insured</p>
+            <h4>Walsh Plumbing</h4>
+            <p>Family-owned and operated since 1953. Over 70 years of plumbing service in Kenosha, WI and surrounding areas. Fully licensed and insured. Available 24/7/365.</p>
+            <p style="margin-top: 12px;">Kenosha, WI<br>Fully Licensed &amp; Insured</p>
         </div>
         <div>
             <h4>Services</h4>
-            <a href="#services">Commercial plumbing</a>
-            <a href="#services">Residential plumbing</a>
-            <a href="#services">HVAC systems</a>
-            <a href="#services">New construction</a>
-            <a href="#services">Remodels</a>
-            <a href="#services">Service calls</a>
+            <a href="#services">Emergency plumbing</a>
+            <a href="#services">Drain &amp; sewer cleaning</a>
+            <a href="#services">Water heaters</a>
+            <a href="#services">Leak detection</a>
+            <a href="#services">Sump pumps</a>
+            <a href="#services">Water softeners</a>
         </div>
         <div>
             <h4>Contact</h4>
-            <a href="tel:+17153414893">(715) 341-4893</a>
-            <a href="mailto:Service@RJRasPlumb.com">Service@RJRasPlumb.com</a>
-            <p style="margin-top: 12px;">2441 Willow Dr.<br>Plover, WI 54467</p>
+            <a href="tel:+12628622424">(262) 862-2424</a>
+            <p style="margin-top: 12px;">Kenosha, WI<br>Serving SE Wisconsin &amp; Lake County, IL</p>
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; 2026 RJ Rasmussen Plumbing &amp; Heating. Plover, WI. All rights reserved.
+        &copy; 2026 Walsh Plumbing. Kenosha, WI. All rights reserved.
     </div>
 </footer>
 
 <!-- StillOpen chat widget -->
-<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="user_3CQHt9GzAv2DMF0kchlN1TZg6bm"></script>
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="user_3CQIJ1ivYbF7GcatP3xg7Tm7ULu"></script>
 
 </body>
 </html>
