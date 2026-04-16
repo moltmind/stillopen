@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Plumbing LLC | Green Bay to Neenah, WI | Licensed Plumber</title>
+    <meta name="description" content="Licensed and insured plumber serving Green Bay to Neenah, WI. Free estimates. Senior discounts. Call (920) 532-8000.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --copper: #b45309; --copper-light: #d97706; --cream: #f7f5f0; --copper-dark: #92400e; --text: #1a1a1a; --text-muted: #5a5a5a; --border: #d9d4c7; --bg-alt: #ffffff; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .top-bar { background: var(--copper-dark); color: var(--cream); padding: 8px 0; font-size: 14px; }
+        .top-bar-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .top-bar strong { color: #fbbf24; }
+        header { background: var(--cream); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 50; }
+        .header-inner { max-width: 1100px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--copper-dark); }
+        .logo-mark { width: 48px; height: 48px; border-radius: 8px; background: var(--copper); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; }
+        .logo-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+        .logo-text small { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+        nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
+        nav a { color: var(--copper-dark); text-decoration: none; font-weight: 500; font-size: 15px; }
+        nav a:hover { color: var(--copper-light); }
+        .header-phone { background: var(--copper); color: var(--cream); padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 15px; transition: background 0.15s; }
+        .header-phone:hover { background: var(--copper-light); }
+        .hide-mobile { display: block; }
+        @media (max-width: 720px) { nav ul li:not(:last-child) { display: none; } .hide-mobile { display: none; } }
+        .hero { padding: 64px 20px 80px; background: linear-gradient(135deg, rgba(146,64,14,0.93) 0%, rgba(180,83,9,0.83) 100%); color: var(--cream); }
+        .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+        @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(217,119,6,0.18); border: 1px solid rgba(251,191,36,0.4); color: #fde68a; padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+        .hero-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fbbf24; box-shadow: 0 0 8px #fbbf24; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .hero h1 { font-size: clamp(32px, 5.5vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 20px; }
+        .hero h1 em { font-style: normal; color: #fbbf24; }
+        .hero p { font-size: 18px; color: #fde8c8; max-width: 520px; margin-bottom: 32px; }
+        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn-primary { background: var(--copper); color: var(--cream); padding: 14px 26px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 16px; transition: background 0.15s; border: none; cursor: pointer; }
+        .btn-primary:hover { background: var(--copper-light); }
+        .btn-ghost { background: transparent; color: var(--cream); padding: 14px 26px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid rgba(245,241,232,0.3); transition: border-color 0.15s; }
+        .btn-ghost:hover { border-color: var(--cream); }
+        .hero-card { background: var(--cream); color: var(--text); padding: 28px; border-radius: 10px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .hero-card h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--copper); margin-bottom: 12px; }
+        .hero-card h4 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+        .hero-card p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; }
+        .hero-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hero-card li { font-size: 14px; display: flex; align-items: center; gap: 10px; }
+        .hero-card li::before { content: "\2713"; color: #16a34a; font-weight: 800; font-size: 14px; }
+        section { padding: 72px 20px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-eyebrow { display: block; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
+        .section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; color: var(--copper-dark); margin-bottom: 16px; max-width: 720px; }
+        .section-lede { font-size: 18px; color: var(--text-muted); max-width: 640px; margin-bottom: 48px; }
+        .services-section { background: var(--bg-alt); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card { background: var(--cream); padding: 28px; border-radius: 10px; border: 1px solid var(--border); transition: transform 0.15s, border-color 0.15s; }
+        .service-card:hover { transform: translateY(-2px); border-color: var(--copper); }
+        .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--copper-dark); }
+        .service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+        .service-card .price { font-size: 14px; font-weight: 600; color: var(--copper); }
+        .about-section { background: var(--copper-dark); color: var(--cream); }
+        .about-section .section-title { color: var(--cream); }
+        .about-section .section-lede { color: #fde8c8; }
+        .about-section .section-eyebrow { color: #fbbf24; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px; }
+        .stat { padding: 20px 0; border-top: 1px solid rgba(245,241,232,0.15); }
+        .stat .num { font-size: 42px; font-weight: 800; letter-spacing: -1.5px; color: #fbbf24; line-height: 1; }
+        .stat .label { font-size: 14px; color: #fde8c8; margin-top: 8px; font-weight: 500; }
+        .area-section { background: var(--bg-alt); }
+        .area-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+        .area-tag { background: var(--cream); border: 1px solid var(--border); padding: 8px 16px; border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--copper-dark); }
+        .hours-section { background: var(--cream); }
+        .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 720px) { .hours-grid { grid-template-columns: 1fr; } }
+        .hours-card { background: var(--bg-alt); padding: 28px; border-radius: 10px; border: 1px solid var(--border); }
+        .hours-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--copper-dark); }
+        .hours-card .row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
+        .hours-card .row:last-child { border: none; }
+        .hours-card .row .day { color: var(--text-muted); }
+        .hours-card .row .hrs { font-weight: 600; color: var(--copper-dark); }
+        .emergency-card { background: var(--copper); color: var(--cream); padding: 28px; border-radius: 10px; }
+        .emergency-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .emergency-card p { font-size: 15px; margin-bottom: 18px; opacity: 0.95; }
+        .emergency-card .big-number { font-size: 26px; font-weight: 800; background: rgba(0,0,0,0.2); padding: 14px 18px; border-radius: 6px; text-align: center; letter-spacing: 1px; }
+        .cta-section { background: var(--cream); text-align: center; }
+        .cta-section .section-title { margin: 0 auto 16px; }
+        .cta-section .section-lede { margin: 0 auto 32px; }
+        footer { background: var(--copper-dark); color: #fde8c8; padding: 40px 20px 24px; font-size: 14px; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        @media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; } }
+        footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+        footer a { color: #fde8c8; text-decoration: none; display: block; margin-bottom: 6px; }
+        footer a:hover { color: var(--cream); }
+        .footer-bottom { max-width: 1100px; margin: 32px auto 0; padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15); font-size: 12px; color: #c8a67a; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="top-bar"><div class="top-bar-inner"><div><strong>Free Estimates.</strong> Fully Licensed &amp; Insured. Serving Green Bay to Neenah and surrounding areas.</div><div>License MP# 995982</div></div></div>
+<header><div class="header-inner"><a href="#top" class="logo"><div class="logo-mark">EP</div><div class="logo-text">Edge Plumbing LLC<small>Fox Valley, WI</small></div></a><nav><ul><li><a href="#services" class="hide-mobile">Services</a></li><li><a href="#area" class="hide-mobile">Service Area</a></li><li><a href="#hours" class="hide-mobile">Contact</a></li><li><a href="tel:+19205328000" class="header-phone">Call (920) 532-8000</a></li></ul></nav></div></header>
+<section class="hero" id="top"><div class="hero-inner"><div><span class="hero-badge">Free Estimates</span><h1>Honest plumbing from people who <em>pick up the phone.</em></h1><p>Licensed and insured plumber serving the Fox Valley from Green Bay to Neenah. Competitive hourly rates, senior discounts, and free estimates on every job. Residential and commercial.</p><div class="hero-cta"><a href="tel:+19205328000" class="btn-primary">Call (920) 532-8000</a><a href="#services" class="btn-ghost">Our services</a></div></div><div class="hero-card"><h3>Need a Plumber?</h3><h4>Water heater out? Pipes frozen? Drain backed up?</h4><p>Call us for a free estimate. We handle everything from leaky faucets to full bathroom remodels. No job too small.</p><ul><li>Free estimates on every job</li><li>Senior discounts available</li><li>Fully licensed and insured</li><li>Residential and commercial</li></ul></div></div></section>
+<section class="services-section" id="services"><div class="section-inner"><span class="section-eyebrow">What we do</span><h2 class="section-title">Full-service plumbing for homes and businesses.</h2><p class="section-lede">Edge Plumbing LLC handles it all. From a dripping faucet to a complete kitchen remodel, we bring licensed expertise and fair pricing to every job in the Fox Valley.</p><div class="services-grid"><div class="service-card"><h3>Water Heaters &amp; Recirculating Lines</h3><p>Installation, repair, and replacement of water heaters. Hot water recirculating lines so you get hot water fast without wasting gallons waiting.</p><div class="price">Free estimate</div></div><div class="service-card"><h3>Drain Cleaning &amp; Pipes</h3><p>Clogged drains, broken pipes, frozen pipes, and drain/water pipe repair. We clear the blockage and fix the root cause so it stays fixed.</p><div class="price">Free estimate</div></div><div class="service-card"><h3>Sump &amp; Ejector Pumps</h3><p>Sump pumps, battery backup sump pumps, ejector pumps, and septic pumps. Keep your basement dry and your systems running when it matters most.</p><div class="price">Free estimate</div></div><div class="service-card"><h3>Kitchen &amp; Bath Remodeling</h3><p>Bathroom and kitchen remodels, including faucets, sinks, garbage disposals, showers, tubs, and shower valves. We handle all the plumbing so your project moves forward.</p><div class="price">Free estimate</div></div><div class="service-card"><h3>Water Treatment</h3><p>Water softeners, iron filters, and water filters. Hard water and iron stains are common in the Fox Valley. We install systems that solve it for good.</p><div class="price">Free estimate</div></div><div class="service-card"><h3>Gas Piping &amp; Appliance Lines</h3><p>Gas piping installation and repair, plus appliance water and drain lines. Whether you are hooking up a new gas range or running a line to the dryer, we do it right.</p><div class="price">Free estimate</div></div><div class="service-card"><h3>Outdoor &amp; Weatherization</h3><p>Outside faucets, weatherization, and cross connection inspections. Get your plumbing ready for Wisconsin winters and keep your outdoor water running safely.</p><div class="price">Free estimate</div></div><div class="service-card"><h3>Service, Repair &amp; Inspections</h3><p>General plumbing service and repair for residential and commercial properties. Cross connection inspections and code compliance. If it involves pipes, we handle it.</p><div class="price">Free estimate</div></div></div></div></section>
+<section class="about-section"><div class="section-inner"><span class="section-eyebrow">The shop</span><h2 class="section-title">Licensed. Insured. Competitive pricing. That is the whole pitch.</h2><p class="section-lede">Edge Plumbing LLC is a fully licensed and insured plumbing company serving the Fox Valley. We keep our rates competitive, offer senior discounts, and give free estimates on every job. No surprises.</p><div class="about-grid"><div class="stat"><div class="num">MP#</div><div class="label">995982 Licensed Plumber</div></div><div class="stat"><div class="num">Free</div><div class="label">Estimates on every job</div></div><div class="stat"><div class="num">Sr.</div><div class="label">Senior discounts available</div></div><div class="stat"><div class="num">R+C</div><div class="label">Residential &amp; commercial</div></div></div></div></section>
+<section class="area-section" id="area"><div class="section-inner"><span class="section-eyebrow">Where we work</span><h2 class="section-title">Serving the Fox Valley from Green Bay to Neenah.</h2><p class="section-lede">We cover the Fox Valley corridor and surrounding communities. If you are in the area, give us a call.</p><div class="area-tags"><span class="area-tag">Green Bay</span><span class="area-tag">De Pere</span><span class="area-tag">Wrightstown</span><span class="area-tag">Freedom</span><span class="area-tag">Menasha</span><span class="area-tag">Greenville</span><span class="area-tag">Appleton</span><span class="area-tag">Neenah</span><span class="area-tag">And surrounding areas</span></div></div></section>
+<section class="hours-section" id="hours"><div class="section-inner"><span class="section-eyebrow">Get in touch</span><h2 class="section-title">Call for a free estimate. Senior discounts available.</h2><div class="hours-grid"><div class="hours-card"><h3>Contact info</h3><div class="row"><span class="day">Phone</span><span class="hrs">(920) 532-8000</span></div><div class="row"><span class="day">Email</span><span class="hrs">Edgeplumbingwi@gmail.com</span></div><div class="row"><span class="day">License</span><span class="hrs">MP# 995982</span></div><div class="row"><span class="day">Pricing</span><span class="hrs">Competitive hourly rates</span></div><div class="row"><span class="day">Estimates</span><span class="hrs">Always free</span></div><div class="row"><span class="day">Discounts</span><span class="hrs">Senior discounts</span></div></div><div class="emergency-card"><h3>Call for a Free Estimate</h3><p>Water heater out, drain backed up, pipes leaking, or planning a remodel? Call Edge Plumbing for a free estimate. Competitive rates and honest work.</p><div class="big-number">(920) 532-8000</div></div></div></div></section>
+<section class="cta-section" id="contact"><div class="section-inner"><span class="section-eyebrow">Get a free estimate</span><h2 class="section-title">One call. Honest pricing. Licensed work.</h2><p class="section-lede">Edge Plumbing LLC serves Green Bay, Appleton, Neenah, and the entire Fox Valley. Call us or chat with our front desk in the corner.</p><a href="tel:+19205328000" class="btn-primary">Call (920) 532-8000</a></div></section>
+<footer><div class="footer-inner"><div><h4>Edge Plumbing LLC</h4><p>Licensed and insured plumber serving the Fox Valley from Green Bay to Neenah. Competitive rates, senior discounts, free estimates.</p><p style="margin-top: 12px;">Plumber License MP# 995982<br>Fully Licensed &amp; Insured</p></div><div><h4>Services</h4><a href="#services">Water heaters</a><a href="#services">Drain cleaning</a><a href="#services">Sump pumps</a><a href="#services">Kitchen &amp; bath remodels</a><a href="#services">Water treatment</a><a href="#services">Gas piping</a></div><div><h4>Contact</h4><a href="tel:+19205328000">(920) 532-8000</a><a href="mailto:Edgeplumbingwi@gmail.com">Edgeplumbingwi@gmail.com</a><p style="margin-top: 12px;">Fox Valley, WI<br>Green Bay to Neenah</p></div></div><div class="footer-bottom">&copy; 2026 Edge Plumbing LLC. Fox Valley, WI. All rights reserved.</div></footer>
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="user_3CQDrrbTNj31YAn5nMca3vC06zx"></script>
+</body>
+</html>
