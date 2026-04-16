@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeMars Plumbing, Inc. | North Freedom, WI | Master Plumber Since 1982</title>
+    <meta name="description" content="BBB Accredited master plumber serving Sauk, Dane, and Columbia Counties since 1982. Plumbing, in-floor radiant heating, septic systems, and excavating. Over 41 years of trusted service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --sage: #3d5a3d;
+            --sage-light: #4a7a4a;
+            --cream: #f7f5f0;
+            --accent: #3d5a3d;
+            --accent-light: #4a7a4a;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border: #d9d4c7;
+            --bg-alt: #ffffff;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            background: var(--sage);
+            color: var(--cream);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .top-bar-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            flex-wrap: wrap;
+        }
+        .top-bar strong { color: #86efac; }
+
+        header {
+            background: var(--cream);
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+        }
+        .header-inner {
+            max-width: 1100px; margin: 0 auto; padding: 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 24px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--sage);
+        }
+        .logo-mark {
+            width: 48px; height: 48px; border-radius: 8px;
+            background: var(--accent); color: var(--cream);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+        }
+        .logo-text {
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1;
+        }
+        .logo-text small {
+            display: block; font-size: 11px; font-weight: 500; color: var(--text-muted);
+            letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;
+        }
+        nav ul {
+            list-style: none; display: flex; gap: 28px; align-items: center;
+        }
+        nav a {
+            color: var(--sage); text-decoration: none; font-weight: 500; font-size: 15px;
+        }
+        nav a:hover { color: var(--accent-light); }
+        .header-phone {
+            background: var(--accent); color: var(--cream);
+            padding: 10px 20px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 15px;
+            transition: background 0.15s;
+        }
+        .header-phone:hover { background: var(--accent-light); }
+        .hide-mobile { display: block; }
+        @media (max-width: 720px) {
+            nav ul li:not(:last-child) { display: none; }
+            .hide-mobile { display: none; }
+        }
+
+        .hero {
+            padding: 64px 20px 80px;
+            background:
+                linear-gradient(135deg, rgba(61,90,61,0.93) 0%, rgba(61,90,61,0.83) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%234a7a4a" stroke-width="1" fill="none" opacity="0.3"/></svg>');
+            color: var(--cream);
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+        }
+        @media (max-width: 860px) {
+            .hero-inner { grid-template-columns: 1fr; }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(74,122,74,0.18); border: 1px solid rgba(134,239,172,0.4);
+            color: #86efac; padding: 6px 14px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; margin-bottom: 20px;
+        }
+        .hero-badge::before {
+            content: ""; width: 8px; height: 8px; border-radius: 50%;
+            background: #86efac; box-shadow: 0 0 8px #86efac;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5.5vw, 52px);
+            font-weight: 800; line-height: 1.05; letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+        .hero h1 em {
+            font-style: normal; color: #86efac;
+        }
+        .hero p {
+            font-size: 18px; color: #c6d9c6; max-width: 520px; margin-bottom: 32px;
+        }
+        .hero-cta {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--accent); color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: background 0.15s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--accent-light); }
+        .btn-ghost {
+            background: transparent; color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 600; font-size: 16px;
+            border: 2px solid rgba(245,241,232,0.3);
+            transition: border-color 0.15s;
+        }
+        .btn-ghost:hover { border-color: var(--cream); }
+
+        .hero-card {
+            background: var(--cream); color: var(--text);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .hero-card h3 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px;
+        }
+        .hero-card h4 {
+            font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px;
+        }
+        .hero-card p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; }
+        .hero-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hero-card li {
+            font-size: 14px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-card li::before {
+            content: "\2713"; color: #16a34a; font-weight: 800; font-size: 14px;
+        }
+
+        section { padding: 72px 20px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-eyebrow {
+            display: block; font-size: 13px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800; letter-spacing: -1px; line-height: 1.1;
+            color: var(--sage); margin-bottom: 16px; max-width: 720px;
+        }
+        .section-lede {
+            font-size: 18px; color: var(--text-muted); max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .services-section { background: var(--bg-alt); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--cream);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .service-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+        .service-card h3 {
+            font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--sage);
+        }
+        .service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+        .service-card .price {
+            font-size: 14px; font-weight: 600; color: var(--accent);
+        }
+
+        .about-section { background: var(--sage); color: var(--cream); }
+        .about-section .section-title { color: var(--cream); }
+        .about-section .section-lede { color: #c6d9c6; }
+        .about-section .section-eyebrow { color: #86efac; }
+        .about-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px; margin-top: 40px;
+        }
+        .stat {
+            padding: 20px 0; border-top: 1px solid rgba(245,241,232,0.15);
+        }
+        .stat .num {
+            font-size: 42px; font-weight: 800; letter-spacing: -1.5px;
+            color: #86efac; line-height: 1;
+        }
+        .stat .label {
+            font-size: 14px; color: #c6d9c6; margin-top: 8px; font-weight: 500;
+        }
+
+        .area-section { background: var(--bg-alt); }
+        .area-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+        }
+        .area-tag {
+            background: var(--cream); border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 100px; font-size: 14px;
+            font-weight: 500; color: var(--sage);
+        }
+
+        .hours-section { background: var(--cream); }
+        .hours-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) { .hours-grid { grid-template-columns: 1fr; } }
+        .hours-card {
+            background: var(--bg-alt); padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .hours-card h3 {
+            font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--sage);
+        }
+        .hours-card .row {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px;
+        }
+        .hours-card .row:last-child { border: none; }
+        .hours-card .row .day { color: var(--text-muted); }
+        .hours-card .row .hrs { font-weight: 600; color: var(--sage); }
+        .emergency-card {
+            background: var(--accent); color: var(--cream); padding: 28px; border-radius: 10px;
+        }
+        .emergency-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .emergency-card p { font-size: 15px; margin-bottom: 18px; opacity: 0.95; }
+        .emergency-card .big-number {
+            font-size: 26px; font-weight: 800; letter-spacing: -0.5px;
+            background: rgba(0,0,0,0.2); padding: 14px 18px; border-radius: 6px;
+            text-align: center; letter-spacing: 1px;
+        }
+
+        .cta-section { background: var(--cream); text-align: center; }
+        .cta-section .section-title { margin: 0 auto 16px; }
+        .cta-section .section-lede { margin: 0 auto 32px; }
+
+        footer {
+            background: var(--sage); color: #c6d9c6; padding: 40px 20px 24px;
+            font-size: 14px;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) {
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+        footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+        footer a { color: #c6d9c6; text-decoration: none; display: block; margin-bottom: 6px; }
+        footer a:hover { color: var(--cream); }
+        .footer-bottom {
+            max-width: 1100px; margin: 32px auto 0;
+            padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15);
+            font-size: 12px; color: #8aab8a; text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div><strong>BBB Accredited. Serving South Central Wisconsin since 1982.</strong> Licensed Master Plumber. Over 41 years of trusted service.</div>
+        <div>Master Plumber #227013</div>
+    </div>
+</div>
+
+<header>
+    <div class="header-inner">
+        <a href="#top" class="logo">
+            <div class="logo-mark">DM</div>
+            <div class="logo-text">
+                DeMars Plumbing, Inc.
+                <small>North Freedom, WI</small>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#services" class="hide-mobile">Services</a></li>
+                <li><a href="#area" class="hide-mobile">Service Area</a></li>
+                <li><a href="#hours" class="hide-mobile">Hours</a></li>
+                <li><a href="tel:+16085444471" class="header-phone">Call (608) 544-4471</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div>
+            <span class="hero-badge">BBB Accredited</span>
+            <h1>41+ years of plumbing you can trust. <em>From the ground up.</em></h1>
+            <p>DeMars Plumbing has served Sauk, Dane, and Columbia Counties since 1982. Plumbing, in-floor radiant heating, septic systems, and excavating. BBB Accredited with a licensed master plumber on every job.</p>
+            <div class="hero-cta">
+                <a href="tel:+16085444471" class="btn-primary">Call (608) 544-4471</a>
+                <a href="#services" class="btn-ghost">Our services</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <h3>Why DeMars?</h3>
+            <h4>Licensed. Accredited. Proven.</h4>
+            <p>BBB Accredited with Master Plumber License #227013. We have been doing this for over 41 years because we do it right.</p>
+            <ul>
+                <li>BBB Accredited business</li>
+                <li>Master Plumber #227013</li>
+                <li>41+ years of experience</li>
+                <li>Saturday appointments available</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="services-section" id="services">
+    <div class="section-inner">
+        <span class="section-eyebrow">What we do</span>
+        <h2 class="section-title">Plumbing, radiant heating, septic, and excavating.</h2>
+        <p class="section-lede">DeMars Plumbing handles everything from a leaky faucet to a full septic system installation. We also do in-floor radiant heating and excavating, so you get one contractor for the whole job.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Plumbing Repair &amp; Installation</h3>
+                <p>Full-service plumbing for homes and businesses. New installations, repairs, fixture replacements, water heaters, and more. Over 41 years of experience behind every job.</p>
+                <div class="price">Free quote</div>
+            </div>
+            <div class="service-card">
+                <h3>In-Floor Radiant Heating</h3>
+                <p>Warm floors, even heat, lower energy bills. We design and install in-floor radiant heating systems for new construction and retrofits. The most comfortable way to heat a home.</p>
+                <div class="price">Free quote</div>
+            </div>
+            <div class="service-card">
+                <h3>Septic Systems</h3>
+                <p>Septic system repair and new installation. We handle the full job from design through final inspection. Serving rural properties across three counties.</p>
+                <div class="price">Free quote</div>
+            </div>
+            <div class="service-card">
+                <h3>Excavating Services</h3>
+                <p>Excavating for septic systems, water lines, sewer lines, and site prep. We have the equipment and the crew to move dirt right.</p>
+                <div class="price">Free quote</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="section-inner">
+        <span class="section-eyebrow">The shop</span>
+        <h2 class="section-title">Family-owned since 1982. BBB Accredited. Built on trust.</h2>
+        <p class="section-lede">DeMars Plumbing, Inc. has been serving South Central Wisconsin for over 41 years. We are a BBB Accredited business with a licensed master plumber on staff. We show up on time, quote fair, and do the work right.</p>
+
+        <div class="about-grid">
+            <div class="stat"><div class="num">41+</div><div class="label">Years in business</div></div>
+            <div class="stat"><div class="num">BBB</div><div class="label">Accredited business</div></div>
+            <div class="stat"><div class="num">MP#</div><div class="label">227013 Licensed Master Plumber</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">Quotes on every job</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="area-section" id="area">
+    <div class="section-inner">
+        <span class="section-eyebrow">Where we work</span>
+        <h2 class="section-title">Serving Sauk, Dane, and Columbia Counties.</h2>
+        <p class="section-lede">Based in North Freedom, we cover three counties in South Central Wisconsin. If you are in the area, we can be there.</p>
+
+        <div class="area-tags">
+            <span class="area-tag">North Freedom</span>
+            <span class="area-tag">Baraboo</span>
+            <span class="area-tag">Sauk County</span>
+            <span class="area-tag">Dane County</span>
+            <span class="area-tag">Columbia County</span>
+            <span class="area-tag">And surrounding areas</span>
+        </div>
+    </div>
+</section>
+
+<section class="hours-section" id="hours">
+    <div class="section-inner">
+        <span class="section-eyebrow">When we are available</span>
+        <h2 class="section-title">Weekday hours plus Saturday by appointment.</h2>
+
+        <div class="hours-grid">
+            <div class="hours-card">
+                <h3>Office hours</h3>
+                <div class="row"><span class="day">Monday</span><span class="hrs">7 AM - 5 PM</span></div>
+                <div class="row"><span class="day">Tuesday</span><span class="hrs">7 AM - 5 PM</span></div>
+                <div class="row"><span class="day">Wednesday</span><span class="hrs">7 AM - 5 PM</span></div>
+                <div class="row"><span class="day">Thursday</span><span class="hrs">7 AM - 5 PM</span></div>
+                <div class="row"><span class="day">Friday</span><span class="hrs">7 AM - 5 PM</span></div>
+                <div class="row"><span class="day">Saturday</span><span class="hrs">By appointment</span></div>
+                <div class="row"><span class="day">Sunday</span><span class="hrs">Closed</span></div>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Need a Saturday Appointment?</h3>
+                <p>We know weekdays do not always work. Call us to schedule a Saturday appointment and we will make it happen.</p>
+                <div class="big-number">(608) 544-4471</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="contact">
+    <div class="section-inner">
+        <span class="section-eyebrow">Get a free quote</span>
+        <h2 class="section-title">41+ years of trust. One call to get started.</h2>
+        <p class="section-lede">DeMars Plumbing serves North Freedom, Baraboo, and all of Sauk, Dane, and Columbia Counties. Call us or chat with our front desk in the corner.</p>
+        <a href="tel:+16085444471" class="btn-primary">Call (608) 544-4471</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            <h4>DeMars Plumbing, Inc.</h4>
+            <p>Serving Sauk, Dane, and Columbia Counties since 1982. BBB Accredited. Licensed Master Plumber #227013. Plumbing, in-floor radiant heating, septic systems, and excavating.</p>
+            <p style="margin-top: 12px;">Master Plumber License #227013<br>BBB Accredited Business<br>Fully Licensed &amp; Insured</p>
+        </div>
+        <div>
+            <h4>Services</h4>
+            <a href="#services">Plumbing repair &amp; installation</a>
+            <a href="#services">In-floor radiant heating</a>
+            <a href="#services">Septic systems</a>
+            <a href="#services">Excavating</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <a href="tel:+16085444471">(608) 544-4471</a>
+            <p style="margin-top: 12px;">S8441 Denzer Road<br>North Freedom, WI 53951</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 DeMars Plumbing, Inc. North Freedom, WI. All rights reserved.
+    </div>
+</footer>
+
+<!-- StillOpen chat widget -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="user_3CQItI6P9Kih6SZNvumlY6B5vrl"></script>
+
+</body>
+</html>
