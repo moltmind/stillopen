@@ -87,13 +87,13 @@
     navy:        "#0c0c0e",              // chat window background (dark)
     navyLight:   "#111114",              // header + input row background
     navyBorder:  "rgba(255,255,255,0.08)", // border lines
-    cyan:        "#2563eb",              // primary accent (brand indigo)
-    cyanDim:     "rgba(37,99,235,0.10)",
-    gold:        "#2563eb",              // send button (brand indigo)
-    goldHover:   "#3b82f6",              // send button hover
+    cyan:        "#f97316",              // primary accent (brand indigo)
+    cyanDim:     "rgba(249,115,22,0.10)",
+    gold:        "#f97316",              // send button (brand indigo)
+    goldHover:   "#fb923c",              // send button hover
     white:       "#fafafa",              // primary text
     textMuted:   "#71717a",              // muted/placeholder text
-    userBubble:  "#2563eb",              // user message background (brand)
+    userBubble:  "#f97316",              // user message background (brand)
     userText:    "#FFFFFF",              // user message text
     botBubble:   "#18181b",              // bot message background (dark raised)
     botText:     "#b4b4bd",              // bot message text (secondary)
@@ -134,13 +134,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,99,235,0.25), 0 2px 8px ${COLORS.shadow};
+      box-shadow: 0 4px 20px rgba(249,115,22,0.25), 0 2px 8px ${COLORS.shadow};
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       z-index: 9998;
     }
     #he-bubble:hover {
       transform: scale(1.08);
-      box-shadow: 0 6px 28px rgba(37,99,235,0.35), 0 2px 10px ${COLORS.shadow};
+      box-shadow: 0 6px 28px rgba(249,115,22,0.35), 0 2px 10px ${COLORS.shadow};
     }
     #he-bubble:active {
       transform: scale(0.96);
@@ -200,7 +200,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(37,99,235,0.06);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(249,115,22,0.06);
       z-index: 9997;
       transform-origin: bottom right;
       transform: scale(0.85) translateY(16px);

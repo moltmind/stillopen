@@ -26,11 +26,11 @@
       --text-secondary: #b4b4bd;
       --text-tertiary: #71717a;
       --text-quaternary: #52525b;
-      --brand: #2563eb;
-      --accent: #3b82f6;
-      --accent-hover: #60a5fa;
-      --brand-glow: rgba(37,99,235,0.10);
-      --brand-border: rgba(37,99,235,0.22);
+      --brand: #f97316;
+      --accent: #fb923c;
+      --accent-hover: #fdba74;
+      --brand-glow: rgba(249,115,22,0.10);
+      --brand-border: rgba(249,115,22,0.22);
       --border: rgba(255,255,255,0.06);
       --border-hover: rgba(255,255,255,0.1);
       --success: #34d399;
@@ -71,8 +71,13 @@
       max-width: 1200px; margin: 0 auto; padding: 0 32px;
       height: 60px; display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-wordmark { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
+    .nav-wordmark {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 18px; font-weight: 700; letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
     .nav-wordmark span { color: var(--accent); }
+    .nav-wordmark .brand-icon { flex-shrink: 0; display: block; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-tertiary); transition: color 0.2s; }
     .nav-links a:hover { color: var(--text-primary); }
@@ -136,7 +141,7 @@
       margin-bottom: 24px;
     }
     .hero h1 .highlight {
-      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      background: linear-gradient(135deg, #fb923c, #fdba74);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -201,7 +206,7 @@
       animation: skel-pulse 1.8s ease-in-out infinite;
     }
     .skel-msg.left .skel-bubble { width: 65%; border-bottom-left-radius: 4px; }
-    .skel-msg.right .skel-bubble { width: 45%; border-bottom-right-radius: 4px; background: rgba(37,99,235,0.15); }
+    .skel-msg.right .skel-bubble { width: 45%; border-bottom-right-radius: 4px; background: rgba(249,115,22,0.15); }
     @keyframes skel-pulse {
       0%, 100% { opacity: 0.4; }
       50% { opacity: 0.8; }
@@ -363,7 +368,8 @@
     @media (max-width: 640px) {
       .demo-form { flex-direction: column; }
       .demo-chat-container { height: 360px; }
-      .hero-content { padding: 120px 16px 60px; }
+      .hero { align-items: flex-start; min-height: 0; }
+      .hero-content { padding: 88px 16px 48px; }
     }
 
     /* Section defaults */
@@ -457,7 +463,7 @@
       display: flex; flex-direction: column; transition: all 0.3s;
     }
     .pricing-card:hover { border-color: var(--border-hover); }
-    .pricing-card.featured { border-color: var(--brand); background: rgba(37,99,235,0.04); position: relative; }
+    .pricing-card.featured { border-color: var(--brand); background: rgba(249,115,22,0.04); position: relative; }
     .pricing-badge {
       position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
       background: var(--brand); color: #fff;
@@ -544,7 +550,14 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="/" class="nav-wordmark">Still<span>Open</span></a>
+      <a href="/" class="nav-wordmark" aria-label="StillOpen home">
+        <svg class="brand-icon" width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#fafafa" stroke-width="3"/>
+          <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#f97316"/>
+          <circle cx="33" cy="34" r="2" fill="#0a0a0b"/>
+        </svg>
+        Still<span>Open</span>
+      </a>
       <div class="nav-links">
         <a href="#features" class="hide-mobile">Features</a>
         <a href="#pricing" class="hide-mobile">Pricing</a>

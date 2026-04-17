@@ -24,8 +24,8 @@
             --text-primary: #f7f8f8;
             --text-secondary: #d0d6e0;
             --text-tertiary: #8a8f98;
-            --brand: #2563eb;
-            --accent: #3b82f6;
+            --brand: #f97316;
+            --accent: #fb923c;
             --border: rgba(255,255,255,0.08);
             --error: #f87171;
         }
@@ -41,7 +41,10 @@
         }
 
         .logo { text-align: center; margin-bottom: 24px; }
-        .logo a { text-decoration: none; font-size: 28px; font-weight: 800; color: var(--brand); letter-spacing: -0.03em; }
+        .logo a { text-decoration: none; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; display: inline-flex; align-items: center; gap: 10px; justify-content: center; }
+        .logo a .brand-still { color: var(--text-primary); }
+        .logo a .brand-open { color: var(--brand); }
+        .logo a .brand-icon { flex-shrink: 0; display: block; }
         .login-heading { text-align: center; font-size: 16px; font-weight: 500; color: var(--text-secondary); margin-bottom: 24px; }
 
         .back-link {
@@ -86,7 +89,7 @@
         .cl-formFieldInput, [data-clerk-component] input {
             background: var(--bg) !important; border: 1px solid var(--border) !important; color: #fff !important; border-radius: 8px !important;
         }
-        [data-clerk-component] input:focus { border-color: var(--brand) !important; box-shadow: 0 0 0 3px rgba(37,99,235,0.15) !important; }
+        [data-clerk-component] input:focus { border-color: var(--brand) !important; box-shadow: 0 0 0 3px rgba(249,115,22,0.15) !important; }
         [data-clerk-component] input::placeholder { color: var(--text-tertiary) !important; }
         .cl-formButtonPrimary, [data-clerk-component] button[data-localization-key*="continue"],
         [data-clerk-component] button[data-localization-key*="signIn"] {
@@ -108,12 +111,19 @@
 </head>
 <body>
 
-    <div class="orb" style="width: 400px; height: 400px; background: rgba(37,99,235,0.06); top: -80px; left: -80px;"></div>
-    <div class="orb" style="width: 300px; height: 300px; background: rgba(59,130,246,0.04); bottom: -40px; right: -40px;"></div>
+    <div class="orb" style="width: 400px; height: 400px; background: rgba(249,115,22,0.06); top: -80px; left: -80px;"></div>
+    <div class="orb" style="width: 300px; height: 300px; background: rgba(251,146,60,0.04); bottom: -40px; right: -40px;"></div>
 
     <div class="login-card">
         <div class="logo">
-            <a href="/">StillOpen</a>
+            <a href="/" aria-label="StillOpen home">
+              <svg class="brand-icon" width="28" height="28" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#fafafa" stroke-width="3"/>
+                <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#f97316"/>
+                <circle cx="33" cy="34" r="2" fill="#0a0a0b"/>
+              </svg>
+              <span><span class="brand-still">Still</span><span class="brand-open">Open</span></span>
+            </a>
         </div>
         <div class="login-heading">Sign in to your dashboard</div>
 
@@ -156,7 +166,7 @@
                             colorTextSecondary: '#8a8f98',
                             colorInputBackground: '#191a1b',
                             colorInputText: '#ffffff',
-                            colorPrimary: '#2563eb',
+                            colorPrimary: '#f97316',
                             colorTextOnPrimaryBackground: '#ffffff',
                             colorDanger: '#f87171',
                             borderRadius: '8px',
@@ -181,7 +191,7 @@
                                 colorTextSecondary: '#8a8f98',
                                 colorInputBackground: '#191a1b',
                                 colorInputText: '#ffffff',
-                                colorPrimary: '#2563eb',
+                                colorPrimary: '#f97316',
                                 colorTextOnPrimaryBackground: '#ffffff',
                                 borderRadius: '8px',
                                 fontFamily: 'Inter, sans-serif',

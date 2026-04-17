@@ -21,10 +21,10 @@
             --text-secondary: #a1a1aa;
             --text-tertiary: #71717a;
             --text-quaternary: #52525b;
-            --brand: #2563eb;
-            --brand-glow: rgba(37,99,235,0.15);
-            --brand-border: rgba(37,99,235,0.3);
-            --accent: #60a5fa;
+            --brand: #f97316;
+            --brand-glow: rgba(249,115,22,0.15);
+            --brand-border: rgba(249,115,22,0.3);
+            --accent: #fdba74;
             --border: rgba(255,255,255,0.06);
             --border-hover: rgba(255,255,255,0.1);
             --success: #34d399;
@@ -640,7 +640,14 @@
 
     <!-- Mobile header -->
     <div class="mobile-header">
-        <span class="brand-text" style="color: var(--text-primary);">StillOpen</span>
+        <span class="brand-text" style="display:inline-flex;align-items:center;gap:8px;color: var(--text-primary);">
+            <svg width="20" height="20" viewBox="0 0 64 64" fill="none" aria-hidden="true" style="flex-shrink:0;">
+              <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#fafafa" stroke-width="3"/>
+              <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#f97316"/>
+              <circle cx="33" cy="34" r="2" fill="#0a0a0b"/>
+            </svg>
+            Still<span style="color: var(--brand);">Open</span>
+        </span>
         <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="ph ph-list"></i></button>
     </div>
     <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
@@ -648,9 +655,13 @@
     <!-- Sidebar -->
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <div class="brand-dot"></div>
+            <svg class="brand-icon" width="20" height="20" viewBox="0 0 64 64" fill="none" aria-hidden="true" style="flex-shrink:0;">
+              <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#fafafa" stroke-width="3"/>
+              <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#f97316"/>
+              <circle cx="33" cy="34" r="2" fill="#0a0a0b"/>
+            </svg>
             <span class="brand-text">StillOpen</span>
-            <span class="brand-status">Live</span>
+            <span class="brand-status"><span class="brand-dot" style="display:inline-block;vertical-align:middle;margin-right:4px;"></span>Live</span>
         </div>
 
         <div class="sidebar-nav">
@@ -1093,7 +1104,7 @@
                         variables: {
                             colorBackground: '#0a0a0b',
                             colorText: '#fafafa',
-                            colorPrimary: '#2563eb',
+                            colorPrimary: '#f97316',
                             fontFamily: 'Inter, sans-serif',
                         }
                     }
@@ -1109,7 +1120,7 @@
                     checkOnboardingState();
                 }).catch(function(err) {
                     console.warn('Clerk error:', err);
-                    document.getElementById('loading').innerHTML = '<p style="color: #f87171; font-size: 14px;">Failed to load. <a href="/app/login.html" style="color: #2563eb; text-decoration: underline;">Sign in again</a></p>';
+                    document.getElementById('loading').innerHTML = '<p style="color: #f87171; font-size: 14px;">Failed to load. <a href="/app/login.html" style="color: #f97316; text-decoration: underline;">Sign in again</a></p>';
                 });
                 return true;
             } catch(e) { return false; }
