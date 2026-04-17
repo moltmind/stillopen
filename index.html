@@ -26,11 +26,11 @@
       --text-secondary: #b4b4bd;
       --text-tertiary: #71717a;
       --text-quaternary: #52525b;
-      --brand: #4f5bbd;
-      --accent: #6d7cf0;
-      --accent-hover: #8b9af5;
-      --brand-glow: rgba(79,91,189,0.10);
-      --brand-border: rgba(79,91,189,0.22);
+      --brand: #2563eb;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --brand-glow: rgba(37,99,235,0.10);
+      --brand-border: rgba(37,99,235,0.22);
       --border: rgba(255,255,255,0.06);
       --border-hover: rgba(255,255,255,0.1);
       --success: #34d399;
@@ -136,7 +136,7 @@
       margin-bottom: 24px;
     }
     .hero h1 .highlight {
-      background: linear-gradient(135deg, #6d7cf0, #93a3f8);
+      background: linear-gradient(135deg, #3b82f6, #60a5fa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -201,7 +201,7 @@
       animation: skel-pulse 1.8s ease-in-out infinite;
     }
     .skel-msg.left .skel-bubble { width: 65%; border-bottom-left-radius: 4px; }
-    .skel-msg.right .skel-bubble { width: 45%; border-bottom-right-radius: 4px; background: rgba(79,91,189,0.15); }
+    .skel-msg.right .skel-bubble { width: 45%; border-bottom-right-radius: 4px; background: rgba(37,99,235,0.15); }
     @keyframes skel-pulse {
       0%, 100% { opacity: 0.4; }
       50% { opacity: 0.8; }
@@ -260,18 +260,56 @@
       display: flex; min-height: 380px;
     }
     .mock-site {
-      flex: 1; padding: 32px; display: flex; flex-direction: column; justify-content: center;
+      flex: 1; padding: 28px 32px; display: flex; flex-direction: column; justify-content: flex-start;
     }
-    .mock-site-name { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-    .mock-site-tagline { font-size: 13px; color: var(--text-tertiary); margin-bottom: 24px; }
-    .mock-site-lines { display: flex; flex-direction: column; gap: 8px; }
-    .mock-line {
-      height: 8px; border-radius: 4px; background: rgba(255,255,255,0.04);
+    .mock-site-name { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+    .mock-site-tagline { font-size: 13px; color: var(--text-tertiary); margin-bottom: 18px; }
+
+    .mock-hours-banner {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      background: rgba(248,113,113,0.06);
+      border: 1px solid rgba(248,113,113,0.18);
+      border-radius: 8px;
+      margin-bottom: 18px;
     }
-    .mock-line:nth-child(1) { width: 85%; }
-    .mock-line:nth-child(2) { width: 70%; }
-    .mock-line:nth-child(3) { width: 60%; }
-    .mock-line:nth-child(4) { width: 45%; }
+    .mock-closed-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #f87171; flex-shrink: 0;
+    }
+    .mock-hours-label { font-size: 12px; font-weight: 600; color: #f87171; }
+    .mock-hours-sub { font-size: 11px; color: var(--text-quaternary); margin-top: 1px; }
+
+    .mock-services {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 8px; margin-bottom: 18px;
+    }
+    .mock-service {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 6px;
+      font-size: 12px; color: var(--text-secondary);
+    }
+    .mock-service i { color: var(--text-tertiary); font-size: 14px; }
+
+    .mock-cta-old {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .mock-cta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-quaternary); margin-bottom: 4px; }
+    .mock-cta-number { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; letter-spacing: -0.01em; }
+    .mock-cta-sub { font-size: 11px; color: var(--text-quaternary); }
+
+    .mock-footer {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      font-size: 11px; color: var(--text-quaternary);
+    }
+    .mock-footer i { font-size: 12px; margin-right: 3px; vertical-align: middle; }
     .mock-chat {
       width: 320px; background: #0a0a0c; border-left: 1px solid var(--border);
       display: flex; flex-direction: column;
@@ -419,7 +457,7 @@
       display: flex; flex-direction: column; transition: all 0.3s;
     }
     .pricing-card:hover { border-color: var(--border-hover); }
-    .pricing-card.featured { border-color: var(--brand); background: rgba(94,106,210,0.04); position: relative; }
+    .pricing-card.featured { border-color: var(--brand); background: rgba(37,99,235,0.04); position: relative; }
     .pricing-badge {
       position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
       background: var(--brand); color: #fff;
@@ -557,11 +595,31 @@
             <div class="mock-site">
               <div class="mock-site-name">Midwest Plumbing Co.</div>
               <div class="mock-site-tagline">Reliable plumbing for your home and business</div>
-              <div class="mock-site-lines">
-                <div class="mock-line"></div>
-                <div class="mock-line"></div>
-                <div class="mock-line"></div>
-                <div class="mock-line"></div>
+
+              <div class="mock-hours-banner">
+                <span class="mock-closed-dot"></span>
+                <div>
+                  <div class="mock-hours-label">Currently closed</div>
+                  <div class="mock-hours-sub">Open Mon to Fri, 8 AM to 5 PM</div>
+                </div>
+              </div>
+
+              <div class="mock-services">
+                <div class="mock-service"><i class="ph ph-wrench"></i> Emergency Repair</div>
+                <div class="mock-service"><i class="ph ph-drop"></i> Drain Cleaning</div>
+                <div class="mock-service"><i class="ph ph-thermometer-simple"></i> Water Heaters</div>
+                <div class="mock-service"><i class="ph ph-shower"></i> New Install</div>
+              </div>
+
+              <div class="mock-cta-old">
+                <div class="mock-cta-label">Call us</div>
+                <div class="mock-cta-number">414-555-0192</div>
+                <div class="mock-cta-sub">Voicemail outside business hours</div>
+              </div>
+
+              <div class="mock-footer">
+                <span><i class="ph ph-map-pin"></i> Serving Eau Claire and surrounding</span>
+                <span>· Licensed &amp; Insured since 1998</span>
               </div>
             </div>
             <div class="mock-chat">

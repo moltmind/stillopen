@@ -21,10 +21,10 @@
             --text-secondary: #a1a1aa;
             --text-tertiary: #71717a;
             --text-quaternary: #52525b;
-            --brand: #5e6ad2;
-            --brand-glow: rgba(94,106,210,0.15);
-            --brand-border: rgba(94,106,210,0.3);
-            --accent: #818cf8;
+            --brand: #2563eb;
+            --brand-glow: rgba(37,99,235,0.15);
+            --brand-border: rgba(37,99,235,0.3);
+            --accent: #60a5fa;
             --border: rgba(255,255,255,0.06);
             --border-hover: rgba(255,255,255,0.1);
             --success: #34d399;
@@ -1093,7 +1093,7 @@
                         variables: {
                             colorBackground: '#0a0a0b',
                             colorText: '#fafafa',
-                            colorPrimary: '#5e6ad2',
+                            colorPrimary: '#2563eb',
                             fontFamily: 'Inter, sans-serif',
                         }
                     }
@@ -1109,7 +1109,7 @@
                     checkOnboardingState();
                 }).catch(function(err) {
                     console.warn('Clerk error:', err);
-                    document.getElementById('loading').innerHTML = '<p style="color: #f87171; font-size: 14px;">Failed to load. <a href="/app/login.html" style="color: #5e6ad2; text-decoration: underline;">Sign in again</a></p>';
+                    document.getElementById('loading').innerHTML = '<p style="color: #f87171; font-size: 14px;">Failed to load. <a href="/app/login.html" style="color: #2563eb; text-decoration: underline;">Sign in again</a></p>';
                 });
                 return true;
             } catch(e) { return false; }

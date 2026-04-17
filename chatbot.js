@@ -87,13 +87,13 @@
     navy:        "#0c0c0e",              // chat window background (dark)
     navyLight:   "#111114",              // header + input row background
     navyBorder:  "rgba(255,255,255,0.08)", // border lines
-    cyan:        "#4f5bbd",              // primary accent (brand indigo)
-    cyanDim:     "rgba(79,91,189,0.10)",
-    gold:        "#4f5bbd",              // send button (brand indigo)
-    goldHover:   "#6d7cf0",              // send button hover
+    cyan:        "#2563eb",              // primary accent (brand indigo)
+    cyanDim:     "rgba(37,99,235,0.10)",
+    gold:        "#2563eb",              // send button (brand indigo)
+    goldHover:   "#3b82f6",              // send button hover
     white:       "#fafafa",              // primary text
     textMuted:   "#71717a",              // muted/placeholder text
-    userBubble:  "#4f5bbd",              // user message background (brand)
+    userBubble:  "#2563eb",              // user message background (brand)
     userText:    "#FFFFFF",              // user message text
     botBubble:   "#18181b",              // bot message background (dark raised)
     botText:     "#b4b4bd",              // bot message text (secondary)
