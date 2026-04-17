@@ -147,10 +147,11 @@
             </div>
 
             <div class="fade-up d3">
-                <a href="/app/dashboard.html" class="cta-btn">
-                    Go to Dashboard <i class="ph ph-arrow-right"></i>
+                <a href="/app/dashboard.html" class="cta-btn" id="cta-btn">
+                    <span id="cta-label">Signing you in</span>
+                    <i class="ph ph-arrow-right" id="cta-icon"></i>
                 </a>
-                <p class="cta-hint">Takes about 5 minutes to get fully set up.</p>
+                <p class="cta-hint" id="cta-hint">Takes about 5 minutes to get fully set up.</p>
             </div>
 
             <div class="trust-bar fade-up d4">
@@ -169,6 +170,96 @@
     (function() {
         var params = new URLSearchParams(window.location.search);
         var tier = (params.get('tier') || '').toLowerCase();
+        var sessionId = params.get('session_id') || '';
+
+        // --- Auto sign-in from Stripe session_id ---
+        // Poll the worker for a Clerk ticket URL. If the webhook has not
+        // finished provisioning the user yet, the worker returns pending
+        // and we retry. On success we redirect. On timeout we fall back
+        // to the static "Go to Dashboard" button plus a check-your-email
+        // note, so the customer always has a path forward.
+        var WORKER_URL = 'https://app.stillopen.ai';
+        var ctaBtn = document.getElementById('cta-btn');
+        var ctaLabel = document.getElementById('cta-label');
+        var ctaIcon = document.getElementById('cta-icon');
+        var ctaHint = document.getElementById('cta-hint');
+
+        function setFallback() {
+            if (ctaBtn) {
+                ctaBtn.setAttribute('href', '/app/dashboard.html');
+                ctaBtn.classList.remove('loading');
+            }
+            if (ctaLabel) ctaLabel.textContent = 'Go to Dashboard';
+            if (ctaIcon) ctaIcon.className = 'ph ph-arrow-right';
+            if (ctaHint) {
+                ctaHint.innerHTML = 'We also emailed you a sign-in link. Check your inbox if this page doesn\'t redirect.';
+            }
+        }
+
+        function animateDots() {
+            if (!ctaLabel) return;
+            var base = 'Signing you in';
+            var dots = 0;
+            return setInterval(function() {
+                dots = (dots + 1) % 4;
+                ctaLabel.textContent = base + '.'.repeat(dots);
+            }, 500);
+        }
+
+        if (sessionId && sessionId.indexOf('cs_') === 0 && ctaBtn) {
+            ctaBtn.setAttribute('href', '#');
+            ctaBtn.classList.add('loading');
+            var dotTimer = animateDots();
+
+            var attempts = 0;
+            var maxAttempts = 7; // ~12s worst case with linear backoff
+            var baseDelayMs = 1000;
+
+            function stopWithFallback() {
+                if (dotTimer) clearInterval(dotTimer);
+                setFallback();
+            }
+
+            function poll() {
+                attempts++;
+                var httpStatus = 0;
+                fetch(WORKER_URL + '/welcome-signin?session_id=' + encodeURIComponent(sessionId), {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' },
+                }).then(function(r) {
+                    httpStatus = r.status;
+                    return r.json();
+                }).then(function(data) {
+                    if (data && data.success && data.ticketUrl) {
+                        if (dotTimer) clearInterval(dotTimer);
+                        if (ctaLabel) ctaLabel.textContent = 'Signed in. Redirecting...';
+                        window.location.href = data.ticketUrl;
+                        return;
+                    }
+                    // Definitive errors: stop polling immediately, show fallback
+                    if (httpStatus === 400 || httpStatus === 404) {
+                        stopWithFallback();
+                        return;
+                    }
+                    if (attempts >= maxAttempts) {
+                        stopWithFallback();
+                        return;
+                    }
+                    setTimeout(poll, baseDelayMs + (attempts * 500));
+                }).catch(function() {
+                    if (attempts >= maxAttempts) {
+                        stopWithFallback();
+                        return;
+                    }
+                    setTimeout(poll, baseDelayMs + (attempts * 500));
+                });
+            }
+
+            poll();
+        } else {
+            // No session_id (bookmark, refresh after link expired, etc.) — show static fallback
+            setFallback();
+        }
 
         var tiers = {
             starter: {
