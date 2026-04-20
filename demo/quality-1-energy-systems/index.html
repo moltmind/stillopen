@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality 1 Energy Systems Heating & Air Conditioning | Dallas, TX | HVAC Services</title>
+    <meta name="description" content="Trusted HVAC contractor serving Dallas and surrounding areas. Family-owned and operated since 1989, NATE-certified service technicians, full residential and commercial HVAC plus insulation and ducts Call (469) 351-5521.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --olive: #9a3412;
+            --olive-light: #ea580c;
+            --cream: #f7f5f0;
+            --accent: #9a3412;
+            --accent-light: #ea580c;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border: #d9d4c7;
+            --bg-alt: #ffffff;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            background: var(--olive);
+            color: var(--cream);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .top-bar-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            flex-wrap: wrap;
+        }
+        .top-bar strong { color: #fed7aa; }
+
+        header {
+            background: var(--cream);
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+        }
+        .header-inner {
+            max-width: 1100px; margin: 0 auto; padding: 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 24px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--olive);
+        }
+        .logo-mark {
+            width: 48px; height: 48px; border-radius: 8px;
+            background: var(--accent); color: var(--cream);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+        }
+        .logo-text {
+            font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1;
+        }
+        .logo-text small {
+            display: block; font-size: 11px; font-weight: 500; color: var(--text-muted);
+            letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;
+        }
+        nav ul {
+            list-style: none; display: flex; gap: 28px; align-items: center;
+        }
+        nav a {
+            color: var(--olive); text-decoration: none; font-weight: 500; font-size: 15px;
+        }
+        nav a:hover { color: var(--accent-light); }
+        .header-phone {
+            background: var(--accent); color: var(--cream);
+            padding: 10px 20px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 15px;
+            transition: background 0.15s;
+        }
+        .header-phone:hover { background: var(--accent-light); }
+        .hide-mobile { display: block; }
+        @media (max-width: 720px) {
+            nav ul li:not(:last-child) { display: none; }
+            .hide-mobile { display: none; }
+        }
+
+        .hero {
+            padding: 64px 20px 80px;
+            background:
+                linear-gradient(135deg, rgba(74,91,26,0.93) 0%, rgba(74,91,26,0.83) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%235c7222" stroke-width="1" fill="none" opacity="0.3"/></svg>');
+            color: var(--cream);
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+        }
+        @media (max-width: 860px) {
+            .hero-inner { grid-template-columns: 1fr; }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(92,114,34,0.18); border: 1px solid rgba(184,212,104,0.4);
+            color: #fed7aa; padding: 6px 14px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; margin-bottom: 20px;
+        }
+        .hero-badge::before {
+            content: ""; width: 8px; height: 8px; border-radius: 50%;
+            background: #fed7aa; box-shadow: 0 0 8px #fed7aa;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5.5vw, 52px);
+            font-weight: 800; line-height: 1.05; letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+        .hero h1 em {
+            font-style: normal; color: #fed7aa;
+        }
+        .hero p {
+            font-size: 18px; color: #d4dfc4; max-width: 520px; margin-bottom: 32px;
+        }
+        .hero-cta {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--accent); color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 700; font-size: 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: background 0.15s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--accent-light); }
+        .btn-ghost {
+            background: transparent; color: var(--cream);
+            padding: 14px 26px; border-radius: 6px;
+            text-decoration: none; font-weight: 600; font-size: 16px;
+            border: 2px solid rgba(245,241,232,0.3);
+            transition: border-color 0.15s;
+        }
+        .btn-ghost:hover { border-color: var(--cream); }
+
+        .hero-card {
+            background: var(--cream); color: var(--text);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .hero-card h3 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px;
+        }
+        .hero-card h4 {
+            font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px;
+        }
+        .hero-card p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; }
+        .hero-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hero-card li {
+            font-size: 14px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-card li::before {
+            content: "\2713"; color: #16a34a; font-weight: 800; font-size: 14px;
+        }
+
+        section { padding: 72px 20px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-eyebrow {
+            display: block; font-size: 13px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800; letter-spacing: -1px; line-height: 1.1;
+            color: var(--olive); margin-bottom: 16px; max-width: 720px;
+        }
+        .section-lede {
+            font-size: 18px; color: var(--text-muted); max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .services-section { background: var(--bg-alt); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--cream);
+            padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .service-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+        .service-card h3 {
+            font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--olive);
+        }
+        .service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+        .service-card .price {
+            font-size: 14px; font-weight: 600; color: var(--accent);
+        }
+
+        .about-section { background: var(--olive); color: var(--cream); }
+        .about-section .section-title { color: var(--cream); }
+        .about-section .section-lede { color: #d4dfc4; }
+        .about-section .section-eyebrow { color: #fed7aa; }
+        .about-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px; margin-top: 40px;
+        }
+        .stat {
+            padding: 20px 0; border-top: 1px solid rgba(245,241,232,0.15);
+        }
+        .stat .num {
+            font-size: 42px; font-weight: 800; letter-spacing: -1.5px;
+            color: #fed7aa; line-height: 1;
+        }
+        .stat .label {
+            font-size: 14px; color: #d4dfc4; margin-top: 8px; font-weight: 500;
+        }
+
+        .area-section { background: var(--bg-alt); }
+        .area-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+        }
+        .area-tag {
+            background: var(--cream); border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 100px; font-size: 14px;
+            font-weight: 500; color: var(--olive);
+        }
+
+        .hours-section { background: var(--cream); }
+        .hours-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) { .hours-grid { grid-template-columns: 1fr; } }
+        .hours-card {
+            background: var(--bg-alt); padding: 28px; border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .hours-card h3 {
+            font-size: 20px; font-weight: 800; margin-bottom: 16px; color: var(--olive);
+        }
+        .hours-card .row {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px;
+        }
+        .hours-card .row:last-child { border: none; }
+        .hours-card .row .day { color: var(--text-muted); }
+        .hours-card .row .hrs { font-weight: 600; color: var(--olive); }
+        .emergency-card {
+            background: var(--accent); color: var(--cream); padding: 28px; border-radius: 10px;
+        }
+        .emergency-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .emergency-card p { font-size: 15px; margin-bottom: 18px; opacity: 0.95; }
+        .emergency-card .big-number {
+            font-size: 26px; font-weight: 800; letter-spacing: -0.5px;
+            background: rgba(0,0,0,0.2); padding: 14px 18px; border-radius: 6px;
+            text-align: center; letter-spacing: 1px;
+        }
+
+        .cta-section { background: var(--cream); text-align: center; }
+        .cta-section .section-title { margin: 0 auto 16px; }
+        .cta-section .section-lede { margin: 0 auto 32px; }
+
+        footer {
+            background: var(--olive); color: #d4dfc4; padding: 40px 20px 24px;
+            font-size: 14px;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        }
+        @media (max-width: 720px) {
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+        footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+        footer a { color: #d4dfc4; text-decoration: none; display: block; margin-bottom: 6px; }
+        footer a:hover { color: var(--cream); }
+        .footer-bottom {
+            max-width: 1100px; margin: 32px auto 0;
+            padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15);
+            font-size: 12px; color: #a8b48c; text-align: center;
+        }
+    
+  /* === COLE DEMO BANNER + CHAT BUBBLE PULSE === */
+  .cole-demo-banner {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+    color: #f7f5f0;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    border-bottom: 1px solid #f97316;
+    line-height: 1.5;
+  }
+  .cole-demo-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .cole-demo-banner strong {
+    color: #fb923c;
+    font-weight: 600;
+  }
+  .cole-demo-cta {
+    display: inline-block;
+    margin-left: 16px;
+    padding: 5px 14px;
+    background: #f97316;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .cole-demo-cta:hover {
+    background: #ea580c;
+  }
+  @media (max-width: 720px) {
+    .cole-demo-banner {
+      font-size: 13px;
+      padding: 10px 14px;
+    }
+    .cole-demo-cta {
+      display: block;
+      margin: 8px auto 0;
+      max-width: 200px;
+    }
+  }
+  /* Pulse the StillOpen chat bubble so it reads as the demo's main CTA */
+  @keyframes cole-demo-bubble-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.55), 0 4px 16px rgba(0,0,0,0.25); }
+    70%  { box-shadow: 0 0 0 22px rgba(249, 115, 22, 0), 0 4px 16px rgba(0,0,0,0.25); }
+    100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0), 0 4px 16px rgba(0,0,0,0.25); }
+  }
+  #he-bubble {
+    animation: cole-demo-bubble-pulse 2.5s ease-out infinite !important;
+  }
+  #he-bubble.open {
+    animation: none !important;
+  }
+</style>
+</head>
+<body>
+<!-- === COLE DEMO BANNER === -->
+<div class="cole-demo-banner">
+  <div class="cole-demo-banner-inner">
+    <strong>Hey Quality team,</strong> Cole here. Built this demo for your shop.
+    <a href="#" onclick="event.preventDefault(); coleOpenChat();" class="cole-demo-cta">Try the chat &rarr;</a>
+  </div>
+</div>
+<script>
+  function coleOpenChat() {
+    var attempts = 0;
+    function attempt() {
+      var b = document.getElementById('he-bubble');
+      if (b) { b.click(); }
+      else if (attempts++ < 12) { setTimeout(attempt, 250); }
+    }
+    attempt();
+  }
+</script>
+<!-- === END COLE DEMO BANNER === -->
+
+
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div><strong>Serving Dallas and the surrounding area since 1989.</strong> Licensed &amp; Insured. Over 37 years of trusted heating and cooling.</div>
+        <div>Appointment only for office visits</div>
+    </div>
+</div>
+
+<header>
+    <div class="header-inner">
+        <a href="#top" class="logo">
+            <div class="logo-mark">Q1</div>
+            <div class="logo-text">
+                Quality 1 Energy Systems Heating & Air Conditioning
+                <small>Dallas, TX</small>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#services" class="hide-mobile">Services</a></li>
+                <li><a href="#area" class="hide-mobile">Service Area</a></li>
+                <li><a href="#hours" class="hide-mobile">Hours</a></li>
+                <li><a href="tel:+14693515521" class="header-phone">Call (469) 351-5521</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div>
+            <span class="hero-badge">Since 1989</span>
+            <h1>37+ years of HVAC Dallas and the surrounding area can count on. <em>Every time.</em></h1>
+            <p>Quality 1 Energy Systems Heating & Air Conditioning has been the trusted name in Dallas and the surrounding area for over 37 years. Residential and commercial HVAC, AC repair, heating service, and a service center you can visit in person.</p>
+            <div class="hero-cta">
+                <a href="tel:+14693515521" class="btn-primary">Call (469) 351-5521</a>
+                <a href="#services" class="btn-ghost">Our services</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <h3>Why Beaver HVAC?</h3>
+            <h4>37+ years. Real results you can see.</h4>
+            <p>We have a service center and before-and-after photos so you can see the quality of our work before you hire us.</p>
+            <ul>
+                <li>Over 37 years of experience</li>
+                <li>Full HVAC service center</li>
+                <li>Before and after photos available</li>
+                <li>Residential and commercial</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="services-section" id="services">
+    <div class="section-inner">
+        <span class="section-eyebrow">What we do</span>
+        <h2 class="section-title">HVAC and heating for every project.</h2>
+        <p class="section-lede">From new construction to remodeling, residential to commercial, Quality 1 Energy Systems Heating & Air Conditioning has the experience and the team to get it done right.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Residential HVAC</h3>
+                <p>Complete residential HVAC services for homes across Dallas and the surrounding area. Repairs, installations, and routine maintenance. We treat your home like our own.</p>
+                <div class="price">Free quote</div>
+            </div>
+            <div class="service-card">
+                <h3>Commercial HVAC</h3>
+                <p>Commercial HVAC for businesses and facilities. Code-compliant installations and repairs from a team with over 30 years of experience.</p>
+                <div class="price">Free quote</div>
+            </div>
+            <div class="service-card">
+                <h3>New Construction</h3>
+                <p>Full HVAC installation for homes and commercial buildings. We work with your builder from rough-in through final fixtures.</p>
+                <div class="price">Free quote</div>
+            </div>
+            <div class="service-card">
+                <h3>Remodeling</h3>
+                <p>Kitchen and bathroom remodeling HVAC. We handle the AC unit, ductwork, and thermostat so your contractor can focus on the rest.</p>
+                <div class="price">Free quote</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="section-inner">
+        <span class="section-eyebrow">The shop</span>
+        <h2 class="section-title">Locally owned. Trusted for over 30 years.</h2>
+        <p class="section-lede">Quality 1 Energy Systems Heating & Air Conditioning has served Dallas and the surrounding area and the surrounding area since 1989. We believe in honest work, fair prices, and showing up when we say we will. Visit our service center and see our before-and-after photos to know exactly what you are getting.</p>
+
+        <div class="about-grid">
+            <div class="stat"><div class="num">30+</div><div class="label">Years in business</div></div>
+            <div class="stat"><div class="num">1993</div><div class="label">Year founded</div></div>
+            <div class="stat"><div class="num">Free</div><div class="label">Quotes on every job</div></div>
+            <div class="stat"><div class="num">Yes</div><div class="label">Full service center on site</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="area-section" id="area">
+    <div class="section-inner">
+        <span class="section-eyebrow">Where we work</span>
+        <h2 class="section-title">Serving Dallas and the surrounding area and the surrounding area.</h2>
+        <p class="section-lede">Based in Dallas, we cover Dallas and the surrounding area and nearby communities. If you are in the area, give us a call.</p>
+
+        <div class="area-tags">
+            <span class="area-tag">Dallas</span>
+            <span class="area-tag">Dallas and the surrounding area</span>
+            <span class="area-tag">And surrounding areas</span>
+        </div>
+    </div>
+</section>
+
+<section class="hours-section" id="hours">
+    <div class="section-inner">
+        <span class="section-eyebrow">When we are available</span>
+        <h2 class="section-title">Service hours and office visits by appointment.</h2>
+
+        <div class="hours-grid">
+            <div class="hours-card">
+                <h3>Service hours</h3>
+                <div class="row"><span class="day">Monday</span><span class="hrs">7 AM - 3 PM</span></div>
+                <div class="row"><span class="day">Tuesday</span><span class="hrs">7 AM - 3 PM</span></div>
+                <div class="row"><span class="day">Wednesday</span><span class="hrs">7 AM - 3 PM</span></div>
+                <div class="row"><span class="day">Thursday</span><span class="hrs">7 AM - 3 PM</span></div>
+                <div class="row"><span class="day">Friday</span><span class="hrs">7 AM - 3 PM</span></div>
+                <div class="row"><span class="day">Saturday</span><span class="hrs">Closed</span></div>
+                <div class="row"><span class="day">Sunday</span><span class="hrs">Closed</span></div>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Office Visits by Appointment</h3>
+                <p>Our office and service center are available by appointment only. Call ahead and we will set up a time that works for you.</p>
+                <div class="big-number">(469) 351-5521</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="contact">
+    <div class="section-inner">
+        <span class="section-eyebrow">Get a free quote</span>
+        <h2 class="section-title">37+ years of trust. One call to get started.</h2>
+        <p class="section-lede">Quality 1 Energy Systems Heating & Air Conditioning serves Dallas, Dallas and the surrounding area, and the surrounding area. Call us or chat with our front desk in the corner.</p>
+        <a href="tel:+14693515521" class="btn-primary">Call (469) 351-5521</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            <h4>Quality 1 Energy Systems Heating & Air Conditioning</h4>
+            <p>Serving Dallas and the surrounding area and the surrounding area since 1989. Locally owned. Trusted for over 30 years. Visit our service center and see before-and-after photos of our work.</p>
+            <p style="margin-top: 12px;">Fully Licensed &amp; Insured</p>
+        </div>
+        <div>
+            <h4>Services</h4>
+            <a href="#services">Residential HVAC</a>
+            <a href="#services">Commercial HVAC</a>
+            <a href="#services">AC Repair & Install</a>
+            <a href="#services">Remodeling</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <a href="tel:+14693515521">(469) 351-5521</a>
+            <a href="mailto:info@quality1energysystems.com">info@quality1energysystems.com</a>
+            <p style="margin-top: 12px;">W8677 Cty Hwy B<br>Dallas, TX 53916</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Quality 1 Energy Systems Heating & Air Conditioning. Dallas, TX. All rights reserved.
+    </div>
+</footer>
+
+<!-- StillOpen chat widget -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-hvac-quality-1-energy-systems"></script>
+
+</body>
+</html>
