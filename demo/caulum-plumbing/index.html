@@ -99,9 +99,90 @@
         footer a { color: #e8d5d5; text-decoration: none; display: block; margin-bottom: 6px; }
         footer a:hover { color: var(--cream); }
         .footer-bottom { max-width: 1100px; margin: 32px auto 0; padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15); font-size: 12px; color: #c9a6a6; text-align: center; }
-    </style>
+    
+  /* === COLE DEMO BANNER + CHAT BUBBLE PULSE === */
+  .cole-demo-banner {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+    color: #f7f5f0;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    border-bottom: 1px solid #f97316;
+    line-height: 1.5;
+  }
+  .cole-demo-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .cole-demo-banner strong {
+    color: #fb923c;
+    font-weight: 600;
+  }
+  .cole-demo-cta {
+    display: inline-block;
+    margin-left: 16px;
+    padding: 5px 14px;
+    background: #f97316;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .cole-demo-cta:hover {
+    background: #ea580c;
+  }
+  @media (max-width: 720px) {
+    .cole-demo-banner {
+      font-size: 13px;
+      padding: 10px 14px;
+    }
+    .cole-demo-cta {
+      display: block;
+      margin: 8px auto 0;
+      max-width: 200px;
+    }
+  }
+  /* Pulse the StillOpen chat bubble so it reads as the demo's main CTA */
+  @keyframes cole-demo-bubble-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.55), 0 4px 16px rgba(0,0,0,0.25); }
+    70%  { box-shadow: 0 0 0 22px rgba(249, 115, 22, 0), 0 4px 16px rgba(0,0,0,0.25); }
+    100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0), 0 4px 16px rgba(0,0,0,0.25); }
+  }
+  #he-bubble {
+    animation: cole-demo-bubble-pulse 2.5s ease-out infinite !important;
+  }
+  #he-bubble.open {
+    animation: none !important;
+  }
+</style>
 </head>
 <body>
+<!-- === COLE DEMO BANNER === -->
+<div class="cole-demo-banner">
+  <div class="cole-demo-banner-inner">
+    <strong>Hey Caulum team,</strong> Cole here. Built this demo for your shop.
+    <a href="#" onclick="event.preventDefault(); coleOpenChat();" class="cole-demo-cta">Try the chat &rarr;</a>
+  </div>
+</div>
+<script>
+  function coleOpenChat() {
+    var attempts = 0;
+    function attempt() {
+      var b = document.getElementById('he-bubble');
+      if (b) { b.click(); }
+      else if (attempts++ < 12) { setTimeout(attempt, 250); }
+    }
+    attempt();
+  }
+</script>
+<!-- === END COLE DEMO BANNER === -->
+
 <div class="top-bar"><div class="top-bar-inner"><div><strong>50 Years of Trusted Plumbing.</strong> Three generations serving the greater La Crosse area since 1976.</div><div>Bangor, WI &bull; Family Owned &amp; Operated</div></div></div>
 <header><div class="header-inner"><a href="#top" class="logo"><div class="logo-mark">CP</div><div class="logo-text">Caulum Plumbing<small>Bangor, WI</small></div></a><nav><ul><li><a href="#services" class="hide-mobile">Services</a></li><li><a href="#area" class="hide-mobile">Service Area</a></li><li><a href="#hours" class="hide-mobile">Hours</a></li><li><a href="tel:+16087812833" class="header-phone">Call (608) 781-2833</a></li></ul></nav></div></header>
 <section class="hero" id="top"><div class="hero-inner"><div><span class="hero-badge">Est. 1976</span><h1>Three generations of plumbers. <em>50 years of trust.</em></h1><p>Harry Caulum started this company in 1976. His sons John and Brian carry it forward today. When you call Caulum Plumbing, you get a family that has been doing this work for half a century.</p><div class="hero-cta"><a href="tel:+16087812833" class="btn-primary">Call (608) 781-2833</a><a href="#services" class="btn-ghost">Our services</a></div></div><div class="hero-card"><h3>Why Caulum?</h3><h4>A half-century of getting it right.</h4><p>We have been the La Crosse area's trusted plumber since April 1976. Same family, same commitment, same phone number.</p><ul><li>50 years in business</li><li>Three generations of plumbers</li><li>Residential and commercial</li><li>Kohler, Moen, A.O. Smith, and more</li></ul></div></div></section>
