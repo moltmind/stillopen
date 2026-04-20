@@ -29,3 +29,6 @@ leads/
 .claude/
 .agents/
 backups/
+
+# Local admin secret for wrangler-managed ADMIN_SECRET — do not commit
+.admin-secret-local
