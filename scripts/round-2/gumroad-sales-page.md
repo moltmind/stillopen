@@ -67,7 +67,9 @@ Cancel anytime. If the install isn't live inside 48 hours, full refund, no quest
 
 ### About me
 
-I'm Cole. I erected steel buildings for twelve years. I taught myself to build software at five in the morning in a basement because nobody was going to hand me a way out. I built StillOpen because a buddy of mine lost a $900 repipe at 2 AM on a Tuesday and I watched what that did to his kitchen for a month.
+I'm Cole Cummings. I erected steel buildings for six years before I built StillOpen. I'm not a software engineer. I built this by telling Claude AI what to build, step by step, until it worked.
+
+I built it because a buddy of mine lost a $900 repipe at 2 AM on a Tuesday. I watched what that missed call did to his kitchen for a month. I figured if I could point AI at the problem, I could save the next tradesman the same hole.
 
 This isn't a marketplace. It isn't a subscription farm. It's me, building you an AI front desk, and answering the text when you need help with it.
 
