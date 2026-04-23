@@ -16,6 +16,13 @@
 (function () {
   "use strict";
 
+  // ── INIT GUARD ──────────────────────────────────────────────────────────────
+  // Wrap the entire widget setup in a try/catch so any failure during init
+  // (missing DOM, blocked fonts, freak JS errors) degrades silently instead
+  // of leaking a console stack onto the customer's page. The customer's site
+  // stays functional; we log a single line the customer can show Cole.
+  try {
+
   // ─── CONFIG ──────────────────────────────────────────────────────────────────
   const WORKER_URL =
     "https://app.stillopen.ai";
@@ -704,5 +711,14 @@
     showOpening();
     // Focus the input after a short delay
     setTimeout(() => { if (input) input.focus(); }, 500);
+  }
+
+  } catch (err) {
+    // Init failed. Log one clean line so the customer can screenshot it for
+    // Cole without getting a raw stack trace dumped on their site.
+    try {
+      (window.console && console.error)
+        && console.error("[StillOpen] widget init failed:", err && err.message ? err.message : err);
+    } catch (_) { /* console itself is broken; nothing we can do */ }
   }
 })();
