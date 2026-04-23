@@ -1,0 +1,188 @@
+[
+  {
+    "slug": "hollow-creek-plumbing",
+    "name": "Hollow Creek Plumbing and Drain",
+    "phone": "(555) 010-0101",
+    "tel_digits": "5550100101",
+    "city": "Hollow Creek",
+    "state": "IA",
+    "years": 14,
+    "founded": 2012,
+    "hook": "River-town plumbing shop. Wes Tolliver owns the truck. Honest work, fair prices, and a phone that is finally answered.",
+    "services": [
+      "Residential Plumbing",
+      "Emergency Service",
+      "Drain Cleaning",
+      "Water Heater Repair",
+      "Leak Detection",
+      "Sewer Line Repair"
+    ],
+    "service_area": ["Hollow Creek", "Polk County", "Dallas County", "Surrounding towns"],
+    "specialty": "Twenty-four-hour emergency plumbing",
+    "owner_note": "Owned and operated by Wes Tolliver",
+    "owner_note_long": "Owned and operated by Wes Tolliver since 2012. Fourteen years of plumbing the river towns without a callback.",
+    "theme": "navy",
+    "plumber_id": "demo-sample-hollow-creek",
+    "chat_exchange": [
+      {"role": "customer", "text": "My kitchen pipe just burst. Water everywhere."},
+      {"role": "ai", "text": "Shut the water off at the main valve first. I will get Wes out to you in forty-five minutes. One-eighty after-hours plus parts. Want me to book it?"},
+      {"role": "customer", "text": "Yes please book it."},
+      {"role": "ai", "text": "Booked. Wes is leaving the shop now. I will text you his ETA so you can watch for the truck."}
+    ]
+  },
+  {
+    "slug": "third-avenue-heat-drain",
+    "name": "Third Avenue Heat and Drain",
+    "phone": "(555) 010-0102",
+    "tel_digits": "5550100102",
+    "city": "Bridgepoint",
+    "state": "MN",
+    "years": 11,
+    "founded": 2015,
+    "hook": "Mid-size metro service shop. Marcus Beale runs the crew. Same-day HVAC and drain work that does not get rescheduled.",
+    "services": [
+      "HVAC Service",
+      "Drain Cleaning",
+      "Water Heater Installation",
+      "Emergency Service",
+      "Gas Line Service",
+      "Residential Plumbing"
+    ],
+    "service_area": ["Bridgepoint", "Bridgepoint metro", "Northwest suburbs", "Surrounding areas"],
+    "specialty": "Same-day heat and drain service",
+    "owner_note": "Owned by Marcus Beale",
+    "owner_note_long": "Owned by Marcus Beale. Eleven years in the trade, no subcontracted work, no surprise fees.",
+    "theme": "burgundy",
+    "plumber_id": "demo-sample-third-avenue",
+    "chat_exchange": [
+      {"role": "customer", "text": "No hot water and I have two kids here."},
+      {"role": "ai", "text": "Marcus can come tonight for the after-hours fee or nine tomorrow morning. Tank or tankless, do you know?"},
+      {"role": "customer", "text": "Tank. Forty gallon I think."},
+      {"role": "ai", "text": "Got it. I will book Marcus for nine AM with a tank-replacement quote ready. He will text you when he is on the way."}
+    ]
+  },
+  {
+    "slug": "knotwood-brothers-plumbing",
+    "name": "Knotwood Brothers Plumbing",
+    "phone": "(555) 010-0103",
+    "tel_digits": "5550100103",
+    "city": "Knotwood",
+    "state": "OH",
+    "years": 22,
+    "founded": 2004,
+    "hook": "Family shop, two brothers. Eli and Dean Knotwood built it together in 2004. Twenty-two years, same two phone numbers.",
+    "services": [
+      "Residential Plumbing",
+      "Leak Detection",
+      "Remodeling",
+      "Water Heater Repair",
+      "Drain Cleaning",
+      "Fixture Installation"
+    ],
+    "service_area": ["Knotwood", "Hocking County", "Athens County", "Surrounding counties"],
+    "specialty": "Residential plumbing and remodels",
+    "owner_note": "Eli and Dean Knotwood, brothers and owners",
+    "owner_note_long": "Eli and Dean Knotwood started this together out of their dad's garage in 2004. Still the only two names on the van.",
+    "theme": "forest",
+    "plumber_id": "demo-sample-knotwood-brothers",
+    "chat_exchange": [
+      {"role": "customer", "text": "I think there is a leak behind my bedroom wall. I can hear dripping."},
+      {"role": "ai", "text": "Turn the water off at the main. Eli or Dean can be out inside the hour. Seventy-five dollar diagnostic, waived if we do the repair."},
+      {"role": "customer", "text": "Please send someone."},
+      {"role": "ai", "text": "Eli is heading your way. I will text you his ETA and a confirmation with your address."}
+    ]
+  },
+  {
+    "slug": "anvil-creek-hvac",
+    "name": "Anvil Creek HVAC",
+    "phone": "(555) 010-0104",
+    "tel_digits": "5550100104",
+    "city": "Anvil Creek",
+    "state": "MI",
+    "years": 9,
+    "founded": 2017,
+    "hook": "Rhonda Sayles owns the shop. She worked HVAC for fifteen years before she started it. Nine years and counting on her own crew.",
+    "services": [
+      "HVAC Service",
+      "Water Heater Installation",
+      "Emergency Service",
+      "Gas Line Service",
+      "Residential Plumbing",
+      "Fixture Installation"
+    ],
+    "service_area": ["Anvil Creek", "Kent County", "Ottawa County", "Surrounding townships"],
+    "specialty": "Residential HVAC and heating",
+    "owner_note": "Owned by Rhonda Sayles",
+    "owner_note_long": "Owned by Rhonda Sayles. Fifteen years in the trade before she started the shop in 2017. She still runs calls herself when the crew is slammed.",
+    "theme": "stone",
+    "plumber_id": "demo-sample-anvil-creek",
+    "chat_exchange": [
+      {"role": "customer", "text": "AC just quit and it is ninety-five outside."},
+      {"role": "ai", "text": "Priority call. Rhonda can be there inside two hours. One-fifty service call. Any elderly or young kids in the house? I can bump the priority."},
+      {"role": "customer", "text": "Yes, my mom is eighty-one."},
+      {"role": "ai", "text": "Bumping it now. Rhonda is leaving the shop. ETA in forty minutes. I will text you the moment the truck pulls out."}
+    ]
+  },
+  {
+    "slug": "northbridge-plumbing-co",
+    "name": "Northbridge Plumbing Co",
+    "phone": "(555) 010-0105",
+    "tel_digits": "5550100105",
+    "city": "Northbridge",
+    "state": "IL",
+    "years": 18,
+    "founded": 2008,
+    "hook": "Northern-metro shop, built through two recessions. Troy Armitage owns it. Eighteen years of not-missing-the-call.",
+    "services": [
+      "Residential Plumbing",
+      "Commercial Plumbing",
+      "Sewer Line Repair",
+      "Water Heater Installation",
+      "Drain Cleaning",
+      "Emergency Service"
+    ],
+    "service_area": ["Northbridge", "Lake County", "McHenry County", "Chicago northwest suburbs"],
+    "specialty": "Residential and commercial plumbing",
+    "owner_note": "Owned by Troy Armitage",
+    "owner_note_long": "Owned by Troy Armitage. Built the shop in 2008 through a recession, grew it through another. Eighteen years, three trucks, zero subcontracted jobs.",
+    "theme": "teal",
+    "plumber_id": "demo-sample-northbridge",
+    "chat_exchange": [
+      {"role": "customer", "text": "Sump pump died in the storm, water is coming in fast."},
+      {"role": "ai", "text": "Troy can be out in thirty. Two-twenty emergency dispatch plus the pump. Want me to book it?"},
+      {"role": "customer", "text": "Yes book it."},
+      {"role": "ai", "text": "Booked. Troy is leaving now. I will text you the second the truck pulls out so you can watch for him."}
+    ]
+  },
+  {
+    "slug": "old-mill-road-heating-air",
+    "name": "Old Mill Road Heating and Air",
+    "phone": "(555) 010-0106",
+    "tel_digits": "5550100106",
+    "city": "Millfield",
+    "state": "IN",
+    "years": 27,
+    "founded": 1999,
+    "hook": "Rural-suburb shop on Old Mill Road. Dale Crowley started it in 1999. Twenty-seven winters, never a no-show.",
+    "services": [
+      "HVAC Service",
+      "Emergency Service",
+      "Gas Line Service",
+      "Water Heater Repair",
+      "Residential Plumbing",
+      "Well Pump Service"
+    ],
+    "service_area": ["Millfield", "Hamilton County", "Boone County", "Surrounding farms and towns"],
+    "specialty": "Furnace and HVAC repair",
+    "owner_note": "Owned by Dale Crowley",
+    "owner_note_long": "Owned by Dale Crowley. Started the shop in 1999 out of a barn on Old Mill Road. Twenty-seven winters, still the number neighbors pass around when something breaks.",
+    "theme": "olive",
+    "plumber_id": "demo-sample-old-mill-road",
+    "chat_exchange": [
+      {"role": "customer", "text": "Furnace will not fire. It is twenty degrees in here."},
+      {"role": "ai", "text": "Dale can be there inside the hour. One-twenty-five diagnostic, waived on the repair. What is the address?"},
+      {"role": "customer", "text": "1247 Old Mill Road."},
+      {"role": "ai", "text": "Dale is heading out. ETA forty minutes. I will text you when the truck leaves the shop."}
+    ]
+  }
+]

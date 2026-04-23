@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Northbridge Plumbing Co | Sample StillOpen Deployment | Northbridge, IL</title>
+<meta name="description" content="Sample StillOpen deployment for a fictional business. Built to show the product. Not an active business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #0d7377;
+  --primary-light: #14919b;
+  --primary-bright: #7eedf2;
+  --primary-soft: #cfe8e3;
+  --cream: #f7f5f0;
+  --border: #d9d4c7;
+  --lede: #cfe8e3;
+  --text: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --bg-alt: #ffffff;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Work Sans', -apple-system, sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.sample-banner { position: sticky; top: 0; z-index: 9999; background: #0f172a; color: #f7f5f0; padding: 10px 20px; text-align: center; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; border-bottom: 2px solid #f97316; line-height: 1.5; }
+.sample-banner strong { color: #fb923c; font-weight: 700; }
+.sample-banner a { color: #fb923c; text-decoration: underline; font-weight: 600; margin-left: 10px; }
+@media (max-width: 640px) { .sample-banner { font-size: 12px; padding: 8px 14px; } .sample-banner a { display: block; margin: 4px auto 0; } }
+
+.top-bar { background: var(--primary); color: var(--cream); padding: 8px 0; font-size: 14px; }
+.top-bar-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.top-bar strong { color: var(--primary-bright); }
+
+header { background: var(--cream); border-bottom: 2px solid var(--border); position: sticky; top: 38px; z-index: 50; }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary); }
+.logo-mark { width: 48px; height: 48px; border-radius: 8px; background: var(--primary); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+.logo-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+.logo-text small { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
+nav a { color: var(--primary); text-decoration: none; font-weight: 500; font-size: 15px; }
+nav a:hover { color: var(--primary-light); }
+.header-phone { background: var(--primary); color: var(--cream); padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 15px; }
+.header-phone:hover { background: var(--primary-light); }
+@media (max-width: 720px) { nav ul li:not(:last-child) { display: none; } }
+
+.hero { padding: 64px 20px 80px; background: linear-gradient(135deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.0) 100%), var(--primary); color: var(--cream); }
+.hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+@media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: var(--primary-bright); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+.hero-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--primary-bright); box-shadow: 0 0 8px var(--primary-bright); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 { font-size: clamp(32px, 5.5vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 20px; }
+.hero h1 em { font-style: normal; color: var(--primary-bright); }
+.hero p { font-size: 18px; color: var(--lede); max-width: 520px; margin-bottom: 32px; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { background: var(--cream); color: var(--primary); padding: 14px 26px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; }
+.btn-ghost { background: transparent; color: var(--cream); padding: 14px 26px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid rgba(245,241,232,0.3); }
+
+.chat-card { background: var(--cream); color: var(--text); padding: 24px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+.chat-card .eyebrow { display: inline-block; background: #f97316; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px; }
+.chat-card h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 4px; color: var(--primary); }
+.chat-card .subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+.chat-log { display: flex; flex-direction: column; gap: 10px; max-height: 360px; overflow-y: auto; padding: 4px 2px; }
+.chat-row { display: flex; }
+.chat-row.customer { justify-content: flex-start; }
+.chat-row.ai { justify-content: flex-end; }
+.chat-bubble { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.45; }
+.chat-row.customer .chat-bubble { background: #f1f5f9; color: #1a1a1a; border-bottom-left-radius: 4px; }
+.chat-row.ai .chat-bubble { background: var(--primary); color: var(--cream); border-bottom-right-radius: 4px; }
+.chat-row.ai .chat-bubble::before { content: "AI"; display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--primary-bright); margin-bottom: 2px; }
+.chat-footnote { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+.chat-footnote strong { color: var(--primary); }
+
+section { padding: 72px 20px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { display: block; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; }
+.section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; color: var(--primary); margin-bottom: 16px; max-width: 720px; }
+.section-lede { font-size: 18px; color: var(--text-muted); max-width: 640px; margin-bottom: 48px; }
+
+.services-section { background: var(--bg-alt); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.service-card { background: var(--cream); padding: 28px; border-radius: 10px; border: 1px solid var(--border); transition: transform 0.15s, border-color 0.15s; }
+.service-card:hover { transform: translateY(-2px); border-color: var(--primary); }
+.service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
+.service-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+.service-card .price { font-size: 14px; font-weight: 600; color: var(--primary); }
+
+.about-section { background: var(--primary); color: var(--cream); }
+.about-section .section-title { color: var(--cream); }
+.about-section .section-lede { color: var(--lede); }
+.about-section .section-eyebrow { color: var(--primary-bright); }
+.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px; }
+.stat { padding: 20px 0; border-top: 1px solid rgba(245,241,232,0.15); }
+.stat .num { font-size: 42px; font-weight: 800; letter-spacing: -1.5px; color: var(--primary-bright); line-height: 1; }
+.stat .label { font-size: 14px; color: var(--lede); margin-top: 8px; font-weight: 500; }
+
+.area-section { background: var(--bg-alt); }
+.area-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.area-tag { background: var(--cream); border: 1px solid var(--border); padding: 8px 16px; border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--primary); }
+
+.cta-section { background: var(--cream); text-align: center; padding: 72px 20px 96px; }
+.cta-section .section-title { margin: 0 auto 16px; }
+.cta-section .section-lede { margin: 0 auto 32px; }
+.cta-section .sample-note { display: inline-block; background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; margin-top: 20px; max-width: 560px; }
+
+footer { background: var(--primary); color: var(--lede); padding: 40px 20px 24px; font-size: 14px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+@media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; } }
+footer h4 { color: var(--cream); font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+footer a { color: var(--lede); text-decoration: none; display: block; margin-bottom: 6px; }
+footer a:hover { color: var(--cream); }
+.footer-bottom { max-width: 1100px; margin: 32px auto 0; padding-top: 20px; border-top: 1px solid rgba(245,241,232,0.15); font-size: 12px; color: var(--lede); text-align: center; opacity: 0.7; }
+
+@keyframes so-bubble-pulse { 0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.55), 0 4px 16px rgba(0,0,0,0.25); } 70% { box-shadow: 0 0 0 22px rgba(249, 115, 22, 0), 0 4px 16px rgba(0,0,0,0.25); } 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0), 0 4px 16px rgba(0,0,0,0.25); } }
+#he-bubble { animation: so-bubble-pulse 2.5s ease-out infinite !important; }
+#he-bubble.open { animation: none !important; }
+</style>
+</head>
+<body>
+
+<div class="sample-banner">
+  <strong>Sample deployment.</strong> Northbridge Plumbing Co is a fictional business. This page exists to show the StillOpen product. The chat widget in the corner is live.
+  <a href="https://stillopen.ai/">See StillOpen &rarr;</a>
+</div>
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div><strong>Serving Northbridge since 2008.</strong> Licensed &amp; insured. 18+ years in the trade.</div>
+    <div>Owned by Troy Armitage</div>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <div class="logo-mark">N</div>
+      <div class="logo-text">Northbridge Plumbing Co<small>Northbridge, IL</small></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="tel:+15550100105" class="header-phone">Call (555) 010-0105</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-badge">Sample StillOpen deployment</span>
+      <h1>18+ years of plumbing Northbridge can count on. <em>Every time.</em></h1>
+      <p>Northbridge Plumbing Co has served Northbridge and the surrounding area since 2008. Residential and commercial plumbing. Honest work, fair prices, and a front desk that answers the first time.</p>
+      <div class="hero-cta">
+        <a href="tel:+15550100105" class="btn-primary">Call (555) 010-0105</a>
+        <a href="#services" class="btn-ghost">Services</a>
+      </div>
+    </div>
+    <div class="chat-card">
+      <span class="eyebrow">Sample chat</span>
+      <h3>An after-hours call, handled by text.</h3>
+      <p class="subtitle">This is how the AI front desk books a job while the shop is closed.</p>
+      <div class="chat-log">
+        <div class="chat-row customer"><div class="chat-bubble">Sump pump died in the storm, water is coming in fast.</div></div><div class="chat-row ai"><div class="chat-bubble">Troy can be out in thirty. Two-twenty emergency dispatch plus the pump. Want me to book it?</div></div><div class="chat-row customer"><div class="chat-bubble">Yes book it.</div></div><div class="chat-row ai"><div class="chat-bubble">Booked. Troy is leaving now. I will text you the second the truck pulls out so you can watch for him.</div></div>
+      </div>
+      <div class="chat-footnote"><strong>Try the live version &rarr;</strong> The chat bubble in the corner is running for this sample. Ask it anything.</div>
+    </div>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="section-inner">
+    <span class="section-eyebrow">What the shop does</span>
+    <h2 class="section-title">Plumbing services built for the real calls.</h2>
+    <p class="section-lede">From emergency repairs to scheduled service, Northbridge Plumbing Co is built to handle the work Northbridge actually calls in.</p>
+    <div class="services-grid"><div class="service-card"><h3>Residential Plumbing</h3><p>Residential plumbing, repair, install, and maintenance. Treat the house like my own.</p><div class="price">Free quote</div></div><div class="service-card"><h3>Commercial Plumbing</h3><p>Commercial plumbing. Code work from a crew that has done it for years.</p><div class="price">Free quote</div></div><div class="service-card"><h3>Sewer Line Repair</h3><p>Sewer line repair. Camera inspection, trenchless when possible.</p><div class="price">Free quote</div></div><div class="service-card"><h3>Water Heater Installation</h3><p>Water heater installation. Tank or tankless. Most brands.</p><div class="price">Free quote</div></div><div class="service-card"><h3>Drain Cleaning</h3><p>Drain cleaning. Snake, hydro-jet, or camera. Clear the problem at the source.</p><div class="price">Free quote</div></div><div class="service-card"><h3>Emergency Service</h3><p>Twenty-four-hour emergency response. When water or heat quits, we pick up.</p><div class="price">Free quote</div></div></div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <span class="section-eyebrow">The shop</span>
+    <h2 class="section-title">Locally owned. In the trade since 2008.</h2>
+    <p class="section-lede">Owned by Troy Armitage. Built the shop in 2008 through a recession, grew it through another. Eighteen years, three trucks, zero subcontracted jobs.</p>
+    <div class="about-grid">
+      <div class="stat"><div class="num">18+</div><div class="label">Years in the trade</div></div>
+      <div class="stat"><div class="num">2008</div><div class="label">Year founded</div></div>
+      <div class="stat"><div class="num">Free</div><div class="label">Quotes on every job</div></div>
+      <div class="stat"><div class="num">Yes</div><div class="label">Licensed &amp; insured</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="area-section" id="area">
+  <div class="section-inner">
+    <span class="section-eyebrow">Where the shop works</span>
+    <h2 class="section-title">Serving Northbridge and the surrounding area.</h2>
+    <p class="section-lede">Based in Northbridge, covering the local area and nearby communities.</p>
+    <div class="area-tags"><span class="area-tag">Northbridge</span><span class="area-tag">Lake County</span><span class="area-tag">McHenry County</span><span class="area-tag">Chicago northwest suburbs</span></div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="section-inner">
+    <span class="section-eyebrow">This is what your shop could look like</span>
+    <h2 class="section-title">Ready to build the real version for your shop?</h2>
+    <p class="section-lede">This is a sample built on fictional data. The real one uses your logo, your services, your hours, your numbers.</p>
+    <a href="https://stillopen.ai/" class="btn-primary" style="background: #f97316; color: #fff;">See StillOpen &rarr;</a>
+    <div class="sample-note">Northbridge Plumbing Co is a fictional business. Any resemblance to a real shop is coincidental. Built to show the product.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Northbridge Plumbing Co (sample)</h4>
+      <p>Fictional business. Built to show the StillOpen product.</p>
+      <p style="margin-top: 12px;">The live AI chat widget in the corner is real.</p>
+    </div>
+    <div>
+      <h4>StillOpen</h4>
+      <a href="https://stillopen.ai/">stillopen.ai</a>
+      <a href="https://stillopen.ai/#pricing">Pricing</a>
+    </div>
+    <div>
+      <h4>Sample city</h4>
+      <p>Northbridge, IL</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 StillOpen. Northbridge Plumbing Co is a fictional sample business.
+  </div>
+</footer>
+
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-sample-northbridge"></script>
+
+</body>
+</html>
