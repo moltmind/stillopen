@@ -1,0 +1,26 @@
+{
+  "name": "stillopen-hero-landscape-60s",
+  "version": "1.0.0",
+  "description": "StillOpen 60-second landscape homepage hero demo. Plumber-as-hero. Silent timeline first, voiceover added after Cole sign-off.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "remotion studio",
+    "preview": "remotion studio",
+    "render": "remotion render HeroLandscape out/stillopen-hero-60s-silent.mp4",
+    "render-silent": "remotion render HeroLandscape out/stillopen-hero-60s-silent.mp4 --codec=h264 --crf=18",
+    "render-final": "remotion render HeroLandscape out/stillopen-hero-60s-final.mp4 --codec=h264 --crf=18"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.200",
+    "@remotion/fonts": "^4.0.200",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.200"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/web": "^0.0.150",
+    "typescript": "^5.5.3"
+  }
+}
