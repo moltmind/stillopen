@@ -411,6 +411,7 @@ function renderCards() {
       <div class="card-dm">${lead.dm}</div>
       <div class="card-actions">
         ${smsLink ? `<a class="btn btn-text" href="${smsLink}" data-action="open-sms" data-id="${lead.id}">📱 Text now</a>` : ""}
+        <a class="btn" href="https://www.google.com/search?q=${encodeURIComponent(lead.shop + ' ' + lead.city)}" target="_blank" rel="noopener">🔍 Lookup</a>
         <button class="btn" data-action="copy" data-id="${lead.id}">📋 Copy DM</button>
         <button class="btn btn-text" data-action="set" data-id="${lead.id}" data-status="sent-text">✓ Sent (Text)</button>
         <button class="btn btn-fb" data-action="set" data-id="${lead.id}" data-status="sent-fb">✓ Sent (FB)</button>
