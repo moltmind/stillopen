@@ -83,8 +83,8 @@ export const HeroLandscape: React.FC = () => {
       </Sequence>
 
       {/* ── MUSIC BED ─────────────────────────────────────────────── */}
-      {/* 60s loop boosted to audible levels. Auto-ducks under each VO. */}
-      <Audio src={staticFile("audio/bed_loop_60s.wav")} volume={musicVolume} />
+      {/* Cole-removed 2026-04-29. Voice + SFX only on the homepage cut. */}
+      {/* <Audio src={staticFile("audio/bed_loop_60s.wav")} volume={musicVolume} /> */}
 
       {/* ── VOICE LAYER (Cole's clone D73ZEfJs3CetiSnT1UkG) ───────── */}
 
