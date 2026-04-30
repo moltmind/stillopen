@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Outreach Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-card: #1a1d24;
+      --bg-elev: #232732;
+      --border: rgba(255,255,255,0.08);
+      --text: #f4f5f7;
+      --text-muted: #9aa1ae;
+      --text-dim: #6b7280;
+      --orange: #f97316;
+      --orange-dim: #c2410c;
+      --green: #10b981;
+      --blue: #3b82f6;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; padding-bottom: 120px; }
+
+    .lock-screen { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 24px; z-index: 1000; }
+    .lock-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; max-width: 360px; width: 100%; text-align: center; }
+    .lock-card h1 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .lock-card p { color: var(--text-muted); font-size: 13px; margin-bottom: 16px; }
+    .lock-card input { width: 100%; padding: 10px 12px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 14px; font-family: inherit; }
+    .lock-card input:focus { outline: 1px solid var(--orange); border-color: var(--orange); }
+    .lock-error { color: var(--red); font-size: 12px; margin-top: 8px; min-height: 14px; }
+
+    header { background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .header-title { display: flex; align-items: center; gap: 12px; }
+    .header-title .dot { width: 10px; height: 10px; background: var(--orange); border-radius: 50%; box-shadow: 0 0 12px var(--orange); }
+    .header-title h1 { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+    .header-title .sub { font-size: 11px; color: var(--text-dim); margin-left: 8px; }
+    .header-stats { display: flex; gap: 20px; font-size: 12px; color: var(--text-muted); }
+    .header-stats strong { color: var(--text); font-weight: 600; }
+
+    .filters { background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 24px; position: sticky; top: 64px; z-index: 49; overflow-x: auto; }
+    .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; cursor: pointer; font-family: inherit; transition: all 0.15s; white-space: nowrap; }
+    .filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .filter-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .filter-btn .count { font-weight: 700; margin-left: 4px; opacity: 0.8; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; transition: border-color 0.15s; }
+    .card.sent { border-color: rgba(59,130,246,0.4); }
+    .card.replied { border-color: rgba(16,185,129,0.5); background: rgba(16,185,129,0.04); }
+    .card.demo { border-color: rgba(249,115,22,0.5); }
+    .card.closed { border-color: var(--green); background: rgba(16,185,129,0.08); }
+    .card.declined { opacity: 0.5; }
+    .card.ghosted { opacity: 0.4; }
+
+    .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }
+    .card-shop { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+    .card-meta { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+    .card-state { font-size: 10px; padding: 3px 7px; border-radius: 4px; background: var(--bg-elev); color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; flex-shrink: 0; }
+    .card-state.cold { background: var(--bg-elev); color: var(--text-muted); }
+    .card-state.sent { background: rgba(59,130,246,0.2); color: var(--blue); }
+    .card-state.replied { background: rgba(16,185,129,0.2); color: var(--green); }
+    .card-state.demo { background: rgba(249,115,22,0.2); color: var(--orange); }
+    .card-state.closed { background: var(--green); color: #fff; }
+    .card-state.declined { background: rgba(239,68,68,0.2); color: var(--red); }
+    .card-state.ghosted { background: var(--bg-elev); color: var(--text-dim); }
+
+    .card-signal { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; padding: 8px 10px; background: var(--bg-elev); border-radius: 6px; line-height: 1.5; }
+    .card-signal::before { content: "Signal: "; color: var(--orange); font-weight: 600; }
+
+    .card-dm { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-size: 12px; line-height: 1.6; color: var(--text-muted); margin-bottom: 12px; max-height: 180px; overflow-y: auto; white-space: pre-wrap; }
+
+    .card-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .btn { background: var(--bg-elev); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.15s; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+    .btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); }
+    .btn.btn-primary { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .btn.btn-primary:hover { background: var(--orange-dim); border-color: var(--orange-dim); }
+    .btn.btn-text { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.3); color: var(--blue); }
+    .btn.btn-text:hover { background: rgba(59,130,246,0.25); }
+    .btn.btn-fb { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.3); color: #a5b4fc; }
+    .btn.btn-replied { background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.3); color: var(--green); }
+    .btn.btn-demo { background: rgba(249,115,22,0.15); border-color: rgba(249,115,22,0.3); color: var(--orange); }
+    .btn.btn-closed { background: var(--green); border-color: var(--green); color: #fff; }
+    .btn.btn-declined { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.2); color: var(--red); }
+    .btn.btn-reset { background: transparent; border-color: var(--border); color: var(--text-dim); font-size: 10px; padding: 4px 8px; }
+
+    .card-reply { margin-top: 8px; }
+    .card-reply textarea { width: 100%; padding: 8px 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 12px; font-family: inherit; resize: vertical; min-height: 60px; }
+    .card-reply textarea:focus { outline: 1px solid var(--green); border-color: var(--green); }
+    .card-reply-saved { font-size: 10px; color: var(--green); margin-top: 4px; }
+
+    .card-stamp { font-size: 10px; color: var(--text-dim); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+
+    .copy-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+    .copy-toast.show { opacity: 1; }
+
+    .empty { text-align: center; padding: 60px 24px; color: var(--text-dim); font-size: 14px; }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .header-stats { font-size: 11px; gap: 12px; }
+      .header-title h1 { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="lock-screen" id="lock">
+  <div class="lock-card">
+    <h1>Outreach Dashboard</h1>
+    <p>Enter your access key to continue.</p>
+    <input type="password" id="lock-input" placeholder="key" autofocus>
+    <div class="lock-error" id="lock-error"></div>
+  </div>
+</div>
+
+<header style="display:none" id="app-header">
+  <div class="header-inner">
+    <div class="header-title">
+      <div class="dot"></div>
+      <h1>Outreach <span class="sub">StillOpen · 50 leads</span></h1>
+    </div>
+    <div class="header-stats">
+      <span>Sent today: <strong id="stat-sent-today">0</strong></span>
+      <span>Replies: <strong id="stat-replies">0</strong></span>
+      <span>Demos: <strong id="stat-demos">0</strong></span>
+      <span>Closed: <strong id="stat-closed">0</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="filters" style="display:none" id="app-filters">
+  <div class="filters-inner" id="filter-buttons"></div>
+</div>
+
+<main style="display:none" id="app-main">
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">No leads match this filter.</div>
+</main>
+
+<div class="copy-toast" id="toast">Copied to clipboard</div>
+
+<script>
+const ACCESS_KEY = "cole-still-open-2026";
+const STORAGE_KEY = "stillopen-outreach-state-v1";
+
+const LEADS = [
+  // FB-PRIORITY (Wave 1) — shops with active FB presence, send first
+  {id:"mikes",shop:"Mike's Plumbing - Heating - Electrical",city:"Cecil, WI",owner:"Randy",phone:"+17157456663",sample:"third-avenue-heat-drain",signal:"57-yr ag-and-residential shop, FB-only, single landline, dairy farmers calling at dawn",fbPriority:true,
+   dm:`Hey Randy, 57 years running Mike's out of Cecil with a single phone is impressive. Dairy farmers call at 4am though, and that one phone or a voicemail is the choice. I built an AI front desk that picks up the early calls, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Mike's in 48 hours.\n\n- Cole`},
+  {id:"higley",shop:"Higley Plumbing, LLC",city:"Fall Creek, WI",owner:"Paul",phone:"+17158771432",sample:"hollow-creek-plumbing",signal:"Five-gen shop, contact page leans on 'Call Us Today' with no online intake",fbPriority:true,
+   dm:`Hey Paul, five generations of Higleys answering the phone is rare. The piece I built doesn't replace that, it just catches the calls when the truck pulls out and the phone rolls to voicemail. Books the lead, texts you the details.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Higley in 48 hours.\n\n- Cole`},
+  {id:"bd",shop:"B & D Plumbing & Heating, Inc.",city:"Wausau, WI",owner:"B&D team",phone:"+17158483500",sample:"third-avenue-heat-drain",signal:"60-yr family shop (Marquardts), Birdeye 4.6 vs Angi 3.8, follow-up gaps in reviews",fbPriority:true,
+   dm:`Hey B&D team, 60 years and three Marquardts in the shop is a real run. The pattern I see in small shops your size is calls slipping during peak weeks. I built an AI front desk that picks up the overflow, books the lead, texts you so the follow-up doesn't pile up.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for B&D in 48 hours.\n\n- Cole`},
+  {id:"bogardus",shop:"Joshua Bogardus Plumbing & More",city:"Council Bluffs, IA",owner:"Josh",phone:"",sample:"hollow-creek-plumbing",signal:"4th-gen Bogardus, 24/7 emergency, review said never returned call",fbPriority:true,
+   dm:`Hey Josh, 4 generations of Bogardus on the truck is real. Saw a review where a customer said you didn't return their call. That one stings. I built an AI front desk that catches the calls so no caller hears silence, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Bogardus in 48 hours.\n\n- Cole`},
+  {id:"stucki",shop:"Stucki Plumbing LLC",city:"Wadesville, IN",owner:"Rebecca",phone:"+18125491344",sample:"hollow-creek-plumbing",signal:"About page says 'just her and her husband'",fbPriority:true,
+   dm:`Hey Rebecca, saw on your About page it's just you and your husband running Stucki. I built an AI front desk that picks up the line when you're under a sink so you don't lose the next call, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Stucki in 48 hours.\n\n- Cole`},
+  {id:"wickey",shop:"Wickey Plumbing LLC",city:"Fort Wayne, IN",owner:"Zach",phone:"",sample:"hollow-creek-plumbing",signal:"Reviews say Zach personally answered every question, veteran-owned solo",fbPriority:true,
+   dm:`Hey Zach, the reviews all say you answered everything personally. That's awesome until you're elbow-deep in a job. I built an AI front desk that holds the line for you, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Wickey in 48 hours.\n\n- Cole`},
+  {id:"macgregor",shop:"MacGregor Plumbing & Heating",city:"Harbor Springs, MI",owner:"Julie",phone:"+12315269633",sample:"third-avenue-heat-drain",signal:"Negative reviews call out unreturned phone calls, 24/7 emergency promised",fbPriority:true,
+   dm:`Hey Julie, saw a couple reviews mention unreturned calls. That's the gap I built this for, even at 2am up north. AI front desk picks up, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for MacGregor in 48 hours.\n\n- Cole`},
+
+  // TEXT-PRIMARY — verified phones, send via SMS
+  {id:"jt",shop:"J&T Plumbing LLC",city:"Wausau, WI",owner:"J&T team",phone:"+17158034747",sample:"hollow-creek-plumbing",signal:"Angi review, customer left voicemails on biz + cell phones, no callback",
+   dm:`Hey J&T team, saw a review where a customer said they left voicemails on the business and cell phones with no callback. That one stings when the work gets done well. I built an AI front desk that picks up calls when the crew is on a job, books the lead, texts you the details.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for J&T in 48 hours.\n\n- Cole`},
+  {id:"semingson",shop:"Semingson Aberle Plumbing",city:"Pigeon Falls, WI",owner:"Josh",phone:"+17159835571",sample:"hollow-creek-plumbing",signal:"Site advertises emergency service, only intake is one phone that rings owner",
+   dm:`Hey Josh, your site advertises emergency service but it all rings to one number. When you're elbow-deep in a well pump at 9pm, the next emergency call goes to whoever picks up first. I built an AI front desk that picks up that call instead, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Semingson Aberle in 48 hours.\n\n- Cole`},
+  {id:"toms",shop:"Tom's Plumbing Solutions",city:"Sherman, IL",owner:"Jarett",phone:"+12175258688",sample:"hollow-creek-plumbing",signal:"Contact page lists same number for hours and after-hours, owner gives personal cell for weekends",
+   dm:`Hey Jarett, your contact page lists one number for both business hours and after-hours emergencies. I built an AI front desk that picks up after 4pm so the owner's cell stops ringing on weekends, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Tom's in 48 hours.\n\n- Cole`},
+  {id:"warner",shop:"Warner Plumbing",city:"Champaign, IL",owner:"Warner team",phone:"+12176498886",sample:"hollow-creek-plumbing",signal:"M-F 8 to 5 only, no after-hours line",
+   dm:`Hey Warner team, your hours show Mon-Fri 8 to 5. Most homeowners get a leak at 9pm Sunday. I built an AI front desk that picks up the after-hours calls, books the lead, texts you Monday morning.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Warner in 48 hours.\n\n- Cole`},
+  {id:"lungos",shop:"Lungo's Plumbing Services",city:"Rockton/Rockford, IL",owner:"Dane",phone:"+18157030827",sample:"hollow-creek-plumbing",signal:"24/7 promise + Tristan Lungo as Office Manager (one family member juggling)",
+   dm:`Hey Dane, 21 years of Lungo's running 24/7 with Tristan in the office is a lot to hold. I built an AI front desk that takes the first 30 seconds of every call, books the lead, texts you so the family doesn't burn out on the phones.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Lungo's in 48 hours.\n\n- Cole`},
+  {id:"plumbcrazy",shop:"Plumb Crazy Plumbing",city:"Bloomington, IL",owner:"Travis",phone:"+13098290003",sample:"hollow-creek-plumbing",signal:"24/7 advertised, 5-yr shop founded by Travis Misch",
+   dm:`Hey Travis, 24/7 and 5 years in means the phone rings at 2am and it's on you. I built an AI front desk that picks up those calls instead, books the lead, texts you in the morning so you don't lose the job or the sleep.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Plumb Crazy in 48 hours.\n\n- Cole`},
+  {id:"edwards",shop:"Edwards Sewer & Drain",city:"Rockford, IL",owner:"Shawn",phone:"+18158737054",sample:"hollow-creek-plumbing",signal:"90-min arrival promise, husband-and-wife, Rachele = Sec/Treas (dispatch + books)",
+   dm:`Hey Shawn, 90-minute arrival is a real promise. Rachele can't be on the phones every time the truck rolls. I built an AI front desk that takes the first call, books the lead, texts you the details so dispatch and books don't both land on her.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Edwards in 48 hours.\n\n- Cole`},
+  {id:"ironrange",shop:"Iron Range Plumbing & Heating",city:"Hibbing, MN",owner:"Brice",phone:"+12182622315",sample:"third-avenue-heat-drain",signal:"Their own FAQ admits cold-weeks no-heat call overflow",
+   dm:`Hey Brice, your own FAQ says the first cold weeks of winter inundate you with no-heat calls and you can't always get to them same day. I built an AI front desk that picks up the overflow, books the lead, texts you so the call doesn't walk to the next shop.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Iron Range in 48 hours.\n\n- Cole`},
+  {id:"pike",shop:"Pike Plumbing & Heating",city:"Brainerd, MN",owner:"Pike team",phone:"+12188294332",sample:"third-avenue-heat-drain",signal:"Field techs praised by name, phone-side reviews flag rude staff",
+   dm:`Hey Pike team, your guys in the field get praised by name in reviews. The pattern I see is the phone side carries the friction. I built an AI front desk that takes the first call, books the lead, texts you so the office staff isn't the bottleneck.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Pike in 48 hours.\n\n- Cole`},
+  {id:"boomers",shop:"Boomer's Quality Plumbing",city:"Winona, MN",owner:"Steven",phone:"+15074527608",sample:"hollow-creek-plumbing",signal:"Customer review, 4 calls in 10 min went to voicemail; Billy gets praised",
+   dm:`Hey Steven, your plumbers like Billy get praised by name in reviews. The leak I see is on the phones, where one customer said they tried 4 calls in 10 minutes and got voicemail. I built an AI front desk that picks up those overflow calls, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Boomer's in 48 hours.\n\n- Cole`},
+  {id:"wes",shop:"Wes' Plumbing & Heating",city:"Bemidji, MN",owner:"Wes' team",phone:"+12187519710",sample:"third-avenue-heat-drain",signal:"62-yr family shop since 1964, reviews flag hard-to-reach by phone",
+   dm:`Hey Wes' team, family shop since '64 is rare. The pattern in reviews is hard-to-reach by phone. I built an AI front desk that picks up the calls the office doesn't catch, books the lead, texts you the details. Doesn't replace your office, just catches the spillover.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Wes' in 48 hours.\n\n- Cole`},
+  {id:"block",shop:"Block Plumbing & Heating",city:"Owatonna, MN",owner:"Catherine",phone:"+15074519545",sample:"third-avenue-heat-drain",signal:"79-yr shop, 24-hr emergency promise, reviews flag phone-and-quote step",
+   dm:`Hey Catherine, 79 years and a 24-hour emergency promise is a lot to keep up. The reviews praise the techs but flag the phone-and-quote step. I built an AI front desk that handles that piece, books the lead, texts you so the field crew isn't waiting on the phone.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Block in 48 hours.\n\n- Cole`},
+  {id:"tappendorf",shop:"Tappendorf Plumbing & Heating",city:"Davenport, IA",owner:"Bob",phone:"+15633242236",sample:"third-avenue-heat-drain",signal:"Owner Bob is callback bottleneck, multiple reviews mention no answer",
+   dm:`Hey Bob, Tappendorf's been around since '73. The hardest part of a 5-decade shop is when callback questions land on the owner. I built an AI front desk that catches those questions the moment they come in, books the lead, texts you the details.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Tappendorf in 48 hours.\n\n- Cole`},
+  {id:"master",shop:"Master Plumbing, Heating & Cooling",city:"Cedar Rapids, IA",owner:"Master team",phone:"+13192145064",sample:"third-avenue-heat-drain",signal:"24/7 emergency advertised, BBB reviews flag back-office leaks",
+   dm:`Hey Master team, you advertise 24/7 and reviews flag the back-office side. I built an AI front desk that picks up the calls and confirms the details in writing instantly, books the lead, texts you so nothing gets lost.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Master in 48 hours.\n\n- Cole`},
+  {id:"ewert",shop:"C. Ewert Plumbing & Heating",city:"Davenport, IA",owner:"Ewert team",phone:"+15633223222",sample:"third-avenue-heat-drain",signal:"70-yr shop, review says office quoted job and missed travel fee",
+   dm:`Hey Ewert team, 70 years in Davenport is a real run. Saw a review where the office quoted a job and missed the trip charge. I built an AI front desk that confirms quote details and trip charges in writing the second a customer calls, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for C. Ewert in 48 hours.\n\n- Cole`},
+  {id:"daleys",shop:"Daley's Plumbing, Heating & Fireplace",city:"Mason City, IA",owner:"Daley's team",phone:"+16414235039",sample:"third-avenue-heat-drain",signal:"Family shop since 2007, customer review felt strung along on bigger projects",
+   dm:`Hey Daley's team, family shop since '07 with a real reputation. Reviews flag that on bigger projects customers feel forgotten between visits. I built an AI front desk that auto-pings the customer with status updates, books the next slot, texts you the details.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Daley's in 48 hours.\n\n- Cole`},
+  {id:"maritime",shop:"Maritime Plumbing & Mechanical",city:"Manitowoc, WI",owner:"Tim",phone:"+19206828794",sample:"third-avenue-heat-drain",signal:"Yelp review, Braydon was the only one who picked up the phone",
+   dm:`Hey Tim, saw a review where a customer said your guy Braydon was the only one who picked up the phone. I built an AI front desk that picks up every call, even when the crew is on a job, books the lead, texts you the details.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Maritime in 48 hours.\n\n- Cole`},
+  {id:"edgewater",shop:"Edgewater Plumbing LLC",city:"Sheboygan, WI",owner:"Jeremiah",phone:"+19204527586",sample:"hollow-creek-plumbing",signal:"Two locations, M-F 5pm close, no posted weekend coverage",
+   dm:`Hey Jeremiah, two locations and 5pm close on weekdays is a lot of after-hours calls walking past you. I built an AI front desk that picks up after 5pm, books the lead, texts you the details.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Edgewater in 48 hours.\n\n- Cole`},
+  {id:"janesville",shop:"Janesville Plumbing LLC",city:"Janesville, WI",owner:"Eric",phone:"+16087547790",sample:"hollow-creek-plumbing",signal:"Angi reviews mention friction with the office on incoming calls",
+   dm:`Hey Eric, saw a few Angi reviews mention friction with the office on incoming calls. I built an AI front desk that handles the first contact so the office isn't the one absorbing every call, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Janesville Plumbing in 48 hours.\n\n- Cole`},
+  {id:"pipedreams",shop:"Pipe Dreams Plumbing LLC",city:"Janesville, WI",owner:"Steve",phone:"+16087540902",sample:"hollow-creek-plumbing",signal:"Birdeye review, won holiday-weekend job because first to call back",
+   dm:`Hey Steve, read a review where you won a holiday-weekend job because you were the first to call back. That's exactly the moment I built this for. AI front desk picks up calls 24/7, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Pipe Dreams in 48 hours.\n\n- Cole`},
+  {id:"pauli",shop:"Pauli Plumbing Inc",city:"Watertown, WI",owner:"Dan",phone:"+19202611755",sample:"hollow-creek-plumbing",signal:"Birdeye review, found Pauli after other plumbers didn't call back",
+   dm:`Hey Dan, that review where someone called you after other plumbers ignored a basement flood says it all. Those calls hit you after 5pm too. I built an AI front desk that picks them up, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Pauli in 48 hours.\n\n- Cole`},
+  {id:"randr",shop:"R and R Plumbing LLC",city:"Oshkosh, WI",owner:"Randy",phone:"+19202793949",sample:"hollow-creek-plumbing",signal:"4.7 stars on 71 reviews with mixed feedback on communication speed",
+   dm:`Hey Randy, 30 years and 71 reviews is a real run. A handful mention communication speed. I built an AI front desk that handles first contact so the trade work stays uninterrupted, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for R and R in 48 hours.\n\n- Cole`},
+  {id:"steves",shop:"Steve's Plumbing & Heating",city:"Wisconsin Rapids, WI",owner:"Steve",phone:"+17154211800",sample:"third-avenue-heat-drain",signal:"BBB review notes Steve himself drives out for inspections, owner-on-truck",
+   dm:`Hey Steve, saw a review where you personally drove out and ran an inspection. When the owner is in the field, the office phone is the bottleneck. I built an AI front desk that picks up the calls, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Steve's in 48 hours.\n\n- Cole`},
+  {id:"williams",shop:"Williams Plumbing & Heating",city:"Wisconsin Rapids, WI",owner:"Shad",phone:"+17154247800",sample:"third-avenue-heat-drain",signal:"Family-owned, no separate office staff, covers Wood/Portage/Adams from one phone",
+   dm:`Hey Shad, you're covering Wood, Portage, and Adams counties from one phone line. I built an AI front desk that picks up the calls those three counties make at all hours, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Williams in 48 hours.\n\n- Cole`},
+  {id:"stratford",shop:"Stratford Plumbing & Heating",city:"Marshfield, WI",owner:"Stratford team",phone:"+17153910290",sample:"third-avenue-heat-drain",signal:"Two separate phone lines (regular vs emergency), inconsistent first-touch experience",
+   dm:`Hey Stratford team, you list a daytime line and a separate emergency line. I built an AI front desk that triages itself, so customers don't have to pick the wrong number, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Stratford in 48 hours.\n\n- Cole`},
+  {id:"timrausch",shop:"Tim Rausch Plumbing",city:"Appleton, WI",owner:"Tim",phone:"+19208309222",sample:"hollow-creek-plumbing",signal:"Site explicitly states 'service after hours provided by appointment'",
+   dm:`Hey Tim, your site says after-hours service is by appointment only. I built an AI front desk that captures those overnight calls and books the appointment for you, so you wake up to a calendar instead of voicemail.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Tim Rausch in 48 hours.\n\n- Cole`},
+  {id:"plumbingpros",shop:"Plumbing Pro's LLC",city:"Goshen, IN",owner:"Dave",phone:"+15742210392",sample:"hollow-creek-plumbing",signal:"Site advertises 24/7 but it's two brothers running residential and commercial routes",
+   dm:`Hey Dave, your site says 24/7 but it's you and Leon out on jobs. I built an AI front desk that actually picks up at 2am so the 24/7 promise holds, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Plumbing Pro's in 48 hours.\n\n- Cole`},
+  {id:"blakley",shop:"Blakley Plumbing Inc.",city:"Fort Wayne, IN",owner:"Roger",phone:"+12607492287",sample:"hollow-creek-plumbing",signal:"3-gen shop, 4.9 stars on 47 reviews, family answering phones themselves since 1958",
+   dm:`Hey Roger, three generations of Blakleys answering the phone yourselves since '58 is a real run. I built an AI front desk that books the call while you're on the truck, texts you the lead.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Blakley in 48 hours.\n\n- Cole`},
+  {id:"hoggatt",shop:"Hoggatt Plumbing LLC",city:"Terre Haute, IN",owner:"Jesse",phone:"+18128706325",sample:"hollow-creek-plumbing",signal:"Site advertises 24/7 emergency repairs, 4-yr-old shop",
+   dm:`Hey Jesse, started Hoggatt in 2022 and your site advertises 24/7. I built an AI front desk that picks up after-hours so the next clog at 11pm books a deposit instead of going to a competitor.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Hoggatt in 48 hours.\n\n- Cole`},
+  {id:"aimtoplease",shop:"Aim to Please Plumbing & Electric",city:"Bloomington, IN",owner:"Alan",phone:"+18123300500",sample:"hollow-creek-plumbing",signal:"Public contact email is owner's personal Gmail",
+   dm:`Hey Alan, your contact page sends to your Gmail. Means you're answering everything yourself. I built an AI front desk for two-person shops that handles inbound while you're on jobs, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Aim to Please in 48 hours.\n\n- Cole`},
+  {id:"anderson",shop:"Anderson Plumbing",city:"Lafayette, IN",owner:"Anderson team",phone:"+17654142080",sample:"hollow-creek-plumbing",signal:"Hours M-F 8-5, closed weekends, since 2014",
+   dm:`Hey Anderson team, your hours close at 5 Friday and you're shut weekends. I built an AI front desk that picks up the Saturday-morning emergencies and books deposits without you picking up, texts you the lead.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Anderson in 48 hours.\n\n- Cole`},
+  {id:"lohmeyer",shop:"Lohmeyer Plumbing",city:"Columbus, IN",owner:"Lohmeyer team",phone:"+18123794876",sample:"hollow-creek-plumbing",signal:"Site explicitly says 'We call you within 1-2 business hours'",
+   dm:`Hey Lohmeyer team, your site says you call back within 1-2 business hours. I built an AI front desk that catches those callers in the first 10 seconds so they don't shop down the list, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Lohmeyer in 48 hours.\n\n- Cole`},
+  {id:"royalflush",shop:"Royal Flush Plumbing",city:"Anderson, IN",owner:"Scott",phone:"+17652811172",sample:"hollow-creek-plumbing",signal:"Site advertises 24/7 emergency, three-person team since 1990",
+   dm:`Hey Scott, your site promises 24/7 and your team is three people. I built an AI front desk that picks up the after-hours line so you actually sleep, books the lead, texts you the details.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Royal Flush in 48 hours.\n\n- Cole`},
+  {id:"trapmasters",shop:"Trapmasters Plumbing",city:"Chesterton/Valparaiso, IN",owner:"Trapmasters team",phone:"+12199262400",sample:"hollow-creek-plumbing",signal:"Old Indeed review from former tech mentions disorganization",
+   dm:`Hey Trapmasters team, saw an Indeed review from a former tech mention disorganization. Not pointing fingers, but a front desk that captures every call clean would tighten that up fast.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Trapmasters in 48 hours.\n\n- Cole`},
+  {id:"alpine",shop:"Alpine Plumbing",city:"Comstock Park, MI",owner:"Patrick",phone:"+16162359311",sample:"hollow-creek-plumbing",signal:"4.9 stars built on prompt responses, one-truck profile",
+   dm:`Hey Patrick, Alpine's 4.9 stars are built on prompt responses. When a one-truck shop scales, prompt is the first thing that breaks. I built an AI front desk that texts you the lead while you're under a sink, books deposits.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Alpine in 48 hours.\n\n- Cole`},
+  {id:"denketelaar",shop:"Den Ketelaar Plumbing",city:"Comstock Park, MI",owner:"Kevin",phone:"+16167853550",sample:"hollow-creek-plumbing",signal:"Office hours M-F 8-5 only, no published after-hours line, since 1980",
+   dm:`Hey Kevin, 45 years since '80 and your office hours close at 5. After-5pm calls from new customers are dead air right now. I built an AI front desk that gives them a real text reply and lands the lead on your phone.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Den Ketelaar in 48 hours.\n\n- Cole`},
+  {id:"klenow",shop:"Klenow & Sons Plumbing & Sewer",city:"Saginaw, MI",owner:"Adam",phone:"+19897511899",sample:"hollow-creek-plumbing",signal:"Yelp/Angi reviews praise 'Adam calls back almost immediately'",
+   dm:`Hey Adam, your reviews literally praise YOU calling back fast. I built an AI front desk that catches the calls when you can't, books deposits, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Klenow in 48 hours.\n\n- Cole`},
+  {id:"ph",shop:"P & H Plumbing, Heating & AC",city:"Flint, MI",owner:"Bob",phone:"+18106865070",sample:"third-avenue-heat-drain",signal:"Brother Jim retired in 2025, leaving Bob solo at top of 60-yr shop",
+   dm:`Hey Bob, saw Jim retired in 2025. Twice the calls coming through one owner now. I built an AI front desk that handles the after-hours leads so they don't bleed to Roto-Rooter, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for P&H in 48 hours.\n\n- Cole`},
+  {id:"awcrooks",shop:"A.W. Crooks Plumbing & Heating",city:"Battle Creek, MI",owner:"Archie",phone:"+12699620084",sample:"third-avenue-heat-drain",signal:"4.3 Angi rating, lowest among comparable Battle Creek shops, intake gap (since 1912)",
+   dm:`Hey Archie, 114 years in Battle Creek is a real run. The field crew gets praised, the gap I see is intake. I built an AI front desk that picks up every call, books the lead, texts you.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for A.W. Crooks in 48 hours.\n\n- Cole`},
+  {id:"pure",shop:"Pure Plumbing LLC",city:"Farwell/Mount Pleasant, MI",owner:"Shaun",phone:"+19896448928",sample:"hollow-creek-plumbing",signal:"Two-owner shop covering 6 towns from 2 trucks, no published office staff",
+   dm:`Hey Shaun, you and Steven cover six towns from two trucks. I built an AI front desk that grabs the calls when you're both wrenching, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Pure in 48 hours.\n\n- Cole`},
+  {id:"macatawa",shop:"Macatawa Plumbing",city:"Holland, MI",owner:"Nate",phone:"+16167720388",sample:"hollow-creek-plumbing",signal:"Office hours 8am-4pm M-F, advertises after-hours techs available",
+   dm:`Hey Nate, your site says after-hours techs are available but the office closes at 4. I built an AI front desk that takes the 5pm-8am calls so you can eat dinner, books the lead, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Macatawa in 48 hours.\n\n- Cole`},
+  {id:"jgoods",shop:"J-Goods Plumbing and Heating",city:"Negaunee/Marquette, MI (UP)",owner:"Jon",phone:"+19068692522",sample:"third-avenue-heat-drain",signal:"Owner's personal email is the published contact, since 2011",
+   dm:`Hey Jon, your published email goes straight to your phone, which means you're the front desk right now. I built an AI front desk that answers, qualifies, and texts you the real ones, books the lead.\n\nSample: stillopen.ai/demo/third-avenue-heat-drain/\n\n$47/mo + $297 install, first month free. If it fits I can build one for J-Goods in 48 hours.\n\n- Cole`},
+  {id:"bobtolsma",shop:"Bob Tolsma Plumbing",city:"Holland/Hamilton/Zeeland, MI",owner:"Bob",phone:"+16168361197",sample:"hollow-creek-plumbing",signal:"Top testimonial: 'Bob Tolsma Plumbing has always been prompt in returning my calls'",
+   dm:`Hey Bob, your top testimonial says you're prompt at returning calls. You ARE the callback. I built an AI front desk that picks up the next "unstoppable leak" call and books a deposit while you're on another job, texts you.\n\nSample: stillopen.ai/demo/hollow-creek-plumbing/\n\n$47/mo + $297 install, first month free. If it fits I can build one for Bob Tolsma in 48 hours.\n\n- Cole`}
+];
+
+// ─── STATE MANAGEMENT ──────────────────────────────────────────────────────────
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+  catch { return {}; }
+}
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+function getLeadState(id) {
+  const state = loadState();
+  return state[id] || { status: "cold" };
+}
+function setLeadState(id, patch) {
+  const state = loadState();
+  state[id] = { ...(state[id] || { status: "cold" }), ...patch };
+  saveState(state);
+  render();
+}
+
+// ─── ACCESS GATE ───────────────────────────────────────────────────────────────
+function tryUnlock(key) {
+  if (key === ACCESS_KEY) {
+    sessionStorage.setItem("outreach-unlocked", "1");
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("app-header").style.display = "block";
+    document.getElementById("app-filters").style.display = "block";
+    document.getElementById("app-main").style.display = "block";
+    render();
+    return true;
+  }
+  return false;
+}
+if (sessionStorage.getItem("outreach-unlocked") === "1") {
+  tryUnlock(ACCESS_KEY);
+}
+document.getElementById("lock-input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    if (!tryUnlock(e.target.value)) {
+      document.getElementById("lock-error").textContent = "Wrong key.";
+    }
+  }
+});
+
+// ─── FILTERS ───────────────────────────────────────────────────────────────────
+let activeFilter = "all";
+const FILTERS = [
+  { id: "all", label: "All" },
+  { id: "cold", label: "Cold" },
+  { id: "sent", label: "Sent" },
+  { id: "replied", label: "Replied" },
+  { id: "demo", label: "Demo" },
+  { id: "closed", label: "Closed" },
+  { id: "declined", label: "Declined / Ghosted" },
+];
+function renderFilters() {
+  const counts = {};
+  LEADS.forEach(l => {
+    const s = getLeadState(l.id).status || "cold";
+    counts[s] = (counts[s] || 0) + 1;
+  });
+  counts.all = LEADS.length;
+  counts.sent = (counts["sent-text"] || 0) + (counts["sent-fb"] || 0) + (counts.sent || 0);
+  counts.declined = (counts.declined || 0) + (counts.ghosted || 0);
+
+  const container = document.getElementById("filter-buttons");
+  container.innerHTML = "";
+  FILTERS.forEach(f => {
+    const btn = document.createElement("button");
+    btn.className = "filter-btn" + (activeFilter === f.id ? " active" : "");
+    btn.innerHTML = `${f.label}<span class="count">${counts[f.id] || 0}</span>`;
+    btn.onclick = () => { activeFilter = f.id; render(); };
+    container.appendChild(btn);
+  });
+}
+
+// ─── COUNTERS ──────────────────────────────────────────────────────────────────
+function renderCounters() {
+  const today = new Date().toISOString().slice(0,10);
+  const state = loadState();
+  let sentToday = 0, replies = 0, demos = 0, closed = 0;
+  Object.values(state).forEach(s => {
+    if ((s.status === "sent-text" || s.status === "sent-fb") && s.sentAt && s.sentAt.slice(0,10) === today) sentToday++;
+    if (s.status === "replied") replies++;
+    if (s.status === "demo") demos++;
+    if (s.status === "closed") closed++;
+  });
+  document.getElementById("stat-sent-today").textContent = sentToday;
+  document.getElementById("stat-replies").textContent = replies;
+  document.getElementById("stat-demos").textContent = demos;
+  document.getElementById("stat-closed").textContent = closed;
+}
+
+// ─── CARDS ─────────────────────────────────────────────────────────────────────
+function buildSmsLink(phone, body) {
+  if (!phone) return null;
+  const encoded = encodeURIComponent(body);
+  return `sms:${phone}&body=${encoded}`;
+}
+function copyDm(body) {
+  navigator.clipboard.writeText(body).then(() => {
+    const t = document.getElementById("toast");
+    t.textContent = "DM copied to clipboard";
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 1400);
+  });
+}
+function statusLabel(s) {
+  const map = { cold: "Cold", "sent-text": "Sent (Text)", "sent-fb": "Sent (FB)", replied: "Replied", demo: "Demo Requested", closed: "Closed Won", declined: "Declined", ghosted: "Ghosted" };
+  return map[s] || s;
+}
+function statusClass(s) {
+  if (s === "sent-text" || s === "sent-fb") return "sent";
+  return s;
+}
+
+function matchesFilter(leadStatus) {
+  if (activeFilter === "all") return true;
+  if (activeFilter === "sent") return leadStatus === "sent-text" || leadStatus === "sent-fb";
+  if (activeFilter === "declined") return leadStatus === "declined" || leadStatus === "ghosted";
+  return leadStatus === activeFilter;
+}
+
+function renderCards() {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  let visible = 0;
+  LEADS.forEach(lead => {
+    const ls = getLeadState(lead.id);
+    const status = ls.status || "cold";
+    if (!matchesFilter(status)) return;
+    visible++;
+    const card = document.createElement("div");
+    card.className = "card " + statusClass(status);
+    const smsLink = buildSmsLink(lead.phone, lead.dm);
+    const stamp = ls.sentAt ? new Date(ls.sentAt).toLocaleString() : "";
+    card.innerHTML = `
+      <div class="card-head">
+        <div>
+          <div class="card-shop">${lead.shop}</div>
+          <div class="card-meta">${lead.city} · ${lead.owner}${lead.phone ? ` · <a href="tel:${lead.phone}" style="color:inherit">${lead.phone}</a>` : " · (no phone)"}</div>
+        </div>
+        <div class="card-state ${statusClass(status)}">${statusLabel(status)}</div>
+      </div>
+      <div class="card-signal">${lead.signal}</div>
+      <div class="card-dm">${lead.dm}</div>
+      <div class="card-actions">
+        ${smsLink ? `<a class="btn btn-text" href="${smsLink}" data-action="open-sms" data-id="${lead.id}">📱 Text now</a>` : ""}
+        <button class="btn" data-action="copy" data-id="${lead.id}">📋 Copy DM</button>
+        <button class="btn btn-text" data-action="set" data-id="${lead.id}" data-status="sent-text">✓ Sent (Text)</button>
+        <button class="btn btn-fb" data-action="set" data-id="${lead.id}" data-status="sent-fb">✓ Sent (FB)</button>
+        <button class="btn btn-replied" data-action="set" data-id="${lead.id}" data-status="replied">💬 Replied</button>
+        <button class="btn btn-demo" data-action="set" data-id="${lead.id}" data-status="demo">🎯 Demo</button>
+        <button class="btn btn-closed" data-action="set" data-id="${lead.id}" data-status="closed">💰 Closed</button>
+        <button class="btn btn-declined" data-action="set" data-id="${lead.id}" data-status="declined">✕ Declined</button>
+        <button class="btn btn-reset" data-action="set" data-id="${lead.id}" data-status="cold">↺ reset</button>
+      </div>
+      ${(status === "replied" || ls.reply) ? `
+        <div class="card-reply">
+          <textarea data-action="reply-edit" data-id="${lead.id}" placeholder="Paste their reply here...">${ls.reply || ""}</textarea>
+          ${ls.reply ? `<div class="card-reply-saved">Saved · ${ls.replyAt ? new Date(ls.replyAt).toLocaleString() : ""}</div>` : ""}
+        </div>` : ""}
+      ${stamp ? `<div class="card-stamp">${statusLabel(status)} · ${stamp}</div>` : ""}
+    `;
+    grid.appendChild(card);
+  });
+  document.getElementById("empty").style.display = visible === 0 ? "block" : "none";
+}
+
+// ─── EVENT DELEGATION ──────────────────────────────────────────────────────────
+document.addEventListener("click", (e) => {
+  const target = e.target.closest("[data-action]");
+  if (!target) return;
+  const id = target.dataset.id;
+  const action = target.dataset.action;
+  if (action === "open-sms") {
+    setTimeout(() => {
+      if (confirm("Mark this lead as Sent (Text)?")) setLeadState(id, { status: "sent-text", sentAt: new Date().toISOString() });
+    }, 600);
+  }
+  if (action === "copy") {
+    const lead = LEADS.find(l => l.id === id);
+    if (lead) copyDm(lead.dm);
+  }
+  if (action === "set") {
+    const status = target.dataset.status;
+    const patch = { status };
+    if (status === "sent-text" || status === "sent-fb") patch.sentAt = new Date().toISOString();
+    if (status === "replied") patch.repliedAt = new Date().toISOString();
+    if (status === "closed") patch.closedAt = new Date().toISOString();
+    setLeadState(id, patch);
+  }
+});
+document.addEventListener("input", (e) => {
+  if (e.target.dataset && e.target.dataset.action === "reply-edit") {
+    const id = e.target.dataset.id;
+    const reply = e.target.value;
+    const cur = getLeadState(id);
+    setLeadState(id, { reply, replyAt: new Date().toISOString(), status: cur.status === "cold" ? "replied" : cur.status });
+  }
+});
+
+// ─── RENDER ────────────────────────────────────────────────────────────────────
+function render() {
+  renderFilters();
+  renderCounters();
+  renderCards();
+}
+
+</script>
+</body>
+</html>
