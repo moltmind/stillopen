@@ -31,6 +31,9 @@
     .lock-card p { color: var(--text-muted); font-size: 13px; margin-bottom: 16px; }
     .lock-card input { width: 100%; padding: 10px 12px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 14px; font-family: inherit; }
     .lock-card input:focus { outline: 1px solid var(--orange); border-color: var(--orange); }
+    .lock-card button { width: 100%; padding: 10px 12px; margin-top: 10px; background: var(--orange); border: none; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s; }
+    .lock-card button:hover { background: var(--orange-dim); }
+    .lock-card button:active { transform: scale(0.98); }
     .lock-error { color: var(--red); font-size: 12px; margin-top: 8px; min-height: 14px; }
 
     header { background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
@@ -117,6 +120,7 @@
     <h1>Outreach Dashboard</h1>
     <p>Enter your access key to continue.</p>
     <input type="password" id="lock-input" placeholder="key" autofocus>
+    <button id="lock-submit" type="button">Unlock</button>
     <div class="lock-error" id="lock-error"></div>
   </div>
 </div>
@@ -292,13 +296,16 @@ function tryUnlock(key) {
 if (sessionStorage.getItem("outreach-unlocked") === "1") {
   tryUnlock(ACCESS_KEY);
 }
-document.getElementById("lock-input").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    if (!tryUnlock(e.target.value)) {
-      document.getElementById("lock-error").textContent = "Wrong key.";
-    }
+function submitUnlock() {
+  const val = document.getElementById("lock-input").value;
+  if (!tryUnlock(val)) {
+    document.getElementById("lock-error").textContent = "Wrong key.";
   }
+}
+document.getElementById("lock-input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") submitUnlock();
 });
+document.getElementById("lock-submit").addEventListener("click", submitUnlock);
 
 // ─── FILTERS ───────────────────────────────────────────────────────────────────
 let activeFilter = "all";
