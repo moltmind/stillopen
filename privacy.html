@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | StillOpen</title>
+  <meta name="description" content="How StillOpen collects, uses, and protects your information.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://stillopen.ai/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050506;
+      --bg-surface: #0c0c0e;
+      --text-primary: #fafafa;
+      --text-secondary: #b4b4bd;
+      --text-tertiary: #71717a;
+      --brand: #f97316;
+      --accent: #fb923c;
+      --border: rgba(255,255,255,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--brand); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(5,5,6,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 900px; margin: 0 auto; padding: 16px 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-wordmark {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 18px; font-weight: 700; letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+    .nav-wordmark span { color: var(--accent); }
+
+    main {
+      max-width: 760px; margin: 0 auto; padding: 64px 32px 96px;
+    }
+    h1 {
+      font-size: 36px; font-weight: 800; letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .updated {
+      color: var(--text-tertiary); font-size: 14px; margin-bottom: 48px;
+    }
+    h2 {
+      font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+      margin-top: 40px; margin-bottom: 14px; color: var(--text-primary);
+    }
+    h3 {
+      font-size: 16px; font-weight: 700;
+      margin-top: 24px; margin-bottom: 8px; color: var(--accent);
+    }
+    p, li { color: var(--text-secondary); font-size: 16px; margin-bottom: 14px; }
+    ul, ol { margin-left: 24px; margin-bottom: 14px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .footer-back {
+      margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 14px; color: var(--text-tertiary);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-wordmark">
+        <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#fafafa" stroke-width="3"/>
+          <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#f97316"/>
+          <circle cx="33" cy="34" r="2" fill="#0a0a0b"/>
+        </svg>
+        Still<span>Open</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective: May 1, 2026</p>
+
+    <p>This Privacy Policy explains what information StillOpen collects, how we use it, and the choices you have. StillOpen is operated by Cole Cummings (StillOpen.ai). Contact: <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</p>
+
+    <h2>1. Who this applies to</h2>
+    <p>StillOpen serves two groups of people:</p>
+    <ul>
+      <li><strong>Business owners</strong> (plumbers, HVAC technicians, electricians, and other home-service operators) who pay for a StillOpen account and run the AI front desk on their website or Facebook Page.</li>
+      <li><strong>Homeowners and prospects</strong> who chat with a StillOpen-powered bot embedded on a business owner's site or who message a business owner's Facebook Page.</li>
+    </ul>
+
+    <h2>2. Information we collect</h2>
+
+    <h3>From business owners (account holders)</h3>
+    <ul>
+      <li>Name and email address (collected through our authentication provider, Clerk).</li>
+      <li>Business information you provide or that we scrape from your public website with your permission, including business name, services, prices, hours, service area, and owner contact details. We refer to this collectively as your "knowledge base."</li>
+      <li>Payment information processed by Stripe. StillOpen never stores your full card number; Stripe handles all card data per PCI DSS standards.</li>
+      <li>If you connect Google Calendar: an OAuth refresh token that lets us check your availability and create events on your behalf.</li>
+      <li>If you connect a Facebook Page: your Facebook Page ID, Page Name, and a long-lived Page Access Token issued by Meta. We use this token only to receive Messenger events sent to your Page and to reply on your Page's behalf.</li>
+    </ul>
+
+    <h3>From homeowners and prospects (end users)</h3>
+    <ul>
+      <li>The text content of messages you send to a StillOpen-powered bot, including any name, phone number, address, or job description you choose to share.</li>
+      <li>For Facebook Messenger conversations: the Page-Scoped ID (PSID) Meta assigns to you for each Page. The PSID is opaque and unique per Page; it is not your Facebook user ID.</li>
+      <li>Standard request metadata such as timestamps and IP address (used only for rate limiting and abuse prevention).</li>
+    </ul>
+
+    <h2>3. How we use information</h2>
+    <ul>
+      <li>To run the AI front desk: route incoming messages to Claude (Anthropic) and return a reply in the business owner's voice.</li>
+      <li>To send replies through the channel the message arrived on (the website widget, Meta Messenger, etc.).</li>
+      <li>To book jobs into the business owner's connected calendar and notify them of new leads via email.</li>
+      <li>To process payments and manage subscriptions (handled by Stripe).</li>
+      <li>To enforce rate limits, prevent abuse, and protect the service.</li>
+      <li>To communicate with business owners about the service (transactional emails sent via Resend).</li>
+    </ul>
+
+    <h2>4. Who we share information with</h2>
+    <p>StillOpen does not sell your information. We share specific data with the following service providers, only as needed to run the service:</p>
+    <ul>
+      <li><strong>Anthropic</strong> (Claude API):receives the system prompt, conversation history, and the latest user message in order to generate a reply. Anthropic does not train on data sent through their API.</li>
+      <li><strong>Meta Platforms</strong> (Facebook Messenger Send API):receives the reply text and the recipient PSID so the message can be delivered to the customer's Messenger inbox.</li>
+      <li><strong>Stripe</strong>:receives payment information for processing charges.</li>
+      <li><strong>Resend</strong>:receives email addresses and message content for transactional emails (lead notifications, onboarding).</li>
+      <li><strong>Clerk</strong>:receives email and authentication credentials for account login.</li>
+      <li><strong>Google</strong>:if Google Calendar is connected, receives event titles, times, and attendee emails for booking.</li>
+      <li><strong>Cloudflare</strong>:provides hosting, DNS, and edge storage (Cloudflare Workers KV) for our application data.</li>
+    </ul>
+    <p>We may also disclose information when required by law, to protect StillOpen's legal rights, or in connection with a corporate transaction such as a merger or acquisition.</p>
+
+    <h2>5. Where data is stored</h2>
+    <p>Application data (knowledge bases, conversation logs, FB Page tokens, OAuth tokens) is stored in Cloudflare Workers KV, replicated globally and encrypted at rest. Customer payment data is held by Stripe. Authentication data is held by Clerk.</p>
+
+    <h2>6. How long we keep data</h2>
+    <ul>
+      <li>Account and knowledge-base data: for the lifetime of your account, plus up to 90 days after cancellation.</li>
+      <li>Conversation logs: up to 12 months for service-quality and abuse-prevention purposes.</li>
+      <li>FB Page tokens: until you disconnect the Page or delete your account.</li>
+      <li>Rate-limit and abuse logs: up to 30 days.</li>
+      <li>Payment records: held by Stripe per their retention rules.</li>
+    </ul>
+
+    <h2>7. Your rights</h2>
+    <p>You can:</p>
+    <ul>
+      <li><strong>Access</strong> the data we hold about you by emailing <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</li>
+      <li><strong>Correct</strong> inaccurate data we hold about you.</li>
+      <li><strong>Delete</strong> your data at any time. See our <a href="/data-deletion.html">Data Deletion</a> page for the process.</li>
+      <li><strong>Disconnect</strong> connected services (Facebook Page, Google Calendar) directly from the dashboard.</li>
+      <li><strong>Export</strong> your knowledge base content on request.</li>
+    </ul>
+
+    <h2>8. Children</h2>
+    <p>StillOpen is not intended for individuals under 13 years of age. We do not knowingly collect information from children under 13. If you believe a child has provided information to us, contact <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a> and we will delete it.</p>
+
+    <h2>9. Cookies and tracking</h2>
+    <p>StillOpen does not set advertising or analytics cookies on the marketing site. The dashboard uses session cookies set by Clerk strictly for authentication.</p>
+
+    <h2>10. Security</h2>
+    <p>We use industry-standard practices including TLS in transit, encryption at rest, signed webhooks (HMAC-SHA-256 for Meta, signed tokens for Stripe), and short-lived OAuth state to protect your data. No system is perfectly secure, and we encourage you to report any suspected vulnerability to <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</p>
+
+    <h2>11. International users</h2>
+    <p>StillOpen is operated from the United States. If you are accessing the service from outside the US, your information may be transferred to and processed in the US.</p>
+
+    <h2>12. Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. The "Effective" date at the top of this page reflects the latest version. Material changes will be communicated to account holders by email.</p>
+
+    <h2>13. Contact</h2>
+    <p>Questions or requests about this policy:</p>
+    <p><strong>Cole Cummings</strong><br>
+    <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a></p>
+
+    <div class="footer-back">
+      <a href="/">&larr; Back to StillOpen</a>
+    </div>
+  </main>
+</body>
+</html>

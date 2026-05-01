@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Deletion | StillOpen</title>
+  <meta name="description" content="How to delete your data from StillOpen.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://stillopen.ai/data-deletion.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050506;
+      --bg-surface: #0c0c0e;
+      --bg-raised: #141416;
+      --text-primary: #fafafa;
+      --text-secondary: #b4b4bd;
+      --text-tertiary: #71717a;
+      --brand: #f97316;
+      --accent: #fb923c;
+      --border: rgba(255,255,255,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--brand); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(5,5,6,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 900px; margin: 0 auto; padding: 16px 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-wordmark {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 18px; font-weight: 700; letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+    .nav-wordmark span { color: var(--accent); }
+
+    main {
+      max-width: 760px; margin: 0 auto; padding: 64px 32px 96px;
+    }
+    h1 {
+      font-size: 36px; font-weight: 800; letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .updated {
+      color: var(--text-tertiary); font-size: 14px; margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+      margin-top: 40px; margin-bottom: 14px; color: var(--text-primary);
+    }
+    p, li { color: var(--text-secondary); font-size: 16px; margin-bottom: 14px; }
+    ul, ol { margin-left: 24px; margin-bottom: 14px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .email-line {
+      font-size: 18px; font-weight: 600;
+      color: var(--accent);
+      margin: 8px 0 16px;
+    }
+    code {
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 14px;
+      background: var(--bg-raised);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--text-primary);
+    }
+    .footer-back {
+      margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 14px; color: var(--text-tertiary);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-wordmark">
+        <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#fafafa" stroke-width="3"/>
+          <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#f97316"/>
+          <circle cx="33" cy="34" r="2" fill="#0a0a0b"/>
+        </svg>
+        Still<span>Open</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Data Deletion</h1>
+    <p class="updated">Effective: May 1, 2026</p>
+
+    <p>You can delete your StillOpen data at any time. This page applies to two groups:</p>
+    <ul>
+      <li><strong>Business owners</strong> with a paid StillOpen account.</li>
+      <li><strong>Facebook users</strong> whose Messenger conversations were processed by a StillOpen-powered bot on a business owner's Page.</li>
+    </ul>
+
+    <h2>How to request deletion</h2>
+
+    <div class="callout">
+      <p>Send an email to:</p>
+      <p class="email-line"><a href="mailto:cole@stillopen.ai?subject=Delete%20my%20data">cole@stillopen.ai</a></p>
+      <p>with the subject line: <code>Delete my data</code></p>
+      <p>Please include in the email:</p>
+      <ul>
+        <li>Your name (and business name, if you are an account holder).</li>
+        <li>The email address associated with your StillOpen account, OR</li>
+        <li>The Facebook Page name and approximate date of the Messenger conversation, if you are an end user.</li>
+      </ul>
+    </div>
+
+    <h2>What gets deleted</h2>
+
+    <h3 style="font-size: 16px; font-weight: 700; margin-top: 24px; margin-bottom: 8px; color: var(--accent);">For business owners</h3>
+    <ul>
+      <li>Your account record (email, name, Clerk authentication data).</li>
+      <li>Your knowledge base (business info, services, prices, hours, FAQs).</li>
+      <li>All conversation logs from your website widget and connected Facebook Pages.</li>
+      <li>Connected integration tokens (Google Calendar refresh tokens, Facebook Page Access Tokens). The Page is also automatically unsubscribed from StillOpen's webhook.</li>
+      <li>Lead records and statistics.</li>
+    </ul>
+    <p>Stripe payment records are retained by Stripe per their own retention rules and are needed for tax and chargeback purposes; StillOpen will request deletion from Stripe to the extent permitted.</p>
+
+    <h3 style="font-size: 16px; font-weight: 700; margin-top: 24px; margin-bottom: 8px; color: var(--accent);">For Facebook Messenger end users</h3>
+    <ul>
+      <li>Any conversation logs containing your Page-Scoped ID (PSID) on the StillOpen-operated infrastructure.</li>
+      <li>Any contact, address, or job-description information you shared with the bot.</li>
+    </ul>
+    <p>Note: messages stored in your own Facebook Messenger inbox are controlled by Meta, not StillOpen. To delete those, use Facebook's own controls inside Messenger.</p>
+
+    <h2>Timeline</h2>
+    <p>Deletion requests are processed within <strong>30 days</strong> of receipt. We will reply by email when the deletion is complete.</p>
+
+    <h2>Self-service for business owners</h2>
+    <p>You can also disconnect specific integrations at any time directly from your dashboard:</p>
+    <ul>
+      <li>Disconnect Google Calendar from <code>/app/dashboard.html</code> &rarr; Integrations &rarr; Google Calendar.</li>
+      <li>Disconnect Facebook Page from <code>/app/dashboard.html</code> &rarr; Integrations &rarr; Facebook Page.</li>
+    </ul>
+    <p>Disconnecting an integration removes the corresponding token from our system within minutes. Full account deletion still requires the email request above.</p>
+
+    <h2>Questions</h2>
+    <p>If you have any question about this process, email <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</p>
+
+    <div class="footer-back">
+      <a href="/">&larr; Back to StillOpen</a>
+    </div>
+  </main>
+</body>
+</html>
