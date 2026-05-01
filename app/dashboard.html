@@ -827,6 +827,16 @@
                     </div>
                     <div class="integration-row">
                         <div class="integration-info">
+                            <div class="integration-icon"><i class="ph ph-facebook-logo"></i></div>
+                            <div>
+                                <div class="integration-name">Facebook Page</div>
+                                <div class="integration-desc" id="fb-desc">Not connected</div>
+                            </div>
+                        </div>
+                        <button class="btn-sm" id="fb-btn" onclick="connectFacebook()">Connect</button>
+                    </div>
+                    <div class="integration-row">
+                        <div class="integration-info">
                             <div class="integration-icon"><i class="ph ph-credit-card"></i></div>
                             <div>
                                 <div class="integration-name">Stripe</div>
@@ -897,6 +907,14 @@
         } catch { alert('Please sign in first.'); }
     }
 
+    async function connectFacebook() {
+        if (!Clerk || !Clerk.session) { alert('Please sign in first.'); return; }
+        try {
+            var token = await Clerk.session.getToken();
+            window.location.href = WORKER_URL + "/auth/facebook/init?token=" + encodeURIComponent(token);
+        } catch { alert('Please sign in first.'); }
+    }
+
     function testChat(e) {
         e.preventDefault();
         var userId = Clerk.user?.id || '';
@@ -913,6 +931,34 @@
             btn.disabled = true;
             btn.style.opacity = '0.5';
             window.history.replaceState({}, '', '/app/dashboard.html');
+        }
+    }
+
+    function checkFacebookStatus() {
+        var params = new URLSearchParams(window.location.search);
+        var desc = document.getElementById('fb-desc');
+        var btn = document.getElementById('fb-btn');
+        if (!desc || !btn) return;
+        if (params.get('fb') === 'connected') {
+            var pageName = params.get('page') || 'Connected';
+            desc.textContent = pageName;
+            btn.textContent = 'Connected';
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            localStorage.setItem('so_fb_page', pageName);
+            window.history.replaceState({}, '', '/app/dashboard.html');
+        } else if (params.get('fb') === 'error') {
+            var reason = params.get('reason') || 'unknown';
+            alert('Facebook connection failed: ' + reason + '. Try again or tell Cole.');
+            window.history.replaceState({}, '', '/app/dashboard.html');
+        } else {
+            var saved = localStorage.getItem('so_fb_page');
+            if (saved) {
+                desc.textContent = saved;
+                btn.textContent = 'Connected';
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+            }
         }
     }
 
