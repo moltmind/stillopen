@@ -782,7 +782,15 @@
           // Auto-authed if URL has ?key=brother-2026
           const params = new URLSearchParams(window.location.search);
           const k = params.get('key') || localStorage.getItem('cal_key');
-          if (k === this.accessKey) { this.authed = true; }
+          if (k === this.accessKey) {
+            this.authed = true;
+            // Beacon: tell Cole this page got opened. Once per hour per IP cooldown server-side.
+            // Skipped silently if it fails. localStorage flag prevents same-tab re-pings.
+            if (!sessionStorage.getItem('cal_beacon_sent')) {
+              fetch('https://app.stillopen.ai/api/cal-open', { method: 'POST', mode: 'cors' }).catch(() => {});
+              sessionStorage.setItem('cal_beacon_sent', '1');
+            }
+          }
           // Load saved lead statuses
           try {
             const saved = localStorage.getItem('cal_lead_statuses');
