@@ -452,6 +452,22 @@
         bottom: 16px;
         right: 16px;
       }
+      /* When the chat is open on mobile, move the bubble to the top-right of the
+         fullscreen window so it acts as a header close button and doesn't sit
+         on top of the input/send row at the bottom. */
+      #he-bubble.open {
+        bottom: auto;
+        top: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        box-shadow: 0 2px 8px ${COLORS.shadow};
+        z-index: 10000;
+      }
+      #he-bubble.open svg {
+        width: 22px;
+        height: 22px;
+      }
     }
   `;
   document.head.appendChild(style);
