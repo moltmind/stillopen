@@ -195,6 +195,53 @@
     .demo-helper {
       font-size: 13px; color: var(--text-quaternary); max-width: 440px;
     }
+    /* Money math line directly under hero subhead */
+    .money-math {
+      font-size: 15px; color: var(--accent-hover); margin: 8px 0 24px;
+      max-width: 540px; line-height: 1.5;
+    }
+    .money-math strong { color: var(--accent); font-weight: 700; }
+    /* Skinny pricing strip under hero form */
+    .pricing-strip {
+      margin-top: 14px; padding: 12px 16px;
+      background: rgba(249,115,22,0.08); border: 1px solid var(--brand-border);
+      border-radius: 10px; max-width: 520px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .pricing-strip-line { font-size: 13px; color: var(--text-secondary); }
+    .pricing-strip-line strong { color: var(--text-primary); font-weight: 700; }
+    .pricing-strip-guarantee { font-size: 12px; color: var(--text-tertiary); }
+    /* Text Cole CTA card */
+    .text-cole {
+      max-width: 540px; margin: 24px auto 0;
+      padding: 18px 22px; background: var(--bg-raised); border: 1px solid var(--border-hover);
+      border-radius: 12px; text-align: center;
+    }
+    .text-cole-eyebrow { font-size: 12px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; font-weight: 600; }
+    .text-cole-line { font-size: 15px; color: var(--text-primary); margin-bottom: 10px; line-height: 1.5; }
+    .text-cole-link { display: inline-block; padding: 12px 24px; background: var(--brand); color: #fff; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.2s; }
+    .text-cole-link:hover { background: var(--accent); transform: translateY(-1px); }
+    /* Beta launch line near pricing */
+    .beta-line {
+      max-width: 540px; margin: 16px auto 0; padding: 14px 18px;
+      background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 10px; text-align: center;
+      font-size: 13px; color: var(--success); line-height: 1.5;
+    }
+    .beta-line strong { color: var(--text-primary); font-weight: 700; }
+    /* Footer trust block */
+    .footer-trust {
+      max-width: 720px; margin: 0 auto 32px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px; padding: 24px;
+      background: var(--bg-raised); border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .footer-trust-item { text-align: center; }
+    .footer-trust-eyebrow { font-size: 11px; color: var(--text-quaternary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; font-weight: 600; }
+    .footer-trust-value { font-size: 14px; color: var(--text-primary); font-weight: 600; line-height: 1.4; }
+    .footer-trust-value a { color: var(--accent); text-decoration: none; }
+    .footer-trust-value a:hover { color: var(--accent-hover); }
     .demo-status {
       text-align: center; padding: 20px 0; color: var(--text-tertiary); font-size: 14px;
     }
@@ -595,6 +642,7 @@
       <div class="hero-badge"><div class="dot"></div> AI Front Desk, Always On</div>
       <h1>The customer you missed last night just <span class="highlight">booked your competitor.</span></h1>
       <p class="hero-sub">Your sign says closed. StillOpen stays open. A 24/7 AI front desk for plumbers, HVAC, mechanics, salons, gyms, vets, and any service business. Never goes to voicemail. Books the job. Takes a deposit on your Stripe. You wake up to work on the calendar and money in the bank.</p>
+      <p class="money-math"><strong>One after-hours job booked = your full year of StillOpen paid for.</strong></p>
       <div class="demo-funnel" id="demo-funnel-hero">
         <form class="demo-form-build" onsubmit="return buildDemo(event, 'hero')">
           <select class="demo-select" name="industry" required>
@@ -616,10 +664,14 @@
           </select>
           <input type="text" class="demo-input" name="businessName" placeholder="Business name" required maxlength="80" />
           <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
-          <button type="submit" class="demo-btn">Build My Demo</button>
+          <button type="submit" class="demo-btn">Build My Front Desk</button>
         </form>
         <p class="demo-helper">30 seconds. We spin up a working AI front desk for your real business. You text it from your phone. You see it answer like it's already yours.</p>
         <div class="demo-status" id="demo-status-hero" style="display:none;"></div>
+        <div class="pricing-strip">
+          <span class="pricing-strip-line"><strong>$297 install</strong> &middot; 30 days free &middot; <strong>$47/mo</strong> if you keep it &middot; Cancel anytime</span>
+          <span class="pricing-strip-guarantee">48-hour install guarantee. Not live in 48 hours? Full refund.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -808,7 +860,7 @@
     <div class="container">
       <div class="reveal" style="max-width:720px;margin:0 auto 48px auto;text-align:center;">
         <span class="section-label">See it work</span>
-        <h2 class="section-heading">Six sample shops. Six live chat widgets.</h2>
+        <h2 class="section-heading">Click any sample. The chat in the corner is real.</h2>
         <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;margin-top:16px;">
           These are fictional businesses built to show the product. Click the chat bubble on any one. Ask about prices, hours, or emergencies. Each shop's AI pulls a different knowledge base, so every answer is shop-specific.
         </p>
@@ -884,6 +936,16 @@
         <p style="font-size:13px;color:var(--text-quaternary);margin-top:20px;">
           48-hour install guarantee. Not live in 48 hours? Full refund, no questions.
         </p>
+
+        <div class="beta-line">
+          <strong>Built and shipped in 30 days.</strong> First 10 paying customers get the install fee waived for life on cancellation and restart.
+        </div>
+
+        <div class="text-cole">
+          <div class="text-cole-eyebrow">Got a weird question?</div>
+          <p class="text-cole-line">Text Cole at <strong>(534) 901-0258</strong>. He answers. Real human. Wisconsin time.</p>
+          <a href="sms:+15349010258" class="text-cole-link">Text Cole &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
@@ -994,7 +1056,7 @@
           </select>
           <input type="text" class="demo-input" name="businessName" placeholder="Business name" required maxlength="80" />
           <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
-          <button type="submit" class="demo-btn">Build My Demo</button>
+          <button type="submit" class="demo-btn">Build My Front Desk</button>
         </form>
         <div class="demo-status" id="demo-status-closing" style="display:none;"></div>
       </div>
@@ -1003,15 +1065,30 @@
 
   <footer>
     <div class="container footer-inner">
+      <div class="footer-trust">
+        <div class="footer-trust-item">
+          <div class="footer-trust-eyebrow">48-hour guarantee</div>
+          <div class="footer-trust-value">Not live in 48 hours? Full refund, no questions.</div>
+        </div>
+        <div class="footer-trust-item">
+          <div class="footer-trust-eyebrow">Text the founder</div>
+          <div class="footer-trust-value"><a href="sms:+15349010258">(534) 901-0258</a></div>
+        </div>
+        <div class="footer-trust-item">
+          <div class="footer-trust-eyebrow">Built in</div>
+          <div class="footer-trust-value">Wisconsin by Cole Cummings</div>
+        </div>
+      </div>
       <p class="footer-tagline">A 24/7 AI front desk for any service business. Built by a guy who makes it work.</p>
       <div class="footer-links">
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
         <a href="mailto:cole@stillopen.ai">Contact</a>
+        <a href="sms:+15349010258">Text Cole</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
       </div>
-      <p class="footer-copy">&copy; 2026 StillOpen</p>
+      <p class="footer-copy">&copy; 2026 StillOpen &middot; Cole Cummings &middot; Made in Wisconsin</p>
     </div>
   </footer>
 
