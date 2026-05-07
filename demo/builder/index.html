@@ -74,6 +74,11 @@ section h2 .accent { color: var(--accent); }
 .claim-cta { display: inline-block; background: var(--accent); color: #fff; padding: 16px 36px; border-radius: 8px; font-weight: 800; font-size: 17px; text-decoration: none; transition: background 0.15s, transform 0.15s; }
 .claim-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
 .claim-fineprint { font-size: 14px; color: rgba(250,247,242,0.6); margin-top: 16px; }
+.share-row { margin-bottom: 18px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.share-btn { background: rgba(250,247,242,0.08); color: var(--cream); padding: 14px 32px; border: 1px solid rgba(250,247,242,0.18); border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: background 0.15s, border-color 0.15s, transform 0.15s; font-family: inherit; }
+.share-btn:hover { background: rgba(250,247,242,0.14); border-color: rgba(250,247,242,0.32); transform: translateY(-1px); }
+.share-toast { font-size: 13px; color: var(--accent-bright); opacity: 0; transition: opacity 0.2s; height: 16px; }
+.share-toast.visible { opacity: 1; }
 
 footer { background: var(--cream); border-top: 1px solid var(--border); padding: 40px 20px; }
 .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
@@ -149,6 +154,10 @@ footer { background: var(--cream); border-top: 1px solid var(--border); padding:
   <div class="claim-section-inner">
     <h2>Like what you see?</h2>
     <p>This is a sample demo. To get a real StillOpen front desk for your actual business, configured with your real hours, services, prices, and Google Calendar, claim it now.</p>
+    <div class="share-row">
+      <button type="button" class="share-btn" id="share-btn" onclick="shareDemo()">Send this to my partner</button>
+      <span class="share-toast" id="share-toast">Link copied to clipboard</span>
+    </div>
     <a href="https://app.stillopen.ai/checkout?tier=starter" class="claim-cta" id="claim-cta">Claim This Demo &mdash; $297 install + 30 days free</a>
     <p class="claim-fineprint">$297 one-time install. 30 days free trial. Then $47/mo. Cancel anytime.</p>
   </div>
@@ -178,14 +187,49 @@ footer { background: var(--cream); border-top: 1px solid var(--border); padding:
 </footer>
 
 <script>
-  // Read URL params and render the demo dynamically. Falls back to safe placeholder copy if missing.
+  // Read demo data from server-injected window global first (clean /d/{slug} URLs),
+  // fall back to URL query params (legacy /demo/builder/index.html?slug=... links).
   (function () {
+    const data = window.STILLOPEN_DEMO_DATA || null;
     const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug') || '';
-    const biz = (params.get('biz') || 'Your Business').slice(0, 80);
-    const city = (params.get('city') || 'Your City').slice(0, 60);
-    const ind = (params.get('ind') || 'other').toLowerCase();
-    const pid = params.get('pid') || ('demo-built-' + slug);
+
+    let slug, biz, city, ind, pid;
+    if (data && (data.business_name || data.slug)) {
+      slug = data.slug || '';
+      biz = String(data.business_name || 'Your Business').slice(0, 80);
+      city = String((data.service_area && data.service_area[0]) || 'Your City').slice(0, 60);
+      ind = String(data.industry || 'other').toLowerCase();
+      pid = data.plumberId || ('demo-built-' + slug);
+    } else {
+      slug = params.get('slug') || '';
+      biz = (params.get('biz') || 'Your Business').slice(0, 80);
+      city = (params.get('city') || 'Your City').slice(0, 60);
+      ind = (params.get('ind') || 'other').toLowerCase();
+      pid = params.get('pid') || ('demo-built-' + slug);
+    }
+
+    // Wire the share button now that we know the canonical clean URL
+    window.shareDemo = function () {
+      const cleanUrl = slug ? ('https://stillopen.ai/d/' + slug) : window.location.href;
+      const shareTitle = biz + ' — AI Front Desk';
+      const shareText = 'Check out this AI front desk for ' + biz + '. Try the chat in the corner. Built in 30 seconds.';
+      const toast = document.getElementById('share-toast');
+
+      if (navigator.share) {
+        navigator.share({ title: shareTitle, text: shareText, url: cleanUrl }).catch(function () { /* user cancelled */ });
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(cleanUrl).then(function () {
+          if (toast) {
+            toast.classList.add('visible');
+            setTimeout(function () { toast.classList.remove('visible'); }, 2500);
+          }
+        }).catch(function () {
+          if (toast) { toast.textContent = 'Copy this URL: ' + cleanUrl; toast.classList.add('visible'); }
+        });
+      } else {
+        if (toast) { toast.textContent = 'Copy this URL: ' + cleanUrl; toast.classList.add('visible'); }
+      }
+    };
 
     // Industry-side display strings (mirrors worker INDUSTRY_DEFAULTS shape)
     const INDUSTRY_DISPLAY = {
