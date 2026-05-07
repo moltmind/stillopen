@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your StillOpen Demo</title>
+<meta name="description" content="A live StillOpen demo for your business. Built in 30 seconds. The AI front desk on this page is real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #1c1917;
+  --primary-light: #44403c;
+  --accent: #f97316;
+  --accent-bright: #fb923c;
+  --cream: #faf7f2;
+  --border: #e7e5e4;
+  --text: #1a1a1a;
+  --text-muted: #57534e;
+  --bg-alt: #ffffff;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Work Sans', -apple-system, system-ui, sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.sample-banner { position: sticky; top: 0; z-index: 9999; background: #0f172a; color: #faf7f2; padding: 10px 20px; text-align: center; font-size: 13px; border-bottom: 2px solid var(--accent); line-height: 1.5; }
+.sample-banner strong { color: var(--accent-bright); font-weight: 700; }
+.sample-banner a { color: var(--accent-bright); text-decoration: underline; font-weight: 600; margin-left: 10px; }
+@media (max-width: 640px) { .sample-banner { font-size: 12px; padding: 8px 14px; } .sample-banner a { display: block; margin: 4px auto 0; } }
+
+.top-bar { background: var(--primary); color: var(--cream); padding: 8px 0; font-size: 14px; }
+.top-bar-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.top-bar strong { color: var(--accent-bright); }
+
+header { background: var(--cream); border-bottom: 2px solid var(--border); position: sticky; top: 38px; z-index: 50; }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-mark { width: 48px; height: 48px; border-radius: 8px; background: var(--primary); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+.logo-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
+.logo-text small { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+.header-cta { background: var(--accent); color: #fff; padding: 10px 20px; border-radius: 6px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; transition: background 0.15s; }
+.header-cta:hover { background: var(--accent-bright); }
+@media (max-width: 720px) { .header-cta { font-size: 13px; padding: 8px 14px; } }
+
+.hero { padding: 80px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
+.hero h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; color: var(--primary); }
+.hero h1 .accent { color: var(--accent); }
+.hero p { font-size: 19px; color: var(--text-muted); max-width: 640px; margin: 0 auto 32px; }
+.hero .city-line { font-size: 16px; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+
+section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+section.alt { background: var(--bg-alt); max-width: none; }
+section.alt-inner { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+section h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; letter-spacing: -0.5px; color: var(--primary); margin-bottom: 32px; }
+section h2 .accent { color: var(--accent); }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.service-card { background: var(--cream); padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
+.service-card-title { font-weight: 700; font-size: 16px; color: var(--primary); }
+.service-card-sub { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.info-card { background: var(--cream); padding: 24px; border-radius: 8px; border: 1px solid var(--border); }
+.info-card h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 12px; font-weight: 700; }
+.info-card p { font-size: 16px; color: var(--primary); }
+.info-card p strong { font-weight: 700; }
+
+.claim-section { background: var(--primary); color: var(--cream); padding: 80px 20px; text-align: center; }
+.claim-section-inner { max-width: 700px; margin: 0 auto; }
+.claim-section h2 { color: var(--cream); margin-bottom: 16px; }
+.claim-section p { font-size: 18px; color: rgba(250,247,242,0.85); margin-bottom: 32px; }
+.claim-cta { display: inline-block; background: var(--accent); color: #fff; padding: 16px 36px; border-radius: 8px; font-weight: 800; font-size: 17px; text-decoration: none; transition: background 0.15s, transform 0.15s; }
+.claim-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
+.claim-fineprint { font-size: 14px; color: rgba(250,247,242,0.6); margin-top: 16px; }
+
+footer { background: var(--cream); border-top: 1px solid var(--border); padding: 40px 20px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+.footer-inner h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 12px; font-weight: 700; }
+.footer-inner p, .footer-inner a { font-size: 15px; color: var(--primary); display: block; margin-bottom: 6px; text-decoration: none; }
+.footer-inner a:hover { color: var(--accent); }
+.footer-bottom { max-width: 1100px; margin: 24px auto 0; padding: 24px 20px 0; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--text-muted); }
+</style>
+</head>
+
+<body>
+
+<div class="sample-banner">
+  <strong>Demo built in 30 seconds.</strong> The AI chat in the corner is real and trained on your industry. <a href="https://stillopen.ai/" id="back-home">Back to stillopen.ai</a>
+</div>
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <span><strong id="city-tagline">Your city</strong> &middot; Open right now in chat &middot; <span id="industry-label">service business</span></span>
+    <span>Built with StillOpen</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark" id="logo-initial">B</div>
+      <div class="logo-text" id="logo-text">
+        Your Business
+        <small id="logo-sub">Sample StillOpen Demo</small>
+      </div>
+    </div>
+    <a href="#claim" class="header-cta">Claim This Demo</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="city-line" id="city-line">YOUR CITY</div>
+  <h1 id="hero-title">Your Business <span class="accent">never misses a call</span></h1>
+  <p id="hero-sub">A 24/7 AI front desk that answers every question, books every job, and never sleeps. Try it in the chat bubble in the corner.</p>
+</section>
+
+<section class="alt">
+  <div class="alt-inner">
+    <h2>Services <span class="accent">we know</span></h2>
+    <div class="services-grid" id="services-grid"></div>
+  </div>
+</section>
+
+<section>
+  <h2>How it <span class="accent">works</span></h2>
+  <div class="info-row">
+    <div class="info-card">
+      <h3>Hours</h3>
+      <p><strong>Monday-Friday:</strong> 8 AM to 5 PM<br><strong>Saturday:</strong> By appointment<br><strong>Sunday:</strong> Closed</p>
+    </div>
+    <div class="info-card">
+      <h3>Emergency</h3>
+      <p id="emergency-text">Available for urgent situations.</p>
+    </div>
+    <div class="info-card">
+      <h3>Service area</h3>
+      <p id="service-area-text"><strong>Your city</strong> and surrounding neighborhoods.</p>
+    </div>
+    <div class="info-card">
+      <h3>The chat in the corner</h3>
+      <p>Knows this business. Answers questions. Books jobs. Captures deposits on emergencies. Try it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="claim-section" id="claim">
+  <div class="claim-section-inner">
+    <h2>Like what you see?</h2>
+    <p>This is a sample demo. To get a real StillOpen front desk for your actual business, configured with your real hours, services, prices, and Google Calendar, claim it now.</p>
+    <a href="https://app.stillopen.ai/checkout?tier=starter" class="claim-cta" id="claim-cta">Claim This Demo &mdash; $297 install + 30 days free</a>
+    <p class="claim-fineprint">$297 one-time install. 30 days free trial. Then $47/mo. Cancel anytime.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4 id="footer-biz">Your Business (sample)</h4>
+      <p>Sample StillOpen demo built to show the product on your own brand.</p>
+      <p style="margin-top: 12px;">The AI chat in the corner is real.</p>
+    </div>
+    <div>
+      <h4>StillOpen</h4>
+      <a href="https://stillopen.ai/">stillopen.ai</a>
+      <a href="https://stillopen.ai/#pricing">Pricing</a>
+      <a href="https://stillopen.ai/#how-it-works">How it works</a>
+    </div>
+    <div>
+      <h4>Sample location</h4>
+      <p id="footer-city">Your City</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 StillOpen. <span id="footer-disclaimer">This is a sample demo built from your business name and city. Not a real customer site.</span>
+  </div>
+</footer>
+
+<script>
+  // Read URL params and render the demo dynamically. Falls back to safe placeholder copy if missing.
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug') || '';
+    const biz = (params.get('biz') || 'Your Business').slice(0, 80);
+    const city = (params.get('city') || 'Your City').slice(0, 60);
+    const ind = (params.get('ind') || 'other').toLowerCase();
+    const pid = params.get('pid') || ('demo-built-' + slug);
+
+    // Industry-side display strings (mirrors worker INDUSTRY_DEFAULTS shape)
+    const INDUSTRY_DISPLAY = {
+      plumbers:     { label: "plumbing", services: ["Drain cleaning", "Water heater repair and replacement", "Leak detection", "Toilet and faucet repair", "Sewer line service", "Emergency plumbing"], emergency: "24/7 for major leaks, no hot water, sewer backups." },
+      hvac:         { label: "HVAC", services: ["AC repair and install", "Furnace repair and install", "Heat pump service", "Duct cleaning", "Annual maintenance tune-ups", "Emergency heating and cooling"], emergency: "24/7 for no heat in winter or no AC in summer." },
+      electricians: { label: "electrical", services: ["Panel upgrade", "Outlet and switch install", "Lighting install", "Ceiling fan install", "Whole-home electrical inspection", "EV charger install", "Emergency electrical"], emergency: "24/7 for power outages, exposed wiring, sparks, or burning smells." },
+      mechanics:    { label: "auto repair", services: ["Oil change", "Brake service", "Tire rotation and balance", "Engine diagnostic", "Transmission service", "Battery replacement", "State inspection"], emergency: "By appointment. Tow service through partners." },
+      auto_repair:  { label: "auto repair", services: ["Engine repair", "Transmission service", "Brake repair", "Suspension and steering", "Exhaust", "AC service", "Diagnostics"], emergency: "By appointment." },
+      hair_salons:  { label: "hair salon", services: ["Haircuts", "Color and highlights", "Balayage", "Blowouts", "Updos", "Deep conditioning treatments", "Bridal services"], emergency: "Walk-ins welcome based on availability. Booking ahead recommended." },
+      barbers:      { label: "barbershop", services: ["Men's haircut", "Beard trim", "Hot towel shave", "Father-and-son cuts", "Buzz cut", "Hairline lineup"], emergency: "First-come, first-served walk-ins most days." },
+      lawn_care:    { label: "lawn care", services: ["Mowing", "Trimming and edging", "Leaf removal", "Spring and fall cleanup", "Aeration and overseeding", "Mulching", "Snow removal in season"], emergency: "Same-week scheduling for most one-time jobs." },
+      pest_control: { label: "pest control", services: ["General pest treatment", "Termite inspection", "Rodent control", "Bed bug treatment", "Mosquito treatment", "Wildlife removal", "Quarterly maintenance"], emergency: "Same-day for serious infestations during business hours." },
+      dentists:     { label: "dental", services: ["Cleanings", "Fillings", "Crowns and bridges", "Whitening", "Extractions", "Root canals", "Emergency dental"], emergency: "Same-day appointments for severe pain, swelling, or trauma." },
+      vets:         { label: "veterinary", services: ["Wellness exams", "Vaccinations", "Spay and neuter", "Dental cleanings", "Diagnostics", "Surgery", "Urgent care"], emergency: "Same-day urgent care during business hours. Refer to nearest 24/7 emergency vet after hours." },
+      gyms:         { label: "gym", services: ["Memberships", "Personal training", "Group classes", "Day passes", "Open gym hours", "Body composition analysis"], emergency: "Open per the schedule. Personal training by appointment." },
+      handymen:     { label: "handyman", services: ["Drywall repair", "Interior painting", "Furniture assembly", "TV mounting", "Door and window repair", "Light plumbing and electrical", "General home maintenance"], emergency: "Same-week most jobs. Same-day for urgent issues if the schedule allows." },
+      other:        { label: "service", services: ["General services in our trade. Ask about a specific need and we'll confirm."], emergency: "Standard business hours response." }
+    };
+    const display = INDUSTRY_DISPLAY[ind] || INDUSTRY_DISPLAY.other;
+
+    // Title bar / page title
+    document.title = biz + " | Sample StillOpen Demo | " + city;
+
+    // Header logo
+    document.getElementById('logo-initial').textContent = (biz.match(/[a-zA-Z]/) || ['B'])[0].toUpperCase();
+    const logoTextEl = document.getElementById('logo-text');
+    logoTextEl.firstChild.textContent = biz + ' ';
+    document.getElementById('logo-sub').textContent = 'Sample ' + display.label + ' demo';
+
+    // Top bar
+    document.getElementById('city-tagline').textContent = city;
+    document.getElementById('industry-label').textContent = display.label;
+
+    // Hero
+    document.getElementById('city-line').textContent = city.toUpperCase();
+    const heroTitle = document.getElementById('hero-title');
+    heroTitle.innerHTML = escapeHtml(biz) + ' <span class="accent">never misses a call</span>';
+
+    // Services grid
+    const grid = document.getElementById('services-grid');
+    grid.innerHTML = display.services.map(function (s) {
+      return '<div class="service-card"><div class="service-card-title">' + escapeHtml(s) + '</div><div class="service-card-sub">Available in ' + escapeHtml(city) + '</div></div>';
+    }).join('');
+
+    // Emergency + service area
+    document.getElementById('emergency-text').textContent = display.emergency;
+    document.getElementById('service-area-text').innerHTML = '<strong>' + escapeHtml(city) + '</strong> and surrounding neighborhoods.';
+
+    // Footer
+    document.getElementById('footer-biz').textContent = biz + ' (sample)';
+    document.getElementById('footer-city').textContent = city;
+    document.getElementById('footer-disclaimer').textContent = biz + ' is a sample demo built from a business name and city, not a real customer site.';
+
+    // Embed the chatbot pointed at our dynamic kb
+    if (pid) {
+      const s = document.createElement('script');
+      s.src = 'https://app.stillopen.ai/chatbot.js';
+      s.setAttribute('data-plumber-id', pid);
+      document.body.appendChild(s);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+  })();
+</script>
+
+</body>
+</html>

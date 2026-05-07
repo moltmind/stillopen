@@ -173,6 +173,25 @@
     }
     .demo-btn:hover { background: var(--accent); transform: translateY(-1px); }
     .demo-btn:disabled { opacity: 0.5; transform: none; cursor: not-allowed; }
+    /* Build-demo form (industry-agnostic onboarding funnel) */
+    .demo-form-build { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+    .demo-form-build .demo-input { width: 100%; }
+    .demo-select {
+      width: 100%; padding: 14px 18px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border-hover);
+      border-radius: 10px; color: var(--text-primary);
+      font-size: 15px; font-family: inherit; outline: none; transition: border-color 0.2s;
+      appearance: none; -webkit-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--text-tertiary) 50%), linear-gradient(135deg, var(--text-tertiary) 50%, transparent 50%);
+      background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .demo-select:focus { border-color: var(--brand); }
+    .demo-select option { background: var(--bg-surface); color: var(--text-primary); }
+    .demo-form-build .demo-btn { padding: 16px 24px; font-size: 16px; margin-top: 4px; width: 100%; }
     .demo-helper {
       font-size: 13px; color: var(--text-quaternary); max-width: 440px;
     }
@@ -580,17 +599,30 @@
       <h1>The 2 AM call you missed last night was a <span class="highlight">$900 job.</span></h1>
       <p class="hero-sub">Your sign says closed. StillOpen stays open. A 24/7 AI front desk that never goes to voicemail, books the job, and takes a deposit on your Stripe. You wake up to work on the calendar and money in the bank.</p>
       <div class="demo-funnel" id="demo-funnel-hero">
-        <form class="demo-form" onsubmit="return startDemo(event, 'hero')">
-          <input type="url" class="demo-input" placeholder="Paste your website URL" required />
-          <button type="submit" class="demo-btn">See my front desk</button>
+        <form class="demo-form-build" onsubmit="return buildDemo(event, 'hero')">
+          <select class="demo-select" name="industry" required>
+            <option value="" disabled selected>What's your business type?</option>
+            <option value="plumbers">Plumber</option>
+            <option value="hvac">HVAC</option>
+            <option value="electricians">Electrician</option>
+            <option value="mechanics">Mechanic</option>
+            <option value="auto_repair">Auto Repair</option>
+            <option value="hair_salons">Hair Salon</option>
+            <option value="barbers">Barber</option>
+            <option value="lawn_care">Lawn Care</option>
+            <option value="pest_control">Pest Control</option>
+            <option value="dentists">Dentist</option>
+            <option value="vets">Vet</option>
+            <option value="gyms">Gym</option>
+            <option value="handymen">Handyman</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="text" class="demo-input" name="businessName" placeholder="Business name" required maxlength="80" />
+          <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
+          <button type="submit" class="demo-btn">Build My Demo</button>
         </form>
-        <p class="demo-helper">We train the bot on your real pricing and services in about 60 seconds. Then you talk to it like a customer would.</p>
+        <p class="demo-helper">30 seconds. We spin up a working AI front desk for your real business. You text it from your phone. You see it answer like it's already yours.</p>
         <div class="demo-status" id="demo-status-hero" style="display:none;"></div>
-        <div class="demo-chat-container" id="demo-chat-hero" style="display:none;"></div>
-        <div class="demo-cta-after" id="demo-cta-hero" style="display:none;">
-          <p class="demo-cta-text">That's your front desk. Running 24/7 on your website.</p>
-          <a href="https://app.stillopen.ai/checkout?tier=starter" class="btn-primary" style="padding:14px 28px;font-size:15px;">Buy the Express Install. $297</a>
-        </div>
       </div>
     </div>
   </section>
@@ -941,20 +973,33 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Try it now</span>
-        <h2 class="section-heading" style="margin-left:auto;margin-right:auto;text-align:center;">See it work on your website. Then decide.</h2>
+        <h2 class="section-heading" style="margin-left:auto;margin-right:auto;text-align:center;">Build your demo. Then decide.</h2>
       </div>
-      <p class="closing-body reveal">You don't have to take my word for it. Paste your website URL below. We train the bot on your real pricing and service menu in about 60 seconds. Then you talk to it the way a customer would. If it sounds right, email me and we'll talk about a custom build for your shop. If it doesn't, close the tab and we won't bother you.</p>
+      <p class="closing-body reveal">You don't have to take my word for it. Pick your business type below, type the name and city, and we spin up a real working AI front desk for your business in about 30 seconds. You text it from your phone. You see it answer. If it sounds right, claim it. If it doesn't, close the tab and we won't bother you.</p>
       <div class="demo-funnel reveal" id="demo-funnel-closing" style="margin:0 auto;">
-        <form class="demo-form" onsubmit="return startDemo(event, 'closing')">
-          <input type="url" class="demo-input" placeholder="Paste your website URL" required />
-          <button type="submit" class="demo-btn">See my front desk</button>
+        <form class="demo-form-build" onsubmit="return buildDemo(event, 'closing')">
+          <select class="demo-select" name="industry" required>
+            <option value="" disabled selected>What's your business type?</option>
+            <option value="plumbers">Plumber</option>
+            <option value="hvac">HVAC</option>
+            <option value="electricians">Electrician</option>
+            <option value="mechanics">Mechanic</option>
+            <option value="auto_repair">Auto Repair</option>
+            <option value="hair_salons">Hair Salon</option>
+            <option value="barbers">Barber</option>
+            <option value="lawn_care">Lawn Care</option>
+            <option value="pest_control">Pest Control</option>
+            <option value="dentists">Dentist</option>
+            <option value="vets">Vet</option>
+            <option value="gyms">Gym</option>
+            <option value="handymen">Handyman</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="text" class="demo-input" name="businessName" placeholder="Business name" required maxlength="80" />
+          <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
+          <button type="submit" class="demo-btn">Build My Demo</button>
         </form>
         <div class="demo-status" id="demo-status-closing" style="display:none;"></div>
-        <div class="demo-chat-container" id="demo-chat-closing" style="display:none;"></div>
-        <div class="demo-cta-after" id="demo-cta-closing" style="display:none;">
-          <p class="demo-cta-text">That's your front desk. Running 24/7 on your website.</p>
-          <a href="https://app.stillopen.ai/checkout?tier=starter" class="btn-primary" style="padding:14px 28px;font-size:15px;">Buy the Express Install. $297</a>
-        </div>
       </div>
     </div>
   </section>
@@ -1118,6 +1163,51 @@
       "Building your front desk...",
       "Almost ready...",
     ];
+
+    async function buildDemo(e, location) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector(".demo-btn");
+      const statusEl = document.getElementById("demo-status-" + location);
+      const fd = new FormData(form);
+      const industry = (fd.get("industry") || "").toString().trim();
+      const businessName = (fd.get("businessName") || "").toString().trim();
+      const city = (fd.get("city") || "").toString().trim();
+
+      if (!industry || !businessName || !city) {
+        return false;
+      }
+
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = "Building...";
+      if (statusEl) {
+        statusEl.style.display = "block";
+        statusEl.textContent = "Spinning up your demo...";
+      }
+
+      try {
+        const res = await fetch("https://app.stillopen.ai/api/build-demo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ industry, businessName, city }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          if (statusEl) statusEl.textContent = (data && data.error) ? data.error : "Could not build demo. Try again.";
+          btn.disabled = false;
+          btn.textContent = originalText;
+          return false;
+        }
+        if (statusEl) statusEl.textContent = "Loading your demo...";
+        window.location.href = data.redirectUrl;
+      } catch (err) {
+        if (statusEl) statusEl.textContent = "Network error. Try again.";
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+      return false;
+    }
 
     async function startDemo(e, location) {
       e.preventDefault();
