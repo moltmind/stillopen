@@ -66,5 +66,19 @@
     <p>If you followed a personalized demo link from me, I pulled those pages down. I built them without asking the business owner first, and that was on me. If you are a home services owner who wants an AI receptionist built the right way, come to the front page.</p>
     <a class="cta" href="/">Go to StillOpen</a>
   </div>
+  <script>
+    // Catch /d/[slug] URLs that used to point at the (defunct) Pages Function.
+    // Bounce them to the static builder template which now fetches the kb
+    // config from the worker on load. Keeps every previously shared link alive.
+    (function () {
+      try {
+        var path = window.location.pathname || '';
+        var m = path.match(/^\/d\/([a-z0-9-]+)\/?$/i);
+        if (m && m[1]) {
+          window.location.replace('/demo/builder/?slug=' + encodeURIComponent(m[1]));
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>

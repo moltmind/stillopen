@@ -187,30 +187,54 @@ footer { background: var(--cream); border-top: 1px solid var(--border); padding:
 </footer>
 
 <script>
-  // Read demo data from server-injected window global first (clean /d/{slug} URLs),
-  // fall back to URL query params (legacy /demo/builder/index.html?slug=... links).
+  // Demo data load order:
+  //   1. Server-injected window.STILLOPEN_DEMO_DATA (would have been the
+  //      Cloudflare Pages Function path; not used now because stillopen.ai is
+  //      on GitHub Pages which has no Functions support).
+  //   2. ?slug=X in the URL: fetch /api/demo-config?slug=X from the worker
+  //      and use that. This is the canonical path post-2026-05-09 fix.
+  //   3. Legacy ?biz=&city=&ind= params (old shared links): render straight
+  //      from URL params with industry defaults.
   (function () {
-    const data = window.STILLOPEN_DEMO_DATA || null;
     const params = new URLSearchParams(window.location.search);
 
-    let slug, biz, city, ind, pid;
-    if (data && (data.business_name || data.slug)) {
-      slug = data.slug || '';
-      biz = String(data.business_name || 'Your Business').slice(0, 80);
-      city = String((data.service_area && data.service_area[0]) || 'Your City').slice(0, 60);
-      ind = String(data.industry || 'other').toLowerCase();
-      pid = data.plumberId || ('demo-built-' + slug);
-    } else {
-      slug = params.get('slug') || '';
-      biz = (params.get('biz') || 'Your Business').slice(0, 80);
-      city = (params.get('city') || 'Your City').slice(0, 60);
-      ind = (params.get('ind') || 'other').toLowerCase();
-      pid = params.get('pid') || ('demo-built-' + slug);
+    function init(data) {
+      let slug, biz, city, ind, pid;
+      if (data && (data.business_name || data.slug)) {
+        slug = data.slug || params.get('slug') || '';
+        biz = String(data.business_name || 'Your Business').slice(0, 80);
+        city = String((data.service_area && data.service_area[0]) || 'Your City').slice(0, 60);
+        ind = String(data.industry || 'other').toLowerCase();
+        pid = data.plumberId || ('demo-built-' + slug);
+      } else {
+        slug = params.get('slug') || '';
+        biz = (params.get('biz') || 'Your Business').slice(0, 80);
+        city = (params.get('city') || 'Your City').slice(0, 60);
+        ind = (params.get('ind') || 'other').toLowerCase();
+        pid = params.get('pid') || ('demo-built-' + slug);
+      }
+      render(slug, biz, city, ind, pid);
     }
+
+    // If the worker injected the data already, run immediately.
+    if (window.STILLOPEN_DEMO_DATA && (window.STILLOPEN_DEMO_DATA.business_name || window.STILLOPEN_DEMO_DATA.slug)) {
+      init(window.STILLOPEN_DEMO_DATA);
+    } else if (params.get('slug')) {
+      // Fetch the kb config from the worker for this slug.
+      fetch('https://app.stillopen.ai/api/demo-config?slug=' + encodeURIComponent(params.get('slug')))
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (cfg) { init(cfg); })
+        .catch(function () { init(null); });
+    } else {
+      // Legacy URL params or no params at all.
+      init(null);
+    }
+
+    function render(slug, biz, city, ind, pid) {
 
     // Wire the share button now that we know the canonical clean URL
     window.shareDemo = function () {
-      const cleanUrl = slug ? ('https://stillopen.ai/d/' + slug) : window.location.href;
+      const cleanUrl = slug ? ('https://stillopen.ai/demo/builder/?slug=' + slug) : window.location.href;
       const shareTitle = biz + ' — AI Front Desk';
       const shareText = 'Check out this AI front desk for ' + biz + '. Try the chat in the corner. Built in 30 seconds.';
       const toast = document.getElementById('share-toast');
@@ -294,6 +318,8 @@ footer { background: var(--cream); border-top: 1px solid var(--border); padding:
     function escapeHtml(s) {
       return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
+
+    } // end render()
   })();
 </script>
 

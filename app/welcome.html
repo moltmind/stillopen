@@ -271,6 +271,11 @@
             setFallback();
         }
 
+        // Single launch offer (locked 2026-05-09): Express Install only.
+        // Pro / Elite tier copy was removed because no Stripe price IDs ever
+        // backed those tiers; clicks would have hit a dead checkout. If we
+        // add real upsell tiers later, restore them with matching price IDs
+        // wired in worker.js /checkout endpoint.
         var tiers = {
             starter: {
                 name: 'Express Install',
@@ -284,36 +289,13 @@
                     '30-day free trial on the monthly service',
                     '48-hour install guarantee or full refund'
                 ]
-            },
-            pro: {
-                name: 'Pro',
-                price: '$97/mo',
-                icon: 'ph-fill ph-crown',
-                features: [
-                    'Everything in Starter, plus:',
-                    'Up to 2,000 conversations/month',
-                    'Owner notification emails on every booking',
-                    'Priority support',
-                    'Custom branding on chat widget',
-                    '30-day money-back guarantee'
-                ]
-            },
-            elite: {
-                name: 'Elite',
-                price: '$197/mo',
-                icon: 'ph-fill ph-diamond',
-                features: [
-                    'Everything in Pro, plus:',
-                    'Unlimited conversations',
-                    'White-glove setup by Cole',
-                    'Monthly strategy calls',
-                    'Custom integrations',
-                    'Priority phone support'
-                ]
             }
         };
 
-        var data = tiers[tier];
+        // Any tier param other than "starter" gets remapped to starter
+        // because the launch offer is single-tier. This protects against
+        // stale links and webhook tier values like "starter-install".
+        var data = tiers[tier] || tiers.starter;
         if (data) {
             document.getElementById('tier-name').textContent = data.name;
             document.getElementById('plan-label').textContent = data.name + ' Plan';
