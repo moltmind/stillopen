@@ -290,10 +290,15 @@
         <div class="name">The Brief</div>
         <div class="desc">What you're selling, how you get paid, scripts, objection handlers. Read it once. Reference it later.</div>
       </a>
-      <a class="tool-link" href="https://stillopen.ai/" target="_blank">
+      <a class="tool-link" href="demo-builder.html">
         <div class="icon">3</div>
+        <div class="name">Demo Builder (the magic)</div>
+        <div class="desc">During a call, paste the plumber's website URL. The bot scrapes their real services and builds a personalized demo in 30 seconds. Copy the text, send via iMessage while still on the call.</div>
+      </a>
+      <a class="tool-link" href="https://stillopen.ai/" target="_blank">
+        <div class="icon">4</div>
         <div class="name">stillopen.ai (the product)</div>
-        <div class="desc">The actual site plumbers land on. Send them here when they say yes to a demo. The Build My Front Desk form spins up their personalized demo.</div>
+        <div class="desc">The actual site plumbers land on. Useful if you want to see what the bot does in real time, or send a non-personalized link.</div>
       </a>
     </div>
   </div>
@@ -366,6 +371,20 @@
     </p>
   </div>
 
+  <!-- Stuck? ask the chat -->
+  <div class="card" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(249, 115, 22, 0.05)); border-color: rgba(20, 184, 166, 0.3); text-align: center;">
+    <h2 style="color: var(--teal); border: none; padding: 0; margin-bottom: 12px;">Stuck on a call? Talk to the AI.</h2>
+    <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">See that orange chat bubble in the bottom-right of this page? Tap it. The AI behind it knows the product cold. Ask anything:</p>
+    <ul style="text-align: left; max-width: 480px; margin: 16px auto; padding-left: 22px; color: var(--text-secondary); font-size: 14px; line-height: 1.8;">
+      <li>"How do I respond if a plumber says my chatbot is creepy?"</li>
+      <li>"What does the Stripe deposit refund flow look like?"</li>
+      <li>"What if they ask about HIPAA / data privacy?"</li>
+      <li>"How long does Cole take to install once I close one?"</li>
+      <li>Any product question, any objection you haven't seen before</li>
+    </ul>
+    <p style="color: var(--text-tertiary); font-size: 13px; margin-top: 14px;">The AI is the same one running on every plumber's site. It knows the offer, the install flow, the math, the guarantees. Use it as your second brain on calls.</p>
+  </div>
+
   <!-- CTA -->
   <div class="card" style="text-align: center; padding: 32px 28px;">
     <p style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">
@@ -398,6 +417,9 @@ try {
   document.getElementById("recurring").textContent = "+ $" + recurring.toFixed(2) + "/mo recurring";
 } catch (e) {}
 </script>
+
+<!-- StillOpen chat widget — Cal's second brain. Tap the bubble, ask anything about the product. -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen-sales"></script>
 
 </body>
 </html>

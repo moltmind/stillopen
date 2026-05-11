@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Builder | Cal's StillOpen Florida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #050b14;
+    --bg-card: #0d1622;
+    --bg-panel: #0a1320;
+    --text-primary: #f5f5f5;
+    --text-secondary: #c8d2dc;
+    --text-tertiary: #8898a8;
+    --border: #1c2838;
+    --brand: #f97316;
+    --brand-soft: rgba(249, 115, 22, 0.08);
+    --brand-border: rgba(249, 115, 22, 0.3);
+    --teal: #14b8a6;
+    --teal-soft: rgba(20, 184, 166, 0.12);
+    --green: #10b981;
+    --green-soft: rgba(16, 185, 129, 0.14);
+    --red: #ef4444;
+    --red-soft: rgba(239, 68, 68, 0.12);
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 32px 24px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .back-link:hover { color: var(--teal); }
+
+  .header { margin-bottom: 28px; }
+  .logo {
+    width: 56px; height: 56px;
+    background: var(--teal);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: #050b14;
+    font-size: 22px; font-weight: 800;
+    margin-bottom: 16px;
+  }
+  h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.15; }
+  h1 .accent { color: var(--brand); }
+  h1 .sun { color: var(--teal); }
+  .subtitle { font-size: 15px; color: var(--text-secondary); margin-top: 6px; line-height: 1.55; }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+  }
+  .input {
+    width: 100%;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-family: inherit;
+    -webkit-appearance: none;
+  }
+  .input:focus { outline: none; border-color: var(--teal); background: #0d1622; }
+  .input::placeholder { color: var(--text-tertiary); }
+  .field { margin-bottom: 16px; }
+  .field:last-of-type { margin-bottom: 24px; }
+  .help {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+  .row { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+
+  .btn {
+    width: 100%;
+    background: var(--brand);
+    color: #050b14;
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: #fb923c; }
+  .btn:disabled { background: var(--bg-card); color: var(--text-tertiary); cursor: not-allowed; }
+
+  .status {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+  }
+  .status.show { display: block; }
+  .status.loading { background: var(--teal-soft); border: 1px solid rgba(20, 184, 166, 0.3); color: var(--teal); }
+  .status.error { background: var(--red-soft); border: 1px solid rgba(239, 68, 68, 0.3); color: var(--red); }
+  .status.success { background: var(--green-soft); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--green); font-weight: 600; }
+
+  .spinner {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border: 2px solid currentColor;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .result { display: none; }
+  .result.show { display: block; }
+  .result-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .result-item:last-of-type { border-bottom: none; }
+  .result-item .key {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-tertiary);
+    font-weight: 700;
+    min-width: 110px;
+  }
+  .result-item .value { font-size: 14px; color: var(--text-primary); word-break: break-word; }
+
+  .url-box {
+    background: var(--bg-panel);
+    border: 1px solid var(--brand-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .url-box .url {
+    flex: 1;
+    min-width: 200px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--brand);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .url-box button, .url-box a {
+    background: var(--brand);
+    color: #050b14;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .url-box a.ghost {
+    background: transparent;
+    color: var(--brand);
+    border: 1px solid var(--brand-border);
+  }
+
+  .text-template {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+  }
+  .copy-text-btn {
+    margin-top: 8px;
+    background: var(--teal-soft);
+    border: 1px solid rgba(20, 184, 166, 0.35);
+    color: var(--teal);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-text-btn:hover { background: rgba(20, 184, 166, 0.2); }
+
+  .how-it-works {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .how-it-works strong { color: var(--text-primary); }
+  .how-it-works ol { padding-left: 22px; margin-top: 10px; }
+  .how-it-works li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">&larr; Back to your back office</a>
+
+  <div class="header">
+    <div class="logo">SO</div>
+    <h1>Demo <span class="accent">Builder</span> <span class="sun">·</span> The Magic Moment</h1>
+    <div class="subtitle">During a call, paste the plumber's website URL. The bot scrapes their real services, prices, and hours. You get a personalized demo URL in 30 seconds to text them.</div>
+  </div>
+
+  <div class="card" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(249, 115, 22, 0.05)); border-color: rgba(20, 184, 166, 0.3);">
+    <div class="label" style="color: var(--teal);">How to use this (read once, then it's muscle memory)</div>
+    <ol style="padding-left: 22px; margin-top: 12px; line-height: 1.8; color: var(--text-secondary); font-size: 14px;">
+      <li><strong style="color: var(--text-primary);">Get them on the phone first.</strong> Don't use this tool cold. Use it when you're on a call and the plumber says "sure, send me a demo."</li>
+      <li><strong style="color: var(--text-primary);">Ask for their website URL.</strong> "What's your shop's website? I'll build you a demo right now while we're talking." If they don't have one, skip the URL and just use their shop name + Lake City.</li>
+      <li><strong style="color: var(--text-primary);">Paste the URL below and hit Build.</strong> The tool scrapes their site for 15-25 seconds. Talk to them while it's working. Ask how long they've been in business. Ask what their busiest service is. Keep them engaged.</li>
+      <li><strong style="color: var(--text-primary);">Hit Copy Text when it's ready.</strong> Paste into iMessage to them. The text includes the demo URL and a callback line.</li>
+      <li><strong style="color: var(--text-primary);">Send while they're still on the call.</strong> "Just sent you the demo. Tap the link. The bot you'll see is using your real shop's services. Talk to it like a customer at 11pm."</li>
+      <li><strong style="color: var(--text-primary);">Lock the callback.</strong> "I'll call you back tomorrow same time to walk you through what you saw." Hang up. Mark them DEMO in your command center.</li>
+    </ol>
+    <p style="margin-top: 14px; font-size: 13px; color: var(--text-tertiary); line-height: 1.6;">If the scrape can't find enough on their site (rare), the demo still works with industry defaults. Never breaks. Always sendable. Tomorrow on the callback, you ask "did you talk to it? What did you ask it?" That conversation closes the deal.</p>
+  </div>
+
+  <form class="card" id="demo-form">
+    <div class="field">
+      <label class="label">Plumber's Website URL</label>
+      <input type="text" class="input" id="websiteUrl" placeholder="kevinmobleyplumbing.com" autocomplete="off" required>
+      <div class="help">Paste their site without https:// if it's easier. The tool adds it. You can grab the URL directly from your browser address bar if you have their site open.</div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label class="label">Business Name (fallback)</label>
+        <input type="text" class="input" id="businessName" placeholder="Kevin Mobley Plumbing" autocomplete="off" required>
+      </div>
+      <div class="field">
+        <label class="label">City</label>
+        <input type="text" class="input" id="city" placeholder="Lake City FL" autocomplete="off" value="Lake City FL" required>
+      </div>
+    </div>
+
+    <button type="submit" class="btn" id="submit-btn">⚡ Build the demo (30 seconds)</button>
+    <div class="status" id="status"></div>
+  </form>
+
+  <div class="card result" id="result">
+    <div class="result-item">
+      <div class="key">Shop name</div>
+      <div class="value" id="r-name"></div>
+    </div>
+    <div class="result-item">
+      <div class="key">Scraped?</div>
+      <div class="value" id="r-scraped"></div>
+    </div>
+    <div class="result-item">
+      <div class="key">Services found</div>
+      <div class="value" id="r-services"></div>
+    </div>
+    <div class="result-item">
+      <div class="key">Source URL</div>
+      <div class="value" id="r-source"></div>
+    </div>
+
+    <div class="label" style="margin-top: 20px;">Demo URL (this is what you send them)</div>
+    <div class="url-box">
+      <div class="url" id="r-url"></div>
+      <button onclick="copyUrl()">📋 Copy URL</button>
+      <a id="r-open" target="_blank">↗ Preview</a>
+    </div>
+
+    <div class="label" style="margin-top: 24px;">Paste-ready text message</div>
+    <div class="text-template" id="r-text"></div>
+    <button class="copy-text-btn" onclick="copyText()">📋 Copy whole text message</button>
+  </div>
+
+  <div class="how-it-works">
+    <strong>How this works:</strong>
+    <ol>
+      <li>Paste their website URL. The worker scrapes it with Firecrawl in 15-25 seconds.</li>
+      <li>The scraper pulls real services, prices, hours, service area from their site.</li>
+      <li>A demo URL gets generated. When the plumber taps it, they see a bot answering AS their shop, knowing their real services. That's the magic moment.</li>
+      <li>If the scrape can't find enough info (their site is thin or weird), the demo still works using industry defaults for plumbing. Never breaks.</li>
+      <li>Demo lives 30 days in cache. Plenty of time for the plumber to share with their crew.</li>
+    </ol>
+    <p style="margin-top: 14px;"><strong>When to use:</strong> on the phone with a plumber who said "yes, send me a demo." Paste their URL, hit Build. Copy the text. Send via SMS or iMessage while you're still on the call. They open it. They see THEIR shop. They feel the magic.</p>
+  </div>
+
+</div>
+
+<script>
+let currentResult = null;
+
+document.getElementById('demo-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('status');
+  const result = document.getElementById('result');
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Scraping their site (15-25 seconds)...';
+  status.className = 'status loading show';
+  status.textContent = 'Firecrawl is reading their website. Don\'t close this tab. Roughly 15 to 25 seconds depending on how big their site is.';
+  result.classList.remove('show');
+
+  const websiteUrl = document.getElementById('websiteUrl').value.trim();
+  const businessName = document.getElementById('businessName').value.trim();
+  const city = document.getElementById('city').value.trim();
+  const industry = 'plumbers';
+
+  try {
+    const res = await fetch('https://app.stillopen.ai/api/build-demo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ industry, businessName, city, websiteUrl }),
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data.success) {
+      status.className = 'status error show';
+      status.textContent = (data && data.error) ? 'Error: ' + data.error + (data.detail ? ' — ' + data.detail : '') : 'Could not build demo. Check the URL and try again.';
+      btn.disabled = false;
+      btn.textContent = '⚡ Build the demo (30 seconds)';
+      return;
+    }
+
+    currentResult = data;
+    document.getElementById('r-name').textContent = data.businessName;
+    document.getElementById('r-scraped').textContent = data.scrapedSuccessfully ? '✅ Yes, using their real website data' : '⚠️ Scrape didn\'t find enough info, using industry defaults (still works)';
+    document.getElementById('r-services').textContent = data.servicesCount + ' services in the demo kb';
+    document.getElementById('r-source').textContent = data.sourceUrl || 'No URL provided';
+    document.getElementById('r-url').textContent = data.redirectUrl;
+    document.getElementById('r-open').href = data.redirectUrl;
+
+    const textTemplate = 'Hey, Cal from StillOpen. Like I mentioned on the call, here\'s a personalized demo we built using your real website. Tap it and talk to it like a customer would at 11pm. ' + data.redirectUrl + ' — Calling you back tomorrow same time.';
+    document.getElementById('r-text').textContent = textTemplate;
+
+    status.className = 'status success show';
+    status.textContent = data.scrapedSuccessfully ? '🎉 Demo built with REAL data from their website. Copy the text and send it now while you\'re on the call.' : 'Demo built with industry defaults (their site didn\'t have enough scrapeable content). Still works. Send the text.';
+
+    result.classList.add('show');
+    btn.disabled = false;
+    btn.textContent = '⚡ Build another demo';
+  } catch (err) {
+    status.className = 'status error show';
+    status.textContent = 'Network error: ' + err.message + '. Check wifi and try again.';
+    btn.disabled = false;
+    btn.textContent = '⚡ Build the demo (30 seconds)';
+  }
+});
+
+function copyUrl() {
+  if (!currentResult) return;
+  navigator.clipboard.writeText(currentResult.redirectUrl).then(() => {
+    flash('📋 URL copied!');
+  });
+}
+
+function copyText() {
+  const text = document.getElementById('r-text').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    flash('📋 Text message copied. Paste into iMessage or SMS.');
+  });
+}
+
+function flash(msg) {
+  const status = document.getElementById('status');
+  const oldClass = status.className;
+  const oldText = status.textContent;
+  status.className = 'status success show';
+  status.textContent = msg;
+  setTimeout(() => {
+    status.className = oldClass;
+    status.textContent = oldText;
+  }, 2000);
+}
+
+// Prefill from URL params (?url=...&name=...)
+const params = new URLSearchParams(window.location.search);
+if (params.get('url')) document.getElementById('websiteUrl').value = params.get('url');
+if (params.get('name')) document.getElementById('businessName').value = params.get('name');
+if (params.get('city')) document.getElementById('city').value = params.get('city');
+</script>
+
+<!-- StillOpen chat widget — Cal can ask the AI any product question if stuck -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen-sales"></script>
+
+</body>
+</html>
