@@ -388,7 +388,12 @@
       border: 1px solid ${COLORS.navyBorder};
       border-radius: 10px;
       color: ${COLORS.white};
-      font-size: 13.5px;
+      /* font-size: 16px is required to stop iOS Safari from auto-zooming
+         the viewport when the user taps the input. Auto-zoom was the cause
+         of the "send button untappable on mobile" bug Cole flagged 2026-05-10:
+         tapping the field zoomed the layout, shifting the send button off
+         the tap location. Locked at 16px, never lower. */
+      font-size: 16px;
       padding: 9px 12px;
       resize: none;
       outline: none;
@@ -397,6 +402,9 @@
       line-height: 1.45;
       transition: border-color 0.15s ease;
       overflow-y: auto;
+      /* Use 16px line-height so the textarea sits visually consistent
+         with the send button's bigger mobile size. */
+      -webkit-appearance: none;
     }
     #he-input::placeholder {
       color: ${COLORS.textMuted};
@@ -467,6 +475,25 @@
       #he-bubble.open svg {
         width: 22px;
         height: 22px;
+      }
+      /* Bigger send tap target on mobile. Apple HIG minimum is 44x44, the old
+         38x38 was below that and miss-tappable when the keyboard was up. */
+      #he-send {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+      }
+      #he-send svg {
+        width: 20px;
+        height: 20px;
+      }
+      #he-input {
+        min-height: 44px;
+      }
+      /* Add a touch of bottom padding so iOS keyboard doesn't crowd the
+         send button. env(safe-area-inset-bottom) handles notched devices. */
+      #he-input-row {
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
       }
     }
   `;
