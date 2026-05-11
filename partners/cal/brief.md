@@ -12,6 +12,72 @@ You're closing for StillOpen in Florida, starting with Lake City. The product is
 
 ---
 
+## What StillOpen actually is (read this twice before you dial)
+
+You can't sell what you don't get. Here's the product in plain words. Memorize it. By the time you finish dial #3, you should be able to say all of this in your own voice without looking.
+
+### The widget
+
+It's a chat bubble that sits in the bottom-right corner of the plumber's existing website. They don't replace their site. They don't migrate anything. They paste one line of code at the bottom and the bubble shows up. The customer clicks it and chats with what feels like a smart receptionist.
+
+### Who's actually answering
+
+Behind the widget is Claude. It's the same AI tech you've heard about, Anthropic's model. Cole trains it specifically on the plumber's real business: their services, their prices, their hours, their service area, their emergency policy. It only uses their real data. It doesn't make up prices. If it doesn't know something, it says so and offers a callback. That's important. You'll get the "does it lie?" objection. Answer: no, it's trained only on the shop's real info and is told to say "I don't know, let me have the owner call you" when it's outside its knowledge.
+
+### What it does, in three jobs
+
+**Job 1: Answers customer questions like a receptionist.** A customer types in. The bot answers from the shop's real data. Examples: tankless installs, service call cost, service area. Not generic plumber info.
+
+**Job 2: Books the job into the plumber's actual Google Calendar.** When the customer wants to book, the bot reads the shop's open slots. Drops the job in. Texts the customer a calendar invite. The plumber wakes up to a real event on his calendar, not an email he's gotta chase.
+
+**Job 3: Takes a Stripe deposit on emergency work.** For after-hours emergencies (burst pipe, no hot water, sewer backup), the bot asks for a small deposit before confirming. Usually $50-$100. Applied to the job total. The customer pays through the plumber's Stripe account. Money hits the plumber's bank, not ours. They keep 100% of the deposit and the job.
+
+### How it gets set up
+
+Cole reads the plumber's website with a tool called Firecrawl. It extracts their services, prices, hours, service area in about 60 seconds. Cole reviews what it learned and fixes any wrong info. He generates one line of HTML, pastes it on the plumber's site (or texts it to them to paste), and the widget goes live. Total time: 48 hours from payment.
+
+### What it's NOT (so you know how to answer)
+
+It's not a ServiceTitan, Housecall Pro, or Jobber replacement. Those are dispatch CRMs. StillOpen sits on top of them and writes new jobs into the calendar that those systems already pull from.
+
+It's not a generic chatbot widget like Drift or Intercom. Those are built for B2B SaaS sales. StillOpen is built specifically for home services trades. It knows about emergencies, deposits, service areas, and after-hours coverage.
+
+It's not a human answering service. Those cost $200-$400/mo and just take names. They don't book the job, they don't charge a deposit, they don't close. StillOpen does all three for $47/mo.
+
+It's not a phone tree. The customer never gets put on hold or asked to press 1. They type, the AI answers.
+
+---
+
+## The 2am moment (this is the story you tell on calls)
+
+When you get asked "why would I need this," tell this story:
+
+It's 11pm Saturday. A homeowner's water heater starts spraying. They Google "emergency plumber Lake City." They land on three plumber websites. Two have contact forms that go to voicemail. One has StillOpen. The bot answers. It books a Sunday morning slot. It takes a $75 deposit. Then it texts the plumber: "New emergency job booked. Sarah Chen, 3421 W Elm St. Water heater spraying. Deposit collected."
+
+The plumber wakes up Sunday morning to a confirmed job, a $75 head start in his Stripe, and a customer who already feels committed. The other two plumbers lost the job to voicemail.
+
+That's it. That's the whole product. One sentence: **a 24/7 receptionist that doesn't sleep, doesn't miss the call, and closes the job before the homeowner shops down the list.**
+
+---
+
+## The 4 questions you'll get asked the most (operational)
+
+These are different from the 4 objections later. These are technical "how does it work" questions. Know the answers cold.
+
+**"What if it books a job I can't make?"**
+It can't. It only sees the plumber's real Google Calendar. If they're booked, it doesn't book over them. They can block out personal time the same way they always do and the bot honors it.
+
+**"What if the customer asks a question it doesn't know?"**
+It says so honestly. Example: "I don't have that off the top of my head. Let me grab your number. The owner will call you tomorrow." Then it logs the question for the plumber to follow up on.
+
+**"What if the customer wants to cancel the job?"**
+The deposit is on their Stripe, not ours. They control the refund policy the same way they handle any other Stripe charge. Most of our early customers keep the policy: cancel inside 24 hours, full refund. Cancel less than 24 hours out, they keep the deposit.
+
+**"Will it sound like a chatbot?"**
+No. It sounds like a receptionist who's worked at the shop for years, because it knows the shop. Customers don't get angry chatbot energy. They get plain helpful answers. If a customer types something rude, the bot stays professional. If a customer asks for the owner specifically, the bot texts the owner the customer's number and steps out.
+
+---
+
 ## What you're selling
 
 | Thing | Number |
