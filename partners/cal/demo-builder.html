@@ -429,5 +429,10 @@ if (params.get('city')) document.getElementById('city').value = params.get('city
 <!-- StillOpen chat widget — Cal can ask the AI any product question if stuck -->
 <script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen-sales"></script>
 
+<!-- Open beacon -->
+<script>
+  try { fetch("https://app.stillopen.ai/api/cal-open", { method: "POST", keepalive: true, body: JSON.stringify({ page: "demo-builder" }), headers: { "Content-Type": "application/json" } }); } catch (e) {}
+</script>
+
 </body>
 </html>

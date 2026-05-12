@@ -420,5 +420,10 @@
 <!-- StillOpen chat widget — Cal's second brain. Tap the bubble, ask anything about the product. -->
 <script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen-sales"></script>
 
+<!-- Open beacon -->
+<script>
+  try { fetch("https://app.stillopen.ai/api/cal-open", { method: "POST", keepalive: true, body: JSON.stringify({ page: "brief" }), headers: { "Content-Type": "application/json" } }); } catch (e) {}
+</script>
+
 </body>
 </html>

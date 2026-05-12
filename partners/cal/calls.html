@@ -543,5 +543,13 @@ function resetAll() {
 
 render();
 </script>
+
+<!-- StillOpen chat widget — Cal's second brain while making calls -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen-sales"></script>
+
+<!-- Open beacon -->
+<script>
+  try { fetch("https://app.stillopen.ai/api/cal-open", { method: "POST", keepalive: true, body: JSON.stringify({ page: "calls" }), headers: { "Content-Type": "application/json" } }); } catch (e) {}
+</script>
 </body>
 </html>
