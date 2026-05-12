@@ -8,7 +8,7 @@ Cole here. Read this top to bottom once. It tells you what you're selling, how y
 
 ## The deal in one paragraph
 
-You're closing for StillOpen in Florida, starting with Lake City. The product is a 24/7 AI front desk that lives on a plumber's website. It catches the calls they're missing at 11pm and 2am, books the job, takes a Stripe deposit on emergencies, and texts them the lead. You sell the regular $297 install + $47/mo with a 30-day free trial. **You make 20% MRR on every close, for the life of the customer.** $59.40 per install one-time, plus $9.40/mo recurring forever. PayPal weekly. Full transparency on every Stripe charge.
+You're closing for StillOpen in Florida, starting with Lake City. The product is a 24/7 AI chat widget that lives on a plumber's website. When a customer's call goes to voicemail at 11pm and they Google another plumber, the bot on YOUR site catches them, books the job, takes a Stripe deposit on emergencies, and texts the owner the lead. Important: it does NOT pick up the phone. It catches the website visitor, not the phone call. You sell the regular $297 install + $47/mo with a 30-day free trial. **You make 20% MRR on every close, for the life of the customer.** $59.40 per install one-time, plus $9.40/mo recurring forever. PayPal weekly. Full transparency on every Stripe charge.
 
 ---
 
