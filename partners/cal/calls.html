@@ -150,6 +150,54 @@
   .card-name { font-size: 16px; font-weight: 700; margin-top: 2px; line-height: 1.25; }
   .card-meta { font-size: 12px; color: var(--text-tertiary); margin-top: 4px; }
   .card-story { font-size: 12px; color: var(--teal); margin-top: 6px; font-style: italic; }
+  .card-signal {
+    background: rgba(249, 115, 22, 0.07);
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .card-signal .signal-label {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--brand);
+    background: rgba(249, 115, 22, 0.12);
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: 1px;
+  }
+  .card-hook {
+    margin-top: 8px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .card-hook summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal);
+    user-select: none;
+  }
+  .card-hook summary:hover { background: rgba(20, 184, 166, 0.04); }
+  .card-hook .hook-text {
+    padding: 4px 14px 12px 14px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-primary);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    margin-top: 2px;
+  }
   .card-phone {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
@@ -414,11 +462,50 @@
 <script>
 const PLUMBERS = {
   tier1: [
-    { name: "Kevin Mobley Plumbing", phone: "386-496-3964", city: "Lake City", slug: "kevin-mobley-plumbing-lake-city-fl", story: "Family owned, multi-county FL" },
-    { name: "Barrs Plumbing Inc", phone: "386-752-8656", city: "Lake City / Fort White", slug: "barrs-plumbing-lake-city-fl", story: "Since 1998, family-run (Cody + Mark Barrs)" },
-    { name: "Dependable Plumbing Co", phone: "386-752-5218", city: "Lake City", slug: "dependable-plumbing-lake-city-fl", story: "45+ years in Lake City. Real veteran shop." },
-    { name: "Plumbing Now Inc", phone: "386-755-9243", city: "Lake City", slug: "plumbing-now-inc-lake-city-fl" },
-    { name: "Power Rooter", phone: "386-938-1188", city: "Lake City", slug: "power-rooter-lake-city-fl" },
+    {
+      name: "Kevin Mobley Plumbing",
+      phone: "386-496-3964",
+      city: "Lake City",
+      slug: "kevin-mobley-plumbing-lake-city-fl",
+      story: "Family owned, multi-county FL",
+      signal: "No chat widget on his site. No after-hours promise. Phone-only capture model. Every off-hours customer is going to a competitor.",
+      hook: "Kevin, you're family-run. Every call you don't answer at 11pm goes to Roto-Rooter. I built a chat that catches those calls and books them onto your calendar before the customer hangs up.",
+    },
+    {
+      name: "Barrs Plumbing Inc",
+      phone: "386-752-8656",
+      city: "Lake City / Fort White",
+      slug: "barrs-plumbing-lake-city-fl",
+      story: "Since 1998, family-run (Cody + Mark Barrs)",
+      signal: "Site ADVERTISES 24/7 emergency. But no chat widget. Their site is making a 24/7 promise their voicemail can't keep.",
+      hook: "Cody, your site says 24/7 emergency. But the only way a customer reaches you at 2am is your phone. What happens when you're already on another job? I built the fix for that gap.",
+    },
+    {
+      name: "Dependable Plumbing Co",
+      phone: "386-752-5218",
+      city: "Lake City",
+      slug: "dependable-plumbing-lake-city-fl",
+      story: "45+ years in Lake City. Real veteran shop.",
+      signal: "45 years. Advertises 24/7 emergency. No chat widget. Veteran shop, reputation matters.",
+      hook: "45 years of reputation. Your site says 24/7. But at 2am the only thing answering is voicemail. I close that loop without changing how you work.",
+    },
+    {
+      name: "Plumbing Now Inc",
+      phone: "386-755-9243",
+      city: "Lake City",
+      slug: "plumbing-now-inc-lake-city-fl",
+      story: "41 years",
+      signal: "41 years. No 24/7 advertised. No chat. Leaving emergency revenue on the table to competitors who do answer at 11pm.",
+      hook: "41 years and counting. Your competitors are advertising 24/7. You're not. I have a way to catch every after-hours call without you answering your phone at midnight.",
+    },
+    {
+      name: "Power Rooter",
+      phone: "386-938-1188",
+      city: "Lake City",
+      slug: "power-rooter-lake-city-fl",
+      signal: "Advertises 24/7 emergency. No chat widget. Phone-only emergency model with all the gaps that brings.",
+      hook: "Same gap as every plumber promising 24/7. The phone IS the bottleneck. I built a chat that books the job AND takes the deposit before they hang up.",
+    },
   ],
 };
 
@@ -466,12 +553,16 @@ function render() {
 
       const idxStr = String(globalIdx).padStart(2, "0");
       const storyHtml = p.story ? `<div class="card-story">${p.story}</div>` : "";
+      const signalHtml = p.signal ? `<div class="card-signal"><span class="signal-label">SIGNAL</span> ${p.signal}</div>` : "";
+      const hookHtml = p.hook ? `<details class="card-hook"><summary>📞 Opening hook (tap to expand)</summary><div class="hook-text">"${p.hook}"</div></details>` : "";
 
       card.innerHTML = `
         <div class="card-num">#${idxStr}</div>
         <div class="card-name">${p.name}</div>
         <div class="card-meta">${p.city}, FL</div>
         ${storyHtml}
+        ${signalHtml}
+        ${hookHtml}
         <div class="card-phone">${p.phone}</div>
         <div class="card-actions">
           <a class="btn btn-dial" href="tel:${p.phone.replace(/-/g, '')}">📞 Dial</a>
