@@ -76,8 +76,10 @@
     font-size: 20px;
     letter-spacing: -0.02em;
     color: var(--text-primary);
-    display: inline-flex; align-items: center; gap: 8px;
+    display: inline-flex; align-items: center; gap: 10px;
   }
+  .nav-wordmark span { color: var(--accent); }
+  .nav-wordmark .brand-icon { flex-shrink: 0; display: block; }
   .nav-links { display: flex; align-items: center; gap: 36px; }
   .nav-links a {
     font-family: var(--font-sans);
@@ -267,6 +269,14 @@
     transition: background 0.2s;
   }
   .demo-strip-form button:hover { background: var(--accent); }
+  .demo-strip-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+  .demo-status-msg {
+    max-width: 1100px; margin: 14px auto 0;
+    padding: 0 32px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
 
   /* Section wrapper */
   .section {
@@ -611,7 +621,14 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-wordmark">StillOpen</a>
+    <a href="/" class="nav-wordmark" aria-label="StillOpen home">
+      <svg class="brand-icon" width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#f5ede0" stroke-width="3"/>
+        <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#ff7a1a"/>
+        <circle cx="33" cy="34" r="2" fill="#0a0908"/>
+      </svg>
+      Still<span>Open</span>
+    </a>
     <div class="nav-links">
       <a href="#what" class="hide-mobile">Product</a>
       <a href="#pricing" class="hide-mobile">Pricing</a>
@@ -648,29 +665,35 @@
       <div class="demo-strip-label">30 seconds. Free. No signup.</div>
       <div class="demo-strip-headline">Spin up a working demo for your business.</div>
     </div>
-    <form class="demo-strip-form">
-      <select required>
+    <form class="demo-strip-form" onsubmit="return buildDemo(event, 'hero')">
+      <select class="demo-select" name="industry" required>
         <option value="" disabled selected>What's your business?</option>
-        <option>Med spa</option>
-        <option>Photographer</option>
-        <option>Dental practice</option>
-        <option>Vet / animal hospital</option>
-        <option>Hair salon</option>
-        <option>Gym / fitness studio</option>
-        <option>Therapist / coach</option>
-        <option>Dog trainer</option>
-        <option>Real estate agent</option>
-        <option>Plumber</option>
-        <option>HVAC</option>
-        <option>Electrician</option>
-        <option>Mechanic</option>
-        <option>Other</option>
+        <option value="other">Med spa</option>
+        <option value="other">Photographer</option>
+        <option value="dentists">Dental practice</option>
+        <option value="vets">Vet / animal hospital</option>
+        <option value="hair_salons">Hair salon</option>
+        <option value="gyms">Gym / fitness studio</option>
+        <option value="other">Therapist / coach</option>
+        <option value="other">Dog trainer</option>
+        <option value="other">Real estate agent</option>
+        <option value="plumbers">Plumber</option>
+        <option value="hvac">HVAC</option>
+        <option value="electricians">Electrician</option>
+        <option value="mechanics">Mechanic</option>
+        <option value="auto_repair">Auto repair</option>
+        <option value="barbers">Barber</option>
+        <option value="lawn_care">Lawn care</option>
+        <option value="pest_control">Pest control</option>
+        <option value="handymen">Handyman</option>
+        <option value="other">Other</option>
       </select>
-      <input type="text" placeholder="Business name" />
-      <input type="text" placeholder="City" />
-      <button type="button">Build it →</button>
+      <input type="text" class="demo-input" name="businessName" placeholder="Business name" required maxlength="80" />
+      <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
+      <button type="submit" class="demo-btn">Build it →</button>
     </form>
   </div>
+  <div id="demo-status-hero" class="demo-status-msg" style="display:none;"></div>
 </div>
 
 <!-- THE PROBLEM (problem/solution two-col) -->
@@ -1013,7 +1036,56 @@
       urls[current].classList.add('active');
     }, 5200);
   })();
+
+  // Demo builder: posts to app.stillopen.ai/api/build-demo, redirects to the spun-up demo
+  async function buildDemo(e, location) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector(".demo-btn");
+    const statusEl = document.getElementById("demo-status-" + location);
+    const fd = new FormData(form);
+    const industry = (fd.get("industry") || "").toString().trim();
+    const businessName = (fd.get("businessName") || "").toString().trim();
+    const city = (fd.get("city") || "").toString().trim();
+
+    if (!industry || !businessName || !city) {
+      return false;
+    }
+
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = "Building...";
+    if (statusEl) {
+      statusEl.style.display = "block";
+      statusEl.textContent = "Spinning up your demo...";
+    }
+
+    try {
+      const res = await fetch("https://app.stillopen.ai/api/build-demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ industry, businessName, city }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        if (statusEl) statusEl.textContent = (data && data.error) ? data.error : "Could not build demo. Try again or text Cole at (534) 901-0258.";
+        btn.disabled = false;
+        btn.textContent = originalText;
+        return false;
+      }
+      if (statusEl) statusEl.textContent = "Loading your demo...";
+      window.location.href = data.redirectUrl;
+    } catch (err) {
+      if (statusEl) statusEl.textContent = "Network error. Try again or text Cole at (534) 901-0258.";
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+    return false;
+  }
 </script>
+
+<!-- StillOpen chatbot widget — proof by existence + salesman -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen"></script>
 
 </body>
 </html>
