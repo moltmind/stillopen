@@ -12,14 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050506;
-      --bg-surface: #0c0c0e;
-      --text-primary: #fafafa;
-      --text-secondary: #b4b4bd;
-      --text-tertiary: #71717a;
-      --brand: #f97316;
-      --accent: #fb923c;
-      --border: rgba(255,255,255,0.06);
+      --bg: #0a0908;
+      --bg-surface: rgba(245,237,224,0.025);
+      --text-primary: rgba(245,237,224,0.96);
+      --text-secondary: rgba(245,237,224,0.68);
+      --text-tertiary: rgba(245,237,224,0.42);
+      --brand: #ff7a1a;
+      --accent: #ff9248;
+      --border: rgba(245,237,224,0.08);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -29,6 +29,15 @@
       color: var(--text-primary);
       line-height: 1.7;
     }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient(rgba(245,237,224,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    main { position: relative; z-index: 1; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--brand); }
 
@@ -89,32 +98,70 @@
 
   <main>
     <h1>Terms of Service</h1>
-    <p class="updated">Effective: May 1, 2026</p>
+    <p class="updated">Effective: May 13, 2026</p>
 
-    <p>These Terms of Service ("Terms") govern your use of StillOpen, an AI-powered virtual front desk for home-service businesses, operated by Cole Cummings ("StillOpen", "we", "us"). By signing up, paying, or using the service, you agree to these Terms.</p>
+    <p>These Terms of Service ("Terms") govern your use of StillOpen, an AI-powered virtual front desk for service businesses, operated by Cole Cummings ("StillOpen", "we", "us"). By signing up, paying, or using the service, you agree to these Terms.</p>
 
     <h2>1. The service</h2>
     <p>StillOpen provides:</p>
     <ul>
-      <li>An AI chat widget that businesses embed on their own website to answer customer questions and book jobs.</li>
+      <li>An AI chat widget that service businesses (med spas, photographers, vets, gyms, salons, dental practices, therapists, contractors, real estate agents, dog trainers, and other service-business operators) embed on their own website to answer customer questions and book appointments.</li>
       <li>An AI agent that responds to messages sent to a connected Facebook Page through Messenger.</li>
       <li>A dashboard for managing business information, branding, and integrations (Google Calendar, Stripe, Facebook).</li>
       <li>Lead capture, calendar booking, and deposit collection (when corresponding integrations are connected).</li>
+      <li>An optional white-label agency partner program (the "Agency Partner Program") that allows marketing or web agencies to install and bill StillOpen for their client roster under their own branding.</li>
     </ul>
 
     <h2>2. Account eligibility</h2>
     <p>You must be at least 18 years old and authorized to bind the business you represent. You are responsible for keeping your login credentials secure.</p>
 
     <h2>3. Pricing and payment</h2>
+
+    <h3>Express Install (direct customers)</h3>
     <ul>
-      <li><strong>Express Install:</strong> a one-time setup fee of $297 USD, charged at signup.</li>
-      <li><strong>Monthly Service:</strong> $47 USD per month, recurring. Your first 30 days are free; the recurring charge begins on day 31.</li>
-      <li>Payments are processed by Stripe. By providing card details to Stripe, you authorize StillOpen to charge that payment method according to your selected plan.</li>
-      <li>Prices may change with at least 30 days' written notice. Continued use of the service after a price change constitutes acceptance.</li>
+      <li>One-time install fee of $297 USD, charged at signup.</li>
+      <li>Monthly service of $47 USD per month, recurring. Your first 30 days are free; the recurring charge begins on day 31.</li>
     </ul>
 
-    <h2>4. Refunds</h2>
-    <p>The Express Install fee is non-refundable once your account is provisioned and your bot is live. The Monthly Service can be cancelled at any time from your dashboard or by emailing <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>; you will not be charged for any future months after cancellation. Partial-month refunds are not provided.</p>
+    <h3>Pro Install (direct customers — premium service businesses)</h3>
+    <ul>
+      <li>One-time install fee of $497 USD, charged at signup via Stripe.</li>
+      <li>Monthly service of $97 USD per month, recurring. Your first 30 days are free; the recurring charge begins on day 31.</li>
+      <li>Pro Install includes branded chat, custom AI voice, multi-provider scheduling, HIPAA-considerate flow, and priority support.</li>
+    </ul>
+
+    <h3>Founding 10 grandfathered pricing</h3>
+    <ul>
+      <li>The first 10 paying customers on the Express tier lock in $47/mo for the lifetime of their active subscription. If StillOpen later raises its public Express monthly rate, Founding 10 customers continue paying $47/mo as long as their subscription remains active and in good standing.</li>
+    </ul>
+
+    <h3>Agency Partner Program</h3>
+    <ul>
+      <li>Wholesale rate: $57 USD per active client install per month, plus a $97 USD one-time install fee per client. Agency partners resell to their clients at a retail rate of their choice.</li>
+      <li>Founding 10 Agency Partners: the first 10 agency partners receive a flat $297/mo for unlimited active client installs for the first 12 months of partnership.</li>
+      <li>Agency partners are billed monthly. Either party may terminate the partnership with 30 days' written notice; existing client installs may continue at retail Express pricing or be migrated out by mutual agreement.</li>
+    </ul>
+
+    <h3>General payment terms</h3>
+    <ul>
+      <li>Payments are processed by Stripe. By providing card details to Stripe, you authorize StillOpen to charge that payment method according to your selected plan.</li>
+      <li>Prices may change with at least 30 days' written notice. Continued use of the service after a price change constitutes acceptance. Founding 10 grandfathering is exempt as described above.</li>
+    </ul>
+
+    <h2>4. 48-hour install guarantee and refunds</h2>
+
+    <h3>The 48-hour install guarantee</h3>
+    <p>StillOpen commits to launching your AI front desk on your website within 48 hours of your install fee payment. The "launch" point is when the StillOpen chat widget is live on your site and answering test messages with your configured business knowledge base.</p>
+
+    <p><strong>If StillOpen fails to launch your bot within 48 hours of payment</strong>, you are entitled to a full refund of the install fee paid (Express: $297; Pro: $497). Refund requests under this guarantee must be made by emailing <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a> within 7 days of the missed deadline. Refunds are processed within 5 business days to the original payment method.</p>
+
+    <p>Delays caused by the customer (e.g., unresponsive to setup questions, failure to grant Calendar/Stripe access, refusal to approve the knowledge-base preview) extend the 48-hour clock by the duration of the delay.</p>
+
+    <h3>Monthly service cancellation</h3>
+    <p>The Monthly Service (Express $47/mo, Pro $97/mo) can be cancelled at any time from your dashboard or by emailing <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>. Cancellation stops future recurring charges. Partial-month refunds are not provided on the monthly service.</p>
+
+    <h3>Install fee refunds after launch</h3>
+    <p>Once your bot has launched on your site within the 48-hour guarantee window, the install fee is non-refundable. The 30-day free trial of the monthly service still applies; if you cancel within those 30 days, no monthly charge is made.</p>
 
     <h2>5. Cancellation</h2>
     <p>You may cancel at any time. Upon cancellation:</p>

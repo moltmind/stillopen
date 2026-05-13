@@ -1,0 +1,72 @@
+#!/bin/bash
+# paul-voice pre-commit hook
+# Blocks commits if staged .md files contain em-dashes or banned coach words
+# Installed 2026-04-17
+# Loosened 2026-05-11: partner briefs (partners/*/brief.md) skip the strict
+# voice check because they are internal one-to-one docs, not customer copy.
+# Em-dashes still get caught for those files because em-dashes are never OK.
+# Loosened 2026-05-13: extended internal-doc exemption to cover Claude.md
+# (operating contract for Claude sessions, instructional file that legitimately
+# quotes banned words as things-to-avoid) and any *.internal.md file.
+# Em-dash check still runs for everything.
+
+STAGED_MD=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$' || true)
+
+if [ -z "$STAGED_MD" ]; then
+  exit 0
+fi
+
+if ! command -v paul-voice >/dev/null 2>&1; then
+  echo "paul-voice not found in PATH, skipping voice check."
+  exit 0
+fi
+
+# is_internal_doc — returns 0 (true) if the file is an internal doc that should
+# skip the strict voice check (but still gets the em-dash check).
+is_internal_doc() {
+  local f="$1"
+  # Partner briefs (existing rule)
+  if [[ "$f" =~ ^partners/[^/]+/brief\.md$ ]]; then return 0; fi
+  # Claude.md (operating contract for sessions, instructional file)
+  if [[ "$f" == "Claude.md" ]] || [[ "$f" == "CLAUDE.md" ]]; then return 0; fi
+  # Any *.internal.md file (escape hatch for future internal docs)
+  if [[ "$f" =~ \.internal\.md$ ]]; then return 0; fi
+  # Hooks README — meta-doc about the hook itself
+  if [[ "$f" == "hooks/README.md" ]]; then return 0; fi
+  return 1
+}
+
+FAIL=0
+while IFS= read -r f; do
+  if [ -n "$f" ] && [ -f "$f" ]; then
+    # Internal docs: exempt from strict voice check, keep em-dash ban.
+    if is_internal_doc "$f"; then
+      if grep -q "—" "$f"; then
+        echo ""
+        echo "Em-dash found in $f (no em-dashes ever, even in internal docs):"
+        grep -n "—" "$f"
+        FAIL=1
+      else
+        echo "Skipping strict voice check on internal doc: $f (em-dash check passed)"
+      fi
+      continue
+    fi
+    # Customer-facing docs: full strict check.
+    if ! paul-voice --strict --quiet "$f" >/dev/null 2>&1; then
+      echo ""
+      echo "paul-voice flagged: $f"
+      paul-voice --strict "$f"
+      FAIL=1
+    fi
+  fi
+done <<< "$STAGED_MD"
+
+if [ "$FAIL" -eq 1 ]; then
+  echo ""
+  echo "Commit blocked by paul-voice."
+  echo "Fix the voice violations above, then re-stage the files."
+  echo "Emergency override (not recommended): git commit --no-verify"
+  exit 1
+fi
+
+exit 0

@@ -12,14 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050506;
-      --bg-surface: #0c0c0e;
-      --text-primary: #fafafa;
-      --text-secondary: #b4b4bd;
-      --text-tertiary: #71717a;
-      --brand: #f97316;
-      --accent: #fb923c;
-      --border: rgba(255,255,255,0.06);
+      --bg: #0a0908;
+      --bg-surface: rgba(245,237,224,0.025);
+      --text-primary: rgba(245,237,224,0.96);
+      --text-secondary: rgba(245,237,224,0.68);
+      --text-tertiary: rgba(245,237,224,0.42);
+      --brand: #ff7a1a;
+      --accent: #ff9248;
+      --border: rgba(245,237,224,0.08);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -29,6 +29,15 @@
       color: var(--text-primary);
       line-height: 1.7;
     }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient(rgba(245,237,224,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    main { position: relative; z-index: 1; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--brand); }
 
@@ -93,15 +102,16 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="updated">Effective: May 1, 2026</p>
+    <p class="updated">Effective: May 13, 2026</p>
 
     <p>This Privacy Policy explains what information StillOpen collects, how we use it, and the choices you have. StillOpen is operated by Cole Cummings (StillOpen.ai). Contact: <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</p>
 
     <h2>1. Who this applies to</h2>
-    <p>StillOpen serves two groups of people:</p>
+    <p>StillOpen serves three groups of people:</p>
     <ul>
-      <li><strong>Business owners</strong> (plumbers, HVAC technicians, electricians, and other home-service operators) who pay for a StillOpen account and run the AI front desk on their website or Facebook Page.</li>
-      <li><strong>Homeowners and prospects</strong> who chat with a StillOpen-powered bot embedded on a business owner's site or who message a business owner's Facebook Page.</li>
+      <li><strong>Business owners</strong> across any service business (med spas, photographers, vets, gyms, salons, dental practices, therapists, contractors, real estate agents, dog trainers, and home-service operators) who pay for a StillOpen account and run the AI front desk on their website or Facebook Page.</li>
+      <li><strong>Agency partners</strong> who white-label StillOpen and resell it to their client roster of service businesses.</li>
+      <li><strong>End customers and prospects</strong> who chat with a StillOpen-powered bot embedded on a business owner's site or who message a business owner's Facebook Page.</li>
     </ul>
 
     <h2>2. Information we collect</h2>
