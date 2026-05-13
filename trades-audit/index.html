@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trades AI Audit — Cut 5+ Hours a Week From Your Shop | $297</title>
+<meta name="description" content="90-minute Zoom plus a 5-page written audit on the 3 AI tools that can save your trades business 5+ hours a week. Run by Cole Cummings, steel building erector turned AI builder. Money-back if you don't use any of them in 30 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #050506;
+    --bg-card: #0e0e10;
+    --bg-panel: #0a0a0c;
+    --text-primary: #fafafa;
+    --text-secondary: #b4b4bd;
+    --text-tertiary: #717179;
+    --text-quaternary: #4a4a52;
+    --border: #1f1f23;
+    --border-hover: #2d2d33;
+    --brand: #f97316;
+    --brand-soft: rgba(249, 115, 22, 0.08);
+    --brand-border: rgba(249, 115, 22, 0.3);
+    --green: #10b981;
+    --green-soft: rgba(16, 185, 129, 0.12);
+  }
+  html, body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 24px 24px 80px; }
+
+  /* Nav */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 18px;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .logo-mark {
+    width: 32px; height: 32px;
+    background: var(--brand);
+    border-radius: 7px;
+    color: #0a0a0a;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800;
+  }
+  .logo span { color: var(--brand); }
+
+  /* Hero */
+  .eyebrow {
+    display: inline-block;
+    background: var(--brand-soft);
+    border: 1px solid var(--brand-border);
+    color: var(--brand);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  h1 .accent { color: var(--brand); }
+  .lede {
+    font-size: 19px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  /* Price block */
+  .price-block {
+    background: var(--bg-card);
+    border: 1px solid var(--brand-border);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 24px 0 40px;
+    text-align: center;
+  }
+  .price-amount {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .price-amount .small {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    vertical-align: middle;
+  }
+  .price-sub {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-bottom: 24px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--brand);
+    color: #0a0a0a;
+    padding: 18px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 17px;
+    transition: background 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .cta-btn:hover { background: #fb923c; }
+  .cta-guarantee {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+  .cta-guarantee strong { color: var(--green); }
+
+  /* Sections */
+  h2 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin: 56px 0 16px;
+  }
+  p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  p strong { color: var(--text-primary); font-weight: 700; }
+
+  /* What you get */
+  .deliverables {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 24px 0 32px;
+  }
+  .deliv-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .deliv-item .num {
+    display: inline-block;
+    background: var(--brand-soft);
+    color: var(--brand);
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .deliv-item h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+  .deliv-item p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Who I am */
+  .founder-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .founder-block h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-tertiary);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .founder-block p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .founder-block p:last-child { margin-bottom: 0; }
+  .founder-block .sig {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-tertiary);
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .faq-q {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  .faq-a {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    background: linear-gradient(135deg, var(--brand-soft), rgba(16, 185, 129, 0.05));
+    border: 1px solid var(--brand-border);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    margin: 56px 0 32px;
+  }
+  .final-cta h2 { margin: 0 0 12px; }
+  .final-cta p { font-size: 16px; margin-bottom: 24px; }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+  footer a { color: var(--text-secondary); text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: var(--brand); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav>
+    <a href="https://stillopen.ai/" class="logo">
+      <span class="logo-mark">CC</span>
+      Cole <span>Cummings</span>
+    </a>
+    <a href="#buy" class="cta-btn" style="padding: 10px 18px; font-size: 14px;">Buy the audit</a>
+  </nav>
+
+  <span class="eyebrow">For shop owners</span>
+  <h1>You run a trades business. <span class="accent">AI can save you 5+ hours a week.</span> Most consultants don't know that because they've never been on a job site.</h1>
+  <p class="lede">I'm Cole Cummings. I spent six years as a steel building erector before I started using AI every day to run my own business. I built a chat product, a CRM, partner dashboards, all of it. Now I'm doing 90-minute audits for trades owners who want to know exactly which AI tools fit their shop, where to start, and what to ignore.</p>
+
+  <div class="price-block" id="buy">
+    <div class="price-amount">$297<span class="small"> one-time</span></div>
+    <div class="price-sub">90-minute Zoom audit + 5-page written report. No subscription, no upsell.</div>
+    <form action="https://app.stillopen.ai/checkout-audit" method="GET">
+      <button type="submit" class="cta-btn">Book My Audit &rarr;</button>
+    </form>
+    <div class="cta-guarantee">
+      <strong>30-day money-back guarantee.</strong> If you don't actually start using one of the 3 tools I recommend within 30 days of our call, I refund the full $297. No paperwork.
+    </div>
+  </div>
+
+  <h2>What you get</h2>
+  <div class="deliverables">
+    <div class="deliv-item">
+      <div class="num">1</div>
+      <h3>90-minute Zoom with me</h3>
+      <p>You walk me through how your shop runs today. What eats your time. What you wish was automated. What you've tried that didn't stick. I take notes. No sales pitch, no SaaS push.</p>
+    </div>
+    <div class="deliv-item">
+      <div class="num">2</div>
+      <h3>5-page written audit (delivered within 48 hours)</h3>
+      <p>The 3 AI tools that fit your shop, ranked. Why each one matters. Real cost per month. Setup steps in plain words. What to ignore and why. Sent as a PDF you can hand to your office manager.</p>
+    </div>
+    <div class="deliv-item">
+      <div class="num">3</div>
+      <h3>One follow-up call (15 minutes, free)</h3>
+      <p>30 days after delivery I call you back to ask what stuck and what didn't. If you want to keep working together after that, we talk. If not, no pressure. The audit is the audit.</p>
+    </div>
+  </div>
+
+  <h2>Who I am, since you're trusting me with 90 minutes</h2>
+  <div class="founder-block">
+    <h3>About</h3>
+    <p>I'm Cole Cummings. Wisconsin. Six years as a steel building erector putting up hospitals, warehouses, aircraft hangars. I'm not a software engineer. I built my own AI products by telling Claude AI what to build, step by step, until they worked.</p>
+    <p>What that means for you: I speak the trades dialect. I know what your day actually looks like, because I lived a version of it. When a tech consultant tells you to "implement an AI workflow," I'll tell you which app to download, in what order, and what to skip.</p>
+    <p>I built <a href="https://stillopen.ai/" style="color: var(--brand);">StillOpen</a>, a 24/7 AI chat for home services trades. I write content for trades shops. I've installed AI on real plumber websites. I'm cheap because I'm newer at consulting than I am at building. That savings is yours, not mine.</p>
+    <div class="sig">Cole Cummings, Wisconsin. Reachable at <a href="sms:+15349010258" style="color: var(--brand);">(534) 901-0258</a> if you want to text me before you buy.</div>
+  </div>
+
+  <h2>Common questions</h2>
+  <div class="faq-item">
+    <div class="faq-q">What kind of trades shops do you work with?</div>
+    <div class="faq-a">Plumbing, HVAC, electrical, roofing, garage doors, lawn care, mechanic shops. If you run 1 to 10 trucks and you wear too many hats, the audit fits. If you're a 200-employee mechanical contractor, you need someone bigger than me. I'll tell you that in the first 10 minutes if it's true.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Will you try to sell me your other product on the call?</div>
+    <div class="faq-a">No. The audit is the audit. If StillOpen happens to be the right fit for your shop, you'll see that in the written report and decide on your own time. I don't pitch on the call. I'm there to listen and learn your shop.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What if I read the report and don't use any of it?</div>
+    <div class="faq-a">Full refund within 30 days. Email me and tell me what didn't work. I don't make you fight for it. The risk is on me, not you.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How fast can we get on the call?</div>
+    <div class="faq-a">After you pay you get a calendar link to book me. Usually I can do the call within 48 hours. The report goes out 48 hours after the call.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can my office manager join the call?</div>
+    <div class="faq-a">Yes. Bring whoever runs your operations. The more voices on the call, the better the audit. No extra charge.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What if I just want to text you a quick question first?</div>
+    <div class="faq-a">Do it. (534) 901-0258. I answer my own phone. If you text after 9pm Wisconsin time I'll reply in the morning.</div>
+  </div>
+
+  <div class="final-cta">
+    <h2>One audit. One report. One follow-up.</h2>
+    <p>Money-back if you don't use any of it. The risk is on me.</p>
+    <form action="https://app.stillopen.ai/checkout-audit" method="GET">
+      <button type="submit" class="cta-btn">Book My Audit for $297 &rarr;</button>
+    </form>
+  </div>
+
+  <footer>
+    <a href="https://stillopen.ai/">Cole Cummings &middot; StillOpen</a>
+    <a href="https://stillopen.ai/privacy">Privacy</a>
+    <a href="https://stillopen.ai/terms">Terms</a>
+    <a href="sms:+15349010258">Text Cole</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
