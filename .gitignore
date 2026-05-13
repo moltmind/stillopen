@@ -43,3 +43,9 @@ competitor-brief.md
 video-ad-*/
 video-promo-*/
 hero-landscape-*/
+
+# Editor + tooling backups (BSD sed -i.bak leaves these, never deploy them)
+*.bak
+*.orig
+*.swp
+.~*

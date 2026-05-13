@@ -97,6 +97,19 @@
   .hero-image-wrap { max-width: 1000px; margin: 40px auto 0; padding: 0 32px; position: relative; z-index: 1; }
   .hero-image-wrap img { width: 100%; height: auto; border-radius: 14px; display: block; border: 1px solid var(--border); box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6); }
 
+  .demo-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 0; background: rgba(255,122,26,0.025); position: relative; z-index: 1; margin-top: 60px; }
+  .demo-strip-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .demo-strip-text { flex: 1; min-width: 240px; }
+  .demo-strip-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--brand); margin-bottom: 4px; }
+  .demo-strip-headline { font-family: var(--font-serif); font-variation-settings: 'opsz' 36; font-size: 22px; font-weight: 600; color: var(--text-primary); line-height: 1.2; letter-spacing: -0.015em; }
+  .demo-strip-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .demo-strip-form select, .demo-strip-form input { background: var(--bg); color: var(--text-primary); border: 1px solid var(--border-strong); padding: 12px 14px; border-radius: 8px; font-family: inherit; font-size: 14px; min-width: 140px; }
+  .demo-strip-form select:focus, .demo-strip-form input:focus { border-color: var(--brand); outline: none; }
+  .demo-strip-form button { background: var(--brand); color: var(--bg); border: none; padding: 12px 20px; border-radius: 8px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .demo-strip-form button:hover { background: var(--accent); }
+  .demo-strip-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+  .demo-status-msg { max-width: 1100px; margin: 14px auto 0; padding: 0 32px; font-size: 13px; color: var(--text-secondary); text-align: center; }
+
   .section { padding: 120px 0; position: relative; border-top: 1px solid var(--border); }
   .section.centered { text-align: center; }
   @media (max-width: 640px) { .section { padding: 80px 0; } }
@@ -183,8 +196,8 @@
     <h1 class="display-headline">The 9:42 PM inquiry is worth <em>$650 to the spa across town.</em></h1>
     <p class="lede centered">A woman finds you on Instagram at 9:42 PM. She fills out your inquiry form. She gets a confirmation that says "we'll be in touch within 2-3 business days." By Tuesday morning she's already booked with the spa across town that texted her back in four minutes. StillOpen is the chat that catches her at 9:42 PM in your voice, books her into Google Calendar, and takes a deposit on your Stripe before she closes the tab.</p>
     <div class="hero-ctas">
-      <a href="/#pricing" class="btn btn-primary">See pricing <span class="arrow">→</span></a>
-      <a href="sms:+15349010258?body=Hi%20Cole%2C%20I%20run%20a%20med%20spa%20and%20want%20a%20free%20demo" class="btn btn-secondary">Or text Cole</a>
+      <a href="#demo" class="btn btn-primary">Build my demo <span class="arrow">→</span></a>
+      <a href="/#pricing" class="btn btn-secondary">See pricing</a>
     </div>
     <div class="hero-money"><strong>One booked Saturday botox appointment</strong> = your full year of StillOpen.</div>
   </div>
@@ -192,6 +205,32 @@
 
 <div class="hero-image-wrap">
   <img src="medspa-hero.jpg" alt="A modern minimalist med spa treatment room interior" onerror="this.parentElement.style.display='none'" />
+</div>
+
+<div class="demo-strip" id="demo">
+  <div class="demo-strip-inner">
+    <div class="demo-strip-text">
+      <div class="demo-strip-label">30 seconds. Free. No signup.</div>
+      <div class="demo-strip-headline">See it answer for your spa.</div>
+    </div>
+    <form class="demo-strip-form" onsubmit="return buildDemo(event, 'hero')">
+      <select class="demo-select" name="industry" required>
+        <option value="other" selected>Med spa</option>
+        <option value="other">Aesthetic clinic</option>
+        <option value="dentists">Dental practice</option>
+        <option value="vets">Vet / animal hospital</option>
+        <option value="hair_salons">Hair salon</option>
+        <option value="gyms">Gym / fitness studio</option>
+        <option value="other">Therapist / coach</option>
+        <option value="other">Dog trainer</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" class="demo-input" name="businessName" placeholder="Your spa name" required maxlength="80" />
+      <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
+      <button type="submit" class="demo-btn">Build it →</button>
+    </form>
+  </div>
+  <div id="demo-status-hero" class="demo-status-msg" style="display:none;"></div>
 </div>
 
 <section class="section">
@@ -344,10 +383,54 @@
       item.classList.toggle('open');
     });
   });
+
+  // Demo builder: posts to app.stillopen.ai/api/build-demo, redirects to the spun-up demo
+  async function buildDemo(e, location) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector(".demo-btn");
+    const statusEl = document.getElementById("demo-status-" + location);
+    const fd = new FormData(form);
+    const industry = (fd.get("industry") || "").toString().trim();
+    const businessName = (fd.get("businessName") || "").toString().trim();
+    const city = (fd.get("city") || "").toString().trim();
+
+    if (!industry || !businessName || !city) return false;
+
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = "Building...";
+    if (statusEl) {
+      statusEl.style.display = "block";
+      statusEl.textContent = "Spinning up your demo...";
+    }
+
+    try {
+      const res = await fetch("https://app.stillopen.ai/api/build-demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ industry, businessName, city }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        if (statusEl) statusEl.textContent = (data && data.error) ? data.error : "Could not build demo. Try again or text Cole at (534) 901-0258.";
+        btn.disabled = false;
+        btn.textContent = originalText;
+        return false;
+      }
+      if (statusEl) statusEl.textContent = "Loading your demo...";
+      window.location.href = data.redirectUrl;
+    } catch (err) {
+      if (statusEl) statusEl.textContent = "Network error. Try again or text Cole at (534) 901-0258.";
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+    return false;
+  }
 </script>
 
 <!-- StillOpen chatbot widget -->
-<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen"></script>
+<script defer src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen"></script>
 
 </body>
 </html>

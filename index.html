@@ -11,6 +11,73 @@
 <meta property="og:description" content="Stay open when your phone goes dark. A 24/7 AI chat that books appointments and takes Stripe deposits.">
 <meta property="og:url" content="https://stillopen.ai/">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StillOpen — 24/7 AI Front Desk for Service Businesses">
+<meta name="twitter:description" content="Stay open when your phone goes dark. A 24/7 AI chat that books appointments and takes Stripe deposits.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stillopen.ai/#organization",
+      "name": "StillOpen",
+      "url": "https://stillopen.ai/",
+      "founder": {
+        "@type": "Person",
+        "name": "Cole Cummings",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "WI",
+          "addressCountry": "US"
+        }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-534-901-0258",
+        "contactType": "Customer Service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      },
+      "description": "A 24/7 AI front desk chatbot widget for service businesses. Catches after-hours website visitors, books appointments into Google Calendar, and takes deposits on Stripe."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stillopen.ai/#website",
+      "url": "https://stillopen.ai/",
+      "name": "StillOpen",
+      "publisher": { "@id": "https://stillopen.ai/#organization" }
+    },
+    {
+      "@type": "Product",
+      "name": "StillOpen Express Install",
+      "description": "24/7 AI front desk chatbot for service business websites. Books appointments, takes Stripe deposits. 48-hour install guarantee.",
+      "brand": { "@id": "https://stillopen.ai/#organization" },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Express Install",
+          "price": "297",
+          "priceCurrency": "USD",
+          "url": "https://app.stillopen.ai/checkout?tier=starter",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time install fee, then $47/month after 30-day trial."
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro Install",
+          "price": "497",
+          "priceCurrency": "USD",
+          "url": "https://buy.stripe.com/6oU9AMaOO9Ooaie9zN7N60l",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time install fee, then $97/month after 30-day trial. Branded chat, custom AI voice, HIPAA-considerate flow, priority support."
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
@@ -1085,7 +1152,7 @@
 </script>
 
 <!-- StillOpen chatbot widget — proof by existence + salesman -->
-<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen"></script>
+<script defer src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen"></script>
 
 </body>
 </html>
