@@ -79,7 +79,7 @@
 
   const OPENING_MESSAGE = IS_SALES_MODE
     ? "Hi, I'm Paul, the AI front desk on this site. Ask me anything about StillOpen, the pricing, how it works, or what it would do for your shop. I can also book you a 10 minute demo with Cole if you want to talk to the guy who built it."
-    : "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book a job for you right now. What's going on?";
+    : "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book an appointment for you right now. What's going on?";
 
   // ─── COLORS (Day 2 placeholder palette) ──────────────────────────────────────
   // PLACEHOLDER from the Day 2 rip pass. Neutral white-bg + dark slate text +
