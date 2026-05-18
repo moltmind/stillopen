@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dr. James S. Kim, DDS | Dental Clinic in Wausau WI</title>
+<meta name="description" content="Dr. James Kim is always accepting new patients. If your family is looking for a dentist, call our dental clinic today! We look forward to seeing you." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --brand-blue:      #1f64c2;
+  --brand-blue-dark: #184d96;
+  --brand-blue-soft: #97c7e1;
+  --brand-tint:      #e5f0f1;
+  --accent-orange:   #FA842A;
+  --ink:             #2b3a4b;
+  --ink-soft:        #5d6c7c;
+  --paper:           #ffffff;
+  --paper-warm:      #f6f9fb;
+  --border:          #e2e8ed;
+  --shadow-sm:       0 1px 2px rgba(15, 30, 60, 0.05);
+  --shadow-md:       0 4px 12px rgba(15, 30, 60, 0.08);
+  --shadow-lg:       0 10px 30px rgba(15, 30, 60, 0.12);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+h1, h2, h3, h4 { font-family: "Merriweather", Georgia, serif; color: var(--brand-blue-dark); line-height: 1.25; margin: 0 0 0.5em; }
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0 0 1em; }
+a { color: var(--brand-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* ──────────────── Top utility bar ──────────────── */
+.utility-bar {
+  background: var(--brand-blue-dark);
+  color: white;
+  font-size: 0.85rem;
+}
+.utility-bar .container {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 8px; padding-bottom: 8px; gap: 12px; flex-wrap: wrap;
+}
+.utility-bar a { color: white; opacity: 0.85; }
+.utility-bar a:hover { opacity: 1; }
+.utility-bar .socials { display: flex; gap: 14px; }
+.utility-bar .phone-cta { font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+
+/* ──────────────── Site header ──────────────── */
+.site-header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 50;
+}
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 18px; padding-bottom: 18px; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand img { height: 78px; width: auto; display: block; }
+nav.primary { display: flex; gap: 26px; align-items: center; }
+nav.primary a { color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+nav.primary a:hover { color: var(--brand-blue); text-decoration: none; }
+.header-cta { display: flex; gap: 10px; }
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 6px; font-weight: 700;
+  font-size: 0.95rem; letter-spacing: 0.02em; text-align: center; cursor: pointer;
+  transition: all 0.15s ease; border: 2px solid transparent;
+}
+.btn-primary { background: var(--accent-orange); color: white; }
+.btn-primary:hover { background: #e57418; text-decoration: none; color: white; }
+.btn-outline { border-color: var(--brand-blue); color: var(--brand-blue); background: white; }
+.btn-outline:hover { background: var(--brand-blue); color: white; text-decoration: none; }
+@media (max-width: 880px) {
+  nav.primary { display: none; }
+}
+
+/* ──────────────── Hero ──────────────── */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-blue) 100%);
+  color: white;
+  padding: 70px 0 80px;
+  overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; opacity: 0.08;
+  background-image: radial-gradient(circle at 80% 30%, white 0%, transparent 40%);
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 2; display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; }
+.hero h1 { color: white; font-size: 2.8rem; margin-bottom: 0.4em; }
+.hero .tagline { font-size: 1.15rem; opacity: 0.92; margin-bottom: 1.8em; line-height: 1.5; }
+.hero .hero-card {
+  background: white; color: var(--ink); padding: 28px; border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+}
+.hero .hero-card h3 { color: var(--brand-blue-dark); margin-top: 0; }
+.hero .hero-card .hours-list { list-style: none; padding: 0; margin: 14px 0 18px; font-size: 0.94rem; }
+.hero .hero-card .hours-list li { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dotted var(--border); }
+.hero .hero-card .hours-list li:last-child { border-bottom: none; }
+.hero .hero-card .hours-list .day { font-weight: 600; color: var(--ink); }
+.hero .hero-card .hours-list .time { color: var(--ink-soft); }
+.hero .hero-card .hours-list .closed { color: #c8454f; font-weight: 600; }
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-buttons .btn-primary { font-size: 1rem; padding: 14px 26px; }
+.hero-buttons .btn-secondary {
+  display: inline-block; padding: 14px 26px; border-radius: 6px; font-weight: 700;
+  font-size: 1rem; background: rgba(255,255,255,0.12); color: white; border: 2px solid rgba(255,255,255,0.45);
+}
+.hero-buttons .btn-secondary:hover { background: rgba(255,255,255,0.22); text-decoration: none; }
+@media (max-width: 880px) {
+  .hero .container { grid-template-columns: 1fr; gap: 40px; }
+  .hero h1 { font-size: 2rem; }
+}
+
+/* ──────────────── Welcome strip ──────────────── */
+.welcome {
+  background: var(--paper-warm);
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+}
+.welcome .container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.welcome .label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-orange); font-weight: 700; }
+@media (max-width: 880px) { .welcome .container { grid-template-columns: 1fr; gap: 24px; } }
+
+/* ──────────────── Services grid ──────────────── */
+.services {
+  padding: 70px 0;
+}
+.services .section-head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+.services .label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-orange); font-weight: 700; display: block; margin-bottom: 8px; }
+.services h2 { color: var(--brand-blue-dark); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+.service-card {
+  background: white; border: 1px solid var(--border); border-radius: 8px;
+  padding: 28px 24px; text-align: left; transition: all 0.2s ease;
+}
+.service-card:hover { box-shadow: var(--shadow-md); border-color: var(--brand-blue-soft); transform: translateY(-2px); }
+.service-card .icon {
+  width: 48px; height: 48px; border-radius: 8px;
+  background: var(--brand-tint); color: var(--brand-blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 16px;
+}
+.service-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.service-card p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
+
+/* ──────────────── Emergency / financing band ──────────────── */
+.emergency-band {
+  background: var(--brand-blue-dark);
+  color: white; padding: 50px 0;
+}
+.emergency-band .container { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+.emergency-band h2 { color: white; }
+.emergency-band p { opacity: 0.92; margin-bottom: 1.5em; }
+.emergency-band .btn-primary { background: var(--accent-orange); }
+@media (max-width: 880px) { .emergency-band .container { grid-template-columns: 1fr; } }
+
+/* ──────────────── About Dr Kim ──────────────── */
+.about {
+  padding: 70px 0;
+  background: var(--paper-warm);
+}
+.about .container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.about-card {
+  background: white; border-radius: 10px; padding: 36px; box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--brand-blue);
+}
+.about-card h3 { color: var(--brand-blue-dark); margin-top: 0; }
+.about-card .creds { list-style: none; padding: 0; margin: 16px 0 0; font-size: 0.95rem; color: var(--ink-soft); }
+.about-card .creds li { padding: 4px 0 4px 22px; position: relative; }
+.about-card .creds li::before { content: "✓"; position: absolute; left: 0; color: var(--brand-blue); font-weight: 700; }
+@media (max-width: 880px) { .about .container { grid-template-columns: 1fr; } }
+
+/* ──────────────── Contact / hours ──────────────── */
+.contact-section {
+  padding: 70px 0;
+}
+.contact-section .container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.contact-card {
+  border: 1px solid var(--border); border-radius: 10px; padding: 36px;
+  background: white;
+}
+.contact-card h3 { margin-top: 0; }
+.contact-card .info-line { display: flex; gap: 14px; margin-bottom: 14px; align-items: start; }
+.contact-card .info-line strong { display: block; color: var(--brand-blue-dark); }
+.contact-card .info-line .ico { width: 28px; height: 28px; flex-shrink: 0; border-radius: 6px; background: var(--brand-tint); color: var(--brand-blue); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+.hours-block { background: var(--brand-tint); border-radius: 10px; padding: 36px; }
+.hours-block h3 { margin-top: 0; }
+.hours-block table { width: 100%; border-collapse: collapse; }
+.hours-block td { padding: 10px 0; border-bottom: 1px solid rgba(31, 100, 194, 0.15); font-size: 0.96rem; }
+.hours-block td:first-child { font-weight: 600; }
+.hours-block td:last-child { text-align: right; color: var(--ink-soft); }
+.hours-block tr:last-child td { border-bottom: none; }
+.hours-block .closed { color: #c8454f; font-weight: 600; }
+@media (max-width: 880px) { .contact-section .container { grid-template-columns: 1fr; } }
+
+/* ──────────────── Footer ──────────────── */
+footer.site-footer {
+  background: var(--brand-blue-dark);
+  color: white;
+  padding: 50px 0 24px;
+  font-size: 0.92rem;
+}
+footer.site-footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+footer.site-footer h4 { color: white; font-family: "Open Sans", sans-serif; font-size: 1rem; margin-top: 0; letter-spacing: 0.04em; text-transform: uppercase; }
+footer.site-footer a { color: rgba(255,255,255,0.85); }
+footer.site-footer .links { list-style: none; padding: 0; margin: 0; }
+footer.site-footer .links li { padding: 4px 0; }
+footer.site-footer .footer-bottom {
+  margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex; justify-content: space-between; opacity: 0.7; font-size: 0.85rem;
+  flex-wrap: wrap; gap: 12px;
+}
+@media (max-width: 760px) { footer.site-footer .container { grid-template-columns: 1fr; } }
+
+/* Demo-only banner so Cole and the prospect both know what they're looking at */
+.demo-banner {
+  background: #1c1f23; color: #ffd87d; padding: 9px 0; font-size: 0.83rem;
+  text-align: center; letter-spacing: 0.02em;
+}
+.demo-banner strong { color: white; }
+</style>
+</head>
+<body>
+
+<!-- Honest preview banner. Cole can remove this line before sending if he wants
+     to deliver a "pure" mirror, but I'd leave it: it pre-empts the "is this a
+     scam?" reaction and the prospect knows immediately what they're looking at. -->
+<div class="demo-banner">
+  <strong>STILLOPEN DEMO</strong> &nbsp;·&nbsp; This is a private preview built for Dr. James S. Kim, DDS. Try the chat bubble in the bottom-right — that's what would live on dentistwausau.com 24/7.
+</div>
+
+<div class="utility-bar">
+  <div class="container">
+    <div class="socials">
+      <a href="#" title="Facebook">Facebook</a>
+      <a href="#" title="Google Reviews">Google Reviews</a>
+      <a href="#" title="YouTube">YouTube</a>
+    </div>
+    <div class="phone-cta">
+      <a href="tel:+17158495667">📞 Call Today (715) 849-5667</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="brand">
+      <img src="https://www.dentistwausau.com/thedentalsitecontent/903/Image/logo.jpg" alt="Dr. James S. Kim, DDS · Beautiful Smiles Today &amp; Tomorrow" />
+    </div>
+    <nav class="primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#emergency">Emergency</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#contact" class="btn btn-outline">Book Now</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <h1>Welcome to Dr. James S. Kim, DDS</h1>
+      <p class="tagline">
+        Top-quality, gentle dental care for families in Wausau and the surrounding communities — Rib Mountain, Stettin, Rothschild, Weston, Schofield, and Kronenwetter. Dr. Kim has maintained a private practice in Wausau since 2000, with an emphasis in family, cosmetic, implant, and sedation dentistry.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Schedule an Appointment</a>
+        <a href="tel:+17158495667" class="btn-secondary">Call (715) 849-5667</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Office Hours</h3>
+      <ul class="hours-list">
+        <li><span class="day">Monday</span>     <span class="time">8:00 AM – 4:30 PM</span></li>
+        <li><span class="day">Tuesday</span>    <span class="time">7:30 AM – 4:30 PM</span></li>
+        <li><span class="day">Wednesday</span>  <span class="time">7:30 AM – 4:30 PM</span></li>
+        <li><span class="day">Thursday</span>   <span class="time">7:30 AM – 4:30 PM</span></li>
+        <li><span class="day">Friday</span>     <span class="time closed">Closed</span></li>
+        <li><span class="day">Saturday</span>   <span class="time closed">Closed</span></li>
+        <li><span class="day">Sunday</span>     <span class="time closed">Closed</span></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="width:100%; display:block;">Book Your Visit</a>
+    </div>
+  </div>
+</section>
+
+<section class="welcome">
+  <div class="container">
+    <div>
+      <span class="label">Healthy Smiles · Wausau, WI</span>
+      <h2>Healthy Teeth &amp; Gums Are Our Wausau Dentist's Passion</h2>
+      <p>
+        We are passionate about helping you achieve a beautiful, healthy smile that lasts a lifetime. Free consults are available so you can get the care you need without stress or hassle. Plus, if you've seen another dentist but you aren't sure about the recommendation you received, give us a call. We'll happily provide a second opinion.
+      </p>
+      <p>
+        At our Wausau dental practice, we incorporate traditional and compassionate dental care with advanced, high-tech procedures and techniques. Dr. Kim loves treating entire families, from the youngest members to the most senior.
+      </p>
+    </div>
+    <div>
+      <span class="label">Modern Family Dental Care</span>
+      <h2>The Dental Care You Need in One Welcoming Location</h2>
+      <p>
+        Our office is conveniently located just off Highway 51 and Stewart Avenue, between the Applebee's and the Hampton Inn. Whether you're seeking routine cleanings and examinations or advanced restorative care, we can help.
+      </p>
+      <p>
+        Convenient, comfortable, and accessible care — with flexible financing options to make every smile possible.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="label">Comprehensive Dental Care</span>
+      <h2>Services &amp; Procedures</h2>
+      <p style="color: var(--ink-soft);">
+        From routine examinations and cleanings to root canals, gum therapy, dental implants, and orthodontics, our dentist in Wausau, WI can meet nearly every need.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="icon">🦷</div><h3>Invisalign Clear Braces</h3><p>Discreet teeth straightening with clear, removable aligners. Free consults available.</p></div>
+      <div class="service-card"><div class="icon">👶</div><h3>Pediatric Dentistry</h3><p>Gentle, kid-friendly dental care to build healthy habits early.</p></div>
+      <div class="service-card"><div class="icon">✨</div><h3>Cosmetic Dentistry</h3><p>Veneers, bonding, and smile makeovers tailored to your goals.</p></div>
+      <div class="service-card"><div class="icon">🔧</div><h3>Dental Implants</h3><p>Permanent tooth replacement with implants placed and restored in-house.</p></div>
+      <div class="service-card"><div class="icon">😴</div><h3>Sedation Dentistry</h3><p>Comfortable, anxiety-free treatment for nervous patients.</p></div>
+      <div class="service-card"><div class="icon">🪥</div><h3>General &amp; Preventive</h3><p>Cleanings, exams, fluoride, sealants — the foundation of lifelong dental health.</p></div>
+      <div class="service-card"><div class="icon">💎</div><h3>Professional Whitening</h3><p>In-office and at-home whitening for a brighter, more confident smile.</p></div>
+      <div class="service-card"><div class="icon">🩺</div><h3>Root Canal Therapy</h3><p>Save infected teeth with gentle, modern endodontic treatment.</p></div>
+      <div class="service-card"><div class="icon">🦴</div><h3>Periodontal Therapy</h3><p>Gum disease treatment and gingival grafts to protect your smile's foundation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="emergency-band" id="emergency">
+  <div class="container">
+    <div>
+      <h2>Emergency Dental Care in Wausau, WI When You Need It</h2>
+      <p>
+        Toothaches and dental emergencies don't keep business hours. We do our best to see emergency patients quickly. Call us right away if you're in pain or have a damaged tooth.
+      </p>
+      <a href="tel:+17158495667" class="btn btn-primary">Call (715) 849-5667</a>
+    </div>
+    <div style="background: rgba(255,255,255,0.06); border-radius: 10px; padding: 24px; border: 1px solid rgba(255,255,255,0.18);">
+      <strong style="font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85;">Did you know?</strong>
+      <p style="margin-top: 10px; margin-bottom: 0; opacity: 0.95;">
+        Our practice is closed Friday through Sunday. We know dental emergencies don't follow a schedule — that's why we built this 24/7 chat to make sure your question still gets answered.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div>
+      <span class="label" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-orange); font-weight: 700; display: block; margin-bottom: 8px;">Meet Your Dentist</span>
+      <h2>James S. Kim, DDS</h2>
+      <p>
+        Dr. James S. Kim received his Bachelor of Science from Loyola University of Chicago and his DDS from the University of Illinois College of Dentistry. He has maintained a private practice in Wausau since 2000, with an emphasis in family, cosmetic, implant, and sedation dentistry.
+      </p>
+      <p>
+        Dr. Kim is committed to staying current in the dental field, attending 150–200 hours of continuing education per year — far beyond what is required. He has trained with some of the best clinicians in the world, including Dr. Frank Spear at The Seattle Institute for Advanced Dental Education and Dr. Carl Misch at The Misch International Implant Institute.
+      </p>
+    </div>
+    <div class="about-card">
+      <h3>Why Patients Choose Dr. Kim</h3>
+      <ul class="creds">
+        <li>25+ years of private practice in Wausau, WI</li>
+        <li>DDS from University of Illinois College of Dentistry</li>
+        <li>150–200 hours of continuing education annually</li>
+        <li>Implant, cosmetic, and sedation dentistry specialist</li>
+        <li>Microscope, digital X-rays, and KaVo dental laser technology</li>
+        <li>Free consultations and second opinions</li>
+        <li>Family-friendly office — all ages welcome</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-card">
+      <h3>Get in Touch</h3>
+      <p style="color: var(--ink-soft);">Ready to schedule your appointment or have a question? We'd love to hear from you.</p>
+      <div class="info-line">
+        <span class="ico">📍</span>
+        <div><strong>Office</strong>501 South 24th Ave #200<br />Wausau, WI 54401</div>
+      </div>
+      <div class="info-line">
+        <span class="ico">📞</span>
+        <div><strong>Phone</strong><a href="tel:+17158495667">(715) 849-5667</a></div>
+      </div>
+      <div class="info-line">
+        <span class="ico">🚗</span>
+        <div><strong>Easy to find</strong>Just off Highway 51 and Stewart Avenue, between the Applebee's and the Hampton Inn.</div>
+      </div>
+      <a href="tel:+17158495667" class="btn btn-primary" style="margin-top: 12px;">Call Now</a>
+    </div>
+    <div class="hours-block">
+      <h3>Office Hours</h3>
+      <table>
+        <tr><td>Monday</td>    <td>8:00 AM – 4:30 PM</td></tr>
+        <tr><td>Tuesday</td>   <td>7:30 AM – 4:30 PM</td></tr>
+        <tr><td>Wednesday</td> <td>7:30 AM – 4:30 PM</td></tr>
+        <tr><td>Thursday</td>  <td>7:30 AM – 4:30 PM</td></tr>
+        <tr><td>Friday</td>    <td class="closed">Closed</td></tr>
+        <tr><td>Saturday</td>  <td class="closed">Closed</td></tr>
+        <tr><td>Sunday</td>    <td class="closed">Closed</td></tr>
+      </table>
+      <p style="margin-top: 20px; font-size: 0.88rem; color: var(--ink-soft);">
+        Our practice is closed Friday through Sunday. The 24/7 chat (bottom-right) answers questions any time — including all the hours and weekends when no one's at the front desk.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div style="font-family: 'Merriweather', serif; font-weight: 700; color: white; font-size: 1.3rem; margin-bottom: 4px;">Dr. James S. Kim, DDS</div>
+      <div style="font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); text-transform: uppercase; margin-bottom: 18px;">Beautiful Smiles Today &amp; Tomorrow</div>
+      <p style="opacity: 0.85; max-width: 480px;">
+        Modern family, cosmetic, implant, and sedation dentistry in Wausau, WI since 2000. Serving Wausau, Rib Mountain, Stettin, Rothschild, Weston, Schofield, and Kronenwetter.
+      </p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul class="links">
+        <li>501 South 24th Ave #200</li>
+        <li>Wausau, WI 54401</li>
+        <li><a href="tel:+17158495667">(715) 849-5667</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="links">
+        <li><a href="#about">About Dr. Kim</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#emergency">Emergency Care</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© Dr. James S. Kim, DDS · Wausau, WI</span>
+      <span>Demo built by StillOpen.ai · Try the chat →</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── StillOpen chatbot widget ──────────────────────────────────────────────
+     This is the same widget that would live on dentistwausau.com 24/7.
+     The data-plumber-id below points at the KV knowledge base we preloaded
+     with Dr. Kim's services, hours, address, and FAQs.
+─────────────────────────────────────────────────────────────────────────── -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="james-kim-dds-demo"></script>
+
+</body>
+</html>
