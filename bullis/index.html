@@ -76,7 +76,7 @@
         
     </head>
     <body>
-<div style="background:#1c1f23;color:#ffd87d;padding:9px 0;font-size:0.83rem;text-align:center;letter-spacing:0.02em;font-family:Arial,sans-serif;position:relative;z-index:99999;"><strong style="color:white;">STILLOPEN DEMO</strong> &nbsp;&middot;&nbsp; This is your real site with a 24/7 chat added (bottom-right). Try it. That is what would catch the after-hours patients asking about Stress Free Dentistry, Same Day Crowns, and Teeth in a Day.</div>
+<div style="background:#1c1f23;color:#ffd87d;padding:9px 0;font-size:0.83rem;text-align:center;letter-spacing:0.02em;font-family:Arial,sans-serif;position:relative;z-index:99999;"><strong style="color:white;">STILLOPEN DEMO</strong> &nbsp;&middot;&nbsp; PREVIEW built on a copy of your site to show what the 24/7 chat (bottom-right) would look like running on it. Try the chat.</div>
 
         
         
@@ -535,5 +535,147 @@
 
 <!-- StillOpen 24/7 chat. Only added line on this page. Remove this script tag to remove the chatbot. -->
 <script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="bullis-pond-demo"></script>
+<!-- StillOpen exit-intent capture. Fires when the prospect's mouse leaves the top of the viewport (suggesting tab close) OR after 90 seconds of dwell. Sessionstorage gate ensures it only fires once per visit. -->
+<style>
+  #so-exit-overlay {
+    position: fixed; inset: 0;
+    background: rgba(8, 12, 22, 0.78);
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    display: none; align-items: center; justify-content: center;
+    z-index: 2147483600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  #so-exit-overlay.show { display: flex; animation: soFadeIn .25s ease; }
+  @keyframes soFadeIn { from { opacity: 0 } to { opacity: 1 } }
+  #so-exit-modal {
+    background: #ffffff; color: #111827;
+    width: 92%; max-width: 480px;
+    border-radius: 14px; padding: 36px 32px 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  #so-exit-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: 0; cursor: pointer;
+    font-size: 24px; color: #6b7280; line-height: 1;
+    padding: 4px 10px; border-radius: 6px;
+  }
+  #so-exit-close:hover { background: #f3f4f6; color: #111827; }
+  #so-exit-modal h2 {
+    margin: 0 0 14px; font-size: 1.5rem; line-height: 1.25; color: #111827;
+    font-weight: 700;
+  }
+  #so-exit-modal .so-headline {
+    margin: 0 0 22px; font-size: 1rem; line-height: 1.55; color: #374151;
+  }
+  #so-exit-form { display: flex; flex-direction: column; gap: 10px; }
+  #so-exit-form input[type="email"] {
+    width: 100%; padding: 14px 16px; border-radius: 8px;
+    border: 1.5px solid #d1d5db; font-size: 1rem; outline: none;
+    font-family: inherit;
+  }
+  #so-exit-form input[type="email"]:focus { border-color: #f97316; }
+  #so-exit-form button {
+    width: 100%; padding: 14px 18px; border-radius: 8px; border: 0;
+    background: #f97316; color: white; font-size: 1rem; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  #so-exit-form button:hover { background: #ea580c; }
+  #so-exit-form button:disabled { background: #d1d5db; cursor: not-allowed; }
+  #so-exit-foot {
+    margin-top: 16px; font-size: 0.78rem; color: #6b7280; text-align: center;
+  }
+  #so-exit-success {
+    display: none; text-align: center;
+    padding: 20px 0 8px;
+  }
+  #so-exit-success h3 { color: #16a34a; font-size: 1.2rem; margin: 0 0 8px; }
+  #so-exit-success p { color: #374151; margin: 0; font-size: 0.95rem; }
+</style>
+<div id="so-exit-overlay" role="dialog" aria-modal="true">
+  <div id="so-exit-modal">
+    <button id="so-exit-close" aria-label="Close">&times;</button>
+
+    <div id="so-exit-pitch">
+      <h2>Want this on your site?</h2>
+      <p class="so-headline">
+        <strong>$297 to install.</strong> If after 30 days it hasn't paid for itself, I refund every dollar and pull the code.
+      </p>
+      <form id="so-exit-form">
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit">Send me the install link</button>
+      </form>
+      <p id="so-exit-foot">
+        Cole Cummings &middot; StillOpen.ai &middot; (534) 901-0258
+      </p>
+    </div>
+
+    <div id="so-exit-success">
+      <h3>Got it. Talk soon.</h3>
+      <p>Cole will reach out personally within 24 hours.</p>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+  if (sessionStorage.getItem("so_exit_seen") === "1") return;
+
+  // Detect which demo we're on by reading the chatbot script's plumber-id
+  var demoSlug = "unknown";
+  try {
+    var s = document.querySelector('script[src*="chatbot.js"][data-plumber-id]');
+    if (s) demoSlug = s.dataset.plumberId;
+  } catch (e) {}
+
+  var overlay = document.getElementById("so-exit-overlay");
+  var closeBtn = document.getElementById("so-exit-close");
+  var form = document.getElementById("so-exit-form");
+  var pitch = document.getElementById("so-exit-pitch");
+  var success = document.getElementById("so-exit-success");
+  if (!overlay || !form) return;
+
+  function show() {
+    if (sessionStorage.getItem("so_exit_seen") === "1") return;
+    sessionStorage.setItem("so_exit_seen", "1");
+    overlay.classList.add("show");
+  }
+  function hide() { overlay.classList.remove("show"); }
+
+  // Trigger 1: mouse leaves top of viewport (tab close intent on desktop)
+  document.addEventListener("mouseleave", function (e) {
+    if (e.clientY <= 0) show();
+  });
+  // Trigger 2: long dwell (90 seconds) for mobile / users who never move mouse
+  setTimeout(show, 90000);
+
+  closeBtn.addEventListener("click", hide);
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) hide();
+  });
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var email = form.querySelector('input[type="email"]').value.trim();
+    if (!email) return;
+    var btn = form.querySelector("button");
+    btn.disabled = true; btn.textContent = "Sending...";
+    try {
+      await fetch("https://app.stillopen.ai/demo-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email, demo: demoSlug, page: location.href }),
+      });
+    } catch (err) {
+      // Silent fail. We'd rather the prospect see "got it" than an error
+      // page on a sales demo. Cole can manually follow up.
+    }
+    pitch.style.display = "none";
+    success.style.display = "block";
+  });
+})();
+</script>
+<!-- end exit-intent -->
+
 </body>
 </html> 

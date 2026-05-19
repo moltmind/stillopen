@@ -143,7 +143,7 @@
       justify-content: center;
       box-shadow: 0 4px 20px rgba(249,115,22,0.25), 0 2px 8px ${COLORS.shadow};
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      z-index: 9998;
+      z-index: 2147483646;
     }
     #he-bubble:hover {
       transform: scale(1.08);
@@ -208,7 +208,7 @@
       flex-direction: column;
       overflow: hidden;
       box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(249,115,22,0.06);
-      z-index: 9997;
+      z-index: 2147483645;
       transform-origin: bottom right;
       transform: scale(0.85) translateY(16px);
       opacity: 0;
@@ -470,7 +470,7 @@
         width: 44px;
         height: 44px;
         box-shadow: 0 2px 8px ${COLORS.shadow};
-        z-index: 10000;
+        z-index: 2147483647;
       }
       #he-bubble.open svg {
         width: 22px;
