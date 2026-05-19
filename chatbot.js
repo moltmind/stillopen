@@ -126,6 +126,21 @@
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
+    /* Force pointer-events on all StillOpen UI. Some host sites (Duda, Televet's
+       iframe-resizer, certain WordPress themes) inject transparent overlays that
+       absorb clicks before they reach our widget. !important + auto on every
+       interactive element guarantees the widget wins. */
+    #he-chat-root,
+    #he-bubble,
+    #he-window,
+    #he-input,
+    #he-send,
+    #he-messages,
+    #he-input-row,
+    #he-header,
+    #he-badge {
+      pointer-events: auto !important;
+    }
 
     /* Bubble */
     #he-bubble {
