@@ -381,6 +381,8 @@ const TIMES = ['5:00 PM','6:00','7:00','8:00','9:00','10:00','11:00','12:00','1:
 let introDone = false;
 
 function runIntro(){
+  // Intro disabled by default (Cole, 2026-07-05). Add ?intro to the URL to see it.
+  if(!new URLSearchParams(location.search).has('intro')){ setTimeout(()=>finishIntro(true),60); return; }
   if(reduced){ finishIntro(true); return; }
   const ctx = arcC.getContext('2d');
   const DPR = Math.min(devicePixelRatio||1, 2);
@@ -453,8 +455,11 @@ buildHeadline();
 function startHero(){
   $('#nav').classList.add('in');
   const words=document.querySelectorAll('#headline .w');
-  words.forEach((w,i)=>{ setTimeout(()=>{ w.style.transition='opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1), filter .7s';
-    w.style.opacity=1; w.style.transform='none'; w.style.filter='blur(0)'; }, 120+i*95); });
+  words.forEach((w,i)=>{
+    w.style.transition='opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1), filter .7s';
+    w.style.transitionDelay=(120+i*95)+'ms';
+    w.style.opacity=1; w.style.transform='none'; w.style.filter='blur(0)';
+  });
   $('#sub').classList.add('in'); $('#ctas').classList.add('in'); $('#phone').classList.add('in');
   setTimeout(runChat, 1400);
 }
