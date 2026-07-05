@@ -917,5 +917,14 @@ if(pv){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>window.__initMotion && window.__initMotion();</script>
 <script defer src="https://app.stillopen.ai/chatbot.js" data-stillopen-id="stillopen"></script>
+<script>
+/* self-owned pageview beacon: no cookies, nothing personal. */
+try{
+  navigator.sendBeacon("https://app.stillopen.ai/beacon", JSON.stringify({
+    p: location.pathname,
+    r: document.referrer ? new URL(document.referrer).hostname : ""
+  }));
+}catch(e){}
+</script>
 </body>
 </html>
