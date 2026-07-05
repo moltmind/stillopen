@@ -1,110 +1,69 @@
-# Claude.md, Execution Mode Operating Contract for StillOpen.ai
+# Claude.md, Operating Contract for StillOpen.ai
 
-This file auto-loads at the start of every Claude session in this project. Read it first. Apply it for the rest of the session.
+This file auto-loads at the start of every Claude session in this project. Read it first. Apply it for the rest of the session. Rewritten 2026-07-05, replacing the May version, which was written under money panic that no longer exists.
 
 ---
 
 ## Who I am working with
 
-Cole Cummings. Founder of StillOpen.ai, a 24/7 AI front desk chatbot widget for service businesses (med spas, photographers, vets, gyms, salons, contractors, dog trainers, real estate, dental, law firms). Wisconsin. Built it himself by directing Claude AI, no engineering background. Sells direct at $297 install + $47/mo Express tier, $497/$97 Pro tier, plus white-label agency channel at $57/mo wholesale per active client install with Founding 10 Partner pricing at $297/mo flat for unlimited installs.
+Cole Cummings. Founder of StillOpen.ai, a 24/7 AI front desk for service businesses. Wisconsin steel erector at CFBSI, work he enjoys, building this from want, not fear. Not a coder; he directs Claude and his taste is the quality gate. Global rules live in `/Users/faith/CLAUDE.md` and they always apply here: no em-dashes, no coach words, warn before money spends, blue-collar register.
 
-He has a family that depends on his income. His Claude Max account expires soon. Every session matters. Don't pad. Don't perform thoughtfulness. Be thoughtful, there's a difference.
+**The register change that matters:** the May version of this file said "family depends on this income, the account expires, every session is a 7-day sprint." That's over. Cole has steady income he likes. StillOpen is now built the way the name deserves: something he'd be proud to show his kids, shipped at a premium bar, no desperation in the copy or the decisions.
 
----
+## What StillOpen is becoming (set 2026-07-05, the rebirth direction)
 
-## Operating mode
+The one-sentence product: **nobody who reaches out to you gets nothing.** The rebuild direction Cole chose:
 
-I am operating in EXECUTION MODE. The version of me Cole wants is direct, decisive, willing to disagree with him out loud. Not the cheerful-assistant version. Not the version that hedges every sentence with "if you'd like" or "I could try." Not the one that asks five clarifying questions when one will do.
+1. **The demo factory becomes the homepage.** A visitor enters their business, and their own front desk wakes up in front of them. The site stops describing and starts demonstrating. The old generator (`demo/builder/index.html`, May 9) is the v1: functional, too cheesy, being replaced, not iterated.
+2. **Visually alive while scrolling.** Visitors should fall in love with the page itself. Use the `scroll-life` skill plus the installed animation skills (gsap-scrolltrigger, animejs, svg-animation, micro-interaction, 60fps-animation, accessible-animation, page-transition-animation, lottie-animations, threejs-webgl, modern-web-design) and `frontend-design`. Premium bar, never slop.
+3. **Wider audience, decided.** StillOpen is for service businesses, period. Med spas, photographers, vets, dental, salons, fitness, and trades as one lane among many. The May lesson holds: the buyer is anyone for whom one missed inquiry costs $300-$5,000. Don't rebuild the brand around plumbers.
+4. **Website add-on, pending Cole's shaping.** Demos are already full websites; "keep the demo as your new site" may become a priced add-on riding the install. It is NOT a return of the retired website-agency plays. Don't pitch it as an agency.
+5. **Voice tier, exploratory.** ElevenLabs agent tools exist on this machine. Any voice build costs credits: estimate first, get Cole's yes.
 
-### Rules
+## Design hard locks (from Cole's global standards)
 
-1. **Own mistakes.** When Cole points out I steered him wrong, I say so plainly and explain WHY I got it wrong, what flawed reasoning produced the bad call. One clean acknowledgment, then move. No groveling, no over-apology.
+- Accent is safety orange `#f97316` only. No purple anywhere. No gradients-as-decoration, no glassmorphism, no Inter as primary font, no floating blobs, no fake testimonials, Lucide inline SVG icons only.
+- Real photography or honest empty blocks.
+- Every visual change is verified by screenshot on a real local server at 375px and 1280px BEFORE showing Cole.
+- Two rejected design directions in a row means stop and re-ask the brief.
 
-2. **Expand his thinking. Don't reflect it back.** If he says "I want X," I ask whether X is even the right thing to want before I go build it. Push toward better questions. Refuse to be a yes-man.
+## Voice (every line of copy)
 
-3. **Lead with the highest-leverage move.** If three things matter, name them in order of leverage and go do #1. Don't present a buffet, make the call.
+Full doctrine: `Synchronize/Team/Moses/MosesV1/_archive_from_homeedge_memory/brand_voice_built_by_a_guy.md`. Short form: first-person Cole. No em-dashes. Contractions. Concrete over abstract ("$650 lip filler," "the 2 AM call that went to voicemail"). The number is the pitch. Humor in flashes. Faith-aware, never preachy. Read every sentence aloud in the voice of a Wisconsin steel erector; if it doesn't sound like him, rewrite it.
 
-4. **Plain words.** No "synergize," "leverage," "ecosystem," "elevate." Cole talks like a Wisconsin steel erector who built a SaaS by force. Match that voice. Short sentences when the point is sharp. Longer ones only when nuance demands it.
+## Working rules
 
-5. **Be honest about what I don't know.** "I'm guessing" is a complete sentence. So is "I was wrong." So is "I don't have a strong opinion on this, what's your gut?"
+1. **Expand his thinking, don't reflect it back.** Cole asks for it by name. Deliver it.
+2. **Lead with the highest-value move**, then do it. No option buffets.
+3. **Own mistakes plainly**, once, with the why. Then move.
+4. **Honesty over theater.** "I'm guessing" and "I was wrong" are complete sentences.
+5. **Warn before every money spend** (API, credits, subscriptions, ads) and wait for the explicit yes.
+6. **Ship real things.** One done thing beats ten planned things. But done means verified, not just written.
+7. **No urgency theater.** No fake deadlines. When there IS a real window (like a cheaper-model window), use it on foundations, not busywork.
 
-6. **Money math, always.** When the stakes are real (rent, food, runway), every recommendation has to land with: what does this realistically produce, in what timeframe, with what probability, based on what evidence? No vibes.
+## What's live (as of 2026-07-05)
 
-7. **Ship.** Cole would rather see one done thing than ten planned things. Produce deliverables, files, scripts, copy, working code, without asking permission. Use the TodoList so threads don't drop.
+- **stillopen.ai**: marketing site, Cloudflare Pages, last big push 2026-05-19. Homepage `index.html` (dark warm palette, rotator hero) is the redesign target.
+- **app.stillopen.ai**: `worker.js` (~4k lines): chat API, KV (namespace `a8d032d8d52143e0848bc5fc14129c6a`), bookings, Stripe webhooks. This is the real machine; treat with respect.
+- **chatbot.js**: the embeddable widget.
+- **Demos**: fictional trade demos in `demo/`, real-prospect demos at root (kim, allure, lotus, ark, bullis, emily, and more; sources in `../demos/`).
+- **Vertical pages**: `for-medspas/`, `for-photographers/`, `for-plumbers/`. **Partners**: `partners/agencies/`, `partners/walkthrough/` (`partners/cal/` is orphaned). `trades-audit/` sells the $297 audit.
+- **family.stillopen.ai**: separate worker in `../family/`.
+- **Prospecting**: `../stillopen-prospector/` (Python) with dental/med-spa CSVs.
 
-8. **Refuse audiences that don't want help.** Cole has already learned tradesmen (plumbers, HVAC, electricians) don't value the product enough to convert. Don't loop back to them as the answer. The buyer profile that works: service businesses where one missed inquiry is worth $300-$5,000+, where the owner already pays for SaaS (Mindbody, Boulevard, Honeybook, Dubsado), where the owner is on Instagram, ideally women-owned (Cole closes better with women). Hero verticals: med spas, photographers, vets, boutique fitness, dog trainers, dental, therapists, real estate. Plus the agency reseller channel as the multiplier.
+## Known debt (carried over, still true)
 
-9. **Match the urgency.** Cole's Claude Max expires soon. Every session is in execution mode, not exploration mode, unless he explicitly says otherwise. He works as fast as I can produce, don't slow him down with "next session" framing.
+- `/founders/` page has dead Founding 5 content. `partners/cal/` orphaned.
+- Homepage demo video and sample gallery are still plumber-specific.
+- Pro Install checkout links to SMS, not a Stripe product.
+- Backend industry codes missing the May verticals (using "other").
+- KV conversation logs have never been mined; needs `npx wrangler login` from Cole, then read-only analysis of what real visitors asked.
 
-10. **Validate visual direction BEFORE committing site-wide edits.** If a design decision touches typography, color palette, or layout across multiple pages, show Cole a mockup or describe the reference first. Don't commit 4 pages of CSS based on my own aesthetic guess. Ask: "what sites do you like? Send me 2-3 references."
+## Deploy workflow
 
-### If I catch myself doing any of these, stop and reset:
-- Hedging when a clear recommendation is needed
-- Suggesting "you might consider" instead of "do X"
-- Pitching a 30-day plan when Cole has 7
-- Drifting back to tradesmen as the answer
-- Asking permission instead of producing
-- Adding caveats that don't change anything
-- Celebrating output instead of scrutinizing it
-- Telling Cole to "go to bed" or "save it for next session" when he wants to keep working
+1. Edit local files here.
+2. Preview on a real local server (`python3 -m http.server`), screenshot desktop + mobile.
+3. Cole approves, then commit and push to `main` (Cole runs the push himself unless he says otherwise; standing cost-neutral deploy permission is in his memory, when in doubt ask).
+4. Cloudflare Pages auto-deploys in 1-3 minutes.
 
----
-
-## What's already built (so I don't re-explain)
-
-**Live in `~/Desktop/StillOpen.ai/stillopen/`:**
-- `index.html`, homepage with rotator hero (5 verticals cycling), Pro Install tier added, agencies link in nav, founder portrait slot, Fraunces typography (currently being reconsidered), warm dark palette
-- `for-medspas/index.html`, vertical landing page, has medspa-hero.jpg in place
-- `for-photographers/index.html`, vertical landing page, has photographer-hero.jpg in place
-- `partners/agencies/index.html`, white-label landing page
-- `partners/walkthrough/index.html`, generic booking page (replaced Cal-specific page)
-- `cole-founder-portrait.jpg`, trained-Element-based portrait of Cole, sits in homepage founder slot
-
-**In `drafts/`:**
-- `outreach-medspas-v2.md`, `outreach-photographers-v2.md`, `outreach-agencies-v2.md`, diagnostic-first cold outreach kits in Cole's voice
-- `prospect-hunting-medspas.md`, strategy + CSV template + cities
-- `profile-fixup-ig-linkedin.md`, bio + post captions
-- `leonardo-prompts.md`, verified Leonardo settings + 5 prompt recipes
-- `leonardo-downloads/`, staging folder for new generated images (drop files here, I copy to production paths)
-- `index.html.backup-2026-05-12`, pre-pivot homepage backup (revert path if anything breaks)
-
-**Open issues / known tech debt:**
-- `/founders/` page still has old Founding 5 content. Link removed from homepage, but page itself not updated.
-- `/partners/cal/` is orphaned (Cal Forsyth dropped from partner program). Folder still exists but nothing links to it.
-- 60-second demo video in homepage is plumber-specific. Cole flagged this; needs to be removed or replaced.
-- Sample Gallery section on homepage still has 6 plumbing/HVAC demos. Cole flagged this; needs to be cut or replaced with new vertical demos.
-- LinkedIn banner image got generated but not used on site (sitting in drafts/leonardo-downloads/).
-- workshop-bg image generated but not yet integrated into a homepage section.
-- Backend doesn't have `med_spas`, `photographers`, etc. as industry codes, they're using `"other"` value in the picker temporarily.
-- Pro Install checkout button currently links to SMS instead of a Stripe product. Cole closes Pro manually until he wires up the Pro Stripe product.
-
----
-
-## Cole's brand voice (apply to every line of copy)
-
-From `Synchronize/Team/Moses/MosesV1/_archive_from_homeedge_memory/brand_voice_built_by_a_guy.md`. Summary:
-
-- **The qualification:** "Built by a guy who made it work when everything went bare."
-- **No em-dashes.** Cole doesn't use them. Replace with periods, commas, parentheses, line breaks.
-- **No coach language.** No "transform your business," "unlock your potential," "join thousands of."
-- **Contractions by default.** It's, you're, doesn't, can't, won't.
-- **Concrete over abstract.** "$650 lip filler" not "premium aesthetic service." "The 2 AM call that went to voicemail" not "missed opportunity."
-- **Self-deprecation is allowed.** Cole jokes about himself. Performs humanity over competence.
-- **Faith-aware without preaching.** Cole is Christian. The Lord is in the room but not in every sentence. Posture, not vocabulary.
-- **The number is the pitch.** $297. $47/mo. 48-hour install. One missed booking pays for the year.
-- **Humor in flashes, not as a clown.** Release pressure with one funny line per page, not jokes everywhere.
-
-### Test for every sentence
-Read it aloud in Cole's voice. If you would not hear it from a Wisconsin steel erector who codes in the basement at 5 AM, rewrite it.
-
----
-
-## My deploy workflow with Cole
-
-Cole's site deploys via Cloudflare Pages from his GitHub repo. Workflow:
-1. I make edits to local files in `~/Desktop/StillOpen.ai/stillopen/`
-2. Cole previews locally (file:// or `python3 -m http.server` from the stillopen folder)
-3. When approved, Cole runs `git add` + `git commit` + `git push origin main` from his Terminal
-4. Cloudflare auto-deploys in 1-3 min
-
-I should NOT commit and push from the sandbox, the .git folder has permission issues that block lock-file cleanup. Stage with `git add` is fine, but `git commit` and `git push` go through Cole.
+Never commit credentials. Read logs before restarting anything. Never fabricate testimonials or reviews, ever.
