@@ -565,15 +565,23 @@ vid.addEventListener('canplaythrough', function once(){
   const cw=960, ch=540; cap.width=cw; cap.height=ch;
   const cctx=cap.getContext('2d');
   const bctx=boom.getContext('2d');
+  let boomStarted=false;
   function grab(){
     cctx.drawImage(vid,0,0,cw,ch);
     const f=document.createElement('canvas'); f.width=cw; f.height=ch;
     f.getContext('2d').drawImage(cap,0,0);
     frames.push(f);
-    if(!vid.ended && frames.length<240){ vid.requestVideoFrameCallback ? vid.requestVideoFrameCallback(grab) : setTimeout(grab,42); }
+    if(!vid.ended && frames.length<240){ vid.requestVideoFrameCallback ? vid.requestVideoFrameCallback(()=>grab()) : setTimeout(grab,42); }
     else startBoom();
   }
+  function plainLoop(){
+    vid.loop=true; vid.style.display='block'; vid.style.position='absolute'; vid.style.inset='0';
+    vid.style.width='100%'; vid.style.height='100%'; vid.style.objectFit='cover';
+    scene.style.display='none'; vid.play().catch(()=>{});
+  }
+  vid.addEventListener('ended',()=>{ if(frames.length>=24) startBoom(); else plainLoop(); });
   function startBoom(){
+    if(boomStarted) return; boomStarted=true;
     if(frames.length<10) return;
     scene.style.display='none'; boom.style.display='block';
     function size(){ boom.width=boom.clientWidth*SD; boom.height=boom.clientHeight*SD; }
@@ -590,7 +598,16 @@ vid.addEventListener('canplaythrough', function once(){
       setTimeout(()=>requestAnimationFrame(play), 1000/24);
     })();
   }
-  vid.play().then(()=>grab()).catch(()=>{});
+  function activate(){
+    vid.muted=true;
+    vid.play().then(()=>grab()).catch(()=>{
+      const kick=()=>{ vid.play().then(()=>grab()).catch(()=>{}); };
+      addEventListener('pointerdown',kick,{once:true});
+      addEventListener('scroll',kick,{once:true,passive:true});
+      addEventListener('keydown',kick,{once:true});
+    });
+  }
+  activate();
 });
 vid.addEventListener('error',()=>{ /* no night.mp4 yet: procedural scene stays */ });
 
