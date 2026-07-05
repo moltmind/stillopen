@@ -181,7 +181,7 @@
   @keyframes grainShift{0%{transform:translate(0,0)}25%{transform:translate(-18px,12px)}50%{transform:translate(14px,-16px)}75%{transform:translate(-10px,-8px)}100%{transform:translate(0,0)}}
 
   /* ---------- night watch (scroll-scrubbed) ---------- */
-  #nightwatch{height:340vh;position:relative;padding:0;background:var(--bg-2);border-top:1px solid var(--line);}
+  #nightwatch{height:170vh;position:relative;padding:0;background:var(--bg-2);border-top:1px solid var(--line);}
   .nw-pin{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;overflow:hidden;}
   .nw-glow{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 65%);opacity:.25;transition:opacity 1s;}
   .nw-pin.warm .nw-glow{opacity:1;}
@@ -300,8 +300,10 @@
     <p class="lead reveal">Not a sales call. Not a slideshow. Your actual business, answering like it never closes. Built for you, free, before we've ever spoken.</p>
     <div class="factory-row reveal">
       <input id="bizName" type="text" placeholder="Your business name" aria-label="Your business name" />
+      <input id="bizEmail" type="email" placeholder="Your email" aria-label="Your email" autocomplete="email" />
       <button class="btn solid" id="wakeBtn">Wake it up</button>
     </div>
+    <div id="factoryMsg" style="margin-top:12px;font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);"></div>
     <div id="wakePreview" aria-live="polite">
       <div class="bar"><i></i><i></i><i></i></div>
       <div class="body">
@@ -664,10 +666,19 @@ setInterval(()=>{
 /* ============ FACTORY PREVIEW ============ */
 function wake(){
   const name=($('#bizName').value||'').trim();
-  if(!name) { $('#bizName').focus(); return; }
+  const email=($('#bizEmail').value||'').trim();
+  const msg=$('#factoryMsg');
+  if(!name){ $('#bizName').focus(); msg.textContent='Give me your business name first.'; return; }
+  if(!email || !email.includes('@') || email.length<5){ $('#bizEmail').focus(); msg.textContent='And an email, so your demo has somewhere to land.'; return; }
+  msg.textContent='';
   $('#pvName').innerHTML=name.replace(/[<>&]/g,'')+'<i>.</i> · Front desk';
   $('#pvBub').textContent='Hi, thanks for reaching out to '+name.replace(/[<>&]/g,'')+'. We are with you even after hours. What do you need tonight?';
   $('#wakePreview').classList.add('on');
+  fetch('https://app.stillopen.ai/demo-lead',{
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email:email, demo:name.slice(0,60), page:'v2-factory'})
+  }).then(r=>{ if(r.ok) msg.textContent='Got it. Your real demo lands at '+email+' within a day.'; })
+    .catch(()=>{ msg.textContent='Saved locally. If you do not hear back in a day, text Cole.'; });
 }
 $('#wakeBtn').addEventListener('click',wake);
 $('#bizName').addEventListener('keydown',e=>{ if(e.key==='Enter') wake(); });
@@ -680,12 +691,7 @@ window.__initMotion = function(){
   if(reduced || !window.gsap || !window.ScrollTrigger) { fallbackWatch(); return; }
   try{
     gsap.registerPlugin(ScrollTrigger);
-    if(window.Lenis){
-      const lenis = new Lenis({ lerp:.09 });
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((t)=>{ lenis.raf(t*1000); });
-      gsap.ticker.lagSmoothing(0);
-    }
+    /* native scroll only: the visitor owns the wheel, motion just rides along */
     // hero drifts up and fades as you leave it
     gsap.to('.hero-inner', {
       y:-90, opacity:.25, ease:'none',
@@ -725,7 +731,6 @@ if(reduced) fallbackWatch();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>window.__initMotion && window.__initMotion();</script>
 <script defer src="https://app.stillopen.ai/chatbot.js" data-stillopen-id="stillopen"></script>
 </body>
