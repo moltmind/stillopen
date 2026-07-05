@@ -174,6 +174,41 @@
     nav .btn{padding:10px 16px;font-size:.84rem;white-space:nowrap;}
   }
 
+  /* ---------- Paul, the night clerk ---------- */
+  #paul{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:flex-end;gap:12px;opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);pointer-events:none;}
+  #paul.in{opacity:1;transform:none;}
+  #paulChar{width:88px;pointer-events:auto;background:none;border:0;padding:0;display:block;cursor:pointer;filter:drop-shadow(0 14px 26px rgba(0,0,0,.55));transition:transform .3s;}
+  #paulChar:hover{transform:translateY(-3px);}
+  #paulChar:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:12px;}
+  #paulChar svg{display:block;width:100%;height:auto;}
+  .p-bob{animation:pBob 4.6s ease-in-out infinite;}
+  @keyframes pBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+  .p-headg{transform-box:fill-box;transform-origin:50% 88%;transition:transform .7s cubic-bezier(.22,1,.36,1);}
+  #paul.talk .p-headg{transform:rotate(-2.2deg);}
+  .p-lid{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0);animation:pBlink 5.4s infinite;}
+  @keyframes pBlink{0%,92.5%,100%{transform:scaleY(0)}94%,96.5%{transform:scaleY(1)}}
+  .p-led{animation:pulse 2.4s infinite;}
+  .p-tip{animation:pulse 2.2s .4s infinite;}
+  .p-pupil,.p-led{transition:transform .18s ease-out;}
+  .p-arm{transform-box:fill-box;transform-origin:88% 94%;opacity:0;transition:opacity .35s;}
+  #paul.wave .p-arm{opacity:1;animation:pWave 1.5s ease-in-out 2;}
+  @keyframes pWave{0%,100%{transform:rotate(0)}25%{transform:rotate(-14deg)}60%{transform:rotate(9deg)}}
+  #paulBubble{pointer-events:auto;position:relative;max-width:290px;background:linear-gradient(160deg,#171310,#100d0b);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:4px;padding:13px 36px 13px 15px;box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 40px var(--accent-soft);opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;visibility:hidden;}
+  #paul.talk #paulBubble{opacity:1;transform:none;visibility:visible;}
+  #paulBubble .ph{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;gap:7px;}
+  #paulBubble .ph .pdot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent-glow);animation:pulse 2.2s infinite;}
+  #paulBubble .pt{font-size:.88rem;line-height:1.55;color:var(--ink);min-height:1.3em;}
+  #paulX{position:absolute;top:9px;right:9px;width:20px;height:20px;border:0;background:none;color:var(--ink-faint);cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;transition:color .25s;}
+  #paulX:hover{color:var(--ink);}
+  #paulX svg{width:13px;height:13px;stroke:currentColor;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  @media (max-width:640px){
+    #paul{left:12px;bottom:12px;gap:9px;}
+    #paulChar{width:64px;}
+    #paulBubble{max-width:min(64vw,250px);padding:11px 32px 11px 13px;}
+    #paulBubble .pt{font-size:.82rem;}
+  }
+
   /* ---------- film grain ---------- */
   #grain{position:fixed;inset:-60px;z-index:90;pointer-events:none;opacity:.055;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
@@ -352,6 +387,56 @@
   <button class="t4" data-t="moon" aria-label="Moonlight"></button>
 </div>
 
+<!-- PAUL, THE NIGHT CLERK -->
+<div id="paul" aria-label="Paul, the StillOpen night clerk">
+  <button id="paulChar" aria-label="Chat with Paul, the night clerk" title="Paul, the night clerk">
+    <svg viewBox="0 0 120 132" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <g class="p-bob">
+        <g class="p-arm">
+          <path d="M27 108 Q13 97 20 81" fill="none" stroke="#1d2126" stroke-width="10" stroke-linecap="round"/>
+          <circle cx="21" cy="77" r="6" fill="#e9b489"/>
+        </g>
+        <rect x="52" y="58" width="8" height="40" fill="#d9a377"/>
+        <rect x="60" y="58" width="8" height="40" fill="#20242a"/>
+        <path d="M20 132 V113 Q20 97 40 94 L60 91 L80 94 Q100 97 100 113 V132 Z" fill="#1d2126"/>
+        <path d="M46 94 L60 104 L74 94" fill="none" stroke="#2c323b" stroke-width="2"/>
+        <rect x="59.4" y="98" width="1.2" height="34" fill="rgba(244,237,228,.10)"/>
+        <rect x="28" y="106" width="26" height="11" rx="2" fill="#f4ede4"/>
+        <text x="41" y="114.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.4" font-weight="700" letter-spacing="1" fill="#15110e">PAUL</text>
+        <g class="p-headg">
+          <rect x="76.6" y="2.5" width="2.2" height="10" rx="1.1" fill="#3d434c"/>
+          <circle class="p-tip" cx="77.7" cy="2.8" r="2.6" style="fill:var(--accent)"/>
+          <path d="M60 10 H50 Q32 10 32 28 V46 Q32 64 50 64 H60 Z" fill="#e9b489"/>
+          <path d="M60 10 H70 Q88 10 88 28 V46 Q88 64 70 64 H60 Z" fill="#262a31"/>
+          <path d="M60 9 H50 Q31.5 9 31.5 28 V31 Q38 19 60 17.5 Z" fill="#3b2c22"/>
+          <path d="M31.8 31 Q34 27 37 25 L37 40 Q33 38 31.8 36 Z" fill="#3b2c22"/>
+          <path d="M62 24 H88 M79 46 V64" stroke="#3d434c" stroke-width="1.2" fill="none"/>
+          <circle cx="84" cy="17" r="1.3" fill="#4a515c"/>
+          <rect x="59.35" y="10" width="1.3" height="54" fill="rgba(244,237,228,.16)"/>
+          <ellipse cx="31" cy="42" rx="3.2" ry="5.2" fill="#e9b489"/>
+          <rect x="86.5" y="37" width="5.5" height="10" rx="2" fill="#3d434c"/>
+          <path d="M40 31.5 Q46 29 51.5 31" fill="none" stroke="#3b2c22" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="46" cy="40" rx="6" ry="4.8" fill="#f7f1e8"/>
+          <circle class="p-pupil" cx="46.5" cy="40.4" r="2.7" fill="#33241b"/>
+          <circle cx="47.6" cy="39" r="0.9" fill="#fff"/>
+          <rect class="p-lid" x="39.5" y="35" width="13" height="10" rx="5" fill="#e9b489"/>
+          <circle cx="74" cy="40" r="7.2" fill="#14171b" stroke="#3d434c" stroke-width="1.4"/>
+          <circle cx="74" cy="40" r="6" style="fill:var(--accent)" opacity=".14"/>
+          <circle class="p-led" cx="74" cy="40" r="3.4" style="fill:var(--accent)"/>
+          <path d="M46 54 Q53 57.8 60 57" fill="none" stroke="#8a5f43" stroke-width="1.8" stroke-linecap="round"/>
+          <rect x="63" y="55" width="13" height="1.8" rx=".9" style="fill:var(--accent)" opacity=".75"/>
+        </g>
+      </g>
+    </svg>
+  </button>
+  <div id="paulBubble">
+    <button id="paulX" aria-label="Dismiss Paul's message"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="ph"><span class="pdot"></span>Paul · night clerk</div>
+    <div class="pt" id="paulText"></div>
+    <span class="sr-only" id="paulSay" role="status" aria-live="polite"></span>
+  </div>
+</div>
+
 <script>
 (function(){
 "use strict";
@@ -368,7 +453,7 @@ function setTheme(t){
 themeBtns.forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.t)));
 addEventListener('keydown',e=>{
   const map={'1':'','2':'ember','3':'fire','4':'moon'};
-  if(map[e.key]!==undefined && !e.target.matches('input')) setTheme(map[e.key]);
+  if(map[e.key]!==undefined && !(e.target.matches && e.target.matches('input,textarea,[contenteditable]'))) setTheme(map[e.key]);
 });
 try{const s=localStorage.getItem('so-theme'); if(s!==null) setTheme(s);}catch(e){}
 
@@ -700,7 +785,7 @@ function wake(){
     method:'POST', headers:{'Content-Type':'application/json'},
     body:JSON.stringify({email:email, demo:name.slice(0,60), page:'v2-factory'})
   }).then(r=>{ if(r.ok) msg.textContent='Got it. Your real demo lands at '+email+' within a day.'; })
-    .catch(()=>{ msg.textContent='Saved locally. If you do not hear back in a day, text Cole.'; });
+    .catch(()=>{ msg.textContent='That did not go through. The chat bubble in the corner still works, tell it your name and email.'; });
 }
 $('#wakeBtn').addEventListener('click',wake);
 $('#bizName').addEventListener('keydown',e=>{ if(e.key==='Enter') wake(); });
@@ -749,6 +834,117 @@ function fallbackWatch(){
   document.getElementById('nightwatch').style.height='auto';
 }
 if(reduced) fallbackWatch();
+})();
+</script>
+<script>
+/* ============ PAUL, THE NIGHT CLERK ============ */
+(function(){
+"use strict";
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const paul=document.getElementById('paul');
+if(!paul) return;
+const charBtn=document.getElementById('paulChar');
+const txt=document.getElementById('paulText');
+const live=document.getElementById('paulSay');
+let quiet=false;
+try{ quiet=sessionStorage.getItem('so-paul-quiet')==='1'; }catch(e){}
+
+function clock(){
+  const n=new Date(); let h=n.getHours();
+  const ap=h>=12?'PM':'AM'; let h12=h%12; if(h12===0)h12=12;
+  return h12+':'+String(n.getMinutes()).padStart(2,'0')+' '+ap;
+}
+function greeting(){
+  const h=new Date().getHours(), t=clock();
+  if(h>=22||h<5) return "It's "+t+" where you are. Your sign would say closed right now. Mine never does. I'm Paul, I work the night shift.";
+  if(h<12) return "Morning. It's "+t+" where you are. I'm Paul, the night clerk here. Every message that came in overnight, I'd have answered.";
+  if(h<17) return "It's "+t+". Busy hours. I'm Paul. I catch the messages you can't grab when you're mid-job.";
+  return "It's "+t+". Shops are locking up about now. That's when my shift starts. I'm Paul.";
+}
+
+let typer=null;
+function say(text){
+  if(quiet) return;
+  paul.classList.add('talk');
+  live.textContent=text;
+  if(typer){clearInterval(typer); typer=null;}
+  if(reduced){ txt.textContent=text; return; }
+  txt.textContent='';
+  let i=0;
+  typer=setInterval(()=>{
+    i+=1; txt.textContent=text.slice(0,i);
+    if(i>=text.length){clearInterval(typer); typer=null;}
+  },16);
+}
+
+const LINES={
+  nightwatch:"Watch the clock on this part. Every night somebody reaches out at 2 AM. The only question is who answers.",
+  night:"Answers, books, collects. That's the whole job, and it happens while your lights are off.",
+  factory:"This is the good part. Type your business name in and I'll show you your own front desk, working. Free.",
+  pricing:"$297 to install. First 30 days free, then $47 a month. No contract. That's all the fine print there is."
+};
+const said=new Set();
+const secs=Object.keys(LINES).map(id=>document.getElementById(id)).filter(Boolean);
+let ready=false; /* greeting speaks first; sections wait their turn */
+/* only the section under the middle of the viewport speaks, one at a time */
+function check(){
+  if(!ready||quiet) return;
+  const mid=innerHeight*.5;
+  for(const s of secs){
+    const r=s.getBoundingClientRect();
+    if(r.top<=mid && r.bottom>=mid){
+      if(!said.has(s.id)){ said.add(s.id); say(LINES[s.id]); }
+      return;
+    }
+  }
+}
+/* the observer is just a wake-up call; check() reads the real geometry.
+   interval fallback because observers stall in throttled tabs, same pattern as .reveal */
+const pio=new IntersectionObserver(check,{threshold:[0,.2,.5]});
+secs.forEach(s=>pio.observe(s));
+setInterval(check,900);
+
+setTimeout(()=>{
+  paul.classList.add('in');
+  if(!quiet){
+    setTimeout(()=>{ paul.classList.add('wave'); say(greeting()); },700);
+    setTimeout(()=>paul.classList.remove('wave'),4400);
+  }
+  setTimeout(()=>{ ready=true; },3600);
+}, reduced?400:2000);
+
+document.getElementById('paulX').addEventListener('click',e=>{
+  e.stopPropagation();
+  quiet=true; paul.classList.remove('talk');
+  if(typer){clearInterval(typer); typer=null;}
+  try{sessionStorage.setItem('so-paul-quiet','1');}catch(e2){}
+});
+
+charBtn.addEventListener('click',()=>{
+  const b=document.getElementById('he-bubble');
+  if(b){
+    const w=document.getElementById('he-window');
+    if(!w || !w.classList.contains('open')) b.click();
+    quiet=false;
+    try{sessionStorage.removeItem('so-paul-quiet');}catch(e){}
+    say("That chat that just opened is the real thing, the same front desk you'd be buying. Ask it anything.");
+  } else {
+    location.hash='#factory';
+  }
+});
+
+/* both eyes follow the visitor's cursor, a little */
+if(!reduced && matchMedia('(pointer:fine)').matches){
+  const pup=paul.querySelector('.p-pupil'), led=paul.querySelector('.p-led');
+  addEventListener('mousemove',e=>{
+    const r=charBtn.getBoundingClientRect();
+    if(!r.width) return;
+    let dx=(e.clientX-(r.left+r.width/2))/innerWidth, dy=(e.clientY-(r.top+r.height*.3))/innerHeight;
+    dx=Math.max(-1.7,Math.min(1.7,dx*6)); dy=Math.max(-1.3,Math.min(1.3,dy*5));
+    if(pup) pup.style.transform='translate('+dx+'px,'+dy+'px)';
+    if(led) led.style.transform='translate('+(dx*.6)+'px,'+(dy*.6)+'px)';
+  },{passive:true});
+}
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
