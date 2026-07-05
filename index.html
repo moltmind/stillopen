@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StillOpen · 24/7 AI Front Desk for Service Businesses</title>
-<meta name="description" content="A 24/7 AI chat for service businesses. Catches the visitor your phone or DMs miss, books the appointment, takes the deposit before they find someone else.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://stillopen.ai/">
-<meta property="og:title" content="StillOpen · 24/7 AI Front Desk for Service Businesses">
-<meta property="og:description" content="Stay open when your phone goes dark. A 24/7 AI chat that books appointments and takes deposits.">
-<meta property="og:url" content="https://stillopen.ai/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="StillOpen · 24/7 AI Front Desk for Service Businesses">
-<meta name="twitter:description" content="Stay open when your phone goes dark. A 24/7 AI chat that books appointments and takes deposits.">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StillOpen · The front desk that works the night shift</title>
+<meta name="description" content="Your sign says closed. StillOpen stays open. A 24/7 AI front desk that answers, books, and takes deposits while you sleep." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://stillopen.ai/" />
+<link rel="icon" href="/app-icon.png" />
+<link rel="apple-touch-icon" href="/app-icon.png" />
+<meta property="og:title" content="StillOpen · The front desk that works the night shift" />
+<meta property="og:description" content="Your sign says closed. StillOpen stays open. A 24/7 AI front desk that answers, books, and takes deposits while you sleep." />
+<meta property="og:url" content="https://stillopen.ai/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://stillopen.ai/v2/paul-cast.png" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="StillOpen · The front desk that works the night shift" />
+<meta name="twitter:description" content="Your sign says closed. StillOpen stays open." />
+<meta name="twitter:image" content="https://stillopen.ai/v2/paul-cast.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,1081 +83,917 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
-  :root {
-    --bg: #0a0908;
-    --bg-elevated: rgba(245,237,224,0.025);
-    --text-primary: rgba(245,237,224,0.96);
-    --text-secondary: rgba(245,237,224,0.68);
-    --text-tertiary: rgba(245,237,224,0.42);
-    --text-muted: rgba(245,237,224,0.22);
-    --border: rgba(245,237,224,0.08);
-    --border-strong: rgba(245,237,224,0.16);
-    --brand: #ff7a1a;
-    --accent: #ff9248;
-    --success: #4ade80;
-    --danger: #f87171;
-    --font-serif: 'Newsreader', 'Georgia', serif;
-    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+  :root{
+    --accent:#f97316;
+    --accent-glow:rgba(249,115,22,.55);
+    --accent-soft:rgba(249,115,22,.14);
+    --warm-light:#ffb877;
+    --bg:#0b0908;
+    --bg-2:#0f0c0a;
+    --ink:#f4ede4;
+    --ink-dim:rgba(244,237,228,.62);
+    --ink-faint:rgba(244,237,228,.38);
+    --line:rgba(244,237,228,.09);
+    --mono:'JetBrains Mono',monospace;
+    --sans:'Manrope',sans-serif;
   }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  body {
-    font-family: var(--font-sans);
-    background: var(--bg);
-    color: var(--text-primary);
-    line-height: 1.55;
-    overflow-x: hidden;
-    min-height: 100vh;
-    position: relative;
-  }
-  /* Dot grid background — Burnt signature */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-image: radial-gradient(rgba(245,237,224,0.045) 1px, transparent 1px);
-    background-size: 22px 22px;
-    background-position: 0 0;
-  }
-  a { color: inherit; text-decoration: none; }
-  ::selection { background: var(--brand); color: var(--bg); }
+  body[data-theme="ember"]{--accent:#f59e0b;--accent-glow:rgba(245,158,11,.55);--accent-soft:rgba(245,158,11,.14);--warm-light:#ffcf87;}
+  body[data-theme="fire"]{--accent:#ff5c38;--accent-glow:rgba(255,92,56,.5);--accent-soft:rgba(255,92,56,.13);--warm-light:#ffa07f;}
+  body[data-theme="moon"]{--accent:#4fd1c5;--accent-glow:rgba(79,209,197,.45);--accent-soft:rgba(79,209,197,.12);--warm-light:#a8f0e8;--bg:#070a0c;--bg-2:#0a0e11;}
 
-  /* Nav */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(10,9,8,0.6);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 1200px; margin: 0 auto;
-    padding: 0 32px;
-    height: 64px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-wordmark {
-    font-family: var(--font-serif);
-    font-variation-settings: 'opsz' 24;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-    display: inline-flex; align-items: center; gap: 10px;
-  }
-  .nav-wordmark span { color: var(--accent); }
-  .nav-wordmark .brand-icon { flex-shrink: 0; display: block; }
-  .nav-links { display: flex; align-items: center; gap: 36px; }
-  .nav-links a {
-    font-family: var(--font-sans);
-    font-size: 13px; font-weight: 500;
-    color: var(--text-tertiary);
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--text-primary); }
-  .nav-cta {
-    padding: 8px 18px;
-    border: 1px solid var(--border-strong);
-    border-radius: 100px;
-    font-size: 13px; font-weight: 500;
-    color: var(--text-primary);
-    transition: all 0.2s;
-    background: var(--bg);
-  }
-  .nav-cta:hover { background: var(--bg-elevated); border-color: var(--text-tertiary); }
-  @media (max-width: 720px) {
-    .nav-links .hide-mobile { display: none; }
-    .nav-inner { padding: 0 20px; }
-  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent);color:#0b0908;}
 
-  /* Container */
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
-  @media (max-width: 640px) { .container { padding: 0 20px; } }
+  /* ---------- intro ---------- */
+  #intro{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .9s cubic-bezier(.4,0,.2,1),filter .9s,transform .9s;cursor:pointer;}
+  #intro.gone{opacity:0;filter:blur(10px);transform:scale(1.04);pointer-events:none;}
+  #intro .sign{font-size:clamp(1.05rem,2.6vw,1.5rem);font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim);opacity:0;transition:opacity 1s;}
+  #intro .sign b{color:var(--ink);font-weight:800;}
+  #intro .sign.on{opacity:1;}
+  #introArc{display:block;margin-top:38px;}
+  #intro .skip{position:absolute;bottom:26px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);font-family:var(--mono);}
+  #intro .orbglow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 65%);animation:breathe 4s ease-in-out infinite;pointer-events:none;}
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.07);opacity:1}}
 
-  /* Eyebrow */
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-sans);
-    font-size: 11px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 2.5px;
-    color: var(--text-tertiary);
-    margin-bottom: 28px;
-  }
-  .eyebrow .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--success);
-    box-shadow: 0 0 10px rgba(74,222,128,0.5);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.4); }
-  }
-  .eyebrow.centered { display: flex; justify-content: center; }
+  /* ---------- nav ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,4vw,56px);opacity:0;transform:translateY(-8px);transition:opacity .8s .1s,transform .8s .1s;}
+  nav.in{opacity:1;transform:none;}
+  nav.scrolled{background:linear-gradient(to bottom,rgba(11,9,8,.92),rgba(11,9,8,0));}
+  .wordmark{font-weight:800;font-size:1.18rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+  .wordmark i{color:var(--accent);font-style:normal;}
+  .navlinks{display:flex;gap:14px;align-items:center;}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:700;font-size:.92rem;padding:12px 22px;border-radius:10px;text-decoration:none;border:1px solid transparent;transition:transform .25s,opacity .25s,border-color .25s,background .25s;cursor:pointer;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn.solid{background:var(--accent);color:#100b07;}
+  .btn.ghost{color:var(--ink);border-color:var(--line);}
+  .btn.ghost:hover{border-color:var(--accent);}
 
-  /* Typography utilities */
-  .display-headline {
-    font-family: var(--font-serif);
-    font-variation-settings: 'opsz' 72;
-    font-weight: 600;
-    font-size: clamp(40px, 6.2vw, 84px);
-    line-height: 1.02;
-    letter-spacing: -0.022em;
-    color: var(--text-primary);
-  }
-  .display-headline em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--accent);
-  }
-  .section-headline {
-    font-family: var(--font-serif);
-    font-variation-settings: 'opsz' 60;
-    font-weight: 600;
-    font-size: clamp(30px, 4.2vw, 52px);
-    line-height: 1.08;
-    letter-spacing: -0.018em;
-    color: var(--text-primary);
-    margin-bottom: 24px;
-  }
-  .lede {
-    font-family: var(--font-sans);
-    font-size: clamp(16px, 1.6vw, 18px);
-    line-height: 1.65;
-    color: var(--text-secondary);
-    max-width: 620px;
-  }
-  .lede.centered { margin-left: auto; margin-right: auto; text-align: center; }
+  /* ---------- hero ---------- */
+  #hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;}
+  #nightScene,#boomCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  #boomCanvas{object-fit:cover;display:none;}
+  #hero .shade{position:absolute;inset:0;background:linear-gradient(to left,rgba(11,9,8,.92) 0%,rgba(11,9,8,.62) 42%,rgba(11,9,8,.08) 100%),linear-gradient(to top,rgba(11,9,8,.95) 0%,transparent 34%);}
+  .hero-inner{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:120px clamp(20px,4vw,56px) 90px;display:flex;justify-content:flex-end;align-items:center;}
+  .hero-copy{max-width:560px;}
+  .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-glow);animation:pulse 2.2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  h1{font-size:clamp(2.6rem,6.2vw,4.9rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;text-shadow:0 2px 34px rgba(0,0,0,.6),0 1px 6px rgba(0,0,0,.4);}
+  h1 .closed{color:var(--ink-dim);display:block;}
+  h1 .open{display:block;color:var(--ink);}
+  h1 .open em{font-style:normal;color:var(--accent);text-shadow:0 0 34px var(--accent-glow);}
+  h1 .w{display:inline-block;opacity:0;transform:translateY(26px);filter:blur(6px);margin-right:.24em;}
+  .sub{margin-top:26px;font-size:clamp(1rem,1.5vw,1.18rem);color:var(--ink-dim);max-width:33rem;line-height:1.65;opacity:0;transform:translateY(14px);transition:opacity .9s .2s,transform .9s .2s;text-shadow:0 1px 16px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.45);}
+  .sub.in{opacity:1;transform:none;}
+  .hero-ctas{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(14px);transition:opacity .9s .35s,transform .9s .35s;}
+  .hero-ctas.in{opacity:1;transform:none;}
+  .scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .scrollcue .bar{width:1px;height:34px;background:linear-gradient(var(--accent),transparent);animation:drip 1.8s infinite;}
+  @keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-  /* Buttons */
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 24px;
-    font-family: var(--font-sans);
-    font-size: 14px; font-weight: 600;
-    border-radius: 100px;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-  }
-  .btn-primary {
-    background: var(--text-primary);
-    color: var(--bg);
-  }
-  .btn-primary:hover { background: var(--accent); color: var(--bg); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border-color: var(--border-strong);
-  }
-  .btn-secondary:hover { border-color: var(--text-tertiary); background: var(--bg-elevated); }
-  .btn .arrow { transition: transform 0.2s; }
-  .btn:hover .arrow { transform: translateX(3px); }
+  /* ---------- phone ---------- */
+  .phone{justify-self:end;width:min(370px,88vw);background:linear-gradient(160deg,#171310,#100d0b);border:1px solid var(--line);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 90px var(--accent-soft);overflow:hidden;opacity:0;transform:translateY(30px) rotate(1.2deg);transition:opacity 1s .5s,transform 1s .5s;}
+  .phone.in{opacity:1;transform:rotate(1.2deg);}
+  .phone-head{display:flex;align-items:center;gap:10px;padding:15px 18px;border-bottom:1px solid var(--line);}
+  .phone-head .live{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent-glow);animation:pulse 2s infinite;}
+  .phone-head .t{font-weight:700;font-size:.92rem;}
+  .phone-head .time{margin-left:auto;font-family:var(--mono);font-size:.78rem;color:var(--accent);}
+  .chat{padding:18px;display:flex;flex-direction:column;gap:10px;min-height:315px;}
+  .msg{max-width:82%;padding:11px 14px;border-radius:14px;font-size:.88rem;line-height:1.45;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s;}
+  .msg.show{opacity:1;transform:none;}
+  .msg.in{background:rgba(244,237,228,.08);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px;}
+  .msg.out{background:var(--accent);color:#140c06;font-weight:600;align-self:flex-end;border-bottom-right-radius:4px;}
+  .typing{align-self:flex-end;display:none;gap:5px;padding:12px 16px;background:var(--accent-soft);border-radius:14px;border-bottom-right-radius:4px;}
+  .typing.show{display:flex;}
+  .typing i{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:tp 1.1s infinite;}
+  .typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+  @keyframes tp{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-5px);opacity:1}}
+  .chip{align-self:center;margin-top:6px;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:7px 14px;opacity:0;transition:opacity .6s;}
+  .chip.show{opacity:1;}
 
-  /* HERO */
-  .hero {
-    padding: 160px 0 80px;
-    text-align: center;
-    position: relative;
+  /* ---------- ticker ---------- */
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:20px 0;background:var(--bg-2);}
+  .ticker-track{display:flex;gap:64px;width:max-content;animation:marquee 42s linear infinite;}
+  .ticker:hover .ticker-track{animation-play-state:paused;}
+  .tick{display:flex;align-items:center;gap:14px;font-size:.92rem;color:var(--ink-dim);white-space:nowrap;}
+  .tick b{color:var(--ink);font-weight:700;}
+  .tick .tm{font-family:var(--mono);color:var(--accent);font-size:.8rem;}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(96px,12vw,150px) clamp(20px,4vw,56px);}
+  .wrap{max-width:1240px;margin:0 auto;}
+  .eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+  h2{font-size:clamp(1.9rem,4vw,3.1rem);letter-spacing:-.03em;font-weight:800;line-height:1.08;max-width:22ch;}
+  .lead{margin-top:18px;color:var(--ink-dim);font-size:1.08rem;line-height:1.7;max-width:36rem;}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  .night-top{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;}
+  .card{border:1px solid var(--line);border-radius:18px;padding:30px 26px;background:linear-gradient(170deg,rgba(244,237,228,.03),transparent 55%);transition:border-color .35s,transform .35s;}
+  .card:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .card svg{width:26px;height:26px;stroke:var(--accent);margin-bottom:18px;}
+  .card h3{font-size:1.12rem;font-weight:800;letter-spacing:-.01em;margin-bottom:9px;}
+  .card p{color:var(--ink-dim);font-size:.94rem;line-height:1.6;}
+  .card .n{font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.15em;display:block;margin-bottom:14px;}
+
+  /* ---------- factory ---------- */
+  #factory{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+  #factory .glow{position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:720px;height:420px;background:radial-gradient(ellipse,var(--accent-soft),transparent 70%);pointer-events:none;}
+  .factory-row{display:flex;gap:12px;margin-top:38px;max-width:620px;}
+  .factory-row input{flex:1;background:rgba(244,237,228,.05);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:var(--ink);font-family:var(--sans);font-size:1rem;outline:none;transition:border-color .3s,box-shadow .3s;}
+  .factory-row input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);}
+  #wakePreview{margin-top:34px;max-width:620px;border:1px solid var(--accent);border-radius:16px;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s;box-shadow:0 0 60px var(--accent-soft);}
+  #wakePreview.on{opacity:1;transform:none;}
+  #wakePreview .bar{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(244,237,228,.04);}
+  #wakePreview .bar i{width:9px;height:9px;border-radius:50%;background:var(--ink-faint);opacity:.4;}
+  #wakePreview .body{padding:22px;}
+  #wakePreview .body .bn{font-weight:800;font-size:1.05rem;}
+  #wakePreview .body .bn i{font-style:normal;color:var(--accent);}
+  #wakePreview .bub{margin-top:14px;background:rgba(244,237,228,.07);border:1px solid var(--line);border-radius:12px;border-bottom-left-radius:4px;padding:12px 15px;font-size:.9rem;color:var(--ink);line-height:1.5;}
+  #wakePreview .note{margin-top:14px;font-size:.78rem;color:var(--ink-faint);font-family:var(--mono);}
+
+  /* ---------- pricing ---------- */
+  #pricing .price-card{margin-top:52px;border:1px solid var(--line);border-radius:22px;padding:clamp(34px,5vw,58px);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;background:linear-gradient(160deg,rgba(244,237,228,.035),transparent 60%);position:relative;overflow:hidden;}
+  #pricing .price-card::after{content:"";position:absolute;right:-120px;top:-120px;width:340px;height:340px;background:radial-gradient(circle,var(--accent-soft),transparent 70%);}
+  .price-big{font-size:clamp(2.6rem,5.4vw,4rem);font-weight:800;letter-spacing:-.04em;font-family:var(--sans);}
+  .price-big small{font-size:.4em;color:var(--ink-dim);font-weight:600;letter-spacing:0;}
+  .price-lines{margin-top:18px;color:var(--ink-dim);line-height:1.9;font-size:1.02rem;}
+  .price-lines b{color:var(--ink);}
+  .price-side{display:flex;flex-direction:column;gap:14px;}
+  .price-side .btn{justify-content:center;padding:16px 22px;font-size:1rem;}
+  .price-side .tiny{text-align:center;font-size:.78rem;color:var(--ink-faint);font-family:var(--mono);}
+
+  footer{border-top:1px solid var(--line);padding:44px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;color:var(--ink-faint);font-size:.86rem;}
+  footer .fm{max-width:44ch;line-height:1.6;}
+
+  /* ---------- theme dots ---------- */
+  #themes{position:fixed;bottom:20px;right:20px;z-index:60;display:flex;gap:9px;padding:9px 11px;border:1px solid var(--line);border-radius:99px;background:rgba(11,9,8,.7);backdrop-filter:none;}
+  #themes button{width:17px;height:17px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .2s;}
+  #themes button:hover{transform:scale(1.2);}
+  #themes button.on{border-color:#fff;}
+  #themes .t1{background:#f97316}#themes .t2{background:#f59e0b}#themes .t3{background:#ff5c38}#themes .t4{background:#4fd1c5}
+
+  @media (max-width:900px){
+    .hero-inner{justify-content:flex-start;padding-top:110px;}
+    .night-top{grid-template-columns:1fr;gap:44px;}
+    .phone{justify-self:center;}
+    .cards{grid-template-columns:1fr;}
+    #pricing .price-card{grid-template-columns:1fr;}
+    .factory-row{flex-direction:column;}
   }
-  .hero .display-headline { max-width: 14ch; margin: 0 auto 28px; }
-  .hero .lede { margin-bottom: 36px; text-align: center; margin-left: auto; margin-right: auto; }
-  .hero-ctas {
-    display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;
-    margin-bottom: 36px;
-  }
-  .hero-money {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 13px; font-weight: 500;
-    color: var(--text-tertiary);
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    background: var(--bg-elevated);
-  }
-  .hero-money strong { color: var(--accent); font-weight: 600; }
-  @media (max-width: 640px) {
-    .hero { padding: 130px 0 60px; }
+  @media (max-width:640px){
+    nav{padding:16px 20px;}
+    nav .btn.ghost{display:none;}
+    nav .btn{padding:10px 16px;font-size:.84rem;white-space:nowrap;}
   }
 
-  /* Demo strip (compact form below hero) */
-  .demo-strip {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 32px 0;
-    background: rgba(255,122,26,0.025);
-    position: relative;
-    z-index: 1;
-  }
-  .demo-strip-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 0 32px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 24px; flex-wrap: wrap;
-  }
-  .demo-strip-text {
-    flex: 1; min-width: 240px;
-  }
-  .demo-strip-label {
-    font-size: 11px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: var(--brand);
-    margin-bottom: 4px;
-  }
-  .demo-strip-headline {
-    font-family: var(--font-serif);
-    font-size: 24px; font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1.2;
-  }
-  .demo-strip-form {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    align-items: center;
-  }
-  .demo-strip-form select, .demo-strip-form input {
-    background: var(--bg);
-    color: var(--text-primary);
-    border: 1px solid var(--border-strong);
-    padding: 12px 14px;
-    border-radius: 8px;
-    font-family: inherit; font-size: 14px;
-    min-width: 140px;
-  }
-  .demo-strip-form select:focus, .demo-strip-form input:focus {
-    border-color: var(--brand); outline: none;
-  }
-  .demo-strip-form button {
-    background: var(--brand); color: var(--bg);
-    border: none; padding: 12px 20px;
-    border-radius: 8px;
-    font-family: inherit; font-size: 14px; font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .demo-strip-form button:hover { background: var(--accent); }
-  .demo-strip-form button:disabled { opacity: 0.6; cursor: not-allowed; }
-  .demo-status-msg {
-    max-width: 1100px; margin: 14px auto 0;
-    padding: 0 32px;
-    font-size: 13px;
-    color: var(--text-secondary);
-    text-align: center;
+  /* ---------- Paul, the night clerk ---------- */
+  #paul{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:flex-end;gap:12px;opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);pointer-events:none;}
+  #paul.in{opacity:1;transform:none;}
+  #paulChar{width:106px;pointer-events:auto;background:#100d0b;border:1px solid var(--line);border-radius:16px;padding:0;display:block;cursor:pointer;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.55),0 0 40px var(--accent-soft);transition:transform .3s,border-color .3s;}
+  #paulChar:hover{transform:translateY(-3px);border-color:var(--accent);}
+  #paulChar:focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
+  #paulChar video{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transform:scale(1.07);}
+  #paulChar .ptag{display:block;font-family:var(--mono);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:6px 4px 7px;text-align:center;background:rgba(11,9,8,.88);border-top:1px solid var(--line);}
+  #paulBubble{pointer-events:auto;position:relative;max-width:290px;background:linear-gradient(160deg,#171310,#100d0b);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:4px;padding:13px 36px 13px 15px;box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 40px var(--accent-soft);opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;visibility:hidden;}
+  #paul.talk #paulBubble{opacity:1;transform:none;visibility:visible;}
+  #paulBubble .ph{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;gap:7px;}
+  #paulBubble .ph .pdot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent-glow);animation:pulse 2.2s infinite;}
+  #paulBubble .pt{font-size:.88rem;line-height:1.55;color:var(--ink);min-height:1.3em;}
+  #paulX{position:absolute;top:9px;right:9px;width:20px;height:20px;border:0;background:none;color:var(--ink-faint);cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;transition:color .25s;}
+  #paulX:hover{color:var(--ink);}
+  #paulX svg{width:13px;height:13px;stroke:currentColor;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  @media (max-width:640px){
+    #paul{left:12px;bottom:12px;gap:9px;}
+    #paulChar{width:78px;}
+    #paulChar .ptag{font-size:.5rem;letter-spacing:.1em;}
+    #paulBubble{max-width:min(64vw,250px);padding:11px 32px 11px 13px;}
+    #paulBubble .pt{font-size:.82rem;}
   }
 
-  /* Section wrapper */
-  .section {
-    padding: 120px 0;
-    position: relative;
-    border-top: 1px solid var(--border);
-  }
-  .section.centered { text-align: center; }
-  @media (max-width: 640px) { .section { padding: 80px 0; } }
+  /* ---------- film grain ---------- */
+  #grain{position:fixed;inset:-60px;z-index:90;pointer-events:none;opacity:.055;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    animation:grainShift 1.4s steps(4) infinite;}
+  @keyframes grainShift{0%{transform:translate(0,0)}25%{transform:translate(-18px,12px)}50%{transform:translate(14px,-16px)}75%{transform:translate(-10px,-8px)}100%{transform:translate(0,0)}}
 
-  /* Two-column problem/solution */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
+  /* ---------- night watch (scroll-scrubbed) ---------- */
+  #nightwatch{height:170vh;position:relative;padding:0;background:var(--bg-2);border-top:1px solid var(--line);}
+  .nw-pin{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;overflow:hidden;}
+  .nw-glow{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 65%);opacity:.25;transition:opacity 1s;}
+  .nw-pin.warm .nw-glow{opacity:1;}
+  .nw-eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint);}
+  .nw-time{font-family:var(--mono);font-weight:700;font-size:clamp(4rem,13vw,9.5rem);letter-spacing:-.04em;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;transition:color .6s,text-shadow .6s;}
+  .nw-pin.warm .nw-time{color:var(--accent);text-shadow:0 0 60px var(--accent-glow);}
+  .nw-line{font-size:clamp(1.05rem,2.2vw,1.5rem);color:var(--ink-dim);font-weight:600;text-align:center;max-width:26ch;min-height:2.6em;transition:opacity .4s;}
+  .nw-chip{font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:10px 20px;opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s;}
+  .nw-pin.warm .nw-chip{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){ #nightwatch{height:auto;} #grain{animation:none;} }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+    #intro{display:none;}
+    .reveal,.sub,.hero-ctas,.phone,nav{opacity:1 !important;transform:none !important;}
+    h1 .w{opacity:1 !important;transform:none !important;filter:none !important;}
   }
-  @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
-
-  /* Comparison card (Status Quo / With StillOpen) */
-  .comparison {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px 28px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-  @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; gap: 28px; } }
-  .comparison-col-label {
-    font-size: 11px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: var(--text-tertiary);
-    margin-bottom: 18px;
-  }
-  .comparison-col-list { list-style: none; padding: 0; margin: 0; }
-  .comparison-col-list li {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 8px 0;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--text-secondary);
-  }
-  .comparison-icon {
-    flex-shrink: 0;
-    width: 16px; height: 16px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
-    margin-top: 2px;
-  }
-  .comparison-icon.x { color: var(--danger); }
-  .comparison-icon.check { color: var(--success); }
-
-  /* Process steps */
-  .process-steps {
-    display: flex; flex-direction: column;
-    gap: 12px;
-  }
-  .step-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px 22px;
-    display: flex; align-items: flex-start; gap: 16px;
-    transition: border-color 0.2s;
-  }
-  .step-card:hover { border-color: var(--border-strong); }
-  .step-num {
-    flex-shrink: 0;
-    width: 28px; height: 28px;
-    border: 1px solid var(--border-strong);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 500;
-    color: var(--text-tertiary);
-    margin-top: 2px;
-  }
-  .step-content h3 {
-    font-family: var(--font-sans);
-    font-size: 16px; font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .step-content p {
-    font-size: 13px; line-height: 1.55;
-    color: var(--text-tertiary);
-  }
-
-  /* Rotator (compact version of existing) */
-  .rotator-section {
-    padding: 80px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-  }
-  .rotator-stage {
-    max-width: 880px;
-    margin: 56px auto 0;
-    position: relative;
-    aspect-ratio: 4 / 2.6;
-  }
-  .browser-frame {
-    position: absolute; inset: 0;
-    background: #14110d;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid var(--border-strong);
-    box-shadow: 0 50px 100px -30px rgba(0,0,0,0.8);
-  }
-  .browser-bar {
-    height: 38px;
-    background: #1a1714;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 14px;
-    padding: 0 14px;
-  }
-  .browser-dots { display: flex; gap: 6px; }
-  .browser-dots span { width: 10px; height: 10px; border-radius: 50%; background: #3a342f; }
-  .browser-url-stack {
-    flex: 1;
-    background: #0d0a08;
-    border-radius: 6px;
-    padding: 6px 12px;
-    height: 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .browser-url {
-    position: absolute; inset: 0;
-    padding: 5px 12px;
-    font-size: 12px; font-weight: 500;
-    color: var(--text-tertiary);
-    opacity: 0; transition: opacity 0.4s ease;
-    display: flex; align-items: center;
-  }
-  .browser-url.active { opacity: 1; }
-  .browser-body {
-    position: absolute; top: 38px; left: 0; right: 0; bottom: 0;
-    overflow: hidden;
-  }
-  .scene {
-    position: absolute; inset: 0;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-    opacity: 0; transition: opacity 0.6s ease;
-  }
-  .scene.active { opacity: 1; }
-  .mock-site { padding: 22px 22px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
-  .mock-site-name { font-size: 16px; font-weight: 700; line-height: 1.2; }
-  .mock-site-tagline { font-size: 11px; line-height: 1.4; opacity: 0.65; }
-  .mock-hours-banner { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; margin-top: 4px; }
-  .mock-closed-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444; flex-shrink: 0; }
-  .mock-hours-label { font-size: 11px; font-weight: 600; }
-  .mock-hours-sub { font-size: 10px; opacity: 0.7; }
-  .mock-services { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .mock-service { font-size: 10px; padding: 8px 10px; border-radius: 6px; font-weight: 500; }
-  .mock-cta-old { margin-top: 4px; padding: 12px; border-radius: 8px; border: 1px dashed currentColor; opacity: 0.55; }
-  .mock-cta-label { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-  .mock-cta-number { font-size: 13px; font-weight: 700; margin-top: 2px; }
-  .mock-cta-sub { font-size: 9px; opacity: 0.7; margin-top: 2px; }
-  .mock-footer { font-size: 9px; opacity: 0.5; margin-top: auto; padding-top: 8px; }
-  .mock-chat { background: #fff; color: #18181b; border-left: 1px solid rgba(0,0,0,0.08); display: flex; flex-direction: column; }
-  .mock-chat-header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); background: #fafafa; }
-  .mock-chat-avatar { width: 28px; height: 28px; border-radius: 50%; background: currentColor; opacity: 0.85; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; }
-  .mock-chat-title { font-size: 12px; font-weight: 700; color: #18181b; }
-  .mock-chat-online { font-size: 10px; color: #16a34a; font-weight: 500; display: flex; align-items: center; gap: 4px; }
-  .mock-chat-online::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #16a34a; }
-  .mock-chat-msgs { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
-  .msg { font-size: 11px; line-height: 1.45; padding: 8px 12px; border-radius: 12px; max-width: 88%; }
-  .msg.bot { background: #f4f4f5; color: #18181b; align-self: flex-start; border-bottom-left-radius: 4px; }
-  .msg.user { background: #18181b; color: #fafafa; align-self: flex-end; border-bottom-right-radius: 4px; }
-
-  .theme-rose .mock-site { background: linear-gradient(180deg, #faf3ef, #f3e3d8); color: #4a2a1c; }
-  .theme-rose .mock-hours-banner { background: rgba(180,83,9,0.08); color: #b45309; }
-  .theme-rose .mock-service { background: rgba(180,83,9,0.07); color: #b45309; }
-  .theme-rose .mock-chat { color: #b45309; }
-  .theme-sage .mock-site { background: linear-gradient(180deg, #f5f5ef, #e6ebe0); color: #2d3a23; }
-  .theme-sage .mock-hours-banner { background: rgba(74,95,53,0.10); color: #4a5f35; }
-  .theme-sage .mock-service { background: rgba(74,95,53,0.09); color: #4a5f35; }
-  .theme-sage .mock-chat { color: #4a5f35; }
-  .theme-forest .mock-site { background: linear-gradient(180deg, #f1f5ee, #d5e2d0); color: #1f3a26; }
-  .theme-forest .mock-hours-banner { background: rgba(22,101,52,0.10); color: #166534; }
-  .theme-forest .mock-service { background: rgba(22,101,52,0.10); color: #166534; }
-  .theme-forest .mock-chat { color: #166534; }
-  .theme-navy .mock-site { background: linear-gradient(180deg, #f1f5f9, #d8e2ec); color: #0c2a4d; }
-  .theme-navy .mock-hours-banner { background: rgba(30,64,175,0.10); color: #1e40af; }
-  .theme-navy .mock-service { background: rgba(30,64,175,0.10); color: #1e40af; }
-  .theme-navy .mock-chat { color: #1e40af; }
-  .theme-dustyrose .mock-site { background: linear-gradient(180deg, #f9f2f2, #ecd9dd); color: #5a2a36; }
-  .theme-dustyrose .mock-hours-banner { background: rgba(159,49,79,0.10); color: #9f314f; }
-  .theme-dustyrose .mock-service { background: rgba(159,49,79,0.09); color: #9f314f; }
-  .theme-dustyrose .mock-chat { color: #9f314f; }
-  @media (max-width: 600px) { .rotator-stage { aspect-ratio: 4 / 3.5; } .mock-site { padding: 14px; gap: 8px; } .msg { font-size: 10px; } }
-
-  /* Pricing */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 920px;
-    margin: 64px auto 0;
-  }
-  @media (max-width: 720px) { .pricing-grid { grid-template-columns: 1fr; } }
-  .price-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 36px 32px;
-    position: relative;
-  }
-  .price-card--pro {
-    border-color: var(--brand);
-    background: linear-gradient(180deg, rgba(255,122,26,0.05), var(--bg-elevated) 80%);
-  }
-  .price-badge {
-    position: absolute; top: -10px; right: 28px;
-    background: var(--brand); color: var(--bg);
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1.5px;
-    padding: 4px 12px;
-    border-radius: 100px;
-  }
-  .price-tier {
-    font-size: 11px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: var(--text-tertiary);
-    margin-bottom: 12px;
-  }
-  .price-name {
-    font-family: var(--font-serif);
-    font-variation-settings: 'opsz' 36;
-    font-size: 22px; font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 6px;
-    letter-spacing: -0.015em;
-  }
-  .price-tagline {
-    font-size: 13px; color: var(--text-tertiary); margin-bottom: 24px;
-    line-height: 1.5;
-  }
-  .price-amount {
-    display: flex; align-items: baseline; gap: 10px;
-    font-family: var(--font-serif);
-    font-variation-settings: 'opsz' 36;
-    margin-bottom: 16px;
-  }
-  .price-amount .install {
-    font-size: 32px; font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1;
-  }
-  .price-amount .plus { font-size: 16px; color: var(--text-tertiary); font-family: var(--font-sans); }
-  .price-amount .monthly { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; line-height: 1; }
-  .price-amount .monthly span { font-size: 14px; font-weight: 400; color: var(--text-tertiary); font-family: var(--font-sans); }
-  .price-amount-labels {
-    display: flex; gap: 44px;
-    font-size: 11px; color: var(--text-tertiary);
-    margin-bottom: 24px;
-    margin-top: -10px;
-  }
-  .price-features {
-    list-style: none; padding: 0; margin: 0 0 28px 0;
-  }
-  .price-features li {
-    padding: 8px 0;
-    font-size: 13px; color: var(--text-secondary);
-    border-bottom: 1px dashed var(--border);
-    display: flex; align-items: flex-start; gap: 8px;
-    line-height: 1.55;
-  }
-  .price-features li:last-child { border-bottom: none; }
-  .price-features li::before {
-    content: '→';
-    color: var(--brand);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  /* Founder block */
-  .founder-section {
-    padding: 120px 0;
-    border-top: 1px solid var(--border);
-  }
-  .founder-content {
-    max-width: 760px; margin: 0 auto;
-    text-align: center;
-  }
-  .founder-portrait-wrap {
-    width: 140px; height: 140px;
-    margin: 0 auto 32px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid var(--border-strong);
-  }
-  .founder-portrait-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .founder-quote {
-    font-family: var(--font-serif);
-    font-variation-settings: 'opsz' 36;
-    font-weight: 400;
-    font-style: italic;
-    font-size: clamp(18px, 2.1vw, 24px);
-    line-height: 1.55;
-    color: var(--text-primary);
-    margin-bottom: 28px;
-    letter-spacing: -0.005em;
-  }
-  .founder-attribution {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    color: var(--text-tertiary);
-  }
-
-  /* Final CTA */
-  .final-cta {
-    padding: 140px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    background: linear-gradient(180deg, transparent, rgba(255,122,26,0.04));
-  }
-  .final-cta .display-headline { max-width: 18ch; margin: 0 auto 28px; font-size: clamp(40px, 6vw, 80px); }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    text-align: center;
-  }
-  .footer-tagline {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--text-tertiary);
-    margin-bottom: 16px;
-  }
-  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
-  .footer-links a { font-size: 12px; color: var(--text-muted); transition: color 0.2s; }
-  .footer-links a:hover { color: var(--text-secondary); }
-  .footer-copy { font-size: 11px; color: var(--text-muted); }
 </style>
 </head>
-<body>
+<body data-theme="ember">
 
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-wordmark" aria-label="StillOpen home">
-      <svg class="brand-icon" width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#f5ede0" stroke-width="3"/>
-        <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#ff7a1a"/>
-        <circle cx="33" cy="34" r="2" fill="#0a0908"/>
-      </svg>
-      Still<span>Open</span>
-    </a>
-    <div class="nav-links">
-      <a href="#what" class="hide-mobile">Product</a>
-      <a href="#pricing" class="hide-mobile">Pricing</a>
-      <a href="/partners/agencies/" class="hide-mobile">Agencies</a>
-      <a href="sms:+15349010258" class="nav-cta">Text Cole</a>
-    </div>
+<!-- INTRO -->
+<div id="intro" aria-hidden="true">
+  <div class="orbglow"></div>
+  <div class="sign" id="signText">Your sign says <b>closed</b></div>
+  <canvas id="introArc" width="640" height="90"></canvas>
+  <div class="skip">click to skip</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="wordmark" href="#">StillOpen<i>.</i></a>
+  <div class="navlinks">
+    <a class="btn ghost" href="#pricing">Pricing</a>
+    <a class="btn solid" href="#factory">See yours awake</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="eyebrow centered"><span class="dot"></span> AI front desk, always on</div>
-    <h1 class="display-headline">
-      Stay open<br>when your phone <em>goes dark.</em>
-    </h1>
-    <p class="lede centered">
-      A 24/7 AI chat for any service business. Catches the visitor your phone or DMs can't, books the appointment into your calendar, and takes a deposit before they find someone else.
-    </p>
-    <div class="hero-ctas">
-      <a href="#demo" class="btn btn-primary">Build my demo <span class="arrow">→</span></a>
-      <a href="#pricing" class="btn btn-secondary">See pricing</a>
-    </div>
-    <div class="hero-money">
-      <strong>One after-hours booking</strong> = your full year of StillOpen paid for.
+<section id="hero" style="padding:0;">
+  <canvas id="nightScene"></canvas>
+  <video id="nightVid" src="/v2/paul-hero.mp4" muted playsinline preload="auto" style="display:none;"></video>
+  <canvas id="boomCanvas"></canvas>
+  <div class="shade"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="kicker"><span class="dot"></span> The night shift, covered</div>
+      <h1 id="headline">
+        <span class="closed"></span>
+        <span class="open"></span>
+      </h1>
+      <p class="sub" id="sub">A front desk that never goes home. It answers every message in seconds, books real jobs into your calendar, and takes deposits through Stripe. While you sleep, while you're on a ladder, while you're at your kid's game.</p>
+      <p class="sub" id="paulLine" style="margin-top:14px;font-size:.95rem;color:var(--ink-faint);">That's Paul at the desk. Half me, half machine. He works the night.</p>
+      <div class="hero-ctas" id="ctas">
+        <a class="btn solid" href="#factory">Wake up your front desk</a>
+        <a class="btn ghost" href="#night">Watch a 2 AM save</a>
+      </div>
     </div>
   </div>
+  <div class="scrollcue"><span>scroll</span><span class="bar"></span></div>
 </section>
 
-<!-- DEMO STRIP (compact form) -->
-<div class="demo-strip" id="demo">
-  <div class="demo-strip-inner">
-    <div class="demo-strip-text">
-      <div class="demo-strip-label">30 seconds. Free. No signup.</div>
-      <div class="demo-strip-headline">Spin up a working demo for your business.</div>
-    </div>
-    <form class="demo-strip-form" onsubmit="return buildDemo(event, 'hero')">
-      <select class="demo-select" name="industry" required>
-        <option value="" disabled selected>What's your business?</option>
-        <option value="med_spas">Med spa</option>
-        <option value="photographers">Photographer</option>
-        <option value="dentists">Dental practice</option>
-        <option value="vets">Vet / animal hospital</option>
-        <option value="hair_salons">Hair salon</option>
-        <option value="gyms">Gym / fitness studio</option>
-        <option value="therapists">Therapist / coach</option>
-        <option value="dog_trainers">Dog trainer</option>
-        <option value="real_estate_agents">Real estate agent</option>
-        <option value="plumbers">Plumber</option>
-        <option value="hvac">HVAC</option>
-        <option value="electricians">Electrician</option>
-        <option value="mechanics">Mechanic</option>
-        <option value="auto_repair">Auto repair</option>
-        <option value="barbers">Barber</option>
-        <option value="lawn_care">Lawn care</option>
-        <option value="pest_control">Pest control</option>
-        <option value="handymen">Handyman</option>
-        <option value="other">Other</option>
-      </select>
-      <input type="text" class="demo-input" name="businessName" placeholder="Business name" required maxlength="80" />
-      <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
-      <button type="submit" class="demo-btn">Build it →</button>
-    </form>
-  </div>
-  <div id="demo-status-hero" class="demo-status-msg" style="display:none;"></div>
+<!-- TICKER -->
+<div class="ticker" aria-label="What nights look like with StillOpen">
+  <div class="ticker-track" id="tickerTrack"></div>
 </div>
 
-<!-- THE PROBLEM (problem/solution two-col) -->
-<section class="section" id="what">
-  <div class="container">
-    <div class="two-col">
+<!-- NIGHT WATCH: scroll-scrubbed -->
+<section id="nightwatch" aria-label="The night, hour by hour">
+  <div class="nw-pin" id="nwPin">
+    <div class="nw-glow"></div>
+    <div class="nw-eyebrow">the hours nobody covers</div>
+    <div class="nw-time" id="nwTime">10:00 PM</div>
+    <div class="nw-line" id="nwLine">The calls don't stop when you do.</div>
+    <div class="nw-chip" id="nwChip">StillOpen picks up · booked for 7:00 AM</div>
+  </div>
+</section>
+
+<!-- NIGHT STORY -->
+<section id="night">
+  <div class="wrap">
+    <div class="night-top">
       <div>
-        <div class="eyebrow">The problem</div>
-        <h2 class="section-headline">When your phone goes to voicemail, your competitor's chat picks up.</h2>
-        <p class="lede">A woman finds you on Instagram at 9:42 PM. She fills out your inquiry form. She gets "we'll be in touch within 2-3 business days." She closes the tab.</p>
-        <p class="lede" style="margin-top: 18px;">By Tuesday morning, she's already booked with the spa across town that texted her back in four minutes.</p>
+        <div class="eyebrow reveal">While you were closed</div>
+        <h2 class="reveal">Every night, someone reaches out.<br/>Most of them get nothing.</h2>
+        <p class="lead reveal">Voicemail. An unread contact form. A competitor's site that answered first. StillOpen exists so that nobody who reaches out to your business gets nothing.</p>
       </div>
-      <div class="comparison">
-        <div>
-          <div class="comparison-col-label">Status quo</div>
-          <ul class="comparison-col-list">
-            <li><span class="comparison-icon x">×</span> Inquiry form goes to email</li>
-            <li><span class="comparison-icon x">×</span> Auto-reply: "2-3 business days"</li>
-            <li><span class="comparison-icon x">×</span> Phone goes to voicemail at night</li>
-            <li><span class="comparison-icon x">×</span> No way to take a deposit</li>
-            <li><span class="comparison-icon x">×</span> Customer ghosts to next provider</li>
-          </ul>
-        </div>
-        <div>
-          <div class="comparison-col-label">With StillOpen</div>
-          <ul class="comparison-col-list">
-            <li><span class="comparison-icon check">✓</span> Chat answers her at 9:42 PM</li>
-            <li><span class="comparison-icon check">✓</span> Trained on your real prices</li>
-            <li><span class="comparison-icon check">✓</span> Books into your Google Calendar</li>
-            <li><span class="comparison-icon check">✓</span> Takes $50-$200 deposit on your Stripe</li>
-            <li><span class="comparison-icon check">✓</span> Customer is committed before bed</li>
-          </ul>
-        </div>
+      <div class="phone" id="phone">
+        <div class="phone-head"><span class="live"></span><span class="t">Front desk</span><span class="time" id="phoneClock">2:07 AM</span></div>
+        <div class="chat" id="chat"></div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <span class="n">01</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <h3>It answers</h3>
+        <p>In seconds, in your business's voice, with your real prices and hours. Not a canned bot script. A front desk that knows the building.</p>
+      </div>
+      <div class="card reveal">
+        <span class="n">02</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <h3>It books</h3>
+        <p>Straight into your Google Calendar. The 2 AM emergency wakes up already on your 7 AM schedule, address and all.</p>
+      </div>
+      <div class="card reveal">
+        <span class="n">03</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <h3>It collects</h3>
+        <p>Deposits through Stripe before you've had coffee. A held slot with money down doesn't no-show.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS (numbered steps) -->
-<section class="section">
-  <div class="container">
-    <div class="two-col">
-      <div class="process-steps">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h3>Connect your tools</h3>
-            <p>Google Calendar, Stripe, your domain. OAuth does the handshake. About 4 minutes.</p>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h3>We train the AI on your site</h3>
-            <p>Services, hours, prices, service area. You review what it learned and fix anything wrong.</p>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h3>Paste one line of code</h3>
-            <p>Or text me and I'll do it. The chat goes live the moment the snippet lands.</p>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3>Wake up to bookings</h3>
-            <p>Real events on your calendar. Real deposits in your Stripe. No email threads to chase.</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="eyebrow">How it works</div>
-        <h2 class="section-headline">Live on your site in 48 hours. Not 48 days.</h2>
-        <p class="lede">You don't set it up. I do. You answer four questions in a text thread with me, paste a one-line code snippet on your site, and 48 hours later it's catching customers. If I miss the window, full refund.</p>
-      </div>
+<!-- FACTORY -->
+<section id="factory">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="eyebrow reveal">The demo factory</div>
+    <h2 class="reveal">Type your business name.<br/>Watch your front desk wake up.</h2>
+    <p class="lead reveal">Not a sales call. Not a slideshow. Your actual business, answering like it never closes. Built for you, free, before we've ever spoken.</p>
+    <div class="factory-row reveal">
+      <input id="bizName" type="text" placeholder="Your business name" aria-label="Your business name" />
+      <input id="bizEmail" type="email" placeholder="Your email" aria-label="Your email" autocomplete="email" />
+      <button class="btn solid" id="wakeBtn">Wake it up</button>
     </div>
-  </div>
-</section>
-
-<!-- LIVE PRODUCT (rotator) -->
-<section class="rotator-section">
-  <div class="container">
-    <div class="eyebrow centered">Live front desk</div>
-    <h2 class="section-headline">Five businesses. One product.</h2>
-    <p class="lede centered">The chat learns your shop's real prices, services, and hours. Below is the same widget on five different service businesses tonight.</p>
-
-    <div class="rotator-stage">
-      <div class="browser-frame">
-        <div class="browser-bar">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url-stack">
-            <div class="browser-url active">cassiamedspa.com</div>
-            <div class="browser-url">westhillstudio.com</div>
-            <div class="browser-url">riversidevetcare.com</div>
-            <div class="browser-url">lakesidefamilydental.com</div>
-            <div class="browser-url">ironridgepilates.com</div>
-          </div>
-        </div>
-        <div class="browser-body">
-          <div class="scene theme-rose active">
-            <div class="mock-site">
-              <div class="mock-site-name">Cassia &amp; Co. Med Spa</div>
-              <div class="mock-site-tagline">Aesthetic medicine in Phoenix</div>
-              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Currently closed</div><div class="mock-hours-sub">Open tomorrow at 10 AM</div></div></div>
-              <div class="mock-services"><div class="mock-service">Botox</div><div class="mock-service">Lip filler</div><div class="mock-service">Hydrafacial</div><div class="mock-service">Laser</div></div>
-              <div class="mock-cta-old"><div class="mock-cta-label">Book a consult</div><div class="mock-cta-number">(602) 555-0192</div><div class="mock-cta-sub">Voicemail outside business hours</div></div>
-              <div class="mock-footer">Phoenix · Licensed since 2018</div>
-            </div>
-            <div class="mock-chat">
-              <div class="mock-chat-header"><div class="mock-chat-avatar">C</div><div><div class="mock-chat-title">Cassia's front desk</div><div class="mock-chat-online">Online now</div></div></div>
-              <div class="mock-chat-msgs">
-                <div class="msg bot">Hi, I'm Cassia's front desk. How can I help tonight?</div>
-                <div class="msg user">Looking for lip filler this week. Open?</div>
-                <div class="msg bot">Lip filler with our nurse injector is $650/syringe. Thursday 2 PM, Friday 11 AM, or Saturday 3 PM. $100 deposit holds the spot.</div>
-                <div class="msg user">Thursday 2 PM please</div>
-              </div>
-            </div>
-          </div>
-          <div class="scene theme-sage">
-            <div class="mock-site">
-              <div class="mock-site-name">Westhill Studio</div>
-              <div class="mock-site-tagline">Wedding photography, Madison WI</div>
-              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Closed for the night</div><div class="mock-hours-sub">Replying tomorrow</div></div></div>
-              <div class="mock-services"><div class="mock-service">Weddings</div><div class="mock-service">Engagement</div><div class="mock-service">Family</div><div class="mock-service">Branding</div></div>
-              <div class="mock-cta-old"><div class="mock-cta-label">Inquiry form</div><div class="mock-cta-number">hello@westhillstudio.com</div><div class="mock-cta-sub">2-3 business days</div></div>
-              <div class="mock-footer">Madison · 12 years shooting weddings</div>
-            </div>
-            <div class="mock-chat">
-              <div class="mock-chat-header"><div class="mock-chat-avatar">W</div><div><div class="mock-chat-title">Westhill's front desk</div><div class="mock-chat-online">Online now</div></div></div>
-              <div class="mock-chat-msgs">
-                <div class="msg bot">Hi, looking at our work tonight?</div>
-                <div class="msg user">Getting married June 12 2027. Available?</div>
-                <div class="msg bot">June 12 is open. 2027 wedding package is $4,800, 8-hour day with second shooter. Friday 6 PM or Saturday 11 AM for a discovery call?</div>
-                <div class="msg user">Saturday 11 works</div>
-              </div>
-            </div>
-          </div>
-          <div class="scene theme-forest">
-            <div class="mock-site">
-              <div class="mock-site-name">Riverside Vet Care</div>
-              <div class="mock-site-tagline">Independent animal hospital, Eau Claire</div>
-              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Currently closed</div><div class="mock-hours-sub">Open Mon at 7 AM</div></div></div>
-              <div class="mock-services"><div class="mock-service">Wellness</div><div class="mock-service">Surgery</div><div class="mock-service">Dental</div><div class="mock-service">ER</div></div>
-              <div class="mock-cta-old"><div class="mock-cta-label">After-hours line</div><div class="mock-cta-number">(715) 555-0148</div><div class="mock-cta-sub">Voicemail</div></div>
-              <div class="mock-footer">Eau Claire · Family-owned since 2009</div>
-            </div>
-            <div class="mock-chat">
-              <div class="mock-chat-header"><div class="mock-chat-avatar">R</div><div><div class="mock-chat-title">Riverside's front desk</div><div class="mock-chat-online">Online now</div></div></div>
-              <div class="mock-chat-msgs">
-                <div class="msg bot">Hi, what's going on tonight?</div>
-                <div class="msg user">Dog ate a chocolate bar 30 min ago. 45 lbs. ER?</div>
-                <div class="msg bot">Dark chocolate is the concern. For 45 lbs and 30 min ago, head to Chippewa Valley ER (715-555-0911). I'll book a follow-up with Dr. Lin first thing Monday.</div>
-                <div class="msg user">Yes please, Monday 8 AM</div>
-              </div>
-            </div>
-          </div>
-          <div class="scene theme-navy">
-            <div class="mock-site">
-              <div class="mock-site-name">Lakeside Family Dental</div>
-              <div class="mock-site-tagline">Family dentistry, Green Bay WI</div>
-              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Closed for the weekend</div><div class="mock-hours-sub">Open Mon at 8 AM</div></div></div>
-              <div class="mock-services"><div class="mock-service">Cleanings</div><div class="mock-service">Whitening</div><div class="mock-service">Invisalign</div><div class="mock-service">Emergencies</div></div>
-              <div class="mock-cta-old"><div class="mock-cta-label">Request appointment</div><div class="mock-cta-number">Contact form</div><div class="mock-cta-sub">2 business days</div></div>
-              <div class="mock-footer">Green Bay · Family-owned since 2003</div>
-            </div>
-            <div class="mock-chat">
-              <div class="mock-chat-header"><div class="mock-chat-avatar">L</div><div><div class="mock-chat-title">Lakeside's front desk</div><div class="mock-chat-online">Online now</div></div></div>
-              <div class="mock-chat-msgs">
-                <div class="msg bot">Hi, what brings you in?</div>
-                <div class="msg user">New patient, need a cleaning and a chipped front tooth looked at</div>
-                <div class="msg bot">New patient exam plus cleaning is 90 min, $245. We'd assess the chip at the same visit. Tuesday 9 AM or Thursday 2 PM are open this week.</div>
-                <div class="msg user">Thursday 2 PM works</div>
-              </div>
-            </div>
-          </div>
-          <div class="scene theme-dustyrose">
-            <div class="mock-site">
-              <div class="mock-site-name">Iron Ridge Pilates</div>
-              <div class="mock-site-tagline">Reformer studio, Minneapolis</div>
-              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Closed for the night</div><div class="mock-hours-sub">First class 6 AM tomorrow</div></div></div>
-              <div class="mock-services"><div class="mock-service">Intro</div><div class="mock-service">Reformer</div><div class="mock-service">Privates</div><div class="mock-service">Memberships</div></div>
-              <div class="mock-cta-old"><div class="mock-cta-label">Book a class</div><div class="mock-cta-number">Mindbody booking</div><div class="mock-cta-sub">Account required</div></div>
-              <div class="mock-footer">North Loop · Independent since 2021</div>
-            </div>
-            <div class="mock-chat">
-              <div class="mock-chat-header"><div class="mock-chat-avatar">I</div><div><div class="mock-chat-title">Iron Ridge's front desk</div><div class="mock-chat-online">Online now</div></div></div>
-              <div class="mock-chat-msgs">
-                <div class="msg bot">Hi, new here?</div>
-                <div class="msg user">Yeah, never done reformer. Where do I start?</div>
-                <div class="msg bot">Intro class is $25 for 50 min with Maya. Saturday 9 AM or Sunday 10 AM both have spots.</div>
-                <div class="msg user">Saturday 9</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div id="factoryMsg" style="margin-top:12px;font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);"></div>
+    <div id="wakePreview" aria-live="polite">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="body">
+        <div class="bn" id="pvName">Front desk</div>
+        <div class="bub" id="pvBub"></div>
+        <div class="note">Preview. Your real working demo takes about a day. It's free, and it's yours either way.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="section centered" id="pricing">
-  <div class="container">
-    <div class="eyebrow centered">The offer</div>
-    <h2 class="section-headline" style="max-width: 16ch; margin: 0 auto 24px;">Two installs. <em>Your call.</em></h2>
-    <p class="lede centered">Your AI front desk live on your site in 48 hours. I build it. You bill nothing until it works.</p>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-tier">Express install</div>
-        <div class="price-name">The original.</div>
-        <p class="price-tagline">Works for everyone. Home services to small studios.</p>
-        <div class="price-amount">
-          <div><div class="install">$297</div></div>
-          <div class="plus">+</div>
-          <div><div class="monthly">$47<span>/mo</span></div></div>
+<section id="pricing">
+  <div class="wrap">
+    <div class="eyebrow reveal">Pricing, plain</div>
+    <h2 class="reveal">One missed night can cost more than the year.</h2>
+    <div class="price-card reveal">
+      <div>
+        <div class="price-big">$297 <small>install</small></div>
+        <div class="price-lines">
+          <b>First 30 days free.</b> Then $47 a month.<br/>
+          Set up on your site in about 48 hours. Cancel any time. No contract, no fine print, no hostage fees.
         </div>
-        <div class="price-amount-labels">
-          <span>install fee</span>
-          <span>after 30-day trial</span>
-        </div>
-        <ul class="price-features">
-          <li>AI trained on your real services, hours, and prices</li>
-          <li>One line of code on your site (I'll paste it)</li>
-          <li>Google Calendar bookings, Stripe deposits</li>
-          <li>Owner SMS notifications</li>
-          <li>30 days free. Cancel anytime.</li>
-        </ul>
-        <a href="https://app.stillopen.ai/checkout?tier=starter" class="btn btn-primary" style="width: 100%; justify-content: center;">Buy the Express Install</a>
       </div>
-
-      <div class="price-card price-card--pro">
-        <div class="price-badge">Recommended</div>
-        <div class="price-tier">Pro install</div>
-        <div class="price-name">For premium service businesses.</div>
-        <p class="price-tagline">Med spas, dental practices, law firms, photography studios.</p>
-        <div class="price-amount">
-          <div><div class="install">$497</div></div>
-          <div class="plus">+</div>
-          <div><div class="monthly">$97<span>/mo</span></div></div>
-        </div>
-        <div class="price-amount-labels">
-          <span>install fee</span>
-          <span>after 30-day trial</span>
-        </div>
-        <ul class="price-features">
-          <li>Everything in Express, plus:</li>
-          <li>Branded chat (your colors, fonts, logo)</li>
-          <li>Custom AI voice (clinical, luxe, your call)</li>
-          <li>Multi-provider scheduling and routing</li>
-          <li>HIPAA-considerate flow for medical practices</li>
-          <li>Priority support, direct line to me</li>
-        </ul>
-        <a href="https://buy.stripe.com/3cIeV64qq7GgaiebHV7N60m" class="btn btn-primary" style="width: 100%; justify-content: center;">Buy the Pro Install</a>
+      <div class="price-side">
+        <a class="btn solid" href="#factory">Start with your free demo</a>
+        <a class="btn ghost" href="#" onclick="var b=document.getElementById('he-bubble'); if(b){b.click();} return false;">Ask Paul a question</a>
+        <div class="tiny">30 days free · no card to start</div>
       </div>
     </div>
-
-    <p style="margin-top: 32px; font-size: 13px; color: var(--text-tertiary);">
-      48-hour install guarantee on both. Not live in 48 hours? Full refund, no questions.
-    </p>
-
-    <p style="margin-top: 32px; font-size: 13px; color: var(--text-tertiary); max-width: 540px; margin-left: auto; margin-right: auto;">
-      <strong style="color: var(--accent);">First 10 customers lock in $47/mo for life.</strong> No price increases for the Founding 10. Install fee stays $297. Cancel anytime.
-    </p>
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section class="founder-section">
-  <div class="container">
-    <div class="founder-content">
-      <div class="eyebrow centered">Who built this</div>
-      <div class="founder-portrait-wrap">
-        <img src="cole-founder-portrait.jpg" alt="Cole Cummings, founder of StillOpen" width="240" height="240" loading="lazy" />
-      </div>
-      <blockquote class="founder-quote">
-        I spent six years building hospitals, warehouses, and aircraft hangars as a steel erector. I'm not a software engineer. I built StillOpen because I kept watching good business owners lose real money every night their phone or DMs went quiet. I'm not a marketer. I'm not a coach. I'm a guy who makes it work.
-      </blockquote>
-      <p class="founder-attribution">Cole Cummings · Wisconsin · Founder, StillOpen</p>
-    </div>
-  </div>
-</section>
-
-<!-- AGENCY CALLOUT -->
-<section class="section centered">
-  <div class="container">
-    <div class="eyebrow centered">For marketing agencies</div>
-    <h2 class="section-headline" style="max-width: 18ch; margin: 0 auto 24px;">White-label this for your client roster.</h2>
-    <p class="lede centered">$57/mo wholesale per active install. You resell at $197–$497/mo and keep the spread. Founding 10 agency partners get unlimited installs for $297/mo flat for 12 months.</p>
-    <div style="margin-top: 40px;">
-      <a href="/partners/agencies/" class="btn btn-primary">See the agency program <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container">
-    <div class="eyebrow centered"><span class="dot"></span> Build my front desk</div>
-    <h2 class="display-headline">Wake up to a calendar <em>that worked while you slept.</em></h2>
-    <div style="margin-top: 36px;">
-      <a href="#demo" class="btn btn-primary">Build my demo <span class="arrow">→</span></a>
-      <a href="sms:+15349010258" class="btn btn-secondary" style="margin-left: 8px;">Text Cole instead</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <p class="footer-tagline">Built by a guy who makes it work.</p>
-    <div class="footer-links">
-      <a href="#what">Product</a>
-      <a href="#pricing">Pricing</a>
-      <a href="/partners/agencies/">Agencies</a>
-      <a href="/for-medspas/">For med spas</a>
-      <a href="/for-photographers/">For photographers</a>
-      <a href="sms:+15349010258">Text Cole</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-    </div>
-    <p class="footer-copy">© 2026 StillOpen · Cole Cummings · Wisconsin</p>
-  </div>
+  <div class="fm">Built in Wisconsin by a guy who thinks nobody who reaches out should get nothing.</div>
+  <div>StillOpen · Wisconsin, USA</div>
 </footer>
 
+<div id="grain" aria-hidden="true"></div>
+
+<!-- THEME DOTS -->
+<div id="themes" title="Test accents (keys 1-4)">
+  <button class="t1" data-t="" aria-label="Safety orange"></button>
+  <button class="t2 on" data-t="ember" aria-label="Ember"></button>
+  <button class="t3" data-t="fire" aria-label="Fire coral"></button>
+  <button class="t4" data-t="moon" aria-label="Moonlight"></button>
+</div>
+
+<!-- PAUL, THE NIGHT CLERK -->
+<div id="paul" aria-label="Paul, the StillOpen night clerk">
+  <button id="paulChar" aria-label="Chat with Paul, the night clerk" title="Paul, the night clerk">
+    <video id="paulVid" src="/v2/paul-loop.mp4" poster="/v2/paul-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+    <span class="ptag">Paul · on shift</span>
+  </button>
+  <div id="paulBubble">
+    <button id="paulX" aria-label="Dismiss Paul's message"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="ph"><span class="pdot"></span>Paul · night clerk</div>
+    <div class="pt" id="paulText"></div>
+    <span class="sr-only" id="paulSay" role="status" aria-live="polite"></span>
+  </div>
+</div>
+
 <script>
-  // Rotator
-  (function() {
-    var scenes = document.querySelectorAll('.scene');
-    var urls = document.querySelectorAll('.browser-url');
-    var current = 0;
-    if (scenes.length < 2) return;
-    setInterval(function() {
-      scenes[current].classList.remove('active');
-      urls[current].classList.remove('active');
-      current = (current + 1) % scenes.length;
-      scenes[current].classList.add('active');
-      urls[current].classList.add('active');
-    }, 5200);
-  })();
+(function(){
+"use strict";
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s);
 
-  // Demo builder: posts to app.stillopen.ai/api/build-demo, redirects to the spun-up demo
-  async function buildDemo(e, location) {
-    e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector(".demo-btn");
-    const statusEl = document.getElementById("demo-status-" + location);
-    const fd = new FormData(form);
-    const industry = (fd.get("industry") || "").toString().trim();
-    const businessName = (fd.get("businessName") || "").toString().trim();
-    const city = (fd.get("city") || "").toString().trim();
+/* ============ THEME SWITCHER ============ */
+const themeBtns = document.querySelectorAll('#themes button');
+function setTheme(t){
+  if(t) document.body.setAttribute('data-theme', t); else document.body.removeAttribute('data-theme');
+  themeBtns.forEach(b=>b.classList.toggle('on', b.dataset.t===t));
+  try{localStorage.setItem('so-theme', t);}catch(e){}
+}
+themeBtns.forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.t)));
+addEventListener('keydown',e=>{
+  const map={'1':'','2':'ember','3':'fire','4':'moon'};
+  if(map[e.key]!==undefined && !(e.target.matches && e.target.matches('input,textarea,[contenteditable]'))) setTheme(map[e.key]);
+});
+try{const s=localStorage.getItem('so-theme'); if(s!==null) setTheme(s);}catch(e){}
 
-    if (!industry || !businessName || !city) {
-      return false;
+function accent(){ return getComputedStyle(document.body).getPropertyValue('--accent').trim(); }
+function warmLight(){ return getComputedStyle(document.body).getPropertyValue('--warm-light').trim(); }
+
+/* ============ INTRO: CLOCK ARC (moneta-style inertia) ============ */
+const intro = $('#intro'), arcC = $('#introArc');
+const TIMES = ['5:00 PM','6:00','7:00','8:00','9:00','10:00','11:00','12:00','1:00','2:07 AM'];
+let introDone = false;
+
+function runIntro(){
+  // Intro disabled by default (Cole, 2026-07-05). Add ?intro to the URL to see it.
+  if(!new URLSearchParams(location.search).has('intro')){ setTimeout(()=>finishIntro(true),60); return; }
+  if(reduced){ finishIntro(true); return; }
+  const ctx = arcC.getContext('2d');
+  const DPR = Math.min(devicePixelRatio||1, 2);
+  const W=640,H=90;
+  arcC.width=W*DPR; arcC.height=H*DPR; arcC.style.width=W+'px'; arcC.style.height=H+'px';
+  const CX=W/2, CY=330, R=300, STEP=Math.PI/10, VIS=3.2;
+  let target=0, value=0, raf;
+
+  function draw(v){
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    ctx.clearRect(0,0,W,H);
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    for(let i=0;i<TIMES.length;i++){
+      const d=i-v, ad=Math.abs(d);
+      if(ad>VIS) continue;
+      const ang=-Math.PI/2 + d*STEP;
+      const x=CX+Math.cos(ang)*R, y=CY+Math.sin(ang)*R;
+      const fade=Math.pow(1-ad/VIS,2.1);
+      const focal=Math.max(0,1-ad/1.15);
+      ctx.save(); ctx.translate(x,y+14); ctx.scale(1+focal*.4,1+focal*.4);
+      ctx.font='300 17px "JetBrains Mono", monospace';
+      if(focal>.05){ ctx.shadowColor=accent(); ctx.shadowBlur=16*focal; }
+      ctx.fillStyle='rgba(244,237,228,'+(0.92*fade)+')';
+      if(focal>.5) ctx.fillStyle=accent();
+      ctx.fillText(TIMES[i],0,0); ctx.restore();
     }
-
-    btn.disabled = true;
-    const originalText = btn.textContent;
-    btn.textContent = "Building...";
-    if (statusEl) {
-      statusEl.style.display = "block";
-      statusEl.textContent = "Spinning up your demo...";
-    }
-
-    try {
-      const res = await fetch("https://app.stillopen.ai/api/build-demo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ industry, businessName, city }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        if (statusEl) statusEl.textContent = (data && data.error) ? data.error : "Could not build demo. Try again or text Cole at (534) 901-0258.";
-        btn.disabled = false;
-        btn.textContent = originalText;
-        return false;
-      }
-      if (statusEl) statusEl.textContent = "Loading your demo...";
-      window.location.href = data.redirectUrl;
-    } catch (err) {
-      if (statusEl) statusEl.textContent = "Network error. Try again or text Cole at (534) 901-0258.";
-      btn.disabled = false;
-      btn.textContent = originalText;
-    }
-    return false;
   }
+  function tick(){
+    const delta=target-value;
+    if(Math.abs(delta)<.002){ value=target; draw(value); if(target>=TIMES.length-1){ setTimeout(()=>finishIntro(false),650); return; } }
+    else { value+=delta*.075; draw(value); }
+    raf=requestAnimationFrame(tick);
+  }
+  // chunked progress: bursts, stalls, crawls
+  const segs=[]; let acc=0;
+  while(acc<TIMES.length-1){
+    const r=Math.random(); let chunk;
+    if(r<.2) chunk=.3+Math.random()*.5; else if(r<.85) chunk=.8+Math.random()*1.4; else chunk=1.8+Math.random()*2.2;
+    acc=Math.min(TIMES.length-1, acc+chunk);
+    segs.push({to:acc, delay:120+Math.random()*300});
+  }
+  let i=0;
+  (function next(){
+    if(i>=segs.length) return;
+    const s=segs[i++]; setTimeout(()=>{ target=s.to; next(); }, s.delay);
+  })();
+  $('#signText').classList.add('on');
+  tick();
+  setTimeout(()=>{ if(!introDone) finishIntro(false); }, 6000); // hard cap
+}
+function finishIntro(instant){
+  if(introDone) return; introDone=true;
+  intro.classList.add('gone');
+  setTimeout(()=>intro.remove(), instant?0:1000);
+  startHero();
+}
+intro.addEventListener('click',()=>finishIntro(false));
+runIntro();
+
+/* ============ HEADLINE ============ */
+function buildHeadline(){
+  const l1='Your sign says closed.', l2='StillOpen stays open.';
+  const c=$('#headline .closed'), o=$('#headline .open');
+  l1.split(' ').forEach(w=>{const s=document.createElement('span');s.className='w';s.textContent=w+' ';c.appendChild(s);});
+  l2.split(' ').forEach((w,i)=>{const s=document.createElement('span');s.className='w';
+    if(i===0){const em=document.createElement('em');em.textContent=w+' ';s.appendChild(em);}else s.textContent=w+' ';
+    o.appendChild(s);});
+}
+buildHeadline();
+function startHero(){
+  $('#nav').classList.add('in');
+  const words=document.querySelectorAll('#headline .w');
+  words.forEach((w,i)=>{
+    w.style.transition='opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1), filter .7s';
+    w.style.transitionDelay=(120+i*95)+'ms';
+    w.style.opacity=1; w.style.transform='none'; w.style.filter='blur(0)';
+  });
+  $('#sub').classList.add('in'); $('#paulLine').classList.add('in'); $('#ctas').classList.add('in'); $('#phone').classList.add('in');
+  setTimeout(runChat, 1400);
+}
+
+/* ============ PROCEDURAL NIGHT SCENE ============ */
+const scene=$('#nightScene'), sctx=scene.getContext('2d');
+let SW,SH,SD; let stars=[],rain=[],mists=[];
+let mouseX=0;
+function sizeScene(){
+  SD=Math.min(devicePixelRatio||1,1.5);
+  SW=scene.clientWidth||innerWidth; SH=scene.clientHeight||innerHeight;
+  scene.width=SW*SD; scene.height=SH*SD;
+  stars=Array.from({length:70},()=>({x:Math.random(),y:Math.random()*.55,o:.1+Math.random()*.4,s:Math.random()*1.4+.4,ph:Math.random()*6.28,sp:.5+Math.random()}));
+  rain=Array.from({length:reduced?0:110},()=>({x:Math.random(),y:Math.random(),v:.35+Math.random()*.5,l:.02+Math.random()*.03,o:.04+Math.random()*.09}));
+  mists=Array.from({length:3},(_, i)=>({x:Math.random(),y:.55+i*.12,r:.35+Math.random()*.25,v:(Math.random()-.5)*.00012,o:.05+Math.random()*.04}));
+}
+addEventListener('resize',sizeScene); sizeScene();
+addEventListener('mousemove',e=>{mouseX=(e.clientX/innerWidth-.5);});
+
+function hexToRgb(h){h=h.replace('#','');return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+
+function drawScene(t){
+  const ctx=sctx; ctx.setTransform(SD,0,0,SD,0,0);
+  // sky
+  const g=ctx.createLinearGradient(0,0,0,SH);
+  g.addColorStop(0,'#05070d'); g.addColorStop(.55,'#0a0a0c'); g.addColorStop(1,'#0d0a08');
+  ctx.fillStyle=g; ctx.fillRect(0,0,SW,SH);
+  // stars
+  for(const s of stars){
+    const tw=.5+.5*Math.sin(t*.001*s.sp+s.ph);
+    ctx.fillStyle='rgba(244,237,228,'+(s.o*tw)+')';
+    ctx.fillRect(s.x*SW, s.y*SH, s.s, s.s);
+  }
+  // skyline silhouettes (parallax)
+  const par=mouseX*14;
+  ctx.fillStyle='#07060a';
+  const bh=SH*.52;
+  ctx.fillRect(0,SH-bh*.75+0, SW*.22+par*.4, bh);
+  ctx.fillRect(SW*.19+par*.4, SH-bh*.9, SW*.16, bh);
+  ctx.fillStyle='#060509';
+  ctx.fillRect(SW*.72+par, SH-bh*1.02, SW*.3, bh*1.2);
+  // hero building
+  const bx=SW*.56+par*.7, bw=Math.min(SW*.34,520), by=SH-bh*1.12, bwh=bh*1.25;
+  ctx.fillStyle='#0a0808'; ctx.fillRect(bx,by,bw,bwh);
+  ctx.fillStyle='rgba(244,237,228,.05)'; ctx.fillRect(bx,by,bw,3);
+  // awning line
+  ctx.fillStyle='rgba(244,237,228,.07)'; ctx.fillRect(bx+bw*.08, by+bwh*.24, bw*.84, 4);
+  // the window (the whole story)
+  const flick=.86+.1*Math.sin(t*.0013)+.04*Math.sin(t*.011+Math.sin(t*.0027)*3);
+  const wx=bx+bw*.14, wy=by+bwh*.3, ww=bw*.34, wh=bwh*.3;
+  const [ar,ag,ab]=hexToRgb(warmLight().startsWith('#')?warmLight():'#ffb877');
+  const glow=ctx.createRadialGradient(wx+ww/2,wy+wh/2,10,wx+ww/2,wy+wh/2,ww*2.1);
+  glow.addColorStop(0,'rgba('+ar+','+ag+','+ab+','+(0.5*flick)+')');
+  glow.addColorStop(1,'rgba('+ar+','+ag+','+ab+',0)');
+  ctx.fillStyle=glow; ctx.fillRect(wx-ww*1.6,wy-wh*1.6,ww*4.2,wh*4.2);
+  ctx.fillStyle='rgba('+ar+','+ag+','+ab+','+(0.75*flick)+')';
+  ctx.fillRect(wx,wy,ww,wh);
+  ctx.fillStyle='rgba(10,8,8,.85)';
+  ctx.fillRect(wx+ww*.46,wy,ww*.06,wh); ctx.fillRect(wx,wy+wh*.48,ww,wh*.05);
+  // desk silhouette inside window
+  ctx.fillStyle='rgba(10,8,8,.55)'; ctx.fillRect(wx+ww*.1, wy+wh*.68, ww*.8, wh*.1);
+  // CLOSED sign on door
+  ctx.fillStyle='rgba(244,237,228,.14)';
+  ctx.font='700 '+Math.max(9,bw*.03)+'px "JetBrains Mono",monospace';
+  ctx.textAlign='center';
+  ctx.fillText('CLOSED', bx+bw*.72, wy+wh*.5);
+  // street
+  ctx.fillStyle='#0b0908'; ctx.fillRect(0,SH-SH*.06,SW,SH*.06);
+  const rg=ctx.createLinearGradient(0,SH-SH*.06,0,SH);
+  rg.addColorStop(0,'rgba('+ar+','+ag+','+ab+','+(0.10*flick)+')'); rg.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=rg; ctx.fillRect(wx-ww,SH-SH*.06,ww*3,SH*.06);
+  // mist
+  for(const m of mists){
+    m.x+=m.v; if(m.x<-.3)m.x=1.3; if(m.x>1.3)m.x=-.3;
+    const mg=ctx.createRadialGradient(m.x*SW,m.y*SH,0,m.x*SW,m.y*SH,m.r*SW*.5);
+    mg.addColorStop(0,'rgba(200,190,180,'+m.o+')'); mg.addColorStop(1,'rgba(200,190,180,0)');
+    ctx.fillStyle=mg; ctx.fillRect(0,0,SW,SH);
+  }
+  // rain
+  ctx.strokeStyle='rgba(200,205,215,.5)'; ctx.lineWidth=1;
+  for(const r of rain){
+    r.y+=r.v*.016; if(r.y>1){r.y=-.05;r.x=Math.random();}
+    ctx.globalAlpha=r.o;
+    ctx.beginPath(); ctx.moveTo(r.x*SW, r.y*SH); ctx.lineTo(r.x*SW-2, (r.y+r.l)*SH); ctx.stroke();
+  }
+  ctx.globalAlpha=1;
+  // vignette
+  const v=ctx.createRadialGradient(SW/2,SH/2,SH*.3,SW/2,SH/2,SH*.95);
+  v.addColorStop(0,'rgba(0,0,0,0)'); v.addColorStop(1,'rgba(0,0,0,.5)');
+  ctx.fillStyle=v; ctx.fillRect(0,0,SW,SH);
+}
+let sceneRaf, sceneOn=true;
+function sceneLoop(t){ if(!sceneOn) return; drawScene(t||0); sceneRaf=requestAnimationFrame(sceneLoop); }
+if(reduced){ drawScene(1200); } else sceneLoop();
+document.addEventListener('visibilitychange',()=>{ sceneOn=!document.hidden; if(sceneOn&&!reduced) sceneLoop(); });
+
+/* ============ BOOMERANG VIDEO ENGINE (auto-activates when night.mp4 exists) ============ */
+const vid=$('#nightVid'), boom=$('#boomCanvas');
+vid.addEventListener('canplaythrough', function once(){
+  vid.removeEventListener('canplaythrough', once);
+  if(reduced || (navigator.deviceMemory && navigator.deviceMemory<4)){
+    // light path: plain loop
+    vid.loop=true; vid.style.display='block'; vid.style.position='absolute'; vid.style.inset='0';
+    vid.style.width='100%'; vid.style.height='100%'; vid.style.objectFit='cover'; vid.style.objectPosition='left center';
+    scene.style.display='none'; vid.play().catch(()=>{}); return;
+  }
+  const frames=[]; const cap=document.createElement('canvas');
+  const cw=960, ch=540; cap.width=cw; cap.height=ch;
+  const cctx=cap.getContext('2d');
+  const bctx=boom.getContext('2d');
+  let boomStarted=false;
+  function grab(){
+    cctx.drawImage(vid,0,0,cw,ch);
+    const f=document.createElement('canvas'); f.width=cw; f.height=ch;
+    f.getContext('2d').drawImage(cap,0,0);
+    frames.push(f);
+    if(!vid.ended && frames.length<240){ vid.requestVideoFrameCallback ? vid.requestVideoFrameCallback(()=>grab()) : setTimeout(grab,42); }
+    else startBoom();
+  }
+  function plainLoop(){
+    vid.loop=true; vid.style.display='block'; vid.style.position='absolute'; vid.style.inset='0';
+    vid.style.width='100%'; vid.style.height='100%'; vid.style.objectFit='cover'; vid.style.objectPosition='left center';
+    scene.style.display='none'; vid.play().catch(()=>{});
+  }
+  vid.addEventListener('ended',()=>{ if(frames.length>=24) startBoom(); else plainLoop(); });
+  function startBoom(){
+    if(boomStarted) return; boomStarted=true;
+    if(frames.length<10) return;
+    scene.style.display='none'; boom.style.display='block';
+    function size(){ boom.width=boom.clientWidth*SD; boom.height=boom.clientHeight*SD; }
+    size(); addEventListener('resize',size);
+    let i=0, dir=1;
+    (function play(){
+      const f=frames[i];
+      const cAR=boom.width/boom.height, fAR=cw/ch;
+      let dw,dh,dx,dy;
+      if(cAR>fAR){ dw=boom.width; dh=dw/fAR; dx=0; dy=(boom.height-dh)/2; }
+      else { dh=boom.height; dw=dh*fAR; dy=0; dx=0; /* left-aligned so Paul stays in frame on narrow screens */ }
+      bctx.drawImage(f,dx,dy,dw,dh);
+      i+=dir; if(i>=frames.length-1||i<=0) dir*=-1;
+      setTimeout(()=>requestAnimationFrame(play), 1000/24);
+    })();
+  }
+  function activate(){
+    vid.muted=true;
+    vid.play().then(()=>grab()).catch(()=>{
+      const kick=()=>{ vid.play().then(()=>grab()).catch(()=>{}); };
+      addEventListener('pointerdown',kick,{once:true});
+      addEventListener('scroll',kick,{once:true,passive:true});
+      addEventListener('keydown',kick,{once:true});
+    });
+  }
+  activate();
+});
+vid.addEventListener('error',()=>{ /* no night.mp4 yet: procedural scene stays */ });
+
+/* ============ CHAT SIM ============ */
+const chat=$('#chat');
+const SCRIPT=[
+  {t:'in',  d: 900, txt:'Our water heater burst, there is water everywhere. Is anyone there??'},
+  {t:'out', d:1700, txt:"We're here. I can get you the first emergency slot at 7:00 AM and send the tech straight to you. What's your address?"},
+  {t:'in',  d:1500, txt:'412 Cedar Ln'},
+  {t:'out', d:1800, txt:"Booked. 7:00 AM, first out the door. I just texted your confirmation and a link to hold the slot with a deposit."},
+  {t:'chip',d:1200, txt:'Job booked while you slept'}
+];
+function runChat(){
+  chat.innerHTML='';
+  const typing=document.createElement('div'); typing.className='typing'; typing.innerHTML='<i></i><i></i><i></i>';
+  let idx=0;
+  function step(){
+    if(idx>=SCRIPT.length){ setTimeout(runChat, 5200); return; }
+    const m=SCRIPT[idx++];
+    if(m.t==='chip'){
+      const c=document.createElement('div'); c.className='chip'; c.textContent=m.txt; chat.appendChild(c);
+      setTimeout(()=>c.classList.add('show'),30);
+      setTimeout(step, m.d+2400); return;
+    }
+    if(m.t==='out'){ chat.appendChild(typing); typing.classList.add('show'); }
+    setTimeout(()=>{
+      if(m.t==='out'){ typing.classList.remove('show'); typing.remove(); }
+      const el=document.createElement('div'); el.className='msg '+m.t; el.textContent=m.txt; chat.appendChild(el);
+      setTimeout(()=>el.classList.add('show'),30);
+      step();
+    }, m.t==='out'? m.d : m.d*.6);
+  }
+  step();
+}
+
+/* ============ TICKER ============ */
+const TICKS=[
+  ['1:52 AM','A pipe bursts.','StillOpen answers in seconds.'],
+  ['11:38 PM','A bride messages three photographers.','Yours replies first.'],
+  ['12:04 AM','A dog will not stop scratching.','The vet booking is on the morning schedule.'],
+  ['2:41 AM','Someone asks if you take Saturdays.','They get a yes, not a voicemail.'],
+  ['9:57 PM','A med spa consult request lands.','Deposit collected before sunrise.'],
+  ['3:15 AM','A no-show frees a slot.','It refills before you wake up.']
+];
+const track=$('#tickerTrack');
+function buildTicks(){
+  const frag=document.createDocumentFragment();
+  for(let r=0;r<2;r++){
+    TICKS.forEach(t=>{
+      const d=document.createElement('div'); d.className='tick';
+      if(r===1) d.setAttribute('aria-hidden','true');
+      d.innerHTML='<span class="tm">'+t[0]+'</span><span>'+t[1]+'</span><b>'+t[2]+'</b>';
+      frag.appendChild(d);
+    });
+  }
+  track.appendChild(frag);
+}
+buildTicks();
+
+/* ============ SCROLL REVEALS ============ */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.18});
+document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%3)*0.08+'s'; io.observe(el); });
+// fallback: never let content stay hidden if observer callbacks stall
+setInterval(()=>{
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<innerHeight*.92 && r.bottom>0) el.classList.add('in');
+  });
+},700);
+
+/* ============ FACTORY PREVIEW ============ */
+function wake(){
+  const name=($('#bizName').value||'').trim();
+  const email=($('#bizEmail').value||'').trim();
+  const msg=$('#factoryMsg');
+  if(!name){ $('#bizName').focus(); msg.textContent='Give me your business name first.'; return; }
+  if(!email || !email.includes('@') || email.length<5){ $('#bizEmail').focus(); msg.textContent='And an email, so your demo has somewhere to land.'; return; }
+  msg.textContent='';
+  $('#pvName').innerHTML=name.replace(/[<>&]/g,'')+'<i>.</i> · Front desk';
+  $('#pvBub').textContent='Hi, thanks for reaching out to '+name.replace(/[<>&]/g,'')+'. We are with you even after hours. What do you need tonight?';
+  $('#wakePreview').classList.add('on');
+  fetch('https://app.stillopen.ai/demo-lead',{
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email:email, demo:name.slice(0,60), page:'v2-factory'})
+  }).then(r=>{ if(r.ok) msg.textContent='Got it. Your real demo lands at '+email+' within a day.'; })
+    .catch(()=>{ msg.textContent='That did not go through. The chat bubble in the corner still works, tell it your name and email.'; });
+}
+$('#wakeBtn').addEventListener('click',wake);
+$('#bizName').addEventListener('keydown',e=>{ if(e.key==='Enter') wake(); });
+
+/* ============ NAV SHADE + HERO DRIFT ============ */
+/* plain listener, recomputed from real scroll position every event, cannot strand */
+const heroEl=$('#hero'), heroInner=document.querySelector('.hero-inner');
+addEventListener('scroll',()=>{
+  $('#nav').classList.toggle('scrolled', scrollY>40);
+  if(!reduced && heroEl && heroInner){
+    const p=Math.max(0,Math.min(1,scrollY/(heroEl.offsetHeight||1)));
+    heroInner.style.transform='translateY('+(-90*p).toFixed(1)+'px)';
+  }
+},{passive:true});
+
+/* ============ MOTION LAYER: Lenis + ScrollTrigger ============ */
+window.__initMotion = function(){
+  if(reduced || !window.gsap || !window.ScrollTrigger) { fallbackWatch(); return; }
+  try{
+    gsap.registerPlugin(ScrollTrigger);
+    /* native scroll only: the visitor owns the wheel, motion just rides along */
+    /* hero drift moved to the plain scroll listener below: GSAP scrub could
+       strand mid-value after fast jumps, leaving the headline shifted or dim
+       at the top of the page (Cole caught it live 2026-07-05) */
+    // night watch: the clock rides the scroll from 10:00 PM to 2:07 AM
+    const START=1320, END=1567; // minutes: 22:00 -> 26:07
+    ScrollTrigger.create({
+      trigger:'#nightwatch', start:'top top', end:'bottom bottom', scrub:true,
+      onUpdate(self){
+        const p=self.progress;
+        let m=Math.round(START+(END-START)*p);
+        let hh=Math.floor(m/60)%24, mm=m%60;
+        const ap=hh>=12?'PM':'AM'; let h12=hh%12; if(h12===0)h12=12;
+        $('#nwTime').textContent=h12+':'+String(mm).padStart(2,'0')+' '+ap;
+        const line=$('#nwLine');
+        let txt;
+        if(p<.3) txt="The calls don't stop when you do.";
+        else if(p<.6) txt="Somewhere out there, something just broke.";
+        else if(p<.85) txt="They found your website. Your sign says closed.";
+        else txt="And then somebody answers.";
+        if(line.dataset.t!==txt){ line.dataset.t=txt; line.style.opacity=0; setTimeout(()=>{ line.textContent=txt; line.style.opacity=1; },220); }
+        $('#nwPin').classList.toggle('warm', p>.85);
+      }
+    });
+  }catch(e){ fallbackWatch(); }
+};
+function fallbackWatch(){
+  const pin=$('#nwPin'); if(!pin) return;
+  $('#nwTime').textContent='2:07 AM';
+  $('#nwLine').textContent='And then somebody answers.';
+  pin.classList.add('warm');
+  document.getElementById('nightwatch').style.height='auto';
+}
+if(reduced) fallbackWatch();
+})();
 </script>
+<script>
+/* ============ PAUL, THE NIGHT CLERK ============ */
+(function(){
+"use strict";
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const paul=document.getElementById('paul');
+if(!paul) return;
+const charBtn=document.getElementById('paulChar');
+const txt=document.getElementById('paulText');
+const live=document.getElementById('paulSay');
+let quiet=false;
+try{ quiet=sessionStorage.getItem('so-paul-quiet')==='1'; }catch(e){}
 
-<!-- StillOpen chatbot widget — proof by existence + salesman -->
+function clock(){
+  const n=new Date(); let h=n.getHours();
+  const ap=h>=12?'PM':'AM'; let h12=h%12; if(h12===0)h12=12;
+  return h12+':'+String(n.getMinutes()).padStart(2,'0')+' '+ap;
+}
+function greeting(){
+  const h=new Date().getHours(), t=clock();
+  if(h>=22||h<5) return "It's "+t+" where you are. Your sign would say closed right now. Mine never does. I'm Paul, I work the night shift.";
+  if(h<12) return "Morning. It's "+t+" where you are. I'm Paul, the night clerk here. Every message that came in overnight, I'd have answered.";
+  if(h<17) return "It's "+t+". Busy hours. I'm Paul. I catch the messages you can't grab when you're mid-job.";
+  return "It's "+t+". Shops are locking up about now. That's when my shift starts. I'm Paul.";
+}
+
+let typer=null;
+function say(text){
+  if(quiet) return;
+  paul.classList.add('talk');
+  live.textContent=text;
+  if(typer){clearInterval(typer); typer=null;}
+  if(reduced){ txt.textContent=text; return; }
+  txt.textContent='';
+  let i=0;
+  typer=setInterval(()=>{
+    i+=1; txt.textContent=text.slice(0,i);
+    if(i>=text.length){clearInterval(typer); typer=null;}
+  },16);
+}
+
+const LINES={
+  nightwatch:"Watch the clock on this part. Every night somebody reaches out at 2 AM. The only question is who answers.",
+  night:"Answers, books, collects. That's the whole job, and it happens while your lights are off.",
+  factory:"This is the good part. Type your business name in and I'll show you your own front desk, working. Free.",
+  pricing:"$297 to install. First 30 days free, then $47 a month. No contract. That's all the fine print there is."
+};
+const said=new Set();
+const secs=Object.keys(LINES).map(id=>document.getElementById(id)).filter(Boolean);
+let ready=false; /* greeting speaks first; sections wait their turn */
+/* only the section under the middle of the viewport speaks, one at a time */
+function check(){
+  if(!ready||quiet) return;
+  const mid=innerHeight*.5;
+  for(const s of secs){
+    const r=s.getBoundingClientRect();
+    if(r.top<=mid && r.bottom>=mid){
+      if(!said.has(s.id)){ said.add(s.id); say(LINES[s.id]); }
+      return;
+    }
+  }
+}
+/* the observer is just a wake-up call; check() reads the real geometry.
+   interval fallback because observers stall in throttled tabs, same pattern as .reveal */
+const pio=new IntersectionObserver(check,{threshold:[0,.2,.5]});
+secs.forEach(s=>pio.observe(s));
+setInterval(check,900);
+
+setTimeout(()=>{
+  paul.classList.add('in');
+  if(!quiet){
+    setTimeout(()=>{ say(greeting()); },700);
+  }
+  setTimeout(()=>{ ready=true; },3600);
+}, reduced?400:2000);
+
+document.getElementById('paulX').addEventListener('click',e=>{
+  e.stopPropagation();
+  quiet=true; paul.classList.remove('talk');
+  if(typer){clearInterval(typer); typer=null;}
+  try{sessionStorage.setItem('so-paul-quiet','1');}catch(e2){}
+});
+
+charBtn.addEventListener('click',()=>{
+  const b=document.getElementById('he-bubble');
+  if(b){
+    const w=document.getElementById('he-window');
+    if(!w || !w.classList.contains('open')) b.click();
+    quiet=false;
+    try{sessionStorage.removeItem('so-paul-quiet');}catch(e){}
+    say("That chat that just opened is the real thing, the same front desk you'd be buying. Ask it anything.");
+  } else {
+    location.hash='#factory';
+  }
+});
+
+/* keep the clerk cam rolling; autoplay can be blocked, reduced motion gets the still poster */
+const pv=document.getElementById('paulVid');
+if(pv){
+  if(reduced){ pv.removeAttribute('autoplay'); pv.pause(); }
+  else {
+    const kick=()=>{ pv.play().catch(()=>{}); };
+    kick();
+    addEventListener('pointerdown',kick,{once:true});
+    addEventListener('scroll',kick,{once:true,passive:true});
+  }
+}
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>window.__initMotion && window.__initMotion();</script>
 <script defer src="https://app.stillopen.ai/chatbot.js" data-stillopen-id="stillopen"></script>
-
 </body>
 </html>

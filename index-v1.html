@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StillOpen · 24/7 AI Front Desk for Service Businesses</title>
+<meta name="description" content="A 24/7 AI chat for service businesses. Catches the visitor your phone or DMs miss, books the appointment, takes the deposit before they find someone else.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://stillopen.ai/">
+<meta property="og:title" content="StillOpen · 24/7 AI Front Desk for Service Businesses">
+<meta property="og:description" content="Stay open when your phone goes dark. A 24/7 AI chat that books appointments and takes deposits.">
+<meta property="og:url" content="https://stillopen.ai/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StillOpen · 24/7 AI Front Desk for Service Businesses">
+<meta name="twitter:description" content="Stay open when your phone goes dark. A 24/7 AI chat that books appointments and takes deposits.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stillopen.ai/#organization",
+      "name": "StillOpen",
+      "url": "https://stillopen.ai/",
+      "founder": {
+        "@type": "Person",
+        "name": "Cole Cummings",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "WI",
+          "addressCountry": "US"
+        }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-534-901-0258",
+        "contactType": "Customer Service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      },
+      "description": "A 24/7 AI front desk chatbot widget for service businesses. Catches after-hours website visitors, books appointments into Google Calendar, and takes deposits on Stripe."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stillopen.ai/#website",
+      "url": "https://stillopen.ai/",
+      "name": "StillOpen",
+      "publisher": { "@id": "https://stillopen.ai/#organization" }
+    },
+    {
+      "@type": "Product",
+      "name": "StillOpen Express Install",
+      "description": "24/7 AI front desk chatbot for service business websites. Books appointments, takes Stripe deposits. 48-hour install guarantee.",
+      "brand": { "@id": "https://stillopen.ai/#organization" },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Express Install",
+          "price": "297",
+          "priceCurrency": "USD",
+          "url": "https://app.stillopen.ai/checkout?tier=starter",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time install fee, then $47/month after 30-day trial."
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro Install",
+          "price": "497",
+          "priceCurrency": "USD",
+          "url": "https://buy.stripe.com/3cIeV64qq7GgaiebHV7N60m",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time install fee, then $97/month after 30-day trial. Branded chat, custom AI voice, HIPAA-considerate flow, priority support."
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0908;
+    --bg-elevated: rgba(245,237,224,0.025);
+    --text-primary: rgba(245,237,224,0.96);
+    --text-secondary: rgba(245,237,224,0.68);
+    --text-tertiary: rgba(245,237,224,0.42);
+    --text-muted: rgba(245,237,224,0.22);
+    --border: rgba(245,237,224,0.08);
+    --border-strong: rgba(245,237,224,0.16);
+    --brand: #ff7a1a;
+    --accent: #ff9248;
+    --success: #4ade80;
+    --danger: #f87171;
+    --font-serif: 'Newsreader', 'Georgia', serif;
+    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.55;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+  /* Dot grid background — Burnt signature */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(rgba(245,237,224,0.045) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: 0 0;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--brand); color: var(--bg); }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,9,8,0.6);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 32px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-wordmark {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 24;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .nav-wordmark span { color: var(--accent); }
+  .nav-wordmark .brand-icon { flex-shrink: 0; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+  .nav-links a {
+    font-family: var(--font-sans);
+    font-size: 13px; font-weight: 500;
+    color: var(--text-tertiary);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-cta {
+    padding: 8px 18px;
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-primary);
+    transition: all 0.2s;
+    background: var(--bg);
+  }
+  .nav-cta:hover { background: var(--bg-elevated); border-color: var(--text-tertiary); }
+  @media (max-width: 720px) {
+    .nav-links .hide-mobile { display: none; }
+    .nav-inner { padding: 0 20px; }
+  }
+
+  /* Container */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  @media (max-width: 640px) { .container { padding: 0 20px; } }
+
+  /* Eyebrow */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2.5px;
+    color: var(--text-tertiary);
+    margin-bottom: 28px;
+  }
+  .eyebrow .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 10px rgba(74,222,128,0.5);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+  .eyebrow.centered { display: flex; justify-content: center; }
+
+  /* Typography utilities */
+  .display-headline {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 72;
+    font-weight: 600;
+    font-size: clamp(40px, 6.2vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    color: var(--text-primary);
+  }
+  .display-headline em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .section-headline {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: clamp(30px, 4.2vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+  .lede {
+    font-family: var(--font-sans);
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 620px;
+  }
+  .lede.centered { margin-left: auto; margin-right: auto; text-align: center; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px;
+    font-family: var(--font-sans);
+    font-size: 14px; font-weight: 600;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--text-primary);
+    color: var(--bg);
+  }
+  .btn-primary:hover { background: var(--accent); color: var(--bg); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
+  .btn-secondary:hover { border-color: var(--text-tertiary); background: var(--bg-elevated); }
+  .btn .arrow { transition: transform 0.2s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* HERO */
+  .hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+  }
+  .hero .display-headline { max-width: 14ch; margin: 0 auto 28px; }
+  .hero .lede { margin-bottom: 36px; text-align: center; margin-left: auto; margin-right: auto; }
+  .hero-ctas {
+    display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 36px;
+  }
+  .hero-money {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 13px; font-weight: 500;
+    color: var(--text-tertiary);
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    background: var(--bg-elevated);
+  }
+  .hero-money strong { color: var(--accent); font-weight: 600; }
+  @media (max-width: 640px) {
+    .hero { padding: 130px 0 60px; }
+  }
+
+  /* Demo strip (compact form below hero) */
+  .demo-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 0;
+    background: rgba(255,122,26,0.025);
+    position: relative;
+    z-index: 1;
+  }
+  .demo-strip-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .demo-strip-text {
+    flex: 1; min-width: 240px;
+  }
+  .demo-strip-label {
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--brand);
+    margin-bottom: 4px;
+  }
+  .demo-strip-headline {
+    font-family: var(--font-serif);
+    font-size: 24px; font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+  .demo-strip-form {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    align-items: center;
+  }
+  .demo-strip-form select, .demo-strip-form input {
+    background: var(--bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: inherit; font-size: 14px;
+    min-width: 140px;
+  }
+  .demo-strip-form select:focus, .demo-strip-form input:focus {
+    border-color: var(--brand); outline: none;
+  }
+  .demo-strip-form button {
+    background: var(--brand); color: var(--bg);
+    border: none; padding: 12px 20px;
+    border-radius: 8px;
+    font-family: inherit; font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .demo-strip-form button:hover { background: var(--accent); }
+  .demo-strip-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+  .demo-status-msg {
+    max-width: 1100px; margin: 14px auto 0;
+    padding: 0 32px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  /* Section wrapper */
+  .section {
+    padding: 120px 0;
+    position: relative;
+    border-top: 1px solid var(--border);
+  }
+  .section.centered { text-align: center; }
+  @media (max-width: 640px) { .section { padding: 80px 0; } }
+
+  /* Two-column problem/solution */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* Comparison card (Status Quo / With StillOpen) */
+  .comparison {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; gap: 28px; } }
+  .comparison-col-label {
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--text-tertiary);
+    margin-bottom: 18px;
+  }
+  .comparison-col-list { list-style: none; padding: 0; margin: 0; }
+  .comparison-col-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .comparison-icon {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .comparison-icon.x { color: var(--danger); }
+  .comparison-icon.check { color: var(--success); }
+
+  /* Process steps */
+  .process-steps {
+    display: flex; flex-direction: column;
+    gap: 12px;
+  }
+  .step-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex; align-items: flex-start; gap: 16px;
+    transition: border-color 0.2s;
+  }
+  .step-card:hover { border-color: var(--border-strong); }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+  }
+  .step-content h3 {
+    font-family: var(--font-sans);
+    font-size: 16px; font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .step-content p {
+    font-size: 13px; line-height: 1.55;
+    color: var(--text-tertiary);
+  }
+
+  /* Rotator (compact version of existing) */
+  .rotator-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .rotator-stage {
+    max-width: 880px;
+    margin: 56px auto 0;
+    position: relative;
+    aspect-ratio: 4 / 2.6;
+  }
+  .browser-frame {
+    position: absolute; inset: 0;
+    background: #14110d;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 50px 100px -30px rgba(0,0,0,0.8);
+  }
+  .browser-bar {
+    height: 38px;
+    background: #1a1714;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 14px;
+    padding: 0 14px;
+  }
+  .browser-dots { display: flex; gap: 6px; }
+  .browser-dots span { width: 10px; height: 10px; border-radius: 50%; background: #3a342f; }
+  .browser-url-stack {
+    flex: 1;
+    background: #0d0a08;
+    border-radius: 6px;
+    padding: 6px 12px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .browser-url {
+    position: absolute; inset: 0;
+    padding: 5px 12px;
+    font-size: 12px; font-weight: 500;
+    color: var(--text-tertiary);
+    opacity: 0; transition: opacity 0.4s ease;
+    display: flex; align-items: center;
+  }
+  .browser-url.active { opacity: 1; }
+  .browser-body {
+    position: absolute; top: 38px; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+  }
+  .scene {
+    position: absolute; inset: 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  .scene.active { opacity: 1; }
+  .mock-site { padding: 22px 22px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+  .mock-site-name { font-size: 16px; font-weight: 700; line-height: 1.2; }
+  .mock-site-tagline { font-size: 11px; line-height: 1.4; opacity: 0.65; }
+  .mock-hours-banner { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; margin-top: 4px; }
+  .mock-closed-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444; flex-shrink: 0; }
+  .mock-hours-label { font-size: 11px; font-weight: 600; }
+  .mock-hours-sub { font-size: 10px; opacity: 0.7; }
+  .mock-services { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .mock-service { font-size: 10px; padding: 8px 10px; border-radius: 6px; font-weight: 500; }
+  .mock-cta-old { margin-top: 4px; padding: 12px; border-radius: 8px; border: 1px dashed currentColor; opacity: 0.55; }
+  .mock-cta-label { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .mock-cta-number { font-size: 13px; font-weight: 700; margin-top: 2px; }
+  .mock-cta-sub { font-size: 9px; opacity: 0.7; margin-top: 2px; }
+  .mock-footer { font-size: 9px; opacity: 0.5; margin-top: auto; padding-top: 8px; }
+  .mock-chat { background: #fff; color: #18181b; border-left: 1px solid rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+  .mock-chat-header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); background: #fafafa; }
+  .mock-chat-avatar { width: 28px; height: 28px; border-radius: 50%; background: currentColor; opacity: 0.85; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; }
+  .mock-chat-title { font-size: 12px; font-weight: 700; color: #18181b; }
+  .mock-chat-online { font-size: 10px; color: #16a34a; font-weight: 500; display: flex; align-items: center; gap: 4px; }
+  .mock-chat-online::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #16a34a; }
+  .mock-chat-msgs { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+  .msg { font-size: 11px; line-height: 1.45; padding: 8px 12px; border-radius: 12px; max-width: 88%; }
+  .msg.bot { background: #f4f4f5; color: #18181b; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .msg.user { background: #18181b; color: #fafafa; align-self: flex-end; border-bottom-right-radius: 4px; }
+
+  .theme-rose .mock-site { background: linear-gradient(180deg, #faf3ef, #f3e3d8); color: #4a2a1c; }
+  .theme-rose .mock-hours-banner { background: rgba(180,83,9,0.08); color: #b45309; }
+  .theme-rose .mock-service { background: rgba(180,83,9,0.07); color: #b45309; }
+  .theme-rose .mock-chat { color: #b45309; }
+  .theme-sage .mock-site { background: linear-gradient(180deg, #f5f5ef, #e6ebe0); color: #2d3a23; }
+  .theme-sage .mock-hours-banner { background: rgba(74,95,53,0.10); color: #4a5f35; }
+  .theme-sage .mock-service { background: rgba(74,95,53,0.09); color: #4a5f35; }
+  .theme-sage .mock-chat { color: #4a5f35; }
+  .theme-forest .mock-site { background: linear-gradient(180deg, #f1f5ee, #d5e2d0); color: #1f3a26; }
+  .theme-forest .mock-hours-banner { background: rgba(22,101,52,0.10); color: #166534; }
+  .theme-forest .mock-service { background: rgba(22,101,52,0.10); color: #166534; }
+  .theme-forest .mock-chat { color: #166534; }
+  .theme-navy .mock-site { background: linear-gradient(180deg, #f1f5f9, #d8e2ec); color: #0c2a4d; }
+  .theme-navy .mock-hours-banner { background: rgba(30,64,175,0.10); color: #1e40af; }
+  .theme-navy .mock-service { background: rgba(30,64,175,0.10); color: #1e40af; }
+  .theme-navy .mock-chat { color: #1e40af; }
+  .theme-dustyrose .mock-site { background: linear-gradient(180deg, #f9f2f2, #ecd9dd); color: #5a2a36; }
+  .theme-dustyrose .mock-hours-banner { background: rgba(159,49,79,0.10); color: #9f314f; }
+  .theme-dustyrose .mock-service { background: rgba(159,49,79,0.09); color: #9f314f; }
+  .theme-dustyrose .mock-chat { color: #9f314f; }
+  @media (max-width: 600px) { .rotator-stage { aspect-ratio: 4 / 3.5; } .mock-site { padding: 14px; gap: 8px; } .msg { font-size: 10px; } }
+
+  /* Pricing */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 920px;
+    margin: 64px auto 0;
+  }
+  @media (max-width: 720px) { .pricing-grid { grid-template-columns: 1fr; } }
+  .price-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    position: relative;
+  }
+  .price-card--pro {
+    border-color: var(--brand);
+    background: linear-gradient(180deg, rgba(255,122,26,0.05), var(--bg-elevated) 80%);
+  }
+  .price-badge {
+    position: absolute; top: -10px; right: 28px;
+    background: var(--brand); color: var(--bg);
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+  .price-tier {
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+  }
+  .price-name {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 36;
+    font-size: 22px; font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.015em;
+  }
+  .price-tagline {
+    font-size: 13px; color: var(--text-tertiary); margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .price-amount {
+    display: flex; align-items: baseline; gap: 10px;
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 36;
+    margin-bottom: 16px;
+  }
+  .price-amount .install {
+    font-size: 32px; font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .price-amount .plus { font-size: 16px; color: var(--text-tertiary); font-family: var(--font-sans); }
+  .price-amount .monthly { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; line-height: 1; }
+  .price-amount .monthly span { font-size: 14px; font-weight: 400; color: var(--text-tertiary); font-family: var(--font-sans); }
+  .price-amount-labels {
+    display: flex; gap: 44px;
+    font-size: 11px; color: var(--text-tertiary);
+    margin-bottom: 24px;
+    margin-top: -10px;
+  }
+  .price-features {
+    list-style: none; padding: 0; margin: 0 0 28px 0;
+  }
+  .price-features li {
+    padding: 8px 0;
+    font-size: 13px; color: var(--text-secondary);
+    border-bottom: 1px dashed var(--border);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.55;
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .price-features li::before {
+    content: '→';
+    color: var(--brand);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Founder block */
+  .founder-section {
+    padding: 120px 0;
+    border-top: 1px solid var(--border);
+  }
+  .founder-content {
+    max-width: 760px; margin: 0 auto;
+    text-align: center;
+  }
+  .founder-portrait-wrap {
+    width: 140px; height: 140px;
+    margin: 0 auto 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+  }
+  .founder-portrait-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .founder-quote {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 36;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(18px, 2.1vw, 24px);
+    line-height: 1.55;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    letter-spacing: -0.005em;
+  }
+  .founder-attribution {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: 140px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    background: linear-gradient(180deg, transparent, rgba(255,122,26,0.04));
+  }
+  .final-cta .display-headline { max-width: 18ch; margin: 0 auto 28px; font-size: clamp(40px, 6vw, 80px); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    text-align: center;
+  }
+  .footer-tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: var(--text-muted); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text-secondary); }
+  .footer-copy { font-size: 11px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-wordmark" aria-label="StillOpen home">
+      <svg class="brand-icon" width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#f5ede0" stroke-width="3"/>
+        <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#ff7a1a"/>
+        <circle cx="33" cy="34" r="2" fill="#0a0908"/>
+      </svg>
+      Still<span>Open</span>
+    </a>
+    <div class="nav-links">
+      <a href="#what" class="hide-mobile">Product</a>
+      <a href="#pricing" class="hide-mobile">Pricing</a>
+      <a href="/partners/agencies/" class="hide-mobile">Agencies</a>
+      <a href="sms:+15349010258" class="nav-cta">Text Cole</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow centered"><span class="dot"></span> AI front desk, always on</div>
+    <h1 class="display-headline">
+      Stay open<br>when your phone <em>goes dark.</em>
+    </h1>
+    <p class="lede centered">
+      A 24/7 AI chat for any service business. Catches the visitor your phone or DMs can't, books the appointment into your calendar, and takes a deposit before they find someone else.
+    </p>
+    <div class="hero-ctas">
+      <a href="#demo" class="btn btn-primary">Build my demo <span class="arrow">→</span></a>
+      <a href="#pricing" class="btn btn-secondary">See pricing</a>
+    </div>
+    <div class="hero-money">
+      <strong>One after-hours booking</strong> = your full year of StillOpen paid for.
+    </div>
+  </div>
+</section>
+
+<!-- DEMO STRIP (compact form) -->
+<div class="demo-strip" id="demo">
+  <div class="demo-strip-inner">
+    <div class="demo-strip-text">
+      <div class="demo-strip-label">30 seconds. Free. No signup.</div>
+      <div class="demo-strip-headline">Spin up a working demo for your business.</div>
+    </div>
+    <form class="demo-strip-form" onsubmit="return buildDemo(event, 'hero')">
+      <select class="demo-select" name="industry" required>
+        <option value="" disabled selected>What's your business?</option>
+        <option value="med_spas">Med spa</option>
+        <option value="photographers">Photographer</option>
+        <option value="dentists">Dental practice</option>
+        <option value="vets">Vet / animal hospital</option>
+        <option value="hair_salons">Hair salon</option>
+        <option value="gyms">Gym / fitness studio</option>
+        <option value="therapists">Therapist / coach</option>
+        <option value="dog_trainers">Dog trainer</option>
+        <option value="real_estate_agents">Real estate agent</option>
+        <option value="plumbers">Plumber</option>
+        <option value="hvac">HVAC</option>
+        <option value="electricians">Electrician</option>
+        <option value="mechanics">Mechanic</option>
+        <option value="auto_repair">Auto repair</option>
+        <option value="barbers">Barber</option>
+        <option value="lawn_care">Lawn care</option>
+        <option value="pest_control">Pest control</option>
+        <option value="handymen">Handyman</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" class="demo-input" name="businessName" placeholder="Business name" required maxlength="80" />
+      <input type="text" class="demo-input" name="city" placeholder="City" required maxlength="60" />
+      <button type="submit" class="demo-btn">Build it →</button>
+    </form>
+  </div>
+  <div id="demo-status-hero" class="demo-status-msg" style="display:none;"></div>
+</div>
+
+<!-- THE PROBLEM (problem/solution two-col) -->
+<section class="section" id="what">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">The problem</div>
+        <h2 class="section-headline">When your phone goes to voicemail, your competitor's chat picks up.</h2>
+        <p class="lede">A woman finds you on Instagram at 9:42 PM. She fills out your inquiry form. She gets "we'll be in touch within 2-3 business days." She closes the tab.</p>
+        <p class="lede" style="margin-top: 18px;">By Tuesday morning, she's already booked with the spa across town that texted her back in four minutes.</p>
+      </div>
+      <div class="comparison">
+        <div>
+          <div class="comparison-col-label">Status quo</div>
+          <ul class="comparison-col-list">
+            <li><span class="comparison-icon x">×</span> Inquiry form goes to email</li>
+            <li><span class="comparison-icon x">×</span> Auto-reply: "2-3 business days"</li>
+            <li><span class="comparison-icon x">×</span> Phone goes to voicemail at night</li>
+            <li><span class="comparison-icon x">×</span> No way to take a deposit</li>
+            <li><span class="comparison-icon x">×</span> Customer ghosts to next provider</li>
+          </ul>
+        </div>
+        <div>
+          <div class="comparison-col-label">With StillOpen</div>
+          <ul class="comparison-col-list">
+            <li><span class="comparison-icon check">✓</span> Chat answers her at 9:42 PM</li>
+            <li><span class="comparison-icon check">✓</span> Trained on your real prices</li>
+            <li><span class="comparison-icon check">✓</span> Books into your Google Calendar</li>
+            <li><span class="comparison-icon check">✓</span> Takes $50-$200 deposit on your Stripe</li>
+            <li><span class="comparison-icon check">✓</span> Customer is committed before bed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (numbered steps) -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="process-steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Connect your tools</h3>
+            <p>Google Calendar, Stripe, your domain. OAuth does the handshake. About 4 minutes.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>We train the AI on your site</h3>
+            <p>Services, hours, prices, service area. You review what it learned and fix anything wrong.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Paste one line of code</h3>
+            <p>Or text me and I'll do it. The chat goes live the moment the snippet lands.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Wake up to bookings</h3>
+            <p>Real events on your calendar. Real deposits in your Stripe. No email threads to chase.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">How it works</div>
+        <h2 class="section-headline">Live on your site in 48 hours. Not 48 days.</h2>
+        <p class="lede">You don't set it up. I do. You answer four questions in a text thread with me, paste a one-line code snippet on your site, and 48 hours later it's catching customers. If I miss the window, full refund.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE PRODUCT (rotator) -->
+<section class="rotator-section">
+  <div class="container">
+    <div class="eyebrow centered">Live front desk</div>
+    <h2 class="section-headline">Five businesses. One product.</h2>
+    <p class="lede centered">The chat learns your shop's real prices, services, and hours. Below is the same widget on five different service businesses tonight.</p>
+
+    <div class="rotator-stage">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url-stack">
+            <div class="browser-url active">cassiamedspa.com</div>
+            <div class="browser-url">westhillstudio.com</div>
+            <div class="browser-url">riversidevetcare.com</div>
+            <div class="browser-url">lakesidefamilydental.com</div>
+            <div class="browser-url">ironridgepilates.com</div>
+          </div>
+        </div>
+        <div class="browser-body">
+          <div class="scene theme-rose active">
+            <div class="mock-site">
+              <div class="mock-site-name">Cassia &amp; Co. Med Spa</div>
+              <div class="mock-site-tagline">Aesthetic medicine in Phoenix</div>
+              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Currently closed</div><div class="mock-hours-sub">Open tomorrow at 10 AM</div></div></div>
+              <div class="mock-services"><div class="mock-service">Botox</div><div class="mock-service">Lip filler</div><div class="mock-service">Hydrafacial</div><div class="mock-service">Laser</div></div>
+              <div class="mock-cta-old"><div class="mock-cta-label">Book a consult</div><div class="mock-cta-number">(602) 555-0192</div><div class="mock-cta-sub">Voicemail outside business hours</div></div>
+              <div class="mock-footer">Phoenix · Licensed since 2018</div>
+            </div>
+            <div class="mock-chat">
+              <div class="mock-chat-header"><div class="mock-chat-avatar">C</div><div><div class="mock-chat-title">Cassia's front desk</div><div class="mock-chat-online">Online now</div></div></div>
+              <div class="mock-chat-msgs">
+                <div class="msg bot">Hi, I'm Cassia's front desk. How can I help tonight?</div>
+                <div class="msg user">Looking for lip filler this week. Open?</div>
+                <div class="msg bot">Lip filler with our nurse injector is $650/syringe. Thursday 2 PM, Friday 11 AM, or Saturday 3 PM. $100 deposit holds the spot.</div>
+                <div class="msg user">Thursday 2 PM please</div>
+              </div>
+            </div>
+          </div>
+          <div class="scene theme-sage">
+            <div class="mock-site">
+              <div class="mock-site-name">Westhill Studio</div>
+              <div class="mock-site-tagline">Wedding photography, Madison WI</div>
+              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Closed for the night</div><div class="mock-hours-sub">Replying tomorrow</div></div></div>
+              <div class="mock-services"><div class="mock-service">Weddings</div><div class="mock-service">Engagement</div><div class="mock-service">Family</div><div class="mock-service">Branding</div></div>
+              <div class="mock-cta-old"><div class="mock-cta-label">Inquiry form</div><div class="mock-cta-number">hello@westhillstudio.com</div><div class="mock-cta-sub">2-3 business days</div></div>
+              <div class="mock-footer">Madison · 12 years shooting weddings</div>
+            </div>
+            <div class="mock-chat">
+              <div class="mock-chat-header"><div class="mock-chat-avatar">W</div><div><div class="mock-chat-title">Westhill's front desk</div><div class="mock-chat-online">Online now</div></div></div>
+              <div class="mock-chat-msgs">
+                <div class="msg bot">Hi, looking at our work tonight?</div>
+                <div class="msg user">Getting married June 12 2027. Available?</div>
+                <div class="msg bot">June 12 is open. 2027 wedding package is $4,800, 8-hour day with second shooter. Friday 6 PM or Saturday 11 AM for a discovery call?</div>
+                <div class="msg user">Saturday 11 works</div>
+              </div>
+            </div>
+          </div>
+          <div class="scene theme-forest">
+            <div class="mock-site">
+              <div class="mock-site-name">Riverside Vet Care</div>
+              <div class="mock-site-tagline">Independent animal hospital, Eau Claire</div>
+              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Currently closed</div><div class="mock-hours-sub">Open Mon at 7 AM</div></div></div>
+              <div class="mock-services"><div class="mock-service">Wellness</div><div class="mock-service">Surgery</div><div class="mock-service">Dental</div><div class="mock-service">ER</div></div>
+              <div class="mock-cta-old"><div class="mock-cta-label">After-hours line</div><div class="mock-cta-number">(715) 555-0148</div><div class="mock-cta-sub">Voicemail</div></div>
+              <div class="mock-footer">Eau Claire · Family-owned since 2009</div>
+            </div>
+            <div class="mock-chat">
+              <div class="mock-chat-header"><div class="mock-chat-avatar">R</div><div><div class="mock-chat-title">Riverside's front desk</div><div class="mock-chat-online">Online now</div></div></div>
+              <div class="mock-chat-msgs">
+                <div class="msg bot">Hi, what's going on tonight?</div>
+                <div class="msg user">Dog ate a chocolate bar 30 min ago. 45 lbs. ER?</div>
+                <div class="msg bot">Dark chocolate is the concern. For 45 lbs and 30 min ago, head to Chippewa Valley ER (715-555-0911). I'll book a follow-up with Dr. Lin first thing Monday.</div>
+                <div class="msg user">Yes please, Monday 8 AM</div>
+              </div>
+            </div>
+          </div>
+          <div class="scene theme-navy">
+            <div class="mock-site">
+              <div class="mock-site-name">Lakeside Family Dental</div>
+              <div class="mock-site-tagline">Family dentistry, Green Bay WI</div>
+              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Closed for the weekend</div><div class="mock-hours-sub">Open Mon at 8 AM</div></div></div>
+              <div class="mock-services"><div class="mock-service">Cleanings</div><div class="mock-service">Whitening</div><div class="mock-service">Invisalign</div><div class="mock-service">Emergencies</div></div>
+              <div class="mock-cta-old"><div class="mock-cta-label">Request appointment</div><div class="mock-cta-number">Contact form</div><div class="mock-cta-sub">2 business days</div></div>
+              <div class="mock-footer">Green Bay · Family-owned since 2003</div>
+            </div>
+            <div class="mock-chat">
+              <div class="mock-chat-header"><div class="mock-chat-avatar">L</div><div><div class="mock-chat-title">Lakeside's front desk</div><div class="mock-chat-online">Online now</div></div></div>
+              <div class="mock-chat-msgs">
+                <div class="msg bot">Hi, what brings you in?</div>
+                <div class="msg user">New patient, need a cleaning and a chipped front tooth looked at</div>
+                <div class="msg bot">New patient exam plus cleaning is 90 min, $245. We'd assess the chip at the same visit. Tuesday 9 AM or Thursday 2 PM are open this week.</div>
+                <div class="msg user">Thursday 2 PM works</div>
+              </div>
+            </div>
+          </div>
+          <div class="scene theme-dustyrose">
+            <div class="mock-site">
+              <div class="mock-site-name">Iron Ridge Pilates</div>
+              <div class="mock-site-tagline">Reformer studio, Minneapolis</div>
+              <div class="mock-hours-banner"><span class="mock-closed-dot"></span><div><div class="mock-hours-label">Closed for the night</div><div class="mock-hours-sub">First class 6 AM tomorrow</div></div></div>
+              <div class="mock-services"><div class="mock-service">Intro</div><div class="mock-service">Reformer</div><div class="mock-service">Privates</div><div class="mock-service">Memberships</div></div>
+              <div class="mock-cta-old"><div class="mock-cta-label">Book a class</div><div class="mock-cta-number">Mindbody booking</div><div class="mock-cta-sub">Account required</div></div>
+              <div class="mock-footer">North Loop · Independent since 2021</div>
+            </div>
+            <div class="mock-chat">
+              <div class="mock-chat-header"><div class="mock-chat-avatar">I</div><div><div class="mock-chat-title">Iron Ridge's front desk</div><div class="mock-chat-online">Online now</div></div></div>
+              <div class="mock-chat-msgs">
+                <div class="msg bot">Hi, new here?</div>
+                <div class="msg user">Yeah, never done reformer. Where do I start?</div>
+                <div class="msg bot">Intro class is $25 for 50 min with Maya. Saturday 9 AM or Sunday 10 AM both have spots.</div>
+                <div class="msg user">Saturday 9</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section centered" id="pricing">
+  <div class="container">
+    <div class="eyebrow centered">The offer</div>
+    <h2 class="section-headline" style="max-width: 16ch; margin: 0 auto 24px;">Two installs. <em>Your call.</em></h2>
+    <p class="lede centered">Your AI front desk live on your site in 48 hours. I build it. You bill nothing until it works.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Express install</div>
+        <div class="price-name">The original.</div>
+        <p class="price-tagline">Works for everyone. Home services to small studios.</p>
+        <div class="price-amount">
+          <div><div class="install">$297</div></div>
+          <div class="plus">+</div>
+          <div><div class="monthly">$47<span>/mo</span></div></div>
+        </div>
+        <div class="price-amount-labels">
+          <span>install fee</span>
+          <span>after 30-day trial</span>
+        </div>
+        <ul class="price-features">
+          <li>AI trained on your real services, hours, and prices</li>
+          <li>One line of code on your site (I'll paste it)</li>
+          <li>Google Calendar bookings, Stripe deposits</li>
+          <li>Owner SMS notifications</li>
+          <li>30 days free. Cancel anytime.</li>
+        </ul>
+        <a href="https://app.stillopen.ai/checkout?tier=starter" class="btn btn-primary" style="width: 100%; justify-content: center;">Buy the Express Install</a>
+      </div>
+
+      <div class="price-card price-card--pro">
+        <div class="price-badge">Recommended</div>
+        <div class="price-tier">Pro install</div>
+        <div class="price-name">For premium service businesses.</div>
+        <p class="price-tagline">Med spas, dental practices, law firms, photography studios.</p>
+        <div class="price-amount">
+          <div><div class="install">$497</div></div>
+          <div class="plus">+</div>
+          <div><div class="monthly">$97<span>/mo</span></div></div>
+        </div>
+        <div class="price-amount-labels">
+          <span>install fee</span>
+          <span>after 30-day trial</span>
+        </div>
+        <ul class="price-features">
+          <li>Everything in Express, plus:</li>
+          <li>Branded chat (your colors, fonts, logo)</li>
+          <li>Custom AI voice (clinical, luxe, your call)</li>
+          <li>Multi-provider scheduling and routing</li>
+          <li>HIPAA-considerate flow for medical practices</li>
+          <li>Priority support, direct line to me</li>
+        </ul>
+        <a href="https://buy.stripe.com/3cIeV64qq7GgaiebHV7N60m" class="btn btn-primary" style="width: 100%; justify-content: center;">Buy the Pro Install</a>
+      </div>
+    </div>
+
+    <p style="margin-top: 32px; font-size: 13px; color: var(--text-tertiary);">
+      48-hour install guarantee on both. Not live in 48 hours? Full refund, no questions.
+    </p>
+
+    <p style="margin-top: 32px; font-size: 13px; color: var(--text-tertiary); max-width: 540px; margin-left: auto; margin-right: auto;">
+      <strong style="color: var(--accent);">First 10 customers lock in $47/mo for life.</strong> No price increases for the Founding 10. Install fee stays $297. Cancel anytime.
+    </p>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder-section">
+  <div class="container">
+    <div class="founder-content">
+      <div class="eyebrow centered">Who built this</div>
+      <div class="founder-portrait-wrap">
+        <img src="cole-founder-portrait.jpg" alt="Cole Cummings, founder of StillOpen" width="240" height="240" loading="lazy" />
+      </div>
+      <blockquote class="founder-quote">
+        I spent six years building hospitals, warehouses, and aircraft hangars as a steel erector. I'm not a software engineer. I built StillOpen because I kept watching good business owners lose real money every night their phone or DMs went quiet. I'm not a marketer. I'm not a coach. I'm a guy who makes it work.
+      </blockquote>
+      <p class="founder-attribution">Cole Cummings · Wisconsin · Founder, StillOpen</p>
+    </div>
+  </div>
+</section>
+
+<!-- AGENCY CALLOUT -->
+<section class="section centered">
+  <div class="container">
+    <div class="eyebrow centered">For marketing agencies</div>
+    <h2 class="section-headline" style="max-width: 18ch; margin: 0 auto 24px;">White-label this for your client roster.</h2>
+    <p class="lede centered">$57/mo wholesale per active install. You resell at $197–$497/mo and keep the spread. Founding 10 agency partners get unlimited installs for $297/mo flat for 12 months.</p>
+    <div style="margin-top: 40px;">
+      <a href="/partners/agencies/" class="btn btn-primary">See the agency program <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="eyebrow centered"><span class="dot"></span> Build my front desk</div>
+    <h2 class="display-headline">Wake up to a calendar <em>that worked while you slept.</em></h2>
+    <div style="margin-top: 36px;">
+      <a href="#demo" class="btn btn-primary">Build my demo <span class="arrow">→</span></a>
+      <a href="sms:+15349010258" class="btn btn-secondary" style="margin-left: 8px;">Text Cole instead</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p class="footer-tagline">Built by a guy who makes it work.</p>
+    <div class="footer-links">
+      <a href="#what">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href="/partners/agencies/">Agencies</a>
+      <a href="/for-medspas/">For med spas</a>
+      <a href="/for-photographers/">For photographers</a>
+      <a href="sms:+15349010258">Text Cole</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+    <p class="footer-copy">© 2026 StillOpen · Cole Cummings · Wisconsin</p>
+  </div>
+</footer>
+
+<script>
+  // Rotator
+  (function() {
+    var scenes = document.querySelectorAll('.scene');
+    var urls = document.querySelectorAll('.browser-url');
+    var current = 0;
+    if (scenes.length < 2) return;
+    setInterval(function() {
+      scenes[current].classList.remove('active');
+      urls[current].classList.remove('active');
+      current = (current + 1) % scenes.length;
+      scenes[current].classList.add('active');
+      urls[current].classList.add('active');
+    }, 5200);
+  })();
+
+  // Demo builder: posts to app.stillopen.ai/api/build-demo, redirects to the spun-up demo
+  async function buildDemo(e, location) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector(".demo-btn");
+    const statusEl = document.getElementById("demo-status-" + location);
+    const fd = new FormData(form);
+    const industry = (fd.get("industry") || "").toString().trim();
+    const businessName = (fd.get("businessName") || "").toString().trim();
+    const city = (fd.get("city") || "").toString().trim();
+
+    if (!industry || !businessName || !city) {
+      return false;
+    }
+
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = "Building...";
+    if (statusEl) {
+      statusEl.style.display = "block";
+      statusEl.textContent = "Spinning up your demo...";
+    }
+
+    try {
+      const res = await fetch("https://app.stillopen.ai/api/build-demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ industry, businessName, city }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        if (statusEl) statusEl.textContent = (data && data.error) ? data.error : "Could not build demo. Try again or text Cole at (534) 901-0258.";
+        btn.disabled = false;
+        btn.textContent = originalText;
+        return false;
+      }
+      if (statusEl) statusEl.textContent = "Loading your demo...";
+      window.location.href = data.redirectUrl;
+    } catch (err) {
+      if (statusEl) statusEl.textContent = "Network error. Try again or text Cole at (534) 901-0258.";
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+    return false;
+  }
+</script>
+
+<!-- StillOpen chatbot widget — proof by existence + salesman -->
+<script defer src="https://app.stillopen.ai/chatbot.js" data-stillopen-id="stillopen"></script>
+
+</body>
+</html>
