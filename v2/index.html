@@ -60,18 +60,18 @@
   #hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;}
   #nightScene,#boomCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
   #boomCanvas{object-fit:cover;display:none;}
-  #hero .shade{position:absolute;inset:0;background:linear-gradient(to left,rgba(11,9,8,.84) 0%,rgba(11,9,8,.48) 44%,rgba(11,9,8,.06) 100%),linear-gradient(to top,rgba(11,9,8,.95) 0%,transparent 34%);}
+  #hero .shade{position:absolute;inset:0;background:linear-gradient(to left,rgba(11,9,8,.92) 0%,rgba(11,9,8,.62) 42%,rgba(11,9,8,.08) 100%),linear-gradient(to top,rgba(11,9,8,.95) 0%,transparent 34%);}
   .hero-inner{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:120px clamp(20px,4vw,56px) 90px;display:flex;justify-content:flex-end;align-items:center;}
   .hero-copy{max-width:560px;}
   .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
   .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-glow);animation:pulse 2.2s infinite;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-  h1{font-size:clamp(2.6rem,6.2vw,4.9rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;}
+  h1{font-size:clamp(2.6rem,6.2vw,4.9rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;text-shadow:0 2px 34px rgba(0,0,0,.6),0 1px 6px rgba(0,0,0,.4);}
   h1 .closed{color:var(--ink-dim);display:block;}
   h1 .open{display:block;color:var(--ink);}
   h1 .open em{font-style:normal;color:var(--accent);text-shadow:0 0 34px var(--accent-glow);}
   h1 .w{display:inline-block;opacity:0;transform:translateY(26px);filter:blur(6px);margin-right:.24em;}
-  .sub{margin-top:26px;font-size:clamp(1rem,1.5vw,1.18rem);color:var(--ink-dim);max-width:33rem;line-height:1.65;opacity:0;transform:translateY(14px);transition:opacity .9s .2s,transform .9s .2s;}
+  .sub{margin-top:26px;font-size:clamp(1rem,1.5vw,1.18rem);color:var(--ink-dim);max-width:33rem;line-height:1.65;opacity:0;transform:translateY(14px);transition:opacity .9s .2s,transform .9s .2s;text-shadow:0 1px 16px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.45);}
   .sub.in{opacity:1;transform:none;}
   .hero-ctas{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(14px);transition:opacity .9s .35s,transform .9s .35s;}
   .hero-ctas.in{opacity:1;transform:none;}
@@ -752,8 +752,16 @@ function wake(){
 $('#wakeBtn').addEventListener('click',wake);
 $('#bizName').addEventListener('keydown',e=>{ if(e.key==='Enter') wake(); });
 
-/* ============ NAV SHADE ============ */
-addEventListener('scroll',()=>{ $('#nav').classList.toggle('scrolled', scrollY>40); },{passive:true});
+/* ============ NAV SHADE + HERO DRIFT ============ */
+/* plain listener, recomputed from real scroll position every event, cannot strand */
+const heroEl=$('#hero'), heroInner=document.querySelector('.hero-inner');
+addEventListener('scroll',()=>{
+  $('#nav').classList.toggle('scrolled', scrollY>40);
+  if(!reduced && heroEl && heroInner){
+    const p=Math.max(0,Math.min(1,scrollY/(heroEl.offsetHeight||1)));
+    heroInner.style.transform='translateY('+(-90*p).toFixed(1)+'px)';
+  }
+},{passive:true});
 
 /* ============ MOTION LAYER: Lenis + ScrollTrigger ============ */
 window.__initMotion = function(){
@@ -761,11 +769,9 @@ window.__initMotion = function(){
   try{
     gsap.registerPlugin(ScrollTrigger);
     /* native scroll only: the visitor owns the wheel, motion just rides along */
-    // hero drifts up and fades as you leave it
-    gsap.to('.hero-inner', {
-      y:-90, opacity:.25, ease:'none',
-      scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom top', scrub:true }
-    });
+    /* hero drift moved to the plain scroll listener below: GSAP scrub could
+       strand mid-value after fast jumps, leaving the headline shifted or dim
+       at the top of the page (Cole caught it live 2026-07-05) */
     // night watch: the clock rides the scroll from 10:00 PM to 2:07 AM
     const START=1320, END=1567; // minutes: 22:00 -> 26:07
     ScrollTrigger.create({
