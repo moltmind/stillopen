@@ -43,7 +43,7 @@ Full doctrine: `Synchronize/Team/Moses/MosesV1/_archive_from_homeedge_memory/bra
 
 ## What's live (as of 2026-07-05)
 
-- **stillopen.ai**: marketing site, Cloudflare Pages, last big push 2026-05-19. Homepage `index.html` (dark warm palette, rotator hero) is the redesign target.
+- **stillopen.ai**: marketing site, Cloudflare Pages. **Front door flipped 2026-07-05**: `index.html` is now the Night Shift page with Paul (Cole's half man half robot animated double) in the hero and as the corner clerk cam. Old homepage preserved at `index-v1.html`. `v2/index.html` is the lab copy of the same page (relative asset paths); Paul's assets live in `v2/` (paul-cast.png, paul-hero.mp4, paul-loop.mp4, paul-poster.jpg). Two skills hold the how: `paul-character-pipeline` (generate Paul in new scenes, exact prompts and costs) and `stillopen-web-cinema` (scroll cinema recipes and the house motion rules). Read them before touching Paul or page motion.
 - **app.stillopen.ai**: `worker.js` (~4k lines): chat API, KV (namespace `a8d032d8d52143e0848bc5fc14129c6a`), bookings, Stripe webhooks. This is the real machine; treat with respect.
 - **chatbot.js**: the embeddable widget.
 - **Demos**: fictional trade demos in `demo/`, real-prospect demos at root (kim, allure, lotus, ark, bullis, emily, and more; sources in `../demos/`).
