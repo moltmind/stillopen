@@ -60,8 +60,9 @@
   #hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;}
   #nightScene,#boomCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
   #boomCanvas{object-fit:cover;display:none;}
-  #hero .shade{position:absolute;inset:0;background:linear-gradient(to right,rgba(11,9,8,.88) 0%,rgba(11,9,8,.55) 46%,rgba(11,9,8,.18) 100%),linear-gradient(to top,rgba(11,9,8,.95) 0%,transparent 34%);}
-  .hero-inner{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:120px clamp(20px,4vw,56px) 90px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  #hero .shade{position:absolute;inset:0;background:linear-gradient(to left,rgba(11,9,8,.84) 0%,rgba(11,9,8,.48) 44%,rgba(11,9,8,.06) 100%),linear-gradient(to top,rgba(11,9,8,.95) 0%,transparent 34%);}
+  .hero-inner{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:120px clamp(20px,4vw,56px) 90px;display:flex;justify-content:flex-end;align-items:center;}
+  .hero-copy{max-width:560px;}
   .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
   .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-glow);animation:pulse 2.2s infinite;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
@@ -116,6 +117,7 @@
   .reveal{opacity:0;transform:translateY(34px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}
   .reveal.in{opacity:1;transform:none;}
 
+  .night-top{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;}
   .card{border:1px solid var(--line);border-radius:18px;padding:30px 26px;background:linear-gradient(170deg,rgba(244,237,228,.03),transparent 55%);transition:border-color .35s,transform .35s;}
   .card:hover{border-color:var(--accent);transform:translateY(-3px);}
@@ -162,7 +164,8 @@
   #themes .t1{background:#f97316}#themes .t2{background:#f59e0b}#themes .t3{background:#ff5c38}#themes .t4{background:#4fd1c5}
 
   @media (max-width:900px){
-    .hero-inner{grid-template-columns:1fr;gap:44px;padding-top:110px;}
+    .hero-inner{justify-content:flex-start;padding-top:110px;}
+    .night-top{grid-template-columns:1fr;gap:44px;}
     .phone{justify-self:center;}
     .cards{grid-template-columns:1fr;}
     #pricing .price-card{grid-template-columns:1fr;}
@@ -177,22 +180,11 @@
   /* ---------- Paul, the night clerk ---------- */
   #paul{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:flex-end;gap:12px;opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);pointer-events:none;}
   #paul.in{opacity:1;transform:none;}
-  #paulChar{width:88px;pointer-events:auto;background:none;border:0;padding:0;display:block;cursor:pointer;filter:drop-shadow(0 14px 26px rgba(0,0,0,.55));transition:transform .3s;}
-  #paulChar:hover{transform:translateY(-3px);}
-  #paulChar:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:12px;}
-  #paulChar svg{display:block;width:100%;height:auto;}
-  .p-bob{animation:pBob 4.6s ease-in-out infinite;}
-  @keyframes pBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
-  .p-headg{transform-box:fill-box;transform-origin:50% 88%;transition:transform .7s cubic-bezier(.22,1,.36,1);}
-  #paul.talk .p-headg{transform:rotate(-2.2deg);}
-  .p-lid{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0);animation:pBlink 5.4s infinite;}
-  @keyframes pBlink{0%,92.5%,100%{transform:scaleY(0)}94%,96.5%{transform:scaleY(1)}}
-  .p-led{animation:pulse 2.4s infinite;}
-  .p-tip{animation:pulse 2.2s .4s infinite;}
-  .p-pupil,.p-led{transition:transform .18s ease-out;}
-  .p-arm{transform-box:fill-box;transform-origin:88% 94%;opacity:0;transition:opacity .35s;}
-  #paul.wave .p-arm{opacity:1;animation:pWave 1.5s ease-in-out 2;}
-  @keyframes pWave{0%,100%{transform:rotate(0)}25%{transform:rotate(-14deg)}60%{transform:rotate(9deg)}}
+  #paulChar{width:106px;pointer-events:auto;background:#100d0b;border:1px solid var(--line);border-radius:16px;padding:0;display:block;cursor:pointer;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.55),0 0 40px var(--accent-soft);transition:transform .3s,border-color .3s;}
+  #paulChar:hover{transform:translateY(-3px);border-color:var(--accent);}
+  #paulChar:focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
+  #paulChar video{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transform:scale(1.07);}
+  #paulChar .ptag{display:block;font-family:var(--mono);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:6px 4px 7px;text-align:center;background:rgba(11,9,8,.88);border-top:1px solid var(--line);}
   #paulBubble{pointer-events:auto;position:relative;max-width:290px;background:linear-gradient(160deg,#171310,#100d0b);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:4px;padding:13px 36px 13px 15px;box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 40px var(--accent-soft);opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;visibility:hidden;}
   #paul.talk #paulBubble{opacity:1;transform:none;visibility:visible;}
   #paulBubble .ph{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;gap:7px;}
@@ -204,7 +196,8 @@
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   @media (max-width:640px){
     #paul{left:12px;bottom:12px;gap:9px;}
-    #paulChar{width:64px;}
+    #paulChar{width:78px;}
+    #paulChar .ptag{font-size:.5rem;letter-spacing:.1em;}
     #paulBubble{max-width:min(64vw,250px);padding:11px 32px 11px 13px;}
     #paulBubble .pt{font-size:.82rem;}
   }
@@ -257,25 +250,22 @@
 <!-- HERO -->
 <section id="hero" style="padding:0;">
   <canvas id="nightScene"></canvas>
-  <video id="nightVid" src="night.mp4" muted playsinline preload="auto" style="display:none;"></video>
+  <video id="nightVid" src="paul-hero.mp4" muted playsinline preload="auto" style="display:none;"></video>
   <canvas id="boomCanvas"></canvas>
   <div class="shade"></div>
   <div class="hero-inner">
-    <div>
+    <div class="hero-copy">
       <div class="kicker"><span class="dot"></span> The night shift, covered</div>
       <h1 id="headline">
         <span class="closed"></span>
         <span class="open"></span>
       </h1>
       <p class="sub" id="sub">A front desk that never goes home. It answers every message in seconds, books real jobs into your calendar, and takes deposits through Stripe. While you sleep, while you're on a ladder, while you're at your kid's game.</p>
+      <p class="sub" id="paulLine" style="margin-top:14px;font-size:.95rem;color:var(--ink-faint);">That's Paul at the desk. Half me, half machine. He works the night.</p>
       <div class="hero-ctas" id="ctas">
         <a class="btn solid" href="#factory">Wake up your front desk</a>
         <a class="btn ghost" href="#night">Watch a 2 AM save</a>
       </div>
-    </div>
-    <div class="phone" id="phone">
-      <div class="phone-head"><span class="live"></span><span class="t">Front desk</span><span class="time" id="phoneClock">2:07 AM</span></div>
-      <div class="chat" id="chat"></div>
     </div>
   </div>
   <div class="scrollcue"><span>scroll</span><span class="bar"></span></div>
@@ -300,9 +290,17 @@
 <!-- NIGHT STORY -->
 <section id="night">
   <div class="wrap">
-    <div class="eyebrow reveal">While you were closed</div>
-    <h2 class="reveal">Every night, someone reaches out.<br/>Most of them get nothing.</h2>
-    <p class="lead reveal">Voicemail. An unread contact form. A competitor's site that answered first. StillOpen exists so that nobody who reaches out to your business gets nothing.</p>
+    <div class="night-top">
+      <div>
+        <div class="eyebrow reveal">While you were closed</div>
+        <h2 class="reveal">Every night, someone reaches out.<br/>Most of them get nothing.</h2>
+        <p class="lead reveal">Voicemail. An unread contact form. A competitor's site that answered first. StillOpen exists so that nobody who reaches out to your business gets nothing.</p>
+      </div>
+      <div class="phone" id="phone">
+        <div class="phone-head"><span class="live"></span><span class="t">Front desk</span><span class="time" id="phoneClock">2:07 AM</span></div>
+        <div class="chat" id="chat"></div>
+      </div>
+    </div>
     <div class="cards">
       <div class="card reveal">
         <span class="n">01</span>
@@ -390,44 +388,8 @@
 <!-- PAUL, THE NIGHT CLERK -->
 <div id="paul" aria-label="Paul, the StillOpen night clerk">
   <button id="paulChar" aria-label="Chat with Paul, the night clerk" title="Paul, the night clerk">
-    <svg viewBox="0 0 120 132" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <g class="p-bob">
-        <g class="p-arm">
-          <path d="M27 108 Q13 97 20 81" fill="none" stroke="#1d2126" stroke-width="10" stroke-linecap="round"/>
-          <circle cx="21" cy="77" r="6" fill="#e9b489"/>
-        </g>
-        <rect x="52" y="58" width="8" height="40" fill="#d9a377"/>
-        <rect x="60" y="58" width="8" height="40" fill="#20242a"/>
-        <path d="M20 132 V113 Q20 97 40 94 L60 91 L80 94 Q100 97 100 113 V132 Z" fill="#1d2126"/>
-        <path d="M46 94 L60 104 L74 94" fill="none" stroke="#2c323b" stroke-width="2"/>
-        <rect x="59.4" y="98" width="1.2" height="34" fill="rgba(244,237,228,.10)"/>
-        <rect x="28" y="106" width="26" height="11" rx="2" fill="#f4ede4"/>
-        <text x="41" y="114.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.4" font-weight="700" letter-spacing="1" fill="#15110e">PAUL</text>
-        <g class="p-headg">
-          <rect x="76.6" y="2.5" width="2.2" height="10" rx="1.1" fill="#3d434c"/>
-          <circle class="p-tip" cx="77.7" cy="2.8" r="2.6" style="fill:var(--accent)"/>
-          <path d="M60 10 H50 Q32 10 32 28 V46 Q32 64 50 64 H60 Z" fill="#e9b489"/>
-          <path d="M60 10 H70 Q88 10 88 28 V46 Q88 64 70 64 H60 Z" fill="#262a31"/>
-          <path d="M60 9 H50 Q31.5 9 31.5 28 V31 Q38 19 60 17.5 Z" fill="#3b2c22"/>
-          <path d="M31.8 31 Q34 27 37 25 L37 40 Q33 38 31.8 36 Z" fill="#3b2c22"/>
-          <path d="M62 24 H88 M79 46 V64" stroke="#3d434c" stroke-width="1.2" fill="none"/>
-          <circle cx="84" cy="17" r="1.3" fill="#4a515c"/>
-          <rect x="59.35" y="10" width="1.3" height="54" fill="rgba(244,237,228,.16)"/>
-          <ellipse cx="31" cy="42" rx="3.2" ry="5.2" fill="#e9b489"/>
-          <rect x="86.5" y="37" width="5.5" height="10" rx="2" fill="#3d434c"/>
-          <path d="M40 31.5 Q46 29 51.5 31" fill="none" stroke="#3b2c22" stroke-width="2" stroke-linecap="round"/>
-          <ellipse cx="46" cy="40" rx="6" ry="4.8" fill="#f7f1e8"/>
-          <circle class="p-pupil" cx="46.5" cy="40.4" r="2.7" fill="#33241b"/>
-          <circle cx="47.6" cy="39" r="0.9" fill="#fff"/>
-          <rect class="p-lid" x="39.5" y="35" width="13" height="10" rx="5" fill="#e9b489"/>
-          <circle cx="74" cy="40" r="7.2" fill="#14171b" stroke="#3d434c" stroke-width="1.4"/>
-          <circle cx="74" cy="40" r="6" style="fill:var(--accent)" opacity=".14"/>
-          <circle class="p-led" cx="74" cy="40" r="3.4" style="fill:var(--accent)"/>
-          <path d="M46 54 Q53 57.8 60 57" fill="none" stroke="#8a5f43" stroke-width="1.8" stroke-linecap="round"/>
-          <rect x="63" y="55" width="13" height="1.8" rx=".9" style="fill:var(--accent)" opacity=".75"/>
-        </g>
-      </g>
-    </svg>
+    <video id="paulVid" src="paul-loop.mp4" poster="paul-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+    <span class="ptag">Paul · on shift</span>
   </button>
   <div id="paulBubble">
     <button id="paulX" aria-label="Dismiss Paul's message"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
@@ -545,7 +507,7 @@ function startHero(){
     w.style.transitionDelay=(120+i*95)+'ms';
     w.style.opacity=1; w.style.transform='none'; w.style.filter='blur(0)';
   });
-  $('#sub').classList.add('in'); $('#ctas').classList.add('in'); $('#phone').classList.add('in');
+  $('#sub').classList.add('in'); $('#paulLine').classList.add('in'); $('#ctas').classList.add('in'); $('#phone').classList.add('in');
   setTimeout(runChat, 1400);
 }
 
@@ -648,7 +610,7 @@ vid.addEventListener('canplaythrough', function once(){
   if(reduced || (navigator.deviceMemory && navigator.deviceMemory<4)){
     // light path: plain loop
     vid.loop=true; vid.style.display='block'; vid.style.position='absolute'; vid.style.inset='0';
-    vid.style.width='100%'; vid.style.height='100%'; vid.style.objectFit='cover';
+    vid.style.width='100%'; vid.style.height='100%'; vid.style.objectFit='cover'; vid.style.objectPosition='left center';
     scene.style.display='none'; vid.play().catch(()=>{}); return;
   }
   const frames=[]; const cap=document.createElement('canvas');
@@ -666,7 +628,7 @@ vid.addEventListener('canplaythrough', function once(){
   }
   function plainLoop(){
     vid.loop=true; vid.style.display='block'; vid.style.position='absolute'; vid.style.inset='0';
-    vid.style.width='100%'; vid.style.height='100%'; vid.style.objectFit='cover';
+    vid.style.width='100%'; vid.style.height='100%'; vid.style.objectFit='cover'; vid.style.objectPosition='left center';
     scene.style.display='none'; vid.play().catch(()=>{});
   }
   vid.addEventListener('ended',()=>{ if(frames.length>=24) startBoom(); else plainLoop(); });
@@ -682,7 +644,7 @@ vid.addEventListener('canplaythrough', function once(){
       const cAR=boom.width/boom.height, fAR=cw/ch;
       let dw,dh,dx,dy;
       if(cAR>fAR){ dw=boom.width; dh=dw/fAR; dx=0; dy=(boom.height-dh)/2; }
-      else { dh=boom.height; dw=dh*fAR; dy=0; dx=(boom.width-dw)/2; }
+      else { dh=boom.height; dw=dh*fAR; dy=0; dx=0; /* left-aligned so Paul stays in frame on narrow screens */ }
       bctx.drawImage(f,dx,dy,dw,dh);
       i+=dir; if(i>=frames.length-1||i<=0) dir*=-1;
       setTimeout(()=>requestAnimationFrame(play), 1000/24);
@@ -907,8 +869,7 @@ setInterval(check,900);
 setTimeout(()=>{
   paul.classList.add('in');
   if(!quiet){
-    setTimeout(()=>{ paul.classList.add('wave'); say(greeting()); },700);
-    setTimeout(()=>paul.classList.remove('wave'),4400);
+    setTimeout(()=>{ say(greeting()); },700);
   }
   setTimeout(()=>{ ready=true; },3600);
 }, reduced?400:2000);
@@ -933,17 +894,16 @@ charBtn.addEventListener('click',()=>{
   }
 });
 
-/* both eyes follow the visitor's cursor, a little */
-if(!reduced && matchMedia('(pointer:fine)').matches){
-  const pup=paul.querySelector('.p-pupil'), led=paul.querySelector('.p-led');
-  addEventListener('mousemove',e=>{
-    const r=charBtn.getBoundingClientRect();
-    if(!r.width) return;
-    let dx=(e.clientX-(r.left+r.width/2))/innerWidth, dy=(e.clientY-(r.top+r.height*.3))/innerHeight;
-    dx=Math.max(-1.7,Math.min(1.7,dx*6)); dy=Math.max(-1.3,Math.min(1.3,dy*5));
-    if(pup) pup.style.transform='translate('+dx+'px,'+dy+'px)';
-    if(led) led.style.transform='translate('+(dx*.6)+'px,'+(dy*.6)+'px)';
-  },{passive:true});
+/* keep the clerk cam rolling; autoplay can be blocked, reduced motion gets the still poster */
+const pv=document.getElementById('paulVid');
+if(pv){
+  if(reduced){ pv.removeAttribute('autoplay'); pv.pause(); }
+  else {
+    const kick=()=>{ pv.play().catch(()=>{}); };
+    kick();
+    addEventListener('pointerdown',kick,{once:true});
+    addEventListener('scroll',kick,{once:true,passive:true});
+  }
 }
 })();
 </script>
