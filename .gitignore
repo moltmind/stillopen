@@ -49,3 +49,5 @@ hero-landscape-*/
 *.orig
 *.swp
 .~*
+
+.dev.vars
