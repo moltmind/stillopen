@@ -771,6 +771,31 @@
     setTimeout(() => { if (input) input.focus(); }, 500);
   }
 
+  // ─── PER-CLIENT TRAFFIC BEACON (SW3, 2026-07-10) ────────────────────────────
+  // Once per browser session, tell the worker this client's site got a pageview
+  // so the client's Morning Report can show real website traffic. Fire-and-forget:
+  // wrapped in try/catch and .catch so the widget works even if the ping fails.
+  // Only a real client embed pings (not the sales widget on stillopen.ai, not a
+  // demo widget). The worker records a client hit only when the id is a real
+  // user_ id, so a stray demo/sales id writes nothing. sessionStorage guards
+  // against re-firing on SPA route changes within the same session.
+  try {
+    if (PLUMBER_ID && !IS_SALES_MODE && PLUMBER_ID.indexOf("demo-") !== 0) {
+      var beaconKey = "so_beacon_" + PLUMBER_ID;
+      if (!sessionStorage.getItem(beaconKey)) {
+        sessionStorage.setItem(beaconKey, "1");
+        var refHost = "";
+        try { refHost = document.referrer ? new URL(document.referrer).host : ""; } catch (e) {}
+        fetch(WORKER_URL + "/beacon", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ p: location.pathname, r: refHost, cid: PLUMBER_ID }),
+          keepalive: true,
+        }).catch(function () {});
+      }
+    }
+  } catch (e) {}
+
   } catch (err) {
     // Init failed. Log one clean line so the customer can screenshot it for
     // Cole without getting a raw stack trace dumped on their site.
