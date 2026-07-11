@@ -623,7 +623,29 @@
 
     const bubble = document.createElement("div");
     bubble.className = "he-bubble-text";
-    bubble.textContent = text;
+    if (role === "bot") {
+      // Bot replies can carry URLs (the checkout link, walkthrough page).
+      // Render those as real clickable links; everything else stays a text
+      // node so no HTML from the model ever executes.
+      const urlRe = /https?:\/\/[^\s"')\]]+/g;
+      let last = 0, m;
+      while ((m = urlRe.exec(text)) !== null) {
+        if (m.index > last) bubble.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const cleaned = m[0].replace(/[.,]+$/, "");
+        const a = document.createElement("a");
+        a.href = cleaned;
+        a.textContent = cleaned;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.style.color = "inherit";
+        a.style.textDecoration = "underline";
+        bubble.appendChild(a);
+        last = m.index + cleaned.length;
+      }
+      if (last < text.length) bubble.appendChild(document.createTextNode(text.slice(last)));
+    } else {
+      bubble.textContent = text;
+    }
 
     wrapper.appendChild(bubble);
     messages.appendChild(wrapper);
@@ -786,9 +808,15 @@
         sessionStorage.setItem(beaconKey, "1");
         var refHost = "";
         try { refHost = document.referrer ? new URL(document.referrer).host : ""; } catch (e) {}
+        // Content-Type text/plain keeps this a CORS "simple request" so the
+        // browser sends no preflight. The worker's global OPTIONS handler answers
+        // preflights with Access-Control-Allow-Origin: https://stillopen.ai (the
+        // whitelist fallback), which a client site's own origin would fail. A
+        // simple POST skips that; the worker's 204 carries Allow-Origin: * and
+        // request.json() still parses the JSON body regardless of Content-Type.
         fetch(WORKER_URL + "/beacon", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "text/plain" },
           body: JSON.stringify({ p: location.pathname, r: refHost, cid: PLUMBER_ID }),
           keepalive: true,
         }).catch(function () {});

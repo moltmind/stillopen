@@ -76,7 +76,7 @@
           "priceCurrency": "USD",
           "url": "https://buy.stripe.com/3cIeV64qq7GgaiebHV7N60m",
           "availability": "https://schema.org/InStock",
-          "description": "One-time install fee, then $97/month after 30-day trial. Branded chat, custom AI voice, HIPAA-considerate flow, priority support."
+          "description": "One-time install fee, then $97/month after 30-day trial. Fully branded chat, scheduling wired to your booking tool, priority support."
         }
       ]
     }
@@ -463,6 +463,7 @@
         <a class="btn solid" href="#factory">Start with your free demo</a>
         <a class="btn ghost" href="#" id="askBtn">Ask the front desk a question</a>
         <div class="tiny">30 days free · no card to start</div>
+        <div class="tiny">Already sold? <a href="https://app.stillopen.ai/checkout" style="color:inherit;text-decoration:underline;">Set up my front desk</a></div>
       </div>
     </div>
   </div>
@@ -738,6 +739,8 @@ function checkReport(){
 }
 addEventListener('scroll',checkReport,{passive:true});
 setInterval(checkReport,600); checkReport();
+// safety net: if the scroll trigger never fires, count up anyway
+setTimeout(()=>{ if(!counted){ counted=true; nums.forEach(countUp); } },4000);
 
 /* ============ FACTORY PREVIEW ============ */
 function wake(){
