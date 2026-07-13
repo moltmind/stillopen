@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html  lang="en-US">
+<head id="Head"><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta name="REVISIT-AFTER" content="1 DAYS" />
+<meta name="RATING" content="GENERAL" />
+<meta name="RESOURCE-TYPE" content="DOCUMENT" />
+<meta content="text/javascript" http-equiv="Content-Script-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+
+<link rel="stylesheet" type="text/css" href="/Portals/47/Skins/master/slick/slick.css"/> 
+<link rel="stylesheet" type="text/css" href="/Portals/47/Skins/master/slick/slick-theme.css"/><title>
+	TMS Tire & Auto Complete Automotive Care | Auto Repair & Tire Shop in Baldwin, Boyceville, Menomonie, WI 
+</title><meta id="MetaDescription" name="description" content="TMS Tire &amp; Auto Complete Automotive Care is the local choice for auto repair and tires in Baldwin, Boyceville, Menomonie, WI,  delivering honest and professional services you can trust. Schedule your appointment with us today!" /><meta id="MetaKeywords" name="keywords" content="Buying Tire Baldwin WI, Shop Tire Baldwin WI, Tire Service Baldwin WI, Tire Repair Baldwin WI, Auto Service Baldwin WI, Auto Repair Baldwin WI, Preventive Maintenance Baldwin WI, Wheel Service Baldwin WI, TMS Tire &amp; Auto Complete Automotive Care, Baldwin WI, Boyceville WI, Menomonie WI, Wisconsin" /><meta id="MetaRobots" name="robots" content="INDEX, FOLLOW" /><link href="/Resources/Shared/stylesheets/dnndefault/7.0.0/default.css?cdv=1050" type="text/css" rel="stylesheet"/><link href="/DesktopModules/PortalToolkit/module.css?cdv=1050" type="text/css" rel="stylesheet"/><link href="/DesktopModules/WillStrohl.Injection/module.css?cdv=1050" type="text/css" rel="stylesheet"/><link href="/DesktopModules/LFLocations/module.css?cdv=1050" type="text/css" rel="stylesheet"/><link href="/DesktopModules/PostalCodeLookup/module.css?cdv=1050" type="text/css" rel="stylesheet"/><link href="/DesktopModules/CouponClient/module.css?cdv=1050" type="text/css" rel="stylesheet"/><link href="/Portals/47/Skins/master/skin.css?cdv=1050" type="text/css" rel="stylesheet"/><script src="/Resources/libraries/jQuery/03_05_01/jquery.js?cdv=1050" type="text/javascript"></script><script src="/Resources/libraries/jQuery-UI/01_13_02/jquery-ui.min.js?cdv=1050" type="text/javascript"></script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/v4-shims.css" />
+    <style>
+    .DNNModuleContent {
+        overflow: visible;
+		
+    }
+	#ta-widget-container {      
+		min-height:unset !important;
+	
+	}
+    /* Login/Logout button styled to match original anchor */
+        #poweredbynd #login span button#dnn_dnnLOGIN_loginLink,
+        #poweredbynd #login span button#dnn_dnnLOGIN_loginLink:link,
+        #poweredbynd #login span button#dnn_dnnLOGIN_loginLink:visited {
+            background: none !important;
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            cursor: pointer !important;
+            color: #fff !important;
+            text-decoration: underline !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            display: inline !important;
+            outline: none !important;
+            box-shadow: none !important;
+            -webkit-appearance: none !important;
+            appearance: none !important;
+        }
+            #poweredbynd #login span button#dnn_dnnLOGIN_loginLink:hover {
+                text-decoration: none !important;
+                color: #fff !important;
+            }
+    </style>
+ 
+  <script>
+     (function() {
+ 	const originalCreateElement = document.createElement;
+ 	// Define script categories based on consent type
+ 	const scriptCategories = {
+ 		advertising: [
+ 			"https://connect.facebook.net/en_US/fbevents.js"
+ 		],
+ 		functional: []
+ 	};
+
+ 	const unblockedScripts = [];
+ 	let lastConsentState = localStorage.getItem("lvcmAdvertising");
+
+ 	function shouldBlockScript(src, category) {
+ 		if (typeof src !== "string") return false;
+
+ 		// Allow ASP.NET and inline scripts
+ 		if (!src || src.includes("__doPostBack") || src.includes("WebResource.axd") || src.includes("ScriptResource.axd")) {
+ 			console.log(`[ALLOW] ASP.NET script detected: ${src}`);
+ 			return false;
+ 		}
+
+ 		const consentKey = `lvcm${category.charAt(0).toUpperCase() + category.slice(1)}`;
+ 		const consentValue = localStorage.getItem(consentKey);
+ 		const consentGranted = consentValue !== "0";
+
+ 		//console.log(`[CHECK] Script: ${src} | Category: ${category} | Consent: ${consentValue} (${consentGranted ? "GRANTED" : "DENIED"})`);
+
+ 		const shouldBlock = !consentGranted &&
+ 			scriptCategories[category].some(script => src.includes(script)) &&
+ 			!unblockedScripts.includes(src);
+ 		return shouldBlock;
+ 	}
+
+ 	// Function to check if a script already exists in the document
+ 	function scriptExists(src) {
+ 		return document.querySelector(`script[src='${src}']`) !== null;
+ 	}
+ 	// Override document.createElement to intercept script creation dynamically
+ 	document.createElement = function(tagName) {
+ 		if (tagName.toLowerCase() === "script") {
+ 			const script = originalCreateElement.call(document, tagName);
+ 			const originalSetAttribute = script.setAttribute.bind(script);
+
+ 			Object.defineProperty(script, "src", {
+ 				get: () => script.getAttribute("src"),
+ 				set: (value) => {
+
+ 					if (typeof value !== "string") {
+ 						originalSetAttribute("src", value);
+ 						return;
+ 					}
+ 					if (!value || value.includes("__doPostBack") || value.includes("WebResource.axd") || value.includes("ScriptResource.axd")) {
+ 						console.log(`[ALLOW] ASP.NET script (allowed): ${value}`);
+ 						originalSetAttribute("src", value);
+ 						return;
+ 					}
+
+ 					if (scriptExists(value)) {
+ 						return; // Prevent duplicate script loading
+ 					}
+
+ 					let blocked = false;
+ 					for (const category in scriptCategories) {
+ 						if (shouldBlockScript(value, category)) {
+ 							originalSetAttribute("type", "javascript/blocked");
+ 							blocked = true;
+ 							break;
+ 						}
+ 					}
+ 					if (!blocked) {
+ 						originalSetAttribute("src", value); // Allow script execution
+ 					}
+ 				}
+ 			});
+ 			return script;
+ 		}
+ 		return originalCreateElement.call(document, tagName);
+ 	};
+
+ 	// Function to manage blocked scripts based on user consent
+ 	function handleBlockedScripts() {
+ 		Object.keys(scriptCategories).forEach(category => {
+ 			const consentKey = `lvcm${category.charAt(0).toUpperCase() + category.slice(1)}`;
+ 			const consentValue = localStorage.getItem(consentKey);
+ 			const consentGranted = consentValue !== "0";
+
+ 			if (!consentGranted) {
+ 				scriptCategories[category].forEach(scriptSrc => {
+ 					document.querySelectorAll("script").forEach(script => {
+ 						if (script.innerHTML.includes(scriptSrc)) {
+ 							script.innerHTML = script.innerHTML.replace(scriptSrc, "javascript/blocked");
+ 						}
+ 					});
+ 				});
+ 			} else {
+ 				//console.log(`[ALLOW] Restoring previously blocked scripts for category: ${category}`);
+ 				document.querySelectorAll("script[type='javascript/blocked']").forEach(blockedScript => {
+ 					const src = blockedScript.getAttribute("src");
+ 					if (scriptCategories[category].includes(src)) {
+ 						const newScript = document.createElement("script");
+ 						newScript.src = src;
+ 						newScript.type = "application/javascript";
+ 						document.body.appendChild(newScript);
+ 						blockedScript.remove();
+ 					}
+ 				});
+ 			}
+ 		});
+ 	}
+
+ 	// On page load, process scripts based on consent
+ 	document.addEventListener("DOMContentLoaded", () => {
+ 		handleBlockedScripts();
+ 	});
+
+ 	// Listen for consent updates and reload page if necessary
+ 	document.addEventListener("consentUpdate", () => {
+ 		handleBlockedScripts();
+ 		const newConsentState = localStorage.getItem("lvcmAdvertising");
+ 		if (newConsentState !== lastConsentState) {
+ 			setTimeout(() => location.reload(), 500);
+ 		}
+ 	});
+ })();
+  </script>
+<meta name="google-site-verification" content="SsAglI9ghWEk0uxLLt_EzxToMt__i9ZvVWQjPk0eQSo" /><link rel='SHORTCUT ICON' href='/Portals/47/favicon.ico' type='image/x-icon' />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+<link href="./" rel="canonical" />  <meta name="robots" content="noindex, nofollow">
+</head>
+<body id="Body">
+    <script> var skinInfo = {"LocationsUrl":"https://www.tmstireandauto.com/Find-Us"}</script>
+
+<script type='text/javascript'>
+
+                var dynamicForms;
+                var formName = '.DnnModule-DynamicForms';
+                var dynamicFormClass = '.DnnModule-DynamicForms';
+                var serverSideFormDataPresent = false;
+                var serverSideFormDetails = null;
+
+                function GetFirstElementText(arrayElements) {
+                    var firstElementText = '';
+                
+                    if (arrayElements.length > 0) {
+                        firstElementText = arrayElements[0].innerText;
+                    }
+                    
+                    return firstElementText;
+                }
+
+                function getDynamicFormsUtagLinkObject(tealiumEvent, index)
+                {
+                    var tfObj = {
+                        'ga4_id': 'G-R7ZCDKJWME',
+                        'site_company_name': 'TMS Tire & Auto Complete Automotive Care (Baldwin, WI)',
+                        'site_id': 'b46483d1-8647-4ac8-8da6-730caa4d5e34',
+                        'site_internal_id': '10032206',
+                        'site_platform': 'Net Driven',
+                        'site_section': 'Home',
+                        'site_sub_section': ''
+                    };
+
+                    if (serverSideFormDataPresent && serverSideFormDetails) {
+                            tfObj.form_name = serverSideFormDetails.form_name;
+                            tfObj.form_type = serverSideFormDetails.form_type;
+                            tfObj.form_id   = serverSideFormDetails.form_id;
+                        }
+                    else {
+                            tfObj.form_name = $(dynamicForms[index]).find('h1').text();
+                            tfObj.form_type = $(dynamicForms[index]).find('h1').text();
+                            tfObj.form_id   = $(dynamicForms[index]).find('h1').text();
+                        }
+                    tfObj.page_h1 = GetFirstElementText(document.getElementsByTagName('h1'));
+                    tfObj.page_title = GetFirstElementText(document.getElementsByTagName('title'));
+                    tfObj.page_title_count = tfObj.page_title.length.toString();
+                    tfObj.tealium_event = tealiumEvent;
+
+                    if (tealiumEvent === 'form_submit') {
+                                                
+                        var $form = $(dynamicForms[index]);
+
+                   function setIfPresent(key, selector) {
+                        var $el = $form.find(selector);
+                        if ($el.length) {
+                            var val = '';
+                            if ($el.is(':radio')) {
+                                var $checked = $el.filter(':checked');
+                                val = $checked.length ? $checked.val() : '';
+                            } else if ($el.is(':checkbox')) {
+                                var vals = [];
+                                $el.filter(':checked').each(function () {
+                                    if (this.value) vals.push(this.value.trim());
+                                });
+                                val = vals.join(', ');
+                            } else if ($el.is('input:text')) {
+                                var vals = [];
+                                if (formName == dynamicFormClass) {
+                                    vals.push($el.val());
+                                } else {
+                                    $el.find('input:text').each(function () {
+                                        if (this.value) vals.push(this.value.trim());
+                                    });
+                                }
+                                val = vals.join(', ');
+                            }
+                            if (val && val.trim() !== '') {
+                                tfObj[key] = val.trim();
+                            }
+                        }
+                    }
+            setIfPresent('form_submission_name', '[id$="Name"], [name$="Name"]');      
+            setIfPresent('form_submission_first_name', '[id$="FirstName"], [name$="FirstName"]');
+            setIfPresent('form_submission_last_name', '[id$="LastName"], [name$="LastName"]');
+            setIfPresent('form_submission_email', '[id$="Email"], [name$="Email"]');
+            setIfPresent('form_submission_phone_number', '[id$="Tele"], [name$="Tele"]');
+            setIfPresent('form_submission_address',          '[id$="Address"], [name$="Address"]');
+            setIfPresent('form_submission_city',             '[id$="City"], [name$="City"]');
+            setIfPresent('form_submission_state',            '[id$="State"], [name$="State"]');
+            setIfPresent('form_submission_postal_code',      '[id$="Zip"], [name$="Zip"], [id$="PostalCode"], [name$="PostalCode"]');
+            setIfPresent('form_submission_location_name',    '[id$="Location"], [name$="Location"]');
+            setIfPresent('form_submission_service_required', '[id$="Service"], [name$="Service"]');
+            setIfPresent('form_submission_parts_required',   '[id$="Parts"], [name$="Parts"]');
+            setIfPresent('form_submission_id',               '[id$="FormId"], [name$="FormId"], [id$="form_id"], [name$="form_id"]');
+        }
+
+                    return tfObj;
+                }
+
+                function submitDynamicFormToTealium(index) {                    
+                    var tfObj = getDynamicFormsUtagLinkObject('form_submit', index); 
+                    utag.link(tfObj);
+                }
+            
+$(function() {
+                        function initializeUtag() {
+utag_data = {
+  "site_company_name": "TMS Tire & Auto Complete Automotive Care (Baldwin, WI)",
+  "site_phone_main": "(715) 684-3405",
+  "site_id": "b46483d1-8647-4ac8-8da6-730caa4d5e34",
+  "site_internal_id": "10032206",
+  "site_platform": "Net Driven",
+  "site_section": "Home",
+  "site_sub_section": "",
+  "tealium_event": "standard_view",
+  "ga4_id": "G-R7ZCDKJWME"
+}; 
+            
+            utag_data.page_h1 = GetFirstElementText(document.getElementsByTagName('h1')); 
+            utag_data.page_title = GetFirstElementText(document.getElementsByTagName('title'));
+            utag_data.page_title_count = utag_data.page_title.length.toString();
+}
+serverSideFormDataPresent = false;
+
+            var form_interact_event = function() {
+                if (window.form_interacted){
+                    return;
+                }
+                let index = 0;
+                var tfObj = getDynamicFormsUtagLinkObject('form_interaction', index);
+                tfObj.tealium_event = "form_interaction";
+                utag.link(tfObj);
+                window.form_interacted = true;
+            };
+
+            var elements = document.getElementsByTagName("input");
+            Array.from(elements).forEach(function(element) {
+              element.addEventListener('click', form_interact_event);
+            });
+
+            function tealiumCallback(){
+                
+                dynamicForms = $(formName);
+                let index = 0;
+                if (dynamicForms.length > 0)
+                {
+                    dynamicForms.toArray().every(form => {
+                        if (form.children[1].innerText == 'CONTACT US' || form.parentElement.id.includes('Footer') || form.parentElement.id.includes('footer')) {
+                            return true; //keep looping
+                        }
+                        else{
+                                if (!serverSideFormDataPresent) {
+                            var tfObj = getDynamicFormsUtagLinkObject('form_load', index);
+                            utag.link(tfObj);
+                            var firstDynFormBtnSave;
+                            if(formName == dynamicFormClass) {
+                             firstDynFormBtnSave = $($(dynamicForms[index]).find('input[name*=btnSave]')[0]);
+                                 if (firstDynFormBtnSave.length > 0)
+                                    {
+                                        firstDynFormBtnSave.attr('onclick', firstDynFormBtnSave.attr('onclick').replace('__doPostBack', 'submitDynamicFormToTealium(' + index + '); __doPostBack'))
+                                    }
+                             }
+                                else {
+                                    firstDynFormBtnSave = $($(dynamicForms[index]).find('input[type*=submit]')[0]);
+                                        if (firstDynFormBtnSave.length > 0)
+                                        {
+                                            var currentOnClick = firstDynFormBtnSave.attr('onclick');
+                                            var newHandler = 'submitDynamicFormToTealium(' + index + ');';
+                                            var finalHandler;
+
+                                            if (currentOnClick) {
+                                                if (currentOnClick.indexOf('__doPostBack') !== -1) {
+                                                    // Insert before __doPostBack
+                                                    finalHandler = currentOnClick.replace('__doPostBack', newHandler + '__doPostBack');
+                                                } else {
+                                                    // Prepend to existing handler
+                                                    finalHandler = newHandler + currentOnClick;
+                                                }
+                                            } else {
+                                                // Set new handler
+                                                finalHandler = newHandler + 'return true;';
+                                            }
+
+                                            firstDynFormBtnSave.attr('onclick', finalHandler);
+                                        }
+                            }
+                        }
+                            return false; //stop looping
+                        }
+                        index++;
+                    });
+                }
+                if (utag.data.tealium_event.substr(utag.data.tealium_event.length - 4) === 'view') { utag.view(utag_data); }
+            
+
+}
+
+                initializeUtag();
+                const script = document.createElement('script');
+                script.src = 'https://tags.tiqcdn.com/utag/dtms/netdriven-eas/prod/utag.js';
+                script.onload = () => {
+                    tealiumCallback();
+                };
+                document.body.appendChild(script);
+            
+});
+                    </script>
+
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "TMS Tire & Auto Complete Automotive Care",
+	"url": "",
+	"telephone": "",
+	"address": ""
+}
+</script>
+
+
+    <script>
+        if (typeof jQuery == 'undefined') {
+            var headTag = document.getElementsByTagName("head")[0];
+            var jqTag = document.createElement('script');
+            jqTag.type = 'text/javascript';
+            jqTag.src = '/Resources/libraries/jQuery/03_02_01/jquery.js';
+            headTag.appendChild(jqTag);
+        }
+    </script>
+    <link rel="stylesheet" href="/Resources/nd/fix.css?v=193" />
+    <link rel="stylesheet" href="/Resources/nd/pop404.css?v=193" />
+    <script src="/Resources/nd/default.js?v=193"></script>
+    <script type="text/javascript">
+        (function () {
+            var alias = "www.tmstireandaut" + "o.com";
+            var path = "/Default.aspx?TabId=4154&language=en-US";
+
+            if (alias.indexOf("/") > 0) {
+                alias = alias.substring(0, alias.indexOf("/"));
+            }
+            var alias2nd = alias.split('.').slice(-2).join('.');
+            var windowLocation2nd = location.hostname.split('.').slice(-2).join('.');
+
+            if (windowLocation2nd != alias2nd && document.location.host != 'web.a' + 'rchiv' + 'e.org') {
+                document.location.href = document.location.protocol + "//" + alias + path;
+            }
+        })();
+    </script>
+    <div></div>
+	<script type="text/javascript">
+        var serverStatus = '200';
+        var is404Tab =  false;
+        var isHomeTab =  true;
+
+        $(document).ready(function () {
+                if (window.location.pathname.startsWith("/privacy") || window.location.pathname.startsWith("/terms"))
+                {
+                    var $moduleContent = $('#dnn_ctr_ModuleContent').find('span').first().children('div');
+                    $moduleContent.first().before(document.getElementById("prefixContent").innerHTML);
+                    $moduleContent.children().last().before(document.getElementById("suffixContent").innerHTML);
+                }
+            if (serverStatus == '404' && isHomeTab) {
+                $('#http404Overlay').css('display', 'block');
+                $('#http404Overlay').on('click', function () {
+                    $('#http404Overlay').css('display', 'none');
+                });
+                var utag_data_error = utag_data;
+                utag_data_error.site_sub_section = "error";
+                utag_data_error.site_section = "error";
+                utag_data_error.tealium_event = "error_view";
+                utag.link(utag_data_error);
+            }
+        });
+
+        if (isHomeTab) {
+            if (window.location.pathname.startsWith('/login') ||
+                window.location.pathname.startsWith('/terms') ||
+                window.location.pathname.startsWith('/privacy') ||
+                window.location.pathname.startsWith('/accessibility')) {
+                $('body').append('<style>div{padding:0 !important; margin:0 auto !important;} #dnn_ContentPane{margin-top:80px !important;} #main-content{overflow:hidden;}</style>');
+            }
+        }
+    </script>
+
+    <form method="post" action="/" id="Form" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV0VJcO48nJV2-r75S5jRxszmsoIlKeesqav8ysissGkfjRgqAw1&amp;t=638562346700000000" type="text/javascript"></script>
+
+<script type='text/javascript'> $(document).ready(function () { if($('#slider6102')[0] != null) { $('#slider6102').s3Slider({ timeOut: 4998});} });</script>
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipe5W6i7QFHDcDCVLLm4QA8pOC5KkuV0hw-AUIHMTkVB5iecAGWQSi6zLq09VASld_G5SBGuApLxE6ZdYeP7_l1t8F3d1mb9C1cqQLqXrUOMCjztBC8aTKWTMC98g2&amp;t=7a0cc936" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJ4rh9tJNCxQUWQ1CgOgjDyx4K6Vs-Rr7RKD64TpiEOyGtLPNnuXSKv-p7UZHLn5NFu4m4pJDpwYjcs_J6C3Mk2qVtHikXeQhFKUV6qxPDjrFmA8jPKtl7S_pJtNady8rj__h9p0&amp;t=7a0cc936" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ANNZrzXKNJJXfqQKSk+T+/f4z6zEXySdupcf7QaW4Mi4KqmkECKNvaWoaA9naCL5TcxLWZ+qZszh/nEA+S7cTyPWWIV0jhAUEBShn6Cm1Cu6MMfU+kP+30Cog3ihlySdZZXGcENwHQzsZIRxJgSBMbiezXM=" />
+</div><script src="/js/dnn.modalpopup.js?cdv=1050" type="text/javascript"></script><script src="/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js?cdv=1050" type="text/javascript"></script><script src="/DesktopModules/AdminBar/responsive/v4.js?cdv=1050" type="text/javascript"></script><script src="/js/dnncore.js?cdv=1050" type="text/javascript"></script><script src="/Resources/Shared/Scripts/dnn.jquery.js?cdv=1050" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', 'Form', [], [], [], 90, '');
+//]]>
+</script>
+
+        <div id="NDDialogContainer" style=" height: 0; overflow: visible;"></div>
+        
+        
+         <!-- Need -->
+ <!-- Need -->
+ <!-- Need -->
+ <!-- Need -->
+ <!-- Need -->
+ <!-- Need -->
+
+<script>
+(function() {
+    var meta = document.createElement("meta");
+    meta.setAttribute('name','viewport');
+    var content = 'initial-scale=1';
+    //content += 1 / window.devicePixelRatio;
+    content += ',width=device-width';
+	//content += window.innerWidth;
+    meta.setAttribute('content', content);
+    document.getElementsByTagName('head')[0].appendChild(meta);
+})();
+
+(function () {
+    window.addEventListener('scroll', function (e) {
+        let menubar = document.querySelector("#nd-menubar");
+        let el = document.scrollingElement || document.documentElement;
+        if (el.scrollTop > 200) menubar.classList.add("scrolled");
+        else menubar.classList.remove("scrolled");
+    });
+})();
+</script>
+
+
+<script>
+	window.isHomepage = true;
+</script>
+<!--CDF(Javascript|/DesktopModules/AdminBar/responsive/v4.js?cdv=1050|DnnBodyProvider|100)--> 
+
+<script src="//a2.nd-cdn.us/Skinning/responsive/rwdImageMaps.min.js"></script>
+<script src="/DesktopModules/AdminBar/adminpanel.js" type="text/javascript" defer></script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+<link href="//a2.nd-cdn.us/Skinning/fonts/nd-icons.css" rel="stylesheet"/>
+
+
+<script>
+$(document).ready(function(e) {$('img[usemap]').rwdImageMaps();});
+</script>
+
+<!-- Logged in Only -->
+ <!-- Net Driven Admin Panel -->
+
+<!-- Fonts Link Here -->
+ 
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Roboto:400,500i,700|Dancing+Script&display=swap' rel='stylesheet' type='text/css'>
+
+<!-- NET DRIVEN RESPONSIVE CONTROL PANEL -->
+<script>
+    $("html").responsive({
+        site_type         : "elite",            //Elite or Premium
+        tires_to_vlb      : true                //Turns the first "Shop For Tires" CTA to link to the VLB.
+    });
+</script>
+
+<!-- Slick Slider -->
+<script type="text/javascript" src="/Portals/47/Skins/master/slick/slick.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.logobar-slider').slick({
+        speed: 5000,
+        autoplay: true,
+        autoplaySpeed: 0,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        infinite: true,
+        swipeToSlide: true,
+        draggable: false,
+        arrows: false,
+        responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 3,
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2,
+              }
+            }
+        ]
+      });
+      $('.reviews-slider').slick({
+        speed: 800,
+        autoplay: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        draggable: true,
+        arrows: true,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        adaptiveHeight: false,
+        prevArrow:'<button class="fas fa-chevron-left slick-prev" type="button"></button>',
+        nextArrow:'<button class="fas fa-chevron-right slick-next" type="button"></button>'
+      });
+    });
+</script>
+
+<div id="dnn_SocialPane" class="DNNEmptyPane"></div> 
+
+<div class="mobileButtons">
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,,500,700|Roboto:400,700|Dancing+Script&display=swap' rel='stylesheet' type='text/css'>
+	<div class="mobileBG"></div>
+	<div id="mobile-buttons">
+		<a name="menu" class="menu-menu fb-left left-button nd-mobile-button"><span class="fa fa-bars"></span></a>
+		<!-- <a name="phone" target="_blank" class="menu-phone right-button nd-mobile-button"><span class="fa fa-phone"></span></a> -->
+		<!-- <a name="find" class="menu-location right-button nd-mobile-button seo-loc"><span class="fa fa-map-marker"></span></a> -->
+	</div>
+</div>
+
+<div class="mobileOverlay">
+    <div class="call-dropdown nd-mobile-popup">
+        <a class="fa fa-times-circle-o close-button"></a>
+        <div class="contents"></div>
+    </div>
+    <div class="location-dropdown nd-mobile-popup">
+        <a class="fa fa-times-circle-o close-button"></a>
+        <div class="contents"></div>
+    </div>
+</div>
+
+<div id="nd-background">
+    <div class="mobile-menu-space"></div>
+
+    <div id="nd-actionbar">
+        <div class="container">
+            <div id="dnn_ActionBarPane"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6767"><a name="6767"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6767_ContentPane"><!-- Start_Module_6767 --><div id="dnn_ctr6767_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6767_HtmlModule_lblContent" class="Normal">
+		<div id="top-social"> 
+    <a title="Facebook Page" href="https://www.facebook.com/tmstireandauto/" target="_blank" class="fa fa-facebook"></a>
+    <!-- <a title="Instagram Page" href="" target="_blank" class="fa fa-instagram"></a> -->
+    <a title="Yelp Page" href="https://www.yelp.com/biz/tms-tire-and-auto-baldwin-2" target="_blank" class="fa fa-yelp"></a>
+    <!-- <a title="Twitter Page" href="Twitter Not Configured" target="_blank" class="fa fa-twitter"></a> -->
+    <!-- <a title="LinkedIn Page" href="" target="_blank" class="fa fa-linkedin"></a> -->
+    <!-- <a title="Youtube Page" href="" target="_blank" class="fa fa-youtube"></a> -->
+    <a title="Google Page" href="https://www.google.com/maps/place/TMS+Tire+%26+Auto/@44.9666862,-92.3747545,21z/data=!4m5!3m4!1s0x0:0xa7d9a2970ead6528!8m2!3d44.9667051!4d-92.3746835" target="_blank" class="fa fa-google"></a>
+</div>
+	</div>
+
+</div><!-- End_Module_6767 --></div>
+
+</div>
+
+
+</div></div> 
+        </div>
+    </div>
+
+    <div id="contentheader">
+        <div class="header-left-wrapper">
+            <div class="header-logo">
+                <a id="dnn_dnnLogo_hypLogo" title="TMS Tire &amp; Auto Complete Automotive Care - (Baldwin, WI)" aria-label="TMS Tire &amp; Auto Complete Automotive Care - (Baldwin, WI)" href="./"><img id="dnn_dnnLogo_imgLogo" class="nd-topfixedlogo" src="/Portals/47/logo.png" alt="TMS Tire &amp; Auto Complete Automotive Care - (Baldwin, WI)" /></a>
+            </div>
+        </div>
+        <div class="header-right-wrapper">
+            <div id="dnn_HeaderContactPane"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6098"><a name="6098"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6098_ContentPane"><!-- Start_Module_6098 --><div id="dnn_ctr6098_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6098_HtmlModule_lblContent" class="Normal">
+		<div class="webfont" id="headercontact">
+    <div class="cnt-flex-text">
+        
+        <div class="header-info">
+            <!-- <div class="phone">
+               <a href="tel:+1(715) 684-3405" title="Call Us">(715) 684-3405</a>
+            </div>
+            <div class="address">
+                <a href="/Contact/Find-Us" title="Find Us"></a>
+            </div> -->
+            <h3>3 Locations to Serve You</h3>
+            <a href="/Find-Us" class="btn" title="Find Locations"></a>
+        </div>
+        <div class="cnt-header-social">
+            <div class="header-slogan">
+                Family Owned Since 1978
+            </div>
+        </div>
+        <!-- <div class="header-social">
+            <a title="Facebook Page" href="https://www.facebook.com/tmstireandauto/" target="_blank" class="fa fa-facebook"></a>
+            <a title="Twitter Page" href="Twitter Not Configured" target="_blank" class="fa fa-twitter"></a>
+            <a title="Yelp Page" href="https://www.yelp.com/biz/tms-tire-and-auto-baldwin-2" target="_blank" class="fa fa-yelp"></a>
+            <a title="Google Page" href="https://www.google.com/maps/place/TMS+Tire+%26+Auto/@44.9666862,-92.3747545,21z/data=!4m5!3m4!1s0x0:0xa7d9a2970ead6528!8m2!3d44.9667051!4d-92.3746835" target="_blank" class="fa fa-google"></a>
+        </div> -->
+    </div>
+</div>
+	</div>
+
+</div><!-- End_Module_6098 --></div>
+
+</div>
+
+
+</div><div class="DnnModule DnnModule-PostalCodeLookup DnnModule-6099"><a name="6099"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6099_ContentPane"><!-- Start_Module_6099 --><div id="dnn_ctr6099_ModuleContent" class="DNNModuleContent ModPostalCodeLookupC">
+	
+
+<script type="text/javascript">
+    var guid = 'b46483d1-8647-4ac8-8da6-730caa4d5e34';
+    var geoType = 'cityState';
+    var locLink = 'https://www.tmstireandauto.com/Find-Us?nav=%2f';
+    var geoEnabled = 'True';
+    var placeHolderText = 'Zip Code';
+    var locCount = '3';
+    var singleLocationId = '0';
+    var postalCodeClientId = 'dnn_ctr6099_View_txtPostalCode';
+</script>
+
+<script type="text/javascript">$(window).on('load', function () {
+    $(".postalcode-entrybox").attr("placeHolder", placeHolderText);
+    if (geoEnabled == 'True') {
+        var geoCookieInfo = GetNdGeoCookie();
+        if (geoCookieInfo === null || geoCookieInfo.GUID == "") {
+            if (locCount == 1) {
+                GetAndDisplayLocById(singleLocationId);
+            } else {
+                AskForGeoLocation();
+            }
+        } else {
+
+            if (geoCookieInfo.SharedLocation == "False" || (typeof ($(".GeoPanel")[0])) == "undefined") {
+                $(".PostalPanel").show();
+                var callText = $("#CallUsContainer").html();
+                callText = callText.replace(/(Call)+/g, 'Find').replace(/(phone)+/g, 'map-marker');
+                $("#FindUsContainer").html(callText);
+                $(".postalcode-entrybox").attr("placeHolder", placeHolderText);
+            } else {
+                GetAndDisplayLocById(geoCookieInfo.LocationId);
+
+                $(".PostalPanel").remove();
+                $("#locator-text").remove();
+                $(".GeoPanel").css('display', 'block');
+                var directions = $("#GeoDirectionLink").prop("href");
+                var phone = $("#GeoPhone").prop("href");
+                $(".location-choice").each(function (i, obj) { $(obj).remove() })
+                $(".call-choice").each(function (i, obj) { $(obj).remove() })
+                $(".location-dropdown").remove();
+                $(".call-dropdown").remove()
+                $(".seo-loc").prop("href", directions);
+                $(".menu-phone").prop("href", phone);
+            }
+        }
+    } else {
+        $(".PostalPanel").css('display', 'block');
+    }
+
+    if (locCount == 1) {
+        $(".ResetLink").remove();
+        $("#GeoHours").css("background", "none");
+        $("#GeoHoursMobile").css("background", "none");
+
+    }
+
+});
+
+function initLocCookies() {
+    var zip = $('#' + postalCodeClientId)[0];
+    setNDcookie("mapSearch", zip.value);
+}
+
+function ResetLocation() {//TODO prove this isn't used anywhere, and delete it
+    AskForGeoLocation();
+    window.location.reload(false);
+}
+
+function AskForGeoLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition, declineLocation);
+}
+
+function declineLocation(error) {
+    $(".PostalPanel").show();
+    var callText = $("#CallUsContainer").html();
+    callText = callText.replace(/(Call)+/g, 'Find').replace(/(phone)+/g, 'map-marker');
+    $("#FindUsContainer").html(callText);
+}
+
+function showGeoBox() {
+    $('.GeoDefault').toggle();
+    var bg = $(".DefaultGeoBox").css("background").toString();
+    if (bg == "") {
+        bg = $(".DefaultGeoBox").css("background-image").toString();
+    }
+
+
+    if (bg.indexOf("down") != -1) {
+        $(".DefaultGeoBox").css("background", "url(desktopmodules/postalcodelookup/img/triangle.png) no-repeat center right 5px");
+    } else {
+        $(".DefaultGeoBox").css("background", "url(desktopmodules/postalcodelookup/img/white_down_triangle.png) no-repeat center right 5px");
+    }
+}
+
+function showResponsiveGeoBox() {
+    $('.GeoResponsive').toggle();
+    $(".PostalPanel").remove();
+    $("#locator-text").remove();
+}
+
+function showPosition(position) {
+    sendZip(position.coords.latitude, position.coords.longitude, true);
+}
+
+function zipGeoLookUpResponse() {
+    setNDcookie("mapSearch", zipLonLatResult);
+    window.location = LocationsBaseURL;
+}
+
+function sendZip(lat, lon, share) {
+    var url = '/DesktopModules/PostalCodeLookup/Components/GeoService.asmx/GetLocationData';
+    var r = new XMLHttpRequest();
+    r.open('POST', url, true);
+    r.onreadystatechange = function () {
+        if (r.readyState != 4 || r.status != 200) return;
+        xmlDoc = $.parseXML(r.responseText);
+        parsedXml = $(xmlDoc);
+        var jtext = parsedXml.find('string').text();
+        if (jtext == "blocked") {
+            $(".PostalPanel").show()
+        } else {
+            var j = JSON.parse(jtext);
+            populateGeoData(j);
+            if (geoType == "streetAddress") {
+                $(".DefaultGeoBox").text(j.StreetAddress);
+            } else if (geoType == "locationName") {
+                $(".DefaultGeoBox").text(j.LocationName);
+            } else {
+                $(".DefaultGeoBox").text(j.AddressCity + ", " + j.AddressState);
+            }
+
+            $(".GeoPanel").show();
+            $(".PostalPanel").remove();
+            $("#locator-text").remove();
+            var phone = $("#GeoPhone").prop("href");
+            $(".location-choice").each(function (i, obj) { $(obj).remove() })
+            $(".call-choice").each(function (i, obj) { $(obj).remove() })
+            $(".location-dropdown").remove();
+
+            $(".menu-phone").prop("href", phone);
+        }
+    };
+    r.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    r.send('lat=' + lat + '&lon=' + lon + '&guid=' + guid + '&sharedLoc=' + share);
+}
+
+function GetAndDisplayLocById(LocationId) {
+    var url = '/DesktopModules/PostalCodeLookup/Components/GeoService.asmx/GetLocationDataById';
+    var r = new XMLHttpRequest();
+    r.open('POST', url, true);
+    r.onreadystatechange = function () {
+        if (r.readyState != 4 || r.status != 200) return;
+        xmlDoc = $.parseXML(r.responseText);
+        parsedXml = $(xmlDoc);
+        var jtext = parsedXml.find('string').text();
+        
+        if (jtext == "blocked") {
+            $(".PostalPanel").show()
+        } else {
+            var j = JSON.parse(jtext);
+            populateGeoData(j);
+            if (geoType == "streetAddress") {
+                $(".DefaultGeoBox").text(j.StreetAddress);
+            } else if (geoType == "locationName") {
+                $(".DefaultGeoBox").text(j.LocationName);
+            } else {
+                $(".DefaultGeoBox").text(j.AddressCity + ", " + j.AddressState);
+            }
+
+            $(".GeoPanel").show();
+            $(".PostalPanel").remove();
+            $("#locator-text").remove();
+            var phone = $("#GeoPhone").prop("href");
+            $(".location-choice").each(function (i, obj) { $(obj).remove() })
+            $(".call-choice").each(function (i, obj) { $(obj).remove() })
+            $(".location-dropdown").remove();
+
+            $(".menu-phone").prop("href", phone);
+        }
+
+
+    };
+    r.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    r.send('LocationId=' + LocationId);
+}
+
+function populateGeoData(result) {
+
+    var text = $("#GeoContainer").html();
+    if (text.indexOf("[GEOTITLE]") != -1) {
+        var directions = "https://maps.google.com/maps?q=" + encodeURIComponent(
+            result.LocationName + "," + result.StreetAddress + "," + result.AddressCity + ", " + result.AddressState)
+            .replace(/[!'()*]/g, escape);
+        var text = $("#GeoContainer").html();
+        text = text.replace(/\[GEOTITLE\]/g, result.LocationName);
+        text = text.replace(/\[GEOADDRESSONE\]/g, result.StreetAddress);
+        text = text.replace(/\[GEOADDRESSTWO\]/g, "<span class='cityState'>" + result.AddressCity + ", " + result.AddressState + " </span> " + result.AddressZip);
+        text = text.replace(/\[GEOPHONE\]/g, result.Phone);
+        text = text.replace(/\[GEODIRECTIONLINK\]/g, directions);
+        text = text.replace(/\[GEOHOURSMONDAY\]/g, GetFormattedGeoHoursString("Monday", result.MondayOpening, result.MondayClosing, result.MondayClosed, result.ClosedTextMonday));
+        text = text.replace(/\[GEOHOURSTUESDAY\]/g, GetFormattedGeoHoursString("Tuesday", result.TuesdayOpening, result.TuesdayClosing, result.TuesdayClosed, result.ClosedTextTuesday));
+        text = text.replace(/\[GEOHOURSWEDNSDAY\]/g, GetFormattedGeoHoursString("Wednesday", result.WednesdayOpening, result.WednesdayClosing, result.WednesdayClosed, result.ClosedTextWednesday));
+        text = text.replace(/\[GEOHOURSTHURSDAY\]/g, GetFormattedGeoHoursString("Thursday", result.ThursdayOpening, result.ThursdayClosing, result.ThursdayClosed, result.ClosedTextThursday));
+        text = text.replace(/\[GEOHOURSFRIDAY\]/g, GetFormattedGeoHoursString("Friday", result.FridayOpening, result.FridayClosing, result.FridayClosed, result.ClosedTextFriday));
+        text = text.replace(/\[GEOHOURSSATURDAY\]/g, GetFormattedGeoHoursString("Saturday", result.SaturdayOpening, result.SaturdayClosing, result.SaturdayClosed, result.ClosedTextSaturday));
+        text = text.replace(/\[GEOHOURSSUNDAY\]/g, GetFormattedGeoHoursString("Sunday", result.SundayOpening, result.SundayClosing, result.SundayClosed, result.ClosedTextSunday));
+        text = text.replace(/\[LOCATIONPAGE\]/g, locLink);
+        $("#GeoContainer").html(text);
+        $(".seo-loc").prop("href", directions);
+        if (typeof GaMapClick === "function") {
+            $(".seo-loc").bind('click', GaMapClick);
+            $("#GeoDirectionLinkMobile").bind('click', GaMapClick);
+        }
+        //Todo: take above element and add GA event
+
+        var textMobile = $("#GeoContainerMobile").html();
+        textMobile = textMobile.replace(/\[GEOTITLE\]/g, result.LocationName);
+        textMobile = textMobile.replace(/\[GEOADDRESSONE\]/g, result.StreetAddress);
+        textMobile = textMobile.replace(/\[GEOADDRESSTWO\]/g, "<span class='cityState'>" + result.AddressCity + ", " + result.AddressState + " </span> " + result.AddressZip);
+        textMobile = textMobile.replace(/\[GEOPHONE\]/g, result.Phone);
+        $("span[id$='CallUsBox']").children().first().attr("href", "tel:" + result.Phone);
+        if (typeof GaPhoneClick === "function") {
+            $("span[id$='CallUsBox']").children().first().bind('click', GaPhoneClick);
+            $("#GeoPhoneMobile").bind('click', GaPhoneClick);
+        }
+
+        textMobile = textMobile.replace(/\[GEODIRECTIONLINK\]/g, "https://maps.google.com/maps?q=" + encodeURIComponent(
+            result.LocationName + "," + result.StreetAddress + "," + result.AddressCity + ", " + result.AddressState));
+        textMobile = textMobile.replace(/\[GEOHOURSMONDAY\]/g, GetFormattedGeoHoursString("Monday", result.MondayOpening, result.MondayClosing, result.MondayClosed, result.ClosedTextMonday));
+        textMobile = textMobile.replace(/\[GEOHOURSTUESDAY\]/g, GetFormattedGeoHoursString("Tuesday", result.TuesdayOpening, result.TuesdayClosing, result.TuesdayClosed, result.ClosedTextTuesday));
+        textMobile = textMobile.replace(/\[GEOHOURSWEDNSDAY\]/g, GetFormattedGeoHoursString("Wednesday", result.WednesdayOpening, result.WednesdayClosing, result.WednesdayClosed, result.ClosedTextWednesday));
+        textMobile = textMobile.replace(/\[GEOHOURSTHURSDAY\]/g, GetFormattedGeoHoursString("Thursday", result.ThursdayOpening, result.ThursdayClosing, result.ThursdayClosed, result.ClosedTextThursday));
+        textMobile = textMobile.replace(/\[GEOHOURSFRIDAY\]/g, GetFormattedGeoHoursString("Friday", result.FridayOpening, result.FridayClosing, result.FridayClosed, result.ClosedTextFriday));
+        textMobile = textMobile.replace(/\[GEOHOURSSATURDAY\]/g, GetFormattedGeoHoursString("Saturday", result.SaturdayOpening, result.SaturdayClosing, result.SaturdayClosed, result.ClosedTextSaturday));
+        textMobile = textMobile.replace(/\[GEOHOURSSUNDAY\]/g, GetFormattedGeoHoursString("Sunday", result.SundayOpening, result.SundayClosing, result.SundayClosed, result.ClosedTextSunday));
+        textMobile = textMobile.replace(/\[LOCATIONPAGE\]/g, locLink);
+        $("#GeoContainerMobile").html(textMobile);
+        var directions = "https://maps.google.com/maps?q=" + result.StreetAddress + " " + result.AddressCity + " " + result.LocationName + " " + result.AddressState + " " + result.AddressZip;
+        $(".seo-loc").prop("href", directions);
+
+
+        $('.menu-location').click(function () {
+            $('.location-dropdown.nd-mobile-popup, .mobileOverlay').css('display', 'none');
+        });
+
+        $('.menu-phone').click(function () {
+            $('.call-dropdown.nd-mobile-popup, .mobileOverlay').css('display', 'none');
+        });
+    }
+
+}
+
+function GetFormattedGeoHoursString(day, open, close, closed, closedText) {
+    if (closed === true) {
+        if (!closedText || closedText.length === 0) {
+            return "<span class='geoDay'>" + day + " </span><span class='geoTime'>Closed</span>";
+        }
+        else {
+            return "<span class='geoDay'>" + day + "</span><span class='geoTime'>" + closedText + "</span>";
+        }
+    }
+    return "<span class='geoDay'>" + day + "</span> <span class='geoTime'>" + open.replace("|", "") + " - " + close.replace("|", "") + "</span>";
+}
+
+
+$(document).mouseup(function (e) {
+    var container = $("#GeoContainer");
+    var button = $(".GeoBox ");
+    var bg = $(".DefaultGeoBox").css("background").toString();
+    if (bg == "") {
+        bg = $(".DefaultGeoBox").css("background-image");
+    }
+
+
+    if (e.target.id.toString().toLowerCase().indexOf("geo") == -1 && e.target.className.toString().toLowerCase().indexOf("geo") == -1) {
+        if (bg.indexOf("down") == -1) {
+            showGeoBox();
+        }
+    }
+});
+
+$(document).mouseup(function (e) {
+    var container = $("#GeoContainerMobile");
+    if (container.length > 0) {
+        var button = $(".GeoBoxMobile ");
+        var bg = "";
+        if ($("#GeoContainerMobile").css("display") != undefined) {
+            bg = $("#GeoContainerMobile").css("display").toString();
+        }
+        if (bg == "") {
+            bg = $(".DefaultGeoBox").css("background-image");
+        }
+
+
+        if (e.target.id.toString().toLowerCase().indexOf("geo") == -1 && e.target.className.toString().toLowerCase().indexOf("geo") == -1) {
+            if (bg.indexOf("block") != -1) {
+                $("span[id$='FindUsBox']").click();
+            }
+        }
+    }
+});
+
+function readCookie(name) {
+    return getNDcookie(name);
+}</script>
+
+<div id="dnn_ctr6099_View_FindUsPanel" class="FindUsPanel">
+		
+    <div id="FindUsContainer">
+        <span id="dnn_ctr6099_View_FindUsBox" class="GeoBox fa fa-map-marker" onclick="showResponsiveGeoBox();"><a href='https://www.tmstireandauto.com/Find-Us'></a></span> 
+        <div id="GeoContainerMobile" class="GeoResponsive">
+    <div id="GeoInfoBoxMobile" class="GeoInfoBox">
+        <span class="GeoText GeoTitle" id="GeoTitleMobile">[GEOTITLE]</span>
+        <span class="GeoText" id="GeoAddressOneMobile">[GEOADDRESSONE]</span>
+        <span class="GeoText" id="GeoAddressTwoMobile">[GEOADDRESSTWO]</span>
+        <span class="GeoPhoneLink">
+            <a class="GeoText" id="GeoPhoneMobile" href="tel:[GEOPHONE]">[GEOPHONE]</a>
+            <a class="GeoText" id="GeoDirectionLinkMobile" href="[GEODIRECTIONLINK]">Directions</a>
+        </span>
+    </div>
+
+    <div id="GeoHoursMobile">
+        <span class="GeoHoursHeader">Store Hours</span>
+        <span class="GeoText GeoHours" id="GeoHoursMondayMobile">[GEOHOURSMONDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursTuesayMobile">[GEOHOURSTUESDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursWednesdayMobile">[GEOHOURSWEDNSDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursThursdayMobile">[GEOHOURSTHURSDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursFridayMobile">[GEOHOURSFRIDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursSaturdayMobile">[GEOHOURSSATURDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursSundayMobile">[GEOHOURSSUNDAY]</span>
+    </div>
+
+    <div id="GeoLocPageBox">
+        <a class="GeoText ResetLink" id="ChangeLocationMobile" href="https://www.tmstireandauto.com/Find-Us">Change Location</a>
+    </div>
+</div>
+    </div>
+
+	</div>
+
+<div id="dnn_ctr6099_View_CallUsPanel" class="CallUsPanel">
+		
+    <div id="CallUsContainer">
+        <span id="dnn_ctr6099_View_CallUsBox" class="GeoBox"><a href='https://www.tmstireandauto.com/Find-Us'><span class='fa fa-phone'></span></a></span>
+        
+    </div>
+
+	</div>
+
+<div id="dnn_ctr6099_View_GeoPanel" class="GeoPanel hiddenPanel">
+		
+    <div id="GeoContainerOutside">
+        <span id="dnn_ctr6099_View_GeoBoxLabel" class="GeoBoxLabel">Current Location</span>
+        <span id="dnn_ctr6099_View_GeoBox" class="GeoBox DefaultGeoBox ndcustomcolorclass" style="color:#ffffff" onclick="showGeoBox();"></span>        
+        <div id="GeoContainer" class="GeoContainer GeoDefault">
+    <div id="GeoInfoBox" class="GeoInfoBox">
+        <span class="GeoText GeoTitle" id="GeoTitle">[GEOTITLE]</span>
+        <span class="GeoText" id="GeoAddressOne">[GEOADDRESSONE]</span>
+        <span class="GeoText" id="GeoAddressTwo">[GEOADDRESSTWO]</span>
+        <span class="GeoPhoneLink"><a class="GeoText" id="GeoPhone" href="tel:[GEOPHONE]">[GEOPHONE]</a>
+        <span class="GeoDivider">|</span>  
+        <a class="GeoText" id="GeoDirectionLink" href="[GEODIRECTIONLINK]">Directions</a></span>
+    </div>
+
+    <div id="GeoHours">
+        <span class="GeoHoursHeader">Store Hours</span>
+        <span class="GeoText GeoHours" id="GeoHoursMonday">[GEOHOURSMONDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursTuesay">[GEOHOURSTUESDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursWednesday">[GEOHOURSWEDNSDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursThursday">[GEOHOURSTHURSDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursFriday">[GEOHOURSFRIDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursSaturday">[GEOHOURSSATURDAY]</span>
+        <span class="GeoText GeoHours" id="GeoHoursSunday">[GEOHOURSSUNDAY]</span>
+    </div>
+
+    <div id="GeoLocPageBox">
+        <a class="GeoText ResetLink" id="ChangeLocation" href="https://www.tmstireandauto.com/Find-Us">Change Location</a>
+    </div>
+</div>
+    </div>
+
+	</div>
+
+
+<div id="dnn_ctr6099_View_PostalPanel" class="PostalPanel hiddenPanel">
+		
+    <div id="storelocatorwidget" class="postalcode-wrapper">
+        <span id="dnn_ctr6099_View_PostalCodeLabel" class="GeoBoxLabel"></span>
+        <div id="dnn_ctr6099_View_PostalCodeLookup">
+            <script type='text/javascript'>var LocationsBaseURL = 'https://www.tmstireandauto.com/Find-Us'; </script>
+            <input name="dnn$ctr6099$View$txtPostalCode" type="text" id="dnn_ctr6099_View_txtPostalCode" class="postalcode-entrybox" />
+            <a onclick="initLocCookies();" id="dnn_ctr6099_View_cmdGoToLocations" class="postalcode-link" rel="nofollow" href="javascript:__doPostBack(&#39;dnn$ctr6099$View$cmdGoToLocations&#39;,&#39;&#39;)">Go</a>
+        <p class="js-use-current use-current" style="display:none; clear:both;">
+                <img src="//a2.nd-cdn.us/img/locations/usecurrentloc.png" alt="Use current location"> Use current location
+        </p>
+        </div>
+    </div>
+
+	</div>
+
+
+
+
+
+</div><!-- End_Module_6099 --></div>
+
+</div>
+
+
+</div></div>
+            <div id="nd-menubar">
+                <nav id="contentnav" class="webfont">
+                    <div id="dnnMenu">
+    <ul class="topLevel">
+	    
+	<li class="item first selected">
+		
+			<a id="menuItem4154" href="./">Home</a>
+		
+	</li>
+
+	<li class="item haschild">
+		
+			<a id="menuItem4158" href="https://www.tmstireandauto.com/Tires">Tires</a>
+		
+            <div class="subLevel">
+			    <ul>
+				    
+	<li class="item first">
+		
+			<a id="menuItem4171" href="https://www.tmstireandauto.com/Tires"><span>Car, Truck &amp; SUV Tires</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4172" href="https://www.tmstireandauto.com/Tires/Tire-Care-Tips"><span>Tire Care Tips</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem5088" href="https://www.tmstireandauto.com/Tires/Why-Buy-Michelin"><span>Why Buy Michelin&#174;?</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem5089" href="https://www.tmstireandauto.com/Tires/Why-Buy-BFGoodrich"><span>Why Buy BFGoodrich&#174;?</span></a>
+		
+	</li>
+
+	<li class="item last">
+		
+			<a id="menuItem5090" href="https://www.tmstireandauto.com/Tires/Why-Buy-Uniroyal-"><span>Why Buy Uniroyal&#174; ?</span></a>
+		
+	</li>
+
+			    </ul>
+            </div>
+		
+	</li>
+
+	<li class="item haschild">
+		
+			<a id="menuItem4160" href="https://www.tmstireandauto.com/Automotive-Services">Automotive Services</a>
+		
+            <div class="subLevel">
+			    <ul>
+				    
+	<li class="item first">
+		
+			<a id="menuItem4181" href="https://www.tmstireandauto.com/Automotive-Services"><span>Our Services</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4182" href="https://www.tmstireandauto.com/Automotive-Services/Schedule-a-Repair"><span>Schedule a Repair</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4184" href="https://www.tmstireandauto.com/Automotive-Services/Car-Care-Tips"><span>Car Care Tips</span></a>
+		
+	</li>
+
+	<li class="item last">
+		
+			<a id="menuItem4189" href="https://www.tmstireandauto.com/Automotive-Services/Maintenance-Adviser"><span>Maintenance Adviser</span></a>
+		
+	</li>
+
+			    </ul>
+            </div>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4161" href="https://www.tmstireandauto.com/Coupons">Coupons</a>
+		
+	</li>
+
+	<li class="item haschild">
+		
+			<a id="menuItem4162" href="https://www.tmstireandauto.com/About">About</a>
+		
+            <div class="subLevel">
+			    <ul>
+				    
+	<li class="item first">
+		
+			<a id="menuItem4191" href="https://www.tmstireandauto.com/About"><span>Our Story</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4192" href="https://www.tmstireandauto.com/About/News"><span>News</span></a>
+		
+	</li>
+
+	<li class="item last">
+		
+			<a id="menuItem4196" href="https://www.tmstireandauto.com/About/Financing"><span>Financing</span></a>
+		
+	</li>
+
+			    </ul>
+            </div>
+		
+	</li>
+
+	<li class="item last haschild">
+		
+			<a id="menuItem4163" href="https://www.tmstireandauto.com/Find-Us">Find Us</a>
+		
+            <div class="subLevel">
+			    <ul>
+				    
+	<li class="item first">
+		
+			<a id="menuItem4206" href="https://www.tmstireandauto.com/Find-Us/Contact"><span>Contact</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4208" href="https://www.tmstireandauto.com/Find-Us/Jobs"><span>Jobs</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4753" href="https://tmstireandauto.com/Find-Us/Mode/1/980-Main-Street-Baldwin-WI-54002/details"><span>Baldwin</span></a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4754" href="https://tmstireandauto.com/Find-Us/Mode/2/804-Main-St-Boyceville-WI-54725/details"><span>Boyceville</span></a>
+		
+	</li>
+
+	<li class="item last">
+		
+			<a id="menuItem4755" href="https://tmstireandauto.com/Find-Us/Mode/3/1806-Hwy-12-West-Menomonie-WI-54751/details"><span>Menomonie</span></a>
+		
+	</li>
+
+			    </ul>
+            </div>
+		
+	</li>
+
+    </ul>
+</div>
+
+
+
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.subLevel, .subLevelRight').each(function (index, element) {
+            var subItems = $(this).children('ul').children('li').length;
+            if (subItems <= 14) {
+                $(this).addClass('single-column');
+            } else if (subItems > 14 && subItems <= 18) {
+                $(this).addClass('double-column');
+            } else if (subItems >= 19) {
+                $(this).addClass('triple-column');
+            }
+        });
+    </script>
+
+    <div class="banner">
+        <div id="dnn_BannerPane" class="DNNEmptyPane"></div>
+    </div>
+
+    <div id="nd-middlebar" class="wrapper first-row">
+        <div class="hero-left-wrapper"><div id="dnn_TopContentPane"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6110"><a name="6110"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6110_ContentPane"><!-- Start_Module_6110 --><div id="dnn_ctr6110_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6110_HtmlModule_lblContent" class="Normal">
+	<div id="ta-widget-container" class="tasite-bootstrap-styles" data-dealer="3e998a51-a46b-4306-bb9a-15a95dbdd9e9" data-hosturl="https://ta3.tiresanytime.com" data-parentusesbootstrapcss="false"></div> <script src="https://ta3.tiresanytime.com/app/widget/searchWidget.js" type="text/javascript"></script>
+</div>
+
+</div><!-- End_Module_6110 --></div>
+
+</div>
+
+
+</div></div></div>
+        <div class="hero-right-wrapper"><div id="dnn_TopContentPane2"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6111"><a name="6111"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6111_ContentPane"><!-- Start_Module_6111 --><div id="dnn_ctr6111_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6111_HtmlModule_lblContent" class="Normal">
+	<div class="hero-section">
+<h3>Get a <strong>Free Instant</strong> Auto <span>Service Repair Quote</span></h3>
+<a class="hero-btn" href="" target="_blank" title="Services">Get Started Here</a></div>
+
+</div>
+
+</div><!-- End_Module_6111 --></div>
+
+</div>
+
+
+</div></div></div>
+    </div>
+
+    <div id="nd-middlebar" class="wrapper second-row">
+        <div class="container">
+            <div id="dnn_MiddleContentPane"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6100"><a name="6100"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6100_ContentPane"><!-- Start_Module_6100 --><div id="dnn_ctr6100_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6100_HtmlModule_lblContent" class="Normal">
+	<div class="main-ctas"> <div><a href="/Automotive-Services/Schedule-a-Repair" title="Schedule Appointment"><span class="cta-text">Schedule Appointment</span> <i class="fas fa-calendar-alt"></i> <!-- <i class="fas fa-car"></i> --> <!-- <i class="fas fa-pencil-alt"></i> --> <!-- <span class="icon-tire-4"></span> --> </a></div> <div><a href="/Automotive-Services/Maintenance-Adviser" title="Recommended Maintenance"><span class="cta-text">Recommended Maintenance</span> <i class="fas fa-wrench"></i> <!-- <i class="fas fa-dollar-sign"></i> --> <!-- <i class="fas fa-car"></i> --> <!-- <i class="fas fa-calendar-alt"></i> --> <!-- <i class="fas fa-truck"></i> --> <!-- <span class="icon-auto-services-5"></span> --> <!-- <i class="fas fa-edit"></i> --> <!-- <i class="fas fa-comments"></i> --> <!-- <i class="fas fa-cog"></i> --> </a></div> <div><a href="/About/Financing" title="Financing"><span class="cta-text">Financing</span> <i class="fas fa-credit-card"></i> <!-- <i class="fas fa-edit"></i> --> <!-- <i class="fas fa-cogs"></i> --> <!-- <i class="fas fa-wrench"></i> --> <!-- <i class="fas fa-car"></i> --> <!-- <span class="icon-tire-4"></span> --> <!-- <i class="fas fa-dollar-sign"></i> --> </a></div> </div> 
+</div>
+
+</div><!-- End_Module_6100 --></div>
+
+</div>
+
+
+</div></div>
+        </div>
+    </div>
+
+    <div id="nd-middlebar" class="wrapper eighth-row">
+        <div class="container">
+            <div id="dnn_MiddleContentPane7"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6107"><a name="6107"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6107_ContentPane"><!-- Start_Module_6107 --><div id="dnn_ctr6107_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6107_HtmlModule_lblContent" class="Normal">
+	<div class="logobar-slider"> <div><a href="/Tires" title="Shop Michelin®"><img alt="Michelin® Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_michelin.png" /> </a></div> <div><a href="/Tires" title="Shop BFGoodrich®"><img alt="BFGoodrich® Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_bfgoodrich.png" /> </a></div> <div><a href="/Tires" title="Shop Uniroyal®"><img alt="Uniroyal® Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_uniroyal.png" /> </a></div> <div><a href="/Tires" title="Shop Bridgestone"><img alt="Bridgestone Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_bridgestone.png" /> </a></div> <div><a href="/Tires" title="Shop Firestone"><img alt="Firestone Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_firestone.png" /> </a></div> <div><a href="/Tires" title="Shop Continental"><img alt="Continental Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_continental.png" /> </a></div> <div><a href="/Tires" title="Shop Goodyear"><img alt="Goodyear Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_goodyear.png" /> </a></div> <div><a href="/Tires" title="Shop Kumho"><img alt="Kumho Tires" src="//assets.netdrivenwebs.com/tire_brands/logos/png/logo_kumho.png" /> </a></div> </div> 
+</div>
+
+</div><!-- End_Module_6107 --></div>
+
+</div>
+
+
+</div></div>
+        </div>
+    </div>
+
+    <div id="nd-middlebar" class="wrapper third-row">
+        <div class="container">
+            <div id="dnn_MiddleContentPane2"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6101"><a name="6101"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6101_ContentPane"><!-- Start_Module_6101 --><div id="dnn_ctr6101_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6101_HtmlModule_lblContent" class="Normal">
+		<div class="main-services">
+    <h3 class="services-title">Featured Services</h3>
+    <div class="services-ctas">
+        <ul>
+            <li>
+                <a href="/Automotive-Services/cat/lube-oil-filter-change" title="Oil Changes">
+                    <img alt="Oil Changes" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/Oil-Changes.png" /> 
+                    <span>Oil Changes</span> 
+                </a>
+            </li>
+            <li>
+                <a href="/Automotive-Services/cat/brake-repair" title="Brake repair">
+                    <img alt="Brake repair" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/Brake-repair.png" /> 
+                    <span>Brake repair</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Automotive-Services/cat/tire-services/svc/tire-repair" title="Exhaust Repair">
+                    <img alt="Exhaust Repair" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/Exhaust.png"/> 
+                    <span>Exhaust Repair</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Automotive-Services/cat/starting-charging-batteries" title="Batteries">
+                    <img alt="Batteries" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/Batteries.png" /> 
+                    <span>Batteries</span> 
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="/Automotive-Services/cat/cooling-system-repair" title="Cooling System">
+                    <img alt="Cooling System" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/Cooling-System.png" /> 
+                    <span>Cooling System</span> 
+                </a>
+            </li>
+            <li>
+                <a href="/Automotive-Services/cat/tire-services/svc/computerized-wheel-balancing" title="Wheel Alignments">
+                    <img alt="Wheel Alignments" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/Wheel-Alignments.png" /> 
+                    <span>Wheel Alignments</span> 
+                </a>
+            </li>
+            <li>
+                <a href="/Automotive-Services/cat/engine-diagnostics-and-performance" title="Engine Diagnostics">
+                    <img alt="Engine Diagnostics" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/Engine-Diagnostics.png" /> 
+                    <span>Engine Diagnostics</span>
+                </a>
+            </li>
+            <li>
+                <a class="bnt-all-services" href="/Automotive-Services" title="View All Services">
+                    <img alt="View All Services" src="//assets.netdrivenwebs.com/img/tcs-shared/service-icons/standard/View-All-Services.png" /> 
+                    <span>View All Services</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+	</div>
+
+</div><!-- End_Module_6101 --></div>
+
+</div>
+
+
+</div></div>
+            <div id="dnn_WidgetPane" class="DNNEmptyPane"></div>
+            <div id="dnn_WidgetPane2" class="DNNEmptyPane"></div>
+
+            <div class="wrapper">
+                <div id="dnn_LeftPane" class="DNNEmptyPane"></div>
+                <div id="dnn_RightPane" class="DNNEmptyPane"></div>
+            </div>
+        </div>
+    </div>
+    <!--<script>
+		$('#links').prepend('<div class="searchbuttons"><a class="by-size" href="//www.tmstireandauto.com/shop-for-tires.aspx">Shop By Size</a><a class="by-brand" href="//www.tmstireandauto.com/shop-for-tires.aspx">Shop By Brand</a></div>')
+	</script>-->
+    <div id="nd-middlebar" class="wrapper fourth-row">
+        <div class="container">
+            <div id="dnn_MiddleContentPane3"><div class="DnnModule DnnModule-NetDrivenModulesCouponClient DnnModule-6102"><a name="6102"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6102_ContentPane"><!-- Start_Module_6102 --><div id="dnn_ctr6102_ModuleContent" class="DNNModuleContent ModNetDrivenModulesCouponClientC">
+	<div id="dnn_ctr6102_View_ND_Coupons" class="ND_Coupons" style="">
+    
+    
+<style>
+.coupon-overlay {
+    bottom: 33%; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.6); 
+    color: #f1f1f1; 
+    opacity:0;
+    color: white;
+    font-size: 26px;
+    height:30px;
+    position:absolute;
+    font-weight:bold;
+    cursor:pointer;
+    z-index:5;
+    display:inline-block;
+}
+
+.prevImg{
+    left:0;    
+}
+
+.nextImg{
+    right:0;
+}
+
+.sliderImage:hover .coupon-overlay{
+  opacity: 1;
+}
+
+@media only screen and (max-width: 980px){ 
+    .sliderImage .coupon-overlay{
+      opacity: 1;
+    }
+}
+</style>
+<div class="couponsliderview">
+    <div id="dnn_ctr6102_View_Scroller_slider1" style="width:100%;overflow:hidden;height:205px;">
+        <div id="dnn_ctr6102_View_Scroller_OuterSlider" style="overflow:hidden; width:100%; height:100%; "><script type="text/javascript" src="/DesktopModules/CouponClient/s3Slider.js?v=1"></script><div id='slider6102' style='margin-left:auto; margin-right:auto; width:100%; text-align:left; height:100%'><ul id='sliderContent' class='slider6102Content' style='width:100%;height:100%'>
+<li id='li59946' style='display: list-item; list-style: none; position:relative;' class='sliderImage slider6102Image'>
+    <a href='https://www.tmstireandauto.com/Automotive-Services'  onclick='return registerCouponClick(this);'>
+        <div class='slider6102prevClick'><div class='coupon-overlay prevImg' style='padding:19px 8%;'><div class='coupon-txt'><</div></div></div>
+        <img class='sliderIMG_1255-202010873044due-for-tire-rotation' alt='Are You Due for a Tire Rotation?' src='//c1.nd-cdn.us/1255-202010873044due-for-tire-rotation.jpg' />
+        <div class='slider6102nextClick'><div class='coupon-overlay nextImg' style='padding:19px 8%;'><div class='coupon-txt'>></div></div></div>
+    </a>
+    <span style='height:0px; display: inline'>.</span>
+</li>
+<li id='li59947' style='display: none; list-style: none; position:relative;' class='sliderImage slider6102Image'>
+    <a href='https://www.tmstireandauto.com/Tires'  onclick='return registerCouponClick(this);'>
+        <div class='slider6102prevClick'><div class='coupon-overlay prevImg' style='padding:19px 8%;'><div class='coupon-txt'><</div></div></div>
+        <img class='sliderIMG_1255-202010873124ATV' alt='ATV or UTV Tires' src='//c1.nd-cdn.us/1255-202010873124ATV.png' />
+        <div class='slider6102nextClick'><div class='coupon-overlay nextImg' style='padding:19px 8%;'><div class='coupon-txt'>></div></div></div>
+    </a>
+    <span style='height:0px; display: none'>.</span>
+</li>
+<li id='li59945' style='display: none; list-style: none; position:relative;' class='sliderImage slider6102Image'>
+    <a href='https://www.tmstireandauto.com/Tires'  onclick='return registerCouponClick(this);'>
+        <div class='slider6102prevClick'><div class='coupon-overlay prevImg' style='padding:19px 8%;'><div class='coupon-txt'><</div></div></div>
+        <img class='sliderIMG_1255-202010873017tires-are-our-specialty' alt='Tires Are Our Specialty' src='//c1.nd-cdn.us/1255-202010873017tires-are-our-specialty.jpg' />
+        <div class='slider6102nextClick'><div class='coupon-overlay nextImg' style='padding:19px 8%;'><div class='coupon-txt'>></div></div></div>
+    </a>
+    <span style='height:0px; display: none'>.</span>
+</li><div class='clear sliderImage slider6102Image'>&nbsp;</div></ul></div></div>
+    </div>
+</div>
+    
+    
+    
+    
+</div>
+
+<script type="text/javascript">
+    function registerCouponClick(name, title) {
+        var href = $(name).attr("href");
+        var alt = title || $(name).find("img").attr("alt");
+
+        var domain = function (url) {
+            return url.replace('#','').replace('//', '').replace('http://', '').replace('https://', '').split('/')[0];
+        };
+
+        if (typeof ga !== "undefined") {
+            if (domain(href) !== "" && domain(location.href) !== domain(href))
+                ga('send', 'event', 'Coupons', 'Off Site Link Click', alt);
+            else
+                ga('send', 'event', 'Coupons', 'Click', alt);
+        }
+        
+        var utag_data_click = utag_data;
+        utag_data_click.site_sub_section = "promotion_detail";
+        utag_data_click.tealium_event = "promo_click";
+        utag.link(utag_data_click);
+        
+        return true;
+    }
+</script>
+</div><!-- End_Module_6102 --></div>
+
+</div>
+
+
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-6103"><a name="6103"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6103_ContentPane"><!-- Start_Module_6103 --><div id="dnn_ctr6103_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6103_HtmlModule_lblContent" class="Normal">
+	<div class="view-coupons">
+    <a href="/Coupons" title="Coupons">View All Coupons</a>
+</div> 
+</div>
+
+</div><!-- End_Module_6103 --></div>
+
+</div>
+
+
+</div></div>
+        </div>
+    </div>
+
+    <div id="nd-middlebar" class="wrapper fifth-row">
+        <div class="container">
+            <div id="dnn_MiddleContentPane4" class="DNNEmptyPane"></div>
+            <div class="wrapper coupon-section">
+                <div id="dnn_HomeSidePane" class="marker DNNEmptyPane"></div>
+                <div id="dnn_HomeContentPane" class="marker DNNEmptyPane"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="nd-middlebar" class="wrapper sixth-row">
+        <div id="dnn_MiddleContentPane5" class="DNNEmptyPane"></div>
+    </div>
+
+    <div id="nd-middlebar" class="wrapper seventh-row">
+        <div class="container">
+            <div id="dnn_MiddleContentPane6"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6106"><a name="6106"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6106_ContentPane"><!-- Start_Module_6106 --><div id="dnn_ctr6106_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6106_HtmlModule_lblContent" class="Normal">
+	<div class="index-welcome">
+    <h1 class="welcome-title">Welcome to TMS Tire & Auto Complete Automotive Care</h1>
+    
+    <h4>
+        Tires and Auto Repair in Baldwin, WI, Boyceville, and Menomonie, WI
+    </h4>
+    <p>
+        Thank you for checking out our website. Likely, you’re here for one of three reasons:
+    </p>
+
+    <p>
+        Your tires are wearing out, are too loud, or they just don’t feel right.<br>
+        It's time to get your oil changed, or fix whatever turned on that little check engine light.<br>
+        You’re looking for a friendly, honest auto mechanic to answer your questions and get rid of those weird noises or smells your car is making.</br>
+        At TMS Tire & Auto Complete Automotive Care we have the experience to help you with all your auto repair and tire needs.
+    </p>
+
+    <div class="cnt_desktop-display">
+        
+        <h3>
+            Why should you choose TMS Tire & Auto Complete Automotive Care?
+        </h3>
+
+        <p>
+            Every business claims to be the best. At TMS Tire & Auto Complete Automotive Care, we’d rather let our work and loyal customers speak for us. Read our reviews from your Baldwin, Boyceville, and Menomonie, WI neighbors to see how we meet or exceed customer expectations. Take a look at the auto repair services we offer, such as oil changes or preventive maintenance. Browse our tire catalog and choose from our broad selection of tires to meet your needs. Check out our promotions page for limited-time offers on tires and auto repairs. If you’re still not convinced that we provide the tires and auto repair services you’re looking for, then call us or come see us, and see how our friendly staff will go above and beyond to help you with your auto repair needs.
+        </p>
+
+        <p>
+            Our mission here at TMS Tire & Auto Complete Automotive Care is to perform fast efficient service at a fair and competitive price. We ensure that you'll wait in a clean, comfortable waiting area, while we perform either necessary services, or a preventive maintenance service on your vehicle. Since 1978, we’ve served drivers all across Baldwin, WI, Menomonie, WI, Boyceville, WI.
+        </p>
+
+        <p>
+            Every auto repair performed at our shop is backed by our nationwide warranty. We also work with a variety of national accounts. Looking for more horsepower? Let us install a custom exhaust for you. We’re happy to serve you at any one of our 5 locations. Visit us today.
+        </p>
+
+        <p>
+            We look forward to building a long-term relationship with you. If there is anything we can do for you, then please, don’t hesitate to contact us today.
+        </p>
+
+    </div>
+   
+    <div class="cnt-img">
+        <img src="/portals/47/Skins/master/img/img_welcome.png" alt="ASE Logo">
+    </div>
+
+    <a href="/About" class="btn" title="Read More"><span>Read More</span></a>
+
+</div>
+</div>
+
+</div><!-- End_Module_6106 --></div>
+
+</div>
+
+
+</div></div>
+        </div>
+    </div>
+    
+    
+
+    <div id="main-content">
+        <div class="container">
+            <div id="contentmain" class="wrapper">
+                <div id="dnn_CTCFilterPane" class="DNNEmptyPane"></div>
+                <div id="dnn_SidePane" class="DNNEmptyPane"></div>
+                <div id="dnn_ContentPane" class="DNNEmptyPane"></div>
+
+                <script type="text/javascript">
+                    if ($('#dnn_SidePane').hasClass('DNNEmptyPane') || $('#dnn_SidePane > div').css('display') ==
+                        'none') {
+                            $('#dnn_ContentPane').addClass('full-width');
+                        } else {
+                            $('#dnn_ContentPane').addClass('shared-width');
+                        }
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <div id="sub-content">
+        <div class="container">
+            <div id="dnn_BottomContentPane"><div class="DnnModule DnnModule-PortalToolkit DnnModule-6091"><a name="6091"></a></div><div class="DnnModule DnnModule-WillStrohlInjection DnnModule-6092"><a name="6092"></a></div></div>
+        </div>
+    </div>
+
+
+
+    <div id="bgbottom">
+        <div id="netdriven">
+
+            <div id="BottomFooter">
+
+                <div id="FooterPane1Container">
+                    <div id="dnn_FooterPane1"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6094"><a name="6094"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6094_ContentPane"><!-- Start_Module_6094 --><div id="dnn_ctr6094_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6094_HtmlModule_lblContent" class="Normal">
+		<h2>Tires</h2> 
+<ul> 
+    <li>
+        <a href="/Tires">Michelin®</a>
+    </li> 
+    <li>
+        <a href="/Tires">BFGoodrich®</a>
+    </li> 
+    <li>
+        <a href="/Tires">Uniroyal®</a>
+    </li> 
+    <li>
+        <a href="/Tires">Continental</a>
+    </li> 
+    <li>
+        <a href="/Tires">General</a>
+    </li> 
+</ul>
+	</div>
+
+</div><!-- End_Module_6094 --></div>
+
+</div>
+
+
+</div></div>
+                </div>
+
+                <div id="FooterPane2Container">
+                    <div id="dnn_FooterPane2"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6095"><a name="6095"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6095_ContentPane"><!-- Start_Module_6095 --><div id="dnn_ctr6095_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6095_HtmlModule_lblContent" class="Normal">
+	<h2>Services</h2> 
+<ul> 
+    <li>
+        <a href="/Automotive-Services/cat/lube-oil-filter-change">Oil Changes</a>
+    </li> 
+    <li>
+        <a href="/Automotive-Services/cat/brake-repair">Brake Repair</a>
+    </li> 
+    <li>
+        <a href="/Automotive-Services/cat/wheel-alignment">Wheel Alignment</a>
+    </li> 
+    <li>
+        <a href="/Automotive-Services/cat/engine-diagnostics-and-performance">Engine Diagnostics</a>
+    </li> 
+    <li>
+        <a href="/Automotive-Services/cat/starting-charging-batteries">Batteries</a>
+    </li> 
+</ul>
+</div>
+
+</div><!-- End_Module_6095 --></div>
+
+</div>
+
+
+</div></div>
+                </div>
+
+                <div id="FooterPane3Container">
+                    <div id="dnn_FooterPane3" class="DNNEmptyPane"></div>
+                    <div id="bottomnav">
+                    <div class="wrapper">
+                        <h2>About</h2>
+                        <div id="dnnMenu">
+    <ul class="topLevel">
+	    
+	<li class="item first selected">
+		
+			<a id="menuItem4154" href="./">Home</a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4158" href="https://www.tmstireandauto.com/Tires">Tires</a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4160" href="https://www.tmstireandauto.com/Automotive-Services">Automotive Services</a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4161" href="https://www.tmstireandauto.com/Coupons">Coupons</a>
+		
+	</li>
+
+	<li class="item">
+		
+			<a id="menuItem4162" href="https://www.tmstireandauto.com/About">About</a>
+		
+	</li>
+
+	<li class="item last">
+		
+			<a id="menuItem4163" href="https://www.tmstireandauto.com/Find-Us">Find Us</a>
+		
+	</li>
+
+    </ul>
+</div>
+
+
+
+                    </div>
+                    </div>
+                </div>
+
+                <div id="FooterPane4Container">
+                    <h2>Visit Our Shop</h2>
+                    <div id="dnn_FooterPane4"><div class="DnnModule DnnModule-Locations_Widget DnnModule-6096"><a name="6096"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6096_ContentPane"><!-- Start_Module_6096 --><div id="dnn_ctr6096_ModuleContent" class="DNNModuleContent ModLocationsWidgetC">
+	
+<div id="LocationWidget" class="loc-widget">
+    <h2>Locations</h2>
+<div id="locWidget1" class="locwidgetlisting-footer">
+<p class="locwidget-cs"><a href="https://www.tmstireandauto.com/Find-Us/Mode/1/980-Main-Street-Baldwin-WI-54002/details">Baldwin, WI</a></p>
+</div>
+
+<div id="locWidget2" class="locwidgetlisting-footer">
+<p class="locwidget-cs"><a href="https://www.tmstireandauto.com/Find-Us/Mode/2/804-Main-St-Boyceville-WI-54725/details">Boyceville, WI</a></p>
+</div>
+
+<div id="locWidget3" class="locwidgetlisting-footer">
+<p class="locwidget-cs"><a href="https://www.tmstireandauto.com/Find-Us/Mode/3/1806-Hwy-12-West-Menomonie-WI-54751/details">Menomonie, WI</a></p>
+</div>
+
+
+
+</div>
+</div><!-- End_Module_6096 --></div>
+
+</div>
+
+
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-6097"><a name="6097"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6097_ContentPane"><!-- Start_Module_6097 --><div id="dnn_ctr6097_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6097_HtmlModule_lblContent" class="Normal">
+		<div id="socialfont" class="wrapper">
+    <div id="socialfont"> 
+        <a title="Facebook Page" href="https://www.facebook.com/tmstireandauto/" target="_blank" class="fa fa-facebook"></a>
+        <!-- <a title="Instagram Page" href="" target="_blank" class="fa fa-instagram"></a> -->
+        <a title="Yelp Page" href="https://www.yelp.com/biz/tms-tire-and-auto-baldwin-2" target="_blank" class="fa fa-yelp"></a>
+        <!-- <a title="Twitter Page" href="Twitter Not Configured" target="_blank" class="fa fa-twitter"></a> -->
+        <!-- <a title="LinkedIn Page" href="" target="_blank" class="fa fa-linkedin"></a> -->
+        <!-- <a title="Youtube Page" href="" target="_blank" class="fa fa-youtube"></a> -->
+        <a title="Google Page" href="https://www.google.com/maps/place/TMS+Tire+%26+Auto/@44.9666862,-92.3747545,21z/data=!4m5!3m4!1s0x0:0xa7d9a2970ead6528!8m2!3d44.9667051!4d-92.3746835" target="_blank" class="fa fa-google"></a>
+    </div> 
+</div>
+	</div>
+
+</div><!-- End_Module_6097 --></div>
+
+</div>
+
+
+</div></div>
+                    
+
+<style>
+.poweredByBadge {
+    color: #fff;
+    margin: 30px auto 0;
+    height: 39px;
+    border-radius: 4px;
+    background: #111;
+}
+.poweredByBadge {
+    width: 157px;
+    padding: 3px 8px 0;
+}
+.poweredByBadge .badgeContent a.badgeLogo.NetDriven {
+    width: 57px;
+    background: url(//a2.nd-cdn.us/Skinning/ND_Badge/nd_logo.png) no-repeat center top;
+}
+
+.poweredByBadge .badgeContent a.badgeLogo {
+    height: 35px;
+    float: left;
+    text-indent: -9999px;
+}
+.poweredByBadge .badgeContent a.badgeLogo:hover {
+    filter: grayscale(1);
+}
+
+.poweredByBadge .badgeContent span {
+    float: right;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 5px;
+}
+.poweredByBadge .badgeContent span a:hover {
+    text-decoration: underline !important;
+    color: #ccc;
+}
+.poweredByBadge .badgeContent span a {
+    text-decoration: underline !important;
+    color: #fff;
+}
+</style>
+<div class="poweredByBadge">
+    <div class="badgeContent">
+        <a class="badgeLogo NetDriven" href="//www.netdriven.com" target="_blank" rel="nofollow noopener noreferrer">.</a>
+        <span>Powered by Net Driven<br>
+            <a id="dnn_BADGE_dnnLOGIN_loginLink" title="Login" class="SkinObject" rel="nofollow" onclick="this.disabled=true;" href="https://www.tmstireandauto.com/Login?returnurl=%2f">Login</a>
+</span>
+    </div>
+</div>
+                    </div>
+                </div>
+
+                <div id="dnn_FooterContentPane"><div class="DnnModule DnnModule-DNN_HTML DnnModule-6093"><a name="6093"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6093_ContentPane"><!-- Start_Module_6093 --><div id="dnn_ctr6093_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6093_HtmlModule_lblContent" class="Normal">
+		<div id="footerText">
+    <div class="t-one-logo"><img alt="TMS Tire & Auto Complete Automotive Care" src="//assets.netdrivenwebs.com/img/tcs-shared/other-logos/T1-digital.png" /></div>
+    <!-- <div class="t-one-logo"> <img src="//assets.netdrivenwebs.com/img/tcs-shared/other-logos/TP-digital.png" alt="Tire One Digital"> </div> -->
+    <!-- <h3>Make a Tire or Auto Repair Appointment Today!</h3>
+    <p>
+        TMS Tire & Auto Complete Automotive Care proudly serves the local Baldwin, WI area. We understand that getting your car fixed or buying new tires can be overwhelming. Let us help you choose from our large selection of tires. We feature tires that fit
+        your needs and budget from top quality brands, such as Michelin®, BFGoodrich®, Uniroyal®, and more. We pride ourselves on being your #1 choice for auto repairs. Let us earn your business. Schedule an appointment today.
+    </p> -->
+</div>
+	</div>
+
+</div><!-- End_Module_6093 --></div>
+
+</div>
+
+
+</div></div>
+                <div id="dnn_SEOPane" class="DNNEmptyPane"></div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div id="dnn_ResponsivePane" style="display:none;"><div class="DnnModule DnnModule-Locations_Widget DnnModule-6108"><a name="6108"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6108_ContentPane"><!-- Start_Module_6108 --><div id="dnn_ctr6108_ModuleContent" class="DNNModuleContent ModLocationsWidgetC">
+	
+<div id="LocationWidget" class="loc-widget">
+    
+<div id="locWidget1" class="locwidgetlisting">
+    <div class="locwidget-name"><a href="https://www.tmstireandauto.com/Find-Us/Mode/1/980-Main-Street-Baldwin-WI-54002/details"><strong>TMS Tire & Auto Complete Automotive Care</strong></a></div>
+    <div class="locwidget-addr">980 Main Street, </div>
+    <div class="locwidget-csz">Baldwin, WI 54002</div>
+    <div class="locwidget-phone">Phone: <a href='tel:(715) 684-3405'>(715) 684-3405</a></div>
+    <div class="locwidget-fax">Fax: </div>
+    <div style="display: none" class='locwidget-zip'>54002</div>
+    <div style="display:none" class='locwidget-latlong'>44.96655,-92.37457</div>
+</div>
+
+<div id="locWidget2" class="locwidgetlisting">
+    <div class="locwidget-name"><a href="https://www.tmstireandauto.com/Find-Us/Mode/2/804-Main-St-Boyceville-WI-54725/details"><strong>TMS Tire & Auto Complete Automotive Care</strong></a></div>
+    <div class="locwidget-addr">804 Main St, </div>
+    <div class="locwidget-csz">Boyceville, WI 54725</div>
+    <div class="locwidget-phone">Phone: <a href='tel:(715) 643-2459'>(715) 643-2459</a></div>
+    <div class="locwidget-fax">Fax: </div>
+    <div style="display: none" class='locwidget-zip'>54725</div>
+    <div style="display:none" class='locwidget-latlong'>45.0443,-92.04066</div>
+</div>
+
+<div id="locWidget3" class="locwidgetlisting">
+    <div class="locwidget-name"><a href="https://www.tmstireandauto.com/Find-Us/Mode/3/1806-Hwy-12-West-Menomonie-WI-54751/details"><strong>TMS Tire & Auto Complete Automotive Care</strong></a></div>
+    <div class="locwidget-addr">1806 Hwy 12 West, </div>
+    <div class="locwidget-csz">Menomonie, WI 54751</div>
+    <div class="locwidget-phone">Phone: <a href='tel:(715) 235-9119'>(715) 235-9119</a></div>
+    <div class="locwidget-fax">Fax: </div>
+    <div style="display: none" class='locwidget-zip'>54751</div>
+    <div style="display:none" class='locwidget-latlong'>44.90385,-91.93616</div>
+</div>
+
+
+
+</div>
+</div><!-- End_Module_6108 --></div>
+
+</div>
+
+
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-6109"><a name="6109"></a>
+
+
+<div class="c_DNN6 c_DNN6_Header">
+	<div id="dnn_ctr6109_ContentPane"><!-- Start_Module_6109 --><div id="dnn_ctr6109_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr6109_HtmlModule_lblContent" class="Normal">
+	<div class="token-clientname">[TMS Tire & Auto Complete Automotive Care]</div>
+<div class="token-clientphone">[(715) 684-3405]</div>
+<div class="token-focusarea1">[Baldwin, WI]</div>
+<div class="token-focusarea2">[Boyceville, WI]</div>
+<div class="token-focusarea3">[Menomonie, WI]</div>
+<div class="token-facebook"></div>
+<div class="token-twitter">[Twitter Not Configured]</div>
+<div class="token-gplus">[Google Plus not Configured]</div>
+</div>
+
+</div><!-- End_Module_6109 --></div>
+
+</div>
+
+
+</div></div>
+
+
+<!-- Logged In Information -->
+
+<input type="hidden" class="install-name" value="key07"/>
+<script>
+    if($(".install-name").attr("value").indexOf("com") > -1){
+		$('.tire-cart').removeAttr('style');
+	}
+</script>
+
+<div id="NDMobileButtons"></div>
+
+
+        <input name="ScrollTop" type="hidden" id="ScrollTop" />
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" autocomplete="off" />
+        
+    </form>
+    <!--CDF(Javascript|/js/dnncore.js?cdv=1050|DnnBodyProvider|100)--><!--CDF(Javascript|/js/dnn.modalpopup.js?cdv=1050|DnnBodyProvider|50)--><!--CDF(Css|/Resources/Shared/stylesheets/dnndefault/7.0.0/default.css?cdv=1050|DnnPageHeaderProvider|5)--><!--CDF(Css|/Portals/47/Skins/master/skin.css?cdv=1050|DnnPageHeaderProvider|15)--><!--CDF(Css|/Portals/47/Skins/master/skin.css?cdv=1050|DnnPageHeaderProvider|20)--><!--CDF(Css|/DesktopModules/PortalToolkit/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/PortalToolkit/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/WillStrohl.Injection/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/WillStrohl.Injection/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/LFLocations/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/LFLocations/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/PostalCodeLookup/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/PostalCodeLookup/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/CouponClient/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/CouponClient/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/LFLocations/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Css|/DesktopModules/LFLocations/module.css?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Javascript|/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js?cdv=1050|DnnBodyProvider|55)--><!--CDF(Javascript|/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js?cdv=1050|DnnBodyProvider|55)--><!--CDF(Javascript|/Resources/Shared/Scripts/dnn.jquery.js?cdv=1050|DnnBodyProvider|100)--><!--CDF(Javascript|/Resources/libraries/jQuery-UI/01_13_02/jquery-ui.min.js?cdv=1050|DnnPageHeaderProvider|10)--><!--CDF(Javascript|/Resources/libraries/jQuery/03_05_01/jquery.js?cdv=1050|DnnPageHeaderProvider|5)-->
+    
+
+	<div id="http404Overlay" style="display:none;">
+        <div id="http404Message">
+            <div id="http404Title"><span>Uh oh!</span> Page not found!</div>
+            <div id="http404SubTitle">Sorry the page you are looking for may have been moved or deleted.</div>
+            <p id="http404Text">Please click anywhere to <a>continue browsing our site.</a></p>
+        </div>
+	</div>
+    
+
+	<script type="text/javascript">
+        var ndinfo = new Object();
+        ndinfo.server = "IGNPWEB07A";
+        ndinfo.dnnInstall = "key07";
+        ndinfo.portalGUID = "b46483d1-8647-4ac8-8da6-730caa4d5e34";
+        ndinfo.portalID = "47";
+        ndinfo.activeTabID = "4154";
+        ndinfo.HTTPAlias = "www.tmstireandauto.com";
+        /*FORAREPLACETOOL*/
+        $(document).ready(function () {
+        if (window.location.pathname.toLowerCase().startsWith('/login')) {
+         return;
+        }
+            var $loginLink = $('#login a#dnn_dnnLOGIN_loginLink');
+
+            if ($loginLink.length > 0) {
+                var title = $loginLink.attr('title');
+                var text = $loginLink.text().trim();
+                var existingHref = $loginLink.attr('href');
+
+                var $btn = $('<button>', {
+                    type: 'button',
+                    id: 'dnn_dnnLOGIN_loginLink',
+                    title: title,
+                    'class': $loginLink.attr('class') || 'SkinObject',
+                    rel: 'nofollow'
+                }).text(text).attr('style',
+                    'background:none !important;' +
+                    'border:none !important;' +
+                    'padding:0 !important;' +
+                    'margin:0 !important;' +
+                    'cursor:pointer !important;' +
+                    'color:#fff !important;' +
+                    'text-decoration:underline !important;' +
+                    'font-size:inherit !important;' +
+                    'font-family:inherit !important;' +
+                    'display:inline !important;' +
+                    'appearance:none !important;'
+                );
+
+                if (title === 'Logout') {                   
+                    $btn.on('click', function () {
+                        window.location.href = existingHref;
+                    });
+                } else {                    
+                    $btn.on('click', function () {
+                        var returnUrl = window.location.pathname + window.location.search;
+                        var encodedUrl = encodeURIComponent(returnUrl);
+                        window.location.href = '/Login?returnurl=' + encodedUrl;
+                    });
+                }
+
+                $loginLink.replaceWith($btn);
+                
+                if (title === 'Logout' && $('#site-vars').length > 0) {
+                    var $adminLoginLink = $('<a>', {
+                        title: 'Login',
+                        'class': 'SkinObject',
+                        rel: 'nofollow'
+                    }).text('Login').attr('style',
+                        'color:#fff !important;' +
+                        'text-decoration:underline !important;' +
+                        'font-size:inherit !important;' +
+                        'font-family:inherit !important;' +
+                        'cursor:default !important;' +
+                        'pointer-events:none !important;'
+                    );
+                    $($('#login span')[0]).append(' ').append($adminLoginLink);
+                }
+            }
+        });
+    </script>
+
+    
+
+    <!--<script type="text/javascript" src="//r.nd-cdn.us/checkin2.js"></script>-->
+    
+    <script type="text/javascript">!function () { var t = function () { var t = document.createElement("script"); t.src = "https://ws.audioeye.com/ae.js", t.type = "text/javascript", t.setAttribute("async", ""), document.getElementsByTagName("body")[0].appendChild(t) }; "complete" !== document.readyState ? window.addEventListener ? window.addEventListener("load", t) : window.attachEvent && window.attachEvent("onload", t) : t() }()</script>
+    
+<div id="footer-legal">
+      
+        <span id="legal-copyright">Copyright &copy; 2007-2026</span>
+        &nbsp;&nbsp;
+        <span id="legal-nav">
+            <a href="/terms">Terms of Use</a>
+            <span>|</span>
+            <a href="/privacy">Privacy</a>
+            <span>|</span>
+           
+           <span class="lv_cm_footer">
+                    <a  id="lv_cm_btn" onclick='document.getElementById("__tealiumGDPRcpPrefs").style.display="block";'>
+                Your Privacy Choices
+                <img src="https://consent.trustarc.com/get?name=privacy_choices_icon.png" style="display: inline-block; margin-left: 5px; position: relative; top: -1px; width: 28.06px; height: 13.92px; background-size: 28.06px 13.92px; background-repeat: no-repeat;">
+              </a>
+            </span>
+            <span>|</span>
+            <a href="/accessibility">Accessibility</a>
+            <span>|</span>
+            <a href="/sitemap.aspx">Sitemap</a>
+        </span>
+    </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"fbd799adfe75415693cfb9b499b5bf1f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+<!-- ── StillOpen demo layer (added; everything above is the original site) ── -->
+<style>
+#so-disc{position:fixed;bottom:0;left:0;right:0;z-index:99990;background:#0d1626;color:#cfd8e6;
+ font:12px/1.5 -apple-system,Arial,sans-serif;text-align:center;padding:7px 90px 7px 14px;opacity:.96}
+#so-disc b{color:#fff}
+#so-switch{position:fixed;bottom:44px;left:16px;z-index:99991;background:#213772;color:#fff;
+ font:600 12.5px -apple-system,Arial,sans-serif;padding:9px 14px;border-radius:999px;text-decoration:none;
+ box-shadow:0 3px 14px rgba(0,0,0,.35)}
+#so-switch:hover{background:#2c4a97}
+@media(max-width:640px){#so-disc{padding:7px 10px 7px 10px;font-size:11px}#so-switch{bottom:88px}}
+#so-toast{position:fixed;bottom:140px;left:16px;z-index:99992;background:#111;color:#fff;
+ font:13px -apple-system,Arial,sans-serif;padding:10px 14px;border-radius:8px;display:none;max-width:280px}
+</style>
+<div id="so-disc"><b>Sample demo by Cole Cummings</b> &middot; For evaluation only &middot; Not affiliated with TMS Tire & Auto &middot; Your site, plus the chat front desk (bottom right).</div>
+
+<div id="so-toast">Demo mode: forms are switched off here. Try the chat bubble instead, it answers for real.</div>
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="seed-80f1243d7399"></script>
+<script>
+(function(){"use strict";
+ var c={main:"#1e3a5f",hover:"#2d5486",glow:"rgba(30,58,95,0.35)",text:"#ffffff"};
+ var s=document.createElement("style");
+ s.textContent=["#he-bubble{background:"+c.main+" !important;box-shadow:0 4px 20px "+c.glow+",0 2px 8px rgba(0,0,0,0.4) !important;}",
+ "#he-bubble:hover{box-shadow:0 6px 28px "+c.glow+",0 2px 10px rgba(0,0,0,0.4) !important;}",
+ "#he-avatar{background:"+c.main+" !important;}","#he-send{background:"+c.main+" !important;}",
+ "#he-send:hover:not(:disabled){background:"+c.hover+" !important;}",
+ ".he-msg.user .he-bubble-text{background:"+c.main+" !important;color:"+c.text+" !important;}",
+ ".he-dot{background:"+c.main+" !important;}","#he-badge{background:"+c.hover+" !important;color:#fff !important;}",
+ "#he-input:focus{border-color:"+c.main+" !important;}"].join("\n");
+ document.head.appendChild(s);
+ document.addEventListener("submit",function(e){
+   if(e.target && e.target.closest && e.target.closest("#he-window")) return;
+   e.preventDefault();e.stopPropagation();
+   var t=document.getElementById("so-toast");t.style.display="block";
+   setTimeout(function(){t.style.display="none";},4000);},true);
+})();
+</script>
+
+<script src="/demo-tour.js" data-business="TMS Tire &amp; Auto" data-question="My car won't start, can you look at it tomorrow?" defer></script>
+</body>
+</html>
