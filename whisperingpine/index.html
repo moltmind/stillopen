@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Whispering Pine Tree Service · Menomonie, WI · Tree Removal, Trimming &amp; Stump Grinding</title>
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pine-ink: #0b2214;
+    --pine-deep: #10321e;
+    --pine: #126432;
+    --pine-bright: #2f9c58;
+    --pine-mist: #b9d9c3;
+    --brick: #c74933;
+    --brick-hover: #d95c45;
+    --paper: #faf7f2;
+    --paper-dim: #f0ebe1;
+    --line: rgba(18, 100, 50, 0.16);
+    --line-dark: rgba(185, 217, 195, 0.14);
+    --text: #1d2b21;
+    --text-soft: #52645a;
+    --text-on-dark: #cfe2d5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .wrap { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 22px; }
+
+  /* ── Reveal on scroll ───────────────────── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .mist { animation: none !important; }
+  }
+
+  /* ── Header ─────────────────────────────── */
+  header {
+    background: rgba(11, 34, 20, 0.92);
+    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 60;
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
+  .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+  .brand img { width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(185,217,195,0.35); }
+  .brand-name { color: #fff; font-weight: 800; font-size: 17px; line-height: 1.15; letter-spacing: -0.01em; }
+  .brand-name span { display: block; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 10.5px; letter-spacing: 0.14em; color: var(--pine-mist); margin-top: 3px; }
+  .header-cta { display: flex; align-items: center; gap: 14px; }
+  .header-phone { display: none; color: var(--pine-mist); font-size: 13px; text-align: right; line-height: 1.4; }
+  .header-phone strong { display: block; color: #fff; font-size: 15px; font-weight: 800; }
+  .btn-call {
+    background: var(--brick); color: #fff; text-decoration: none;
+    font-weight: 800; font-size: 14.5px; letter-spacing: 0.01em;
+    padding: 11px 20px; border-radius: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-call:hover { background: var(--brick-hover); transform: translateY(-2px); }
+  @media (min-width: 760px) { .header-phone { display: block; } }
+
+  /* ── Hero ───────────────────────────────── */
+  .hero {
+    position: relative;
+    background: linear-gradient(178deg, var(--pine-ink) 0%, var(--pine-deep) 72%, #143c24 100%);
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero-inner { position: relative; z-index: 5; padding: 104px 0 230px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    font-size: 12px; letter-spacing: 0.22em; color: var(--pine-bright);
+    text-transform: uppercase; margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 6.4vw, 76px);
+    font-weight: 900; line-height: 1.02; letter-spacing: -0.028em;
+    max-width: 830px;
+  }
+  .hero h1 em { font-style: normal; color: var(--pine-mist); }
+  .hero-sub {
+    margin-top: 28px; max-width: 560px;
+    font-size: 18px; line-height: 1.65; color: var(--text-on-dark); font-weight: 500;
+  }
+  .hero-ctas { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: var(--brick); color: #fff; text-decoration: none;
+    font-weight: 800; font-size: 16.5px; padding: 16px 28px; border-radius: 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover { background: var(--brick-hover); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: #fff; text-decoration: none; cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700; font-size: 16.5px; padding: 16px 28px; border-radius: 10px;
+    border: 1.5px solid rgba(185, 217, 195, 0.45);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-ghost:hover { border-color: var(--pine-mist); background: rgba(185,217,195,0.08); }
+  .hero-proof {
+    margin-top: 46px; display: flex; flex-wrap: wrap; gap: 12px 30px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em;
+    color: var(--pine-mist);
+  }
+  .hero-proof b { color: #fff; font-weight: 700; }
+
+  /* ridge + mist */
+  .ridge { position: absolute; left: 0; right: 0; bottom: -2px; width: 100%; z-index: 2; pointer-events: none; }
+  .ridge svg { display: block; width: 100%; height: auto; }
+  .mist {
+    position: absolute; z-index: 3; pointer-events: none;
+    height: 90px; width: 130%; left: -15%;
+    background: radial-gradient(ellipse 45% 100% at 50% 50%, rgba(214, 232, 219, 0.16), rgba(214,232,219,0) 70%);
+    filter: blur(2px);
+  }
+  .mist-1 { bottom: 118px; animation: drift-a 68s linear infinite; }
+  .mist-2 { bottom: 64px; height: 70px; opacity: 0.8; animation: drift-b 94s linear infinite; }
+  @keyframes drift-a { 0% { transform: translateX(-6%); } 50% { transform: translateX(6%); } 100% { transform: translateX(-6%); } }
+  @keyframes drift-b { 0% { transform: translateX(5%); } 50% { transform: translateX(-5%); } 100% { transform: translateX(5%); } }
+
+  /* ── Stats band ─────────────────────────── */
+  .stats { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .stats-inner { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .stat { padding: 42px 10px; text-align: center; border-top: 1px solid var(--line); }
+  .stat:first-child { border-top: none; }
+  .stat-num { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 38px; color: var(--pine); letter-spacing: -0.02em; }
+  .stat-label { margin-top: 6px; font-size: 14px; color: var(--text-soft); font-weight: 600; }
+  @media (min-width: 760px) {
+    .stats-inner { grid-template-columns: repeat(3, 1fr); }
+    .stat { border-top: none; border-left: 1px solid var(--line); padding: 54px 20px; }
+    .stat:first-child { border-left: none; }
+  }
+
+  /* ── Section scaffolding ────────────────── */
+  section { position: relative; }
+  .section-pad { padding: 96px 0; }
+  @media (min-width: 900px) { .section-pad { padding: 140px 0; } }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--brick); margin-bottom: 18px;
+  }
+  .h2 {
+    font-size: clamp(30px, 4.4vw, 50px); font-weight: 900; line-height: 1.06;
+    letter-spacing: -0.024em; max-width: 700px;
+  }
+  .section-sub { margin-top: 18px; max-width: 560px; font-size: 17px; color: var(--text-soft); }
+
+  /* ── Services ledger ────────────────────── */
+  .services-list { margin-top: 64px; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+  .service {
+    display: grid; grid-template-columns: 56px 1fr; gap: 6px 18px;
+    padding: 30px 6px; border-bottom: 1px solid var(--line);
+    transition: background 0.25s ease;
+  }
+  .service:hover { background: rgba(18, 100, 50, 0.045); }
+  .service-idx { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: var(--brick); padding-top: 5px; }
+  .service h3 { display: flex; align-items: center; gap: 11px; font-size: 19px; font-weight: 800; letter-spacing: -0.01em; }
+  .service h3 svg { width: 21px; height: 21px; stroke: var(--pine); flex: none; }
+  .service p { grid-column: 2; font-size: 15.5px; color: var(--text-soft); max-width: 480px; }
+  @media (min-width: 900px) {
+    .services-list { grid-template-columns: 1fr 1fr; border-top: none; }
+    .service { border-top: 1px solid var(--line); padding: 34px 34px 34px 6px; }
+    .service:nth-child(odd) { border-right: 1px solid var(--line); }
+    .service:nth-child(even) { padding-left: 34px; }
+  }
+
+  /* ── Storm band ─────────────────────────── */
+  .storm { background: linear-gradient(180deg, var(--pine-ink) 0%, var(--pine-deep) 100%); color: #fff; }
+  .storm-grid { display: grid; grid-template-columns: 1fr; gap: 54px; align-items: center; }
+  .storm .kicker { color: var(--pine-bright); }
+  .storm .h2 { color: #fff; }
+  .storm-copy p { margin-top: 20px; font-size: 17.5px; line-height: 1.7; color: var(--text-on-dark); max-width: 540px; }
+  .storm-copy p b { color: #fff; }
+  .storm-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .storm-hours {
+    border: 1px solid var(--line-dark); border-radius: 14px; padding: 34px;
+    background: rgba(185, 217, 195, 0.05);
+  }
+  .storm-hours .mono-line {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em;
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 11px 0; border-bottom: 1px dashed rgba(185,217,195,0.18); color: var(--pine-mist);
+  }
+  .storm-hours .mono-line:last-child { border-bottom: none; }
+  .storm-hours .mono-line b { color: #fff; font-weight: 700; }
+  .storm-hours .hours-note { margin-top: 16px; font-size: 13.5px; color: var(--text-on-dark); line-height: 1.6; }
+  @media (min-width: 900px) { .storm-grid { grid-template-columns: 1.15fr 0.85fr; } }
+
+  /* ── Work strip ─────────────────────────── */
+  .work-grid { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .work-card { position: relative; border-radius: 12px; overflow: hidden; background: var(--paper-dim); }
+  .work-card img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1 / 1; transition: transform 0.5s ease; }
+  .work-card:hover img { transform: translateY(-4px); }
+  .work-card figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 26px 16px 13px;
+    background: linear-gradient(180deg, rgba(11,34,20,0) 0%, rgba(11,34,20,0.82) 100%);
+    color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
+  }
+  .work-note { margin-top: 22px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--text-soft); }
+  @media (min-width: 900px) { .work-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  /* ── Reviews ────────────────────────────── */
+  .reviews { background: var(--paper-dim); }
+  .review-grid { margin-top: 64px; display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .review-card {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+    padding: 34px 30px; display: flex; flex-direction: column; gap: 18px;
+    transition: transform 0.25s ease;
+  }
+  .review-card:hover { transform: translateY(-3px); }
+  .review-stars { display: flex; gap: 3px; }
+  .review-stars svg { width: 16px; height: 16px; fill: var(--brick); stroke: none; }
+  .review-card blockquote { font-size: 16px; line-height: 1.7; color: var(--text); font-weight: 500; }
+  .review-meta { margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--text-soft); }
+  .review-meta b { color: var(--pine); font-weight: 700; }
+  @media (min-width: 900px) { .review-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* ── About band ─────────────────────────── */
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: center; }
+  .about-copy p { margin-top: 20px; font-size: 17.5px; line-height: 1.75; color: var(--text-soft); max-width: 560px; }
+  .about-copy p b { color: var(--text); }
+  .about-badge {
+    justify-self: center; text-align: center; padding: 40px;
+    border: 1px solid var(--line); border-radius: 16px; background: #fff;
+  }
+  .about-badge img { width: 190px; height: 190px; border-radius: 50%; margin: 0 auto; }
+  .about-badge .mono { display: block; margin-top: 20px; font-size: 11.5px; letter-spacing: 0.14em; color: var(--text-soft); line-height: 2; }
+  @media (min-width: 900px) { .about-grid { grid-template-columns: 1.2fr 0.8fr; } }
+
+  /* ── Widget picker ──────────────────────── */
+  .picker { border-top: 1px solid var(--line); }
+  .picker-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px; padding: 44px 0; }
+  .picker-copy { max-width: 520px; }
+  .picker-copy h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; }
+  .picker-copy p { margin-top: 8px; font-size: 15px; color: var(--text-soft); }
+  .swatch-row { display: flex; align-items: center; gap: 14px; }
+  .swatch-row .mono { font-size: 11.5px; letter-spacing: 0.12em; color: var(--text-soft); }
+  .swatch {
+    width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
+    border: 3px solid transparent; outline: 2px solid var(--line); outline-offset: 2px;
+    transition: outline-color 0.2s ease, transform 0.2s ease;
+  }
+  .swatch:hover { transform: translateY(-2px); }
+  .swatch.active { outline: 2.5px solid var(--pine-ink); }
+  .swatch-pine { background: var(--pine); }
+  .swatch-brick { background: var(--brick); }
+  .swatch-orange { background: #f97316; }
+
+  /* ── Footer ─────────────────────────────── */
+  footer { background: var(--pine-ink); color: var(--text-on-dark); padding: 84px 0 150px; }
+  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 44px; }
+  .footer-brand { display: flex; align-items: flex-start; gap: 18px; }
+  .footer-brand img { width: 74px; height: 74px; border-radius: 50%; border: 2px solid rgba(185,217,195,0.3); }
+  .footer-brand h4 { color: #fff; font-size: 19px; font-weight: 800; }
+  .footer-brand .mono { display: block; margin-top: 8px; font-size: 11px; letter-spacing: 0.12em; line-height: 2.1; color: var(--pine-mist); }
+  .footer-col h5 {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--pine-bright); margin-bottom: 16px;
+  }
+  .footer-col a, .footer-col span { display: block; padding: 5px 0; font-size: 15px; text-decoration: none; color: var(--text-on-dark); }
+  .footer-col a:hover { color: #fff; }
+  .footer-legal { margin-top: 64px; padding-top: 26px; border-top: 1px solid var(--line-dark); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: rgba(207,226,213,0.55); line-height: 2; }
+  @media (min-width: 900px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+
+  /* ── Disclaimer bar ─────────────────────── */
+  .disclaimer {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483645;
+    background: #0b1c11; color: #cfe2d5;
+    font: 500 11.5px/1.5 'JetBrains Mono', monospace; letter-spacing: 0.03em;
+    text-align: center; padding: 9px 96px 9px 14px;
+    border-top: 1px solid rgba(185,217,195,0.18);
+  }
+  @media (max-width: 600px) { .disclaimer { padding-right: 84px; font-size: 10px; } }
+
+  /* ── Keep the widget clear of the disclaimer bar ── */
+  #he-bubble { bottom: 78px !important; }
+  @media (min-width: 601px) { #he-window { bottom: 152px !important; } }
+  @media (max-width: 600px) { #he-bubble { bottom: 92px !important; } }
+
+  /* ── Widget nudge ───────────────────────── */
+  #widget-nudge {
+    position: fixed; right: 92px; bottom: 128px; z-index: 2147483644;
+    background: #fff; color: var(--text); border: 1px solid var(--line);
+    border-radius: 14px; padding: 15px 40px 15px 18px;
+    font-size: 14px; font-weight: 700; box-shadow: 0 8px 30px rgba(11, 34, 20, 0.18);
+    max-width: 250px; opacity: 0; transform: translateY(10px); pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  #widget-nudge.show { opacity: 1; transform: none; pointer-events: auto; }
+  #widget-nudge .nudge-sub { display: block; margin-top: 4px; font-size: 12.5px; font-weight: 500; color: var(--text-soft); }
+  #widget-nudge button {
+    position: absolute; top: 8px; right: 8px; width: 24px; height: 24px;
+    border: none; background: none; cursor: pointer; color: var(--text-soft);
+  }
+  #widget-nudge button svg { width: 15px; height: 15px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <img src="assets/logo.jpg" alt="Whispering Pine Tree Service logo patch">
+      <span class="brand-name">Whispering Pine Tree Service
+        <span>MENOMONIE, WISCONSIN</span>
+      </span>
+    </a>
+    <div class="header-cta">
+      <div class="header-phone">Call or text any hour<strong>(715) 505-9398</strong></div>
+      <a class="btn-call" href="tel:+17155059398">Call Brett</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Menomonie, WI &middot; Dunn County &middot; Storm calls any hour</div>
+    <h1>Big trees. Tight spots. <em>A clean yard when we pull out.</em></h1>
+    <p class="hero-sub">Whispering Pine takes down the oak leaning over your garage, grinds the stump, and hauls the mess off before we go. Estimates are free, and the quote comes from Brett, not a call center.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="tel:+17155059398">Call or text (715) 505-9398</a>
+      <button class="btn-ghost js-open-chat" type="button">Message us, 2 AM or 2 PM</button>
+    </div>
+    <div class="hero-proof">
+      <span><b>5.0</b> on Google</span>
+      <span><b>100%</b> recommended on Facebook</span>
+      <span><b>Free</b> estimates</span>
+    </div>
+  </div>
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <div class="ridge" aria-hidden="true">
+    <svg viewBox="0 0 1440 190" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#16482a" opacity="0.5" d="M0,120 L40,112 55,88 70,110 95,78 115,104 150,60 185,102 210,84 235,108 270,70 305,106 330,92 360,112 395,74 425,104 455,86 480,108 515,66 545,100 575,84 605,110 640,76 670,102 700,88 730,112 765,72 800,106 830,90 860,110 895,68 925,100 955,86 985,108 1020,74 1050,104 1080,90 1110,112 1145,70 1175,102 1205,86 1235,108 1270,64 1300,100 1330,88 1360,110 1395,78 1420,104 1440,96 L1440,190 L0,190 Z"/>
+      <path fill="#123a22" opacity="0.75" d="M0,150 L30,138 50,118 70,140 100,108 125,136 160,96 195,134 220,116 250,142 285,104 320,138 345,124 375,144 410,106 440,136 470,120 495,142 530,100 560,132 590,118 620,142 655,108 685,134 715,122 745,144 780,104 815,138 845,124 875,142 910,102 940,132 970,118 1000,140 1035,108 1065,136 1095,122 1125,144 1160,104 1190,134 1220,120 1250,142 1285,100 1315,132 1345,120 1375,142 1410,110 1440,130 L1440,190 L0,190 Z"/>
+      <path fill="#0d2b19" d="M0,172 L35,160 60,146 85,164 115,138 145,162 180,130 215,160 245,146 275,166 310,136 345,162 375,150 405,168 440,134 470,160 500,148 530,166 565,132 595,158 625,146 655,166 690,136 720,160 750,148 780,168 815,134 845,158 875,148 905,166 940,132 970,158 1000,146 1030,166 1065,136 1095,160 1125,148 1155,168 1190,134 1220,158 1250,148 1280,166 1315,132 1345,158 1375,146 1405,164 1440,144 L1440,190 L0,190 Z"/>
+    </svg>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-inner">
+    <div class="stat reveal">
+      <div class="stat-num">5.0</div>
+      <div class="stat-label">Google rating, every review five stars</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Recommended on Facebook</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num">24 HR</div>
+      <div class="stat-label">Storm line, listed open around the clock</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="services">
+  <div class="wrap">
+    <div class="kicker reveal">What we do</div>
+    <h2 class="h2 reveal">From one dead oak to the whole back forty.</h2>
+    <p class="section-sub reveal">Every job below starts the same way: Brett looks at it, gives you a straight number, and the crew leaves the place cleaner than they found it.</p>
+
+    <div class="services-list">
+      <div class="service reveal">
+        <div class="service-idx">01</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M12 22v-9"/><path d="M8 13h8L12 3z"/><path d="M6 13 12 3l6 10"/><path d="M4 22h16"/></svg>Tree removal</h3>
+        <p>The leaner over the shed. The dead oak by the driveway. Down safe, cut up, and gone.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">02</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M6 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><path d="M14.8 14.8 20 20"/><path d="M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>Trimming &amp; pruning</h3>
+        <p>Deadwood out, weight off, shape back. Your maples stop scraping the roof.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">03</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>Stump grinding</h3>
+        <p>The stump goes below grade so you can mow over it instead of around it.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">04</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Cabling &amp; bracing</h3>
+        <p>The split trunk you're not ready to lose gets hardware instead of a chainsaw.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">05</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>Building clearance</h3>
+        <p>Branches backed off your roofline, your siding, and your gutters.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">06</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>View improvement</h3>
+        <p>Open the sightline to the water or the valley without scalping the woods.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">07</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M3 17c4-1 6-4 6-8 0 4 2 7 6 8-4 1-6 4-6 8 0-4-2-7-6-8z"/><path d="M15 5c2-.5 3-2 3-4 0 2 1 3.5 3 4-2 .5-3 2-3 4 0-2-1-3.5-3-4z"/></svg>Woods &amp; trails</h3>
+        <p>Thin the tangle, cut the trail, make the back of the property walkable again.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">08</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>Hillside &amp; lot clearing</h3>
+        <p>Steep ground and thick brush cleared down to buildable, plantable, usable.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-idx">09</div>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M2 12h20"/><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m19.07 4.93-14.14 14.14"/></svg>Snow removal</h3>
+        <p>When the trees sleep, the plow runs. Same crew, same phone number, all winter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="storm section-pad">
+  <div class="wrap storm-grid">
+    <div class="storm-copy">
+      <div class="kicker reveal">After hours</div>
+      <h2 class="h2 reveal">A storm doesn't check our office hours. Neither does this page.</h2>
+      <p class="reveal">Wind rolls through at 2 AM and the maple is on the garage. You don't want a voicemail box, you want to tell somebody. <b>The chat bubble on this page answers every hour of the year.</b> It takes your name, your address, and what came down, and Brett has the details before his boots are on.</p>
+      <div class="storm-cta reveal">
+        <button class="btn-primary js-open-chat" type="button">Try it right now</button>
+        <a class="btn-ghost" href="tel:+17155059398">Or just call</a>
+      </div>
+    </div>
+    <div class="storm-hours reveal">
+      <div class="mono-line"><span>MON - FRI</span><b>OPEN 24 HOURS</b></div>
+      <div class="mono-line"><span>SATURDAY</span><b>OPEN 24 HOURS</b></div>
+      <div class="mono-line"><span>SUNDAY</span><b>OPEN 24 HOURS</b></div>
+      <div class="mono-line"><span>STORM DAMAGE</span><b>MOVE TO THE FRONT</b></div>
+      <p class="hours-note">Lines down or wrapped in the tree? Call the power company first, then us. We don't touch energized lines and neither should you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="work">
+  <div class="wrap">
+    <div class="kicker reveal">Recent work</div>
+    <h2 class="h2 reveal">Straight off the crew's camera roll.</h2>
+    <div class="work-grid">
+      <figure class="work-card reveal">
+        <img src="assets/work-canopy.jpg" alt="Whispering Pine bucket truck working high in a hardwood canopy" loading="lazy">
+        <figcaption>Bucket work in the tall stuff</figcaption>
+      </figure>
+      <figure class="work-card reveal">
+        <img src="assets/work-crew.jpg" alt="Crew member carrying a chainsaw up a driveway past a downed tree" loading="lazy">
+        <figcaption>Takedown on the driveway</figcaption>
+      </figure>
+      <figure class="work-card reveal">
+        <img src="assets/work-takedown.jpg" alt="Large tree being brought down in sections between two houses" loading="lazy">
+        <figcaption>Big tree, tight spot between houses</figcaption>
+      </figure>
+      <figure class="work-card reveal">
+        <img src="assets/work-cleared.jpg" alt="Park lot after clearing with brush removed" loading="lazy">
+        <figcaption>Cleared and cleaned before we left</figcaption>
+      </figure>
+    </div>
+    <p class="work-note reveal">REAL JOBS, REAL PHOTOS &middot; NOTHING STAGED, NOTHING STOCK</p>
+  </div>
+</section>
+
+<section class="reviews section-pad">
+  <div class="wrap">
+    <div class="kicker reveal">Word around Menomonie</div>
+    <h2 class="h2 reveal">Nine Google reviews. Nine five-stars.</h2>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>&ldquo;Brett was very responsive&hellip; professional and respectful of our yard and home. We had a large oak tree removed that was close to the house and garage.&rdquo;</blockquote>
+        <div class="review-meta"><b>Julie D.</b> &middot; GOOGLE REVIEW</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>&ldquo;My fence ran alongside the base of one side and with all the branches they dropped, none landed on the fence. They were unfailingly polite, did excellent clean up work.&rdquo;</blockquote>
+        <div class="review-meta"><b>Carol S.</b> &middot; GOOGLE REVIEW</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>&ldquo;Brett and Andrew did a really great job&hellip; removing several dead pines, and thinning out the maples overhanging my driveway.&rdquo;</blockquote>
+        <div class="review-meta"><b>Melody P.</b> &middot; GOOGLE REVIEW</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <div class="kicker reveal">Who's showing up</div>
+      <h2 class="h2 reveal">Run by Brett. Out of Menomonie. On purpose.</h2>
+      <p class="reveal">No franchise, no out-of-state crew chasing storms. <b>Whispering Pine Tree Service is a Menomonie outfit</b> working Dunn County and the surrounding country, with real equipment and a habit the reviews keep naming: the yard looks better when we leave than when we pulled in.</p>
+      <p class="reveal">Want a number on a tree? Call, text, or hit the chat bubble. The estimate is free either way.</p>
+    </div>
+    <div class="about-badge reveal">
+      <img src="assets/logo.jpg" alt="Whispering Pine Tree Service embroidered logo patch">
+      <span class="mono">WHISPERING PINE TREE SERVICE LLC<br>MENOMONIE, WISCONSIN &middot; USDOT 3701472<br>(715) 505-9398</span>
+    </div>
+  </div>
+</section>
+
+<section class="picker">
+  <div class="wrap picker-inner">
+    <div class="picker-copy">
+      <h3>The chat bubble is live. Argue with it.</h3>
+      <p>Ask it what a takedown costs. Ask it if we grind stumps. It answers like the crew would, and it hands Brett the lead. Pick the color you'd want on the real thing.</p>
+    </div>
+    <div class="swatch-row">
+      <span class="mono">WIDGET COLOR</span>
+      <button class="swatch swatch-pine active" data-accent="pine" type="button" aria-label="Pine green widget"></button>
+      <button class="swatch swatch-brick" data-accent="brick" type="button" aria-label="Brick red widget"></button>
+      <button class="swatch swatch-orange" data-accent="orange" type="button" aria-label="Safety orange widget"></button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo.jpg" alt="Whispering Pine Tree Service logo patch">
+      <div>
+        <h4>Whispering Pine Tree Service</h4>
+        <span class="mono">MENOMONIE, WI 54751<br>LLC &middot; USDOT 3701472</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Reach us</h5>
+      <a href="tel:+17155059398">(715) 505-9398</a>
+      <a href="mailto:Whisperingpinets@icloud.com">Whisperingpinets@icloud.com</a>
+      <span>Facebook: Whispering Pine Tree Service</span>
+    </div>
+    <div class="footer-col">
+      <h5>Where we work</h5>
+      <span>Menomonie &middot; Elk Mound &middot; Colfax</span>
+      <span>Boyceville &middot; Downsville &middot; Knapp</span>
+      <span>All of Dunn County and nearby</span>
+    </div>
+  </div>
+  <div class="wrap footer-legal">
+    Storm calls answered any hour &middot; Estimates always free
+  </div>
+</footer>
+
+<div class="disclaimer">Sample design by Cole Cummings &middot; Demo for evaluation only &middot; Not affiliated with Whispering Pine Tree Service LLC</div>
+
+<!-- ── Widget nudge ────────────────────────── -->
+<div id="widget-nudge" role="status">
+  Try it: ask what a takedown runs.
+  <span class="nudge-sub">The bubble below never goes home.</span>
+  <button type="button" aria-label="Dismiss">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+</div>
+
+<!-- ── StillOpen widget (embed marker: stillopen-chatbot) ── -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-whisperingpine"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  // ── Widget accent override: repaint chatbot.js in the chosen brand color ──
+  var ACCENTS = {
+    pine:   { main: "#126432", hover: "#1a7f42", glow: "rgba(18,100,50,0.35)",  text: "#ffffff" },
+    brick:  { main: "#c74933", hover: "#d95c45", glow: "rgba(199,73,51,0.35)",  text: "#ffffff" },
+    orange: { main: "#f97316", hover: "#fb923c", glow: "rgba(249,115,22,0.35)", text: "#ffffff" }
+  };
+
+  var styleTag = null;
+  function applyAccent(key) {
+    var c = ACCENTS[key];
+    if (!c) return;
+    var css = [
+      "#he-bubble { background: " + c.main + " !important; box-shadow: 0 4px 20px " + c.glow + ", 0 2px 8px rgba(0,0,0,0.4) !important; }",
+      "#he-bubble:hover { box-shadow: 0 6px 28px " + c.glow + ", 0 2px 10px rgba(0,0,0,0.4) !important; }",
+      "#he-avatar { background: " + c.main + " !important; }",
+      "#he-send { background: " + c.main + " !important; }",
+      "#he-send:hover:not(:disabled) { background: " + c.hover + " !important; }",
+      ".he-msg.user .he-bubble-text { background: " + c.main + " !important; color: " + c.text + " !important; }",
+      ".he-dot { background: " + c.main + " !important; }",
+      "#he-badge { background: " + c.hover + " !important; color: #ffffff !important; }",
+      "#he-input:focus { border-color: " + c.main + " !important; }",
+      "#he-window { box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px " + c.glow.replace("0.35", "0.08") + " !important; }"
+    ].join("\n");
+    if (!styleTag) {
+      styleTag = document.createElement("style");
+      styleTag.id = "wp-widget-accent";
+      document.head.appendChild(styleTag);
+    }
+    styleTag.textContent = css;
+  }
+
+  applyAccent("pine");
+
+  var swatches = document.querySelectorAll(".swatch");
+  swatches.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      swatches.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      applyAccent(btn.getAttribute("data-accent"));
+    });
+  });
+
+  // ── Open-chat buttons click the widget bubble ──
+  function openWidget() {
+    var bubble = document.getElementById("he-bubble");
+    if (bubble) bubble.click();
+    hideNudge();
+  }
+  document.querySelectorAll(".js-open-chat").forEach(function (btn) {
+    btn.addEventListener("click", openWidget);
+  });
+
+  // ── Widget nudge ──
+  var nudge = document.getElementById("widget-nudge");
+  var nudgeDismissed = false;
+  function hideNudge() {
+    nudgeDismissed = true;
+    if (nudge) nudge.classList.remove("show");
+  }
+  if (nudge) {
+    setTimeout(function () {
+      if (!nudgeDismissed) nudge.classList.add("show");
+    }, 9000);
+    setTimeout(function () {
+      if (!nudgeDismissed) nudge.classList.remove("show");
+    }, 24000);
+    nudge.querySelector("button").addEventListener("click", hideNudge);
+  }
+
+  // ── Scroll reveals ──
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
