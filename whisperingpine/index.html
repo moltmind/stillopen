@@ -654,6 +654,9 @@
     nudgeDismissed = true;
     if (nudge) nudge.classList.remove("show");
   }
+  document.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest("#he-bubble")) hideNudge();
+  }, true);
   if (nudge) {
     setTimeout(function () {
       if (!nudgeDismissed) nudge.classList.add("show");
