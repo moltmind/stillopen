@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Jake's Supper Club on Tainter Lake · Menomonie, WI</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe9d9;
+    --paper-dim: rgba(239,233,217,0.55);
+    --amber: #d08428;
+    --amber-bright: #e89a3c;
+    --maroon: #500000;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: #000;
+    color: var(--paper);
+    line-height: 1.6;
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  button { font-family: inherit; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* ── the amber rule + nav ── */
+  #topRule {
+    position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 41;
+    background: linear-gradient(90deg, transparent 0%, var(--amber) 18%, var(--amber) 82%, transparent 100%);
+  }
+  nav {
+    position: fixed; top: 2px; left: 0; right: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 30px;
+  }
+  .brand { display: flex; align-items: center; text-decoration: none; }
+  .brand img { width: 92px; height: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8)); }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a, .nav-links button {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.28em; color: var(--paper); text-decoration: none;
+    background: none; border: none; cursor: pointer; white-space: nowrap;
+    opacity: 0.85; transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  .call .m-label { display: none; }
+  .nav-links a:hover, .nav-links button:hover { opacity: 1; color: var(--amber-bright); }
+  .nav-links .call {
+    border: 1px solid rgba(239,233,217,0.3); padding: 10px 16px; border-radius: 999px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .nav-links .call:hover { border-color: var(--amber); background: rgba(208,132,40,0.1); color: var(--paper); }
+  @media (max-width: 700px) {
+    nav { padding: 14px 16px; }
+    .brand img { width: 72px; }
+    .nav-links { gap: 14px; }
+    .nav-links a.hide-m { display: none; }
+    .nav-links a, .nav-links button { font-size: 10px; letter-spacing: 0.2em; }
+    .nav-links .call { padding: 8px 12px; }
+  }
+
+  /* ── hero scene ── */
+  #scene-hero { height: 300vh; position: relative; }
+  .pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+
+  .hero-eyebrow {
+    position: absolute; top: 34vh; left: 30px; z-index: 2;
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1.05vw, 13px);
+    font-weight: 700; letter-spacing: 0.42em; color: var(--paper-dim);
+    will-change: transform, opacity;
+  }
+  .hero-proof {
+    position: absolute; top: calc(34vh + 26px); left: 30px; z-index: 2;
+    max-width: 34vw; line-height: 2.1;
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(9.5px, 0.95vw, 11.5px);
+    letter-spacing: 0.18em; color: rgba(239,233,217,0.42);
+    will-change: transform, opacity;
+  }
+  .hero-proof b { color: var(--amber-bright); font-weight: 700; }
+
+  /* colossal title, lower third, BEHIND the glass */
+  #heroTitle {
+    position: absolute; left: 0; right: 0; bottom: 4vh; z-index: 3;
+    font-family: 'Anton', 'Archivo', sans-serif; font-weight: 400;
+    line-height: 0.82; letter-spacing: 0.01em;
+    color: var(--paper); user-select: none;
+    text-align: left; padding-left: 2.2vw; white-space: nowrap;
+    font-size: clamp(120px, 26vw, 30rem);
+  }
+  #heroTitle .ch { display: inline-block; will-change: transform, opacity; transform-origin: 50% 100%; }
+
+  /* the drink, right-of-center, IN FRONT of the letters */
+  #drinkWrap {
+    position: absolute; z-index: 4;
+    left: 58%; top: 47%;
+    width: min(78vh, 88vw);
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+    -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 98%);
+    mask-image: radial-gradient(closest-side, #000 72%, transparent 98%);
+  }
+  #drinkWrap img, #drinkWrap video { width: 100%; height: auto; display: block; }
+  #drinkWrap video { display: none; }
+  #drinkWrap.vid video { display: block; }
+  #drinkWrap.vid img { display: none; }
+
+  /* shade that rises for the after-beat */
+  #beatShade {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 58vh; z-index: 5;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 62%, #000 100%);
+    opacity: 0; will-change: opacity; pointer-events: none;
+  }
+
+  #afterBeat {
+    position: absolute; left: 0; right: 0; bottom: 10vh; z-index: 6;
+    text-align: center; opacity: 0; will-change: transform, opacity;
+  }
+  #afterBeat h2 {
+    font-size: clamp(26px, 3.6vw, 46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12;
+    font-family: 'Archivo', sans-serif; font-variation-settings: "wdth" 110;
+  }
+  #afterBeat h2 em { font-style: normal; color: var(--amber-bright); }
+  #afterBeat p {
+    margin: 14px auto 0; max-width: 520px; font-size: clamp(14px, 1.4vw, 16.5px);
+    color: rgba(239,233,217,0.72); padding: 0 22px;
+  }
+  #afterBeat .ctas { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; padding: 0 22px; }
+  .btn-primary {
+    background: var(--amber); color: #140a02; text-decoration: none; border: none; cursor: pointer;
+    font-weight: 800; font-size: 15px; padding: 15px 26px; border-radius: 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover { background: var(--amber-bright); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--paper); text-decoration: none; cursor: pointer;
+    font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 10px;
+    border: 1.5px solid rgba(239,233,217,0.3);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-ghost:hover { border-color: var(--paper); background: rgba(239,233,217,0.07); }
+
+  .scroll-cue {
+    position: absolute; right: 28px; bottom: 48px; z-index: 6;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.26em; color: rgba(239,233,217,0.6); text-align: right;
+  }
+  .scroll-cue .bar {
+    display: block; width: 1.5px; height: 44px; margin: 10px 0 0 auto;
+    background: linear-gradient(180deg, var(--amber), transparent);
+    animation: cue-slide 1.8s ease-in-out infinite;
+  }
+  @keyframes cue-slide { 0%,100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(10px); opacity: 0.4; } }
+
+  /* film grain, whisper quiet */
+  #grain {
+    position: fixed; inset: -50%; z-index: 30; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    animation: grain-drift 1.6s steps(3) infinite;
+  }
+  @keyframes grain-drift {
+    0%,100% { transform: translate(0,0); } 33% { transform: translate(-2.5%,1.5%); } 66% { transform: translate(2%, -2%); }
+  }
+
+  @media (max-width: 700px) {
+    .hero-eyebrow { top: 17vh; left: 18px; font-size: 9.5px; letter-spacing: 0.3em; }
+    .hero-proof { top: calc(17vh + 22px); left: 18px; font-size: 9px; line-height: 2.1; max-width: 88vw; }
+    .hero-proof .tail-d { display: none; }
+    #drinkWrap { left: 50%; top: 45%; width: min(58vh, 96vw); }
+    #heroTitle { bottom: 9vh; padding-left: 3vw; font-size: 27vw; }
+    #afterBeat { bottom: 13vh; }
+    .scroll-cue { left: 18px; right: auto; bottom: 100px; text-align: left; }
+    .scroll-cue .bar { margin: 10px auto 0 0; }
+    .call .m-label { display: inline; }
+    .call .d-label { display: none; }
+  }
+
+  /* ── shared section chrome ── */
+  section { position: relative; background: #000; }
+  .sec-head {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.4em; color: var(--amber-bright); margin-bottom: 18px;
+  }
+  .sec-title {
+    font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: 0.01em;
+    font-size: clamp(40px, 6vw, 88px); line-height: 0.95; color: var(--paper);
+  }
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  html.prm .reveal { opacity: 1; transform: none; transition: none; }
+
+  /* ── the lake ── */
+  #lake { padding: 0; }
+  #lake .photo-wrap { position: relative; height: 92vh; overflow: hidden; }
+  #lake .photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+  #lake .photo-shade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, #000 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.25) 55%, #000 100%);
+  }
+  #lake .lake-copy {
+    position: absolute; left: 0; right: 0; bottom: 10vh; text-align: center; padding: 0 24px;
+  }
+  #lake .lake-copy p {
+    margin: 16px auto 0; max-width: 560px; font-size: clamp(14.5px, 1.5vw, 17px);
+    color: rgba(239,233,217,0.85);
+  }
+  #lake .lake-copy .mono-note {
+    margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.24em; color: var(--amber-bright);
+  }
+
+  /* ── the classics ledger ── */
+  #menu { padding: 18vh 6vw 14vh; }
+  .ledger { margin-top: 7vh; border-top: 1px solid rgba(239,233,217,0.14); }
+  .ledger-row {
+    display: grid; grid-template-columns: 90px 1fr auto; gap: 18px; align-items: baseline;
+    padding: 30px 6px; border-bottom: 1px solid rgba(239,233,217,0.14);
+    transition: background 0.25s ease, padding-left 0.25s ease;
+  }
+  .ledger-row:hover { background: rgba(239,233,217,0.03); padding-left: 14px; }
+  .ledger-row .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--amber-bright); font-weight: 700; }
+  .ledger-row h3 {
+    font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(24px, 3.2vw, 44px);
+    letter-spacing: 0.015em; color: var(--paper); line-height: 1.05;
+  }
+  .ledger-row .note { font-size: clamp(12.5px, 1.15vw, 15px); color: rgba(239,233,217,0.55); max-width: 340px; text-align: right; }
+  @media (max-width: 700px) {
+    .ledger-row { grid-template-columns: 44px 1fr; }
+    .ledger-row .note { grid-column: 2; text-align: left; margin-top: 6px; }
+  }
+  .menu-cta { margin-top: 5vh; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ── prime rib strip ── */
+  #rib { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 78vh; }
+  #rib .rib-photo { position: relative; overflow: hidden; }
+  #rib .rib-photo img { width: 100%; height: 100%; object-fit: cover; }
+  #rib .rib-copy { display: flex; flex-direction: column; justify-content: center; padding: 12vh 6vw; }
+  #rib .rib-copy p { margin-top: 20px; max-width: 460px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); }
+  @media (max-width: 900px) {
+    #rib { grid-template-columns: 1fr; }
+    #rib .rib-photo { height: 52vh; }
+    #rib .rib-copy { padding: 9vh 8vw; }
+  }
+
+  /* ── reviews ── */
+  #reviews { padding: 16vh 6vw; }
+  .rev-grid { margin-top: 7vh; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  @media (max-width: 900px) { .rev-grid { grid-template-columns: 1fr; } }
+  .rev {
+    border-top: 2px solid var(--amber); padding-top: 22px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .rev blockquote { font-size: clamp(15px, 1.35vw, 17.5px); line-height: 1.65; color: rgba(239,233,217,0.88); }
+  .rev cite { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(239,233,217,0.5); }
+  .rev-foot { margin-top: 6vh; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: rgba(239,233,217,0.45); }
+  .rev-foot b { color: var(--amber-bright); }
+
+  /* ── nights ── */
+  #nights { display: grid; grid-template-columns: 1fr 1.1fr; min-height: 66vh; }
+  #nights .n-photo { position: relative; overflow: hidden; }
+  #nights .n-photo img { width: 100%; height: 100%; object-fit: cover; }
+  #nights .n-copy { display: flex; flex-direction: column; justify-content: center; padding: 12vh 6vw; }
+  #nights .n-copy p { margin-top: 20px; max-width: 460px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); }
+  @media (max-width: 900px) {
+    #nights { grid-template-columns: 1fr; }
+    #nights .n-photo { height: 46vh; order: -1; }
+    #nights .n-copy { padding: 9vh 8vw; }
+  }
+
+  /* ── hours + find us ── */
+  #hours { padding: 16vh 6vw 14vh; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; }
+  @media (max-width: 900px) { #hours { grid-template-columns: 1fr; gap: 7vh; } }
+  .hours-table { margin-top: 5vh; width: 100%; border-collapse: collapse; }
+  .hours-table td {
+    padding: 13px 6px; border-bottom: 1px solid rgba(239,233,217,0.12);
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.05vw, 13px); letter-spacing: 0.08em;
+  }
+  .hours-table td:first-child { color: rgba(239,233,217,0.55); }
+  .hours-table td:last-child { text-align: right; color: var(--paper); }
+  .hours-table tr.closed td:last-child { color: var(--amber-bright); }
+  .find p { margin-top: 20px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); max-width: 440px; }
+  .find .addr {
+    margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: clamp(12px, 1.1vw, 14px);
+    letter-spacing: 0.12em; line-height: 2.1; color: var(--paper);
+  }
+  .find .addr a { color: var(--amber-bright); text-decoration: none; }
+  .find .addr a:hover { text-decoration: underline; }
+
+  /* ── footer ── */
+  footer { padding: 12vh 6vw 16vh; text-align: center; border-top: 1px solid rgba(239,233,217,0.1); position: relative; }
+  #footRule {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    height: 2px; width: 0; background: var(--amber); transition: width 1.4s ease;
+  }
+  footer.on #footRule { width: min(560px, 80vw); }
+  footer img { width: 120px; margin: 0 auto; }
+  footer .f-phone {
+    display: inline-block; margin-top: 26px; font-family: 'Anton', sans-serif;
+    font-size: clamp(28px, 4vw, 52px); color: var(--paper); text-decoration: none; letter-spacing: 0.02em;
+  }
+  footer .f-phone:hover { color: var(--amber-bright); }
+  footer .f-note { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: rgba(239,233,217,0.4); }
+
+  .disclaimer {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483645;
+    background: #0d0802; color: #e2d6bd;
+    font: 500 11.5px/1.5 'JetBrains Mono', monospace; letter-spacing: 0.03em;
+    text-align: center; padding: 9px 96px 9px 14px;
+    border-top: 1px solid rgba(208,132,40,0.25);
+  }
+  @media (max-width: 600px) { .disclaimer { padding-right: 84px; font-size: 10px; } }
+
+  #he-bubble { bottom: 78px !important; }
+  @media (min-width: 601px) { #he-window { bottom: 152px !important; } }
+  @media (max-width: 600px) { #he-bubble { bottom: 92px !important; } }
+
+  html.prm #scene-hero { height: 100vh; }
+  html.prm .scroll-cue { display: none; }
+</style>
+</head>
+<body>
+
+<div id="topRule" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+
+<nav>
+  <a class="brand" href="#" aria-label="Jake's Supper Club">
+    <img src="assets/logo.png" alt="Jake's Supper Club on Tainter Lake logo">
+  </a>
+  <div class="nav-links">
+    <a href="#menu" class="hide-m">MENU</a>
+    <button class="js-open-chat" type="button">ASK US</button>
+    <a class="call" href="tel:+17152352465"><span class="d-label">RESERVE · (715) 235-2465</span><span class="m-label">RESERVE</span></a>
+  </div>
+</nav>
+
+<div id="scene-hero">
+  <div class="pin">
+    <div class="hero-eyebrow">SUPPER CLUB ON TAINTER LAKE</div>
+    <div class="hero-proof"><b>4.5</b> STARS · NEARLY 1,000 GOOGLE REVIEWS<br>VOTED <b>BEST SUPPER CLUB</b><span class="tail-d"> IN THE CHIPPEWA VALLEY</span></div>
+
+    <h1 id="heroTitle" aria-label="Jake's">JAKE&rsquo;S</h1>
+
+    <div id="drinkWrap">
+      <img src="assets/old-fashioned_hf.jpg" alt="A brandy old fashioned in cut crystal, the drink Jake's is known for" fetchpriority="high">
+      <video id="heroVid" muted playsinline preload="auto" poster="assets/old-fashioned_hf.jpg" aria-hidden="true">
+        <source src="assets/old-fashioned_hf.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div id="beatShade" aria-hidden="true"></div>
+
+    <div id="afterBeat">
+      <h2>The lake out the window.<br><em>Prime rib on the way.</em></h2>
+      <p>Western Wisconsin's supper club for decades: scratch kitchen, 20 taps, and docks for anyone coming in by water.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:+17152352465">Call for a table</a>
+        <button class="btn-ghost js-open-chat" type="button">Ask about tonight</button>
+      </div>
+    </div>
+
+    <div class="scroll-cue">SCROLL<span class="bar"></span></div>
+  </div>
+</div>
+
+<section id="lake">
+  <div class="photo-wrap">
+    <img src="assets/exterior-fall.jpg" alt="Jake's Supper Club from the water in fall, on the channel of Tainter Lake" loading="lazy">
+    <div class="photo-shade" aria-hidden="true"></div>
+    <div class="lake-copy reveal">
+      <div class="sec-head">FIVE MILES NORTH OF MENOMONIE</div>
+      <h2 class="sec-title">THE LAKE SETS THE TABLE</h2>
+      <p>Jake's sits on the channel between upper and lower Tainter Lake. Come by road or come by water: there are docks for guests and gas at the dock.</p>
+      <div class="mono-note">BOAT UP · TIE OFF · WALK IN</div>
+    </div>
+  </div>
+</section>
+
+<section id="rib">
+  <div class="rib-photo"><img src="assets/prime-rib.jpg" alt="Prime rib and pan-fried fish from Jake's scratch kitchen" loading="lazy"></div>
+  <div class="rib-copy reveal">
+    <div class="sec-head">THE SCRATCH KITCHEN</div>
+    <h2 class="sec-title">PRIME RIB, WALLEYE, AND NO SHORTCUTS</h2>
+    <p>Sauces, dressings, and desserts are made in-house. The classics are classics because nobody's rushed them: prime rib carved generous, walleye done right, and a Brandy Alexander waiting for dessert.</p>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="reveal">
+    <div class="sec-head">THE CLASSICS</div>
+    <h2 class="sec-title">ORDER LIKE YOU'VE BEEN HERE BEFORE</h2>
+  </div>
+  <div class="ledger reveal">
+    <div class="ledger-row"><span class="num">01</span><h3>THE OLD FASHIONED</h3><span class="note">Brandy, muddled sweet, the way Wisconsin invented it. Start here.</span></div>
+    <div class="ledger-row"><span class="num">02</span><h3>PRIME RIB</h3><span class="note">The supper club standard, carved generous.</span></div>
+    <div class="ledger-row"><span class="num">03</span><h3>PAN-FRIED WALLEYE</h3><span class="note">The north country fish, done the old way.</span></div>
+    <div class="ledger-row"><span class="num">04</span><h3>TWENTY TAP BEERS</h3><span class="note">Including local specialties, poured cold at the bar.</span></div>
+    <div class="ledger-row"><span class="num">05</span><h3>BRANDY ALEXANDER</h3><span class="note">Dessert in a glass. Save the room.</span></div>
+  </div>
+  <div class="menu-cta reveal">
+    <a class="btn-primary" href="tel:+17152352465">Call for tonight's menu</a>
+    <button class="btn-ghost js-open-chat" type="button">Ask what's on special</button>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="reveal">
+    <div class="sec-head">IN THEIR WORDS</div>
+    <h2 class="sec-title">NEARLY 1,000 REVIEWS DEEP</h2>
+  </div>
+  <div class="rev-grid">
+    <div class="rev reveal">
+      <blockquote>&ldquo;Wisconsin is famous for its supper clubs and Jake&rsquo;s is one of the best we&rsquo;ve visited. Atmosphere, food quality, service and menu selection were all top-notch.&rdquo;</blockquote>
+      <cite>STEVE BERRY · GOOGLE REVIEW</cite>
+    </div>
+    <div class="rev reveal">
+      <blockquote>&ldquo;The prime rib was superb, and stuffed salmon heavenly&hellip; The Old Fashioned with brandy served sweet was a heavenly.&rdquo;</blockquote>
+      <cite>LINDA BARNES · GOOGLE REVIEW</cite>
+    </div>
+    <div class="rev reveal">
+      <blockquote>&ldquo;My wife said this was the best shrimp she has ever had and I have to say that the pan-fried walleye was awesome!&rdquo;</blockquote>
+      <cite>MARK LORENTZ · GOOGLE REVIEW</cite>
+    </div>
+  </div>
+  <div class="rev-foot reveal">PULLED WORD FOR WORD FROM JAKE'S GOOGLE REVIEWS · <b>4.5 STARS ACROSS 988 REVIEWS</b> AT LAST COUNT</div>
+</section>
+
+<section id="nights">
+  <div class="n-copy reveal">
+    <div class="sec-head">SATURDAY NIGHTS</div>
+    <h2 class="sec-title">LIVE MUSIC ON THE WATER</h2>
+    <p>Bands on Saturdays, karaoke nights, and a bar that stays open past the kitchen. &ldquo;Good music, good people, great place,&rdquo; as one Google review puts it.</p>
+    <div class="menu-cta"><button class="btn-ghost js-open-chat" type="button">Ask who's playing</button></div>
+  </div>
+  <div class="n-photo"><img src="assets/bar-drinks.jpg" alt="Drinks lined up at Jake's bar" loading="lazy"></div>
+</section>
+
+<section id="hours">
+  <div class="reveal">
+    <div class="sec-head">WHEN TO COME</div>
+    <h2 class="sec-title">HOURS</h2>
+    <table class="hours-table">
+      <tr><td>MONDAY</td><td>3:30 PM – 9 PM · BAR LATER</td></tr>
+      <tr class="closed"><td>TUESDAY</td><td>CLOSED</td></tr>
+      <tr><td>WEDNESDAY</td><td>3:30 PM – 9 PM · BAR LATER</td></tr>
+      <tr><td>THURSDAY</td><td>3:30 PM – 9 PM · BAR LATER</td></tr>
+      <tr><td>FRIDAY</td><td>3:30 PM – 9 PM · BAR LATER</td></tr>
+      <tr><td>SATURDAY</td><td>11 AM – 9 PM · BAR LATER</td></tr>
+      <tr><td>SUNDAY</td><td>11 AM – 8 PM · BAR LATER</td></tr>
+    </table>
+  </div>
+  <div class="find reveal">
+    <div class="sec-head">WHERE WE ARE</div>
+    <h2 class="sec-title">FIND JAKE'S</h2>
+    <p>On County Road D, five miles north of Menomonie, right on the water. If the boat's running, the docks are open.</p>
+    <div class="addr">
+      E5690 COUNTY ROAD D<br>
+      MENOMONIE, WI 54751<br>
+      <a href="tel:+17152352465">(715) 235-2465</a><br>
+      <a href="https://maps.google.com/?q=Jake's+Supper+Club+Menomonie+WI" target="_blank" rel="noopener">OPEN IN MAPS →</a>
+    </div>
+  </div>
+</section>
+
+<footer id="foot">
+  <div id="footRule" aria-hidden="true"></div>
+  <img src="assets/logo.png" alt="Jake's Supper Club oval logo" loading="lazy">
+  <div><a class="f-phone" href="tel:+17152352465">(715) 235-2465</a></div>
+  <div class="f-note">JAKE'S SUPPER CLUB ON TAINTER LAKE · MENOMONIE, WISCONSIN</div>
+</footer>
+
+<div class="disclaimer">Sample design by Cole Cummings &middot; Demo for evaluation only &middot; Not affiliated with Jake's Supper Club</div>
+
+<!-- ── StillOpen widget (embed marker: stillopen-chatbot) ── -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-jakes"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  var prm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prm) document.documentElement.classList.add("prm");
+
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function seg(p, a, b) { return clamp((p - a) / (b - a), 0, 1); }
+  function easeIn(t) { return t * t; }
+  function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+
+  /* split the title into characters */
+  var title = document.getElementById("heroTitle");
+  var glyphs = [];
+  (function () {
+    var text = title.textContent;
+    title.textContent = "";
+    for (var i = 0; i < text.length; i++) {
+      var s = document.createElement("span");
+      s.className = "ch";
+      s.textContent = text[i];
+      title.appendChild(s);
+      glyphs.push(s);
+    }
+  })();
+
+  var drinkWrap = document.getElementById("drinkWrap");
+  var afterBeat = document.getElementById("afterBeat");
+  var beatShade = document.getElementById("beatShade");
+  var cue = document.querySelector(".scroll-cue");
+  var eyebrow = document.querySelector(".hero-eyebrow");
+  var proof = document.querySelector(".hero-proof");
+  var sceneEl = document.getElementById("scene-hero");
+
+  /* self-healing scroll engine: everything recomputed from scrollY */
+  function render() {
+    if (prm) return;
+    var y = window.scrollY || window.pageYOffset;
+    var vh = window.innerHeight;
+    var run = sceneEl.offsetHeight - vh;
+    var p = run > 0 ? clamp((y - sceneEl.offsetTop) / run, 0, 1) : 0;
+
+    /* the drink: slow rise and swell, then it recedes for the copy */
+    var pBeat = seg(p, 0.6, 0.85);
+    var dy = 4 - 10 * p - 6 * pBeat;
+    var ds = 0.96 + 0.1 * easeOut(p) - 0.12 * pBeat;
+    drinkWrap.style.transform = "translate(-50%, calc(-50% + " + dy.toFixed(2) + "vh)) scale(" + ds.toFixed(3) + ")";
+    drinkWrap.style.opacity = (1 - 0.5 * pBeat).toFixed(3);
+    beatShade.style.opacity = pBeat.toFixed(3);
+
+    /* scroll-scrubbed video: scroll position sets the playhead target */
+    if (vidReady) vidTarget = p * (heroVid.duration - 0.05);
+
+    /* title characters fold down and away, left to right */
+    var pFold = seg(p, 0.12, 0.62);
+    var n = glyphs.length;
+    for (var i = 0; i < n; i++) {
+      var t = seg(pFold, (i / n) * 0.7, (i / n) * 0.7 + 0.3);
+      var g = glyphs[i];
+      if (t === 0) { g.style.transform = ""; g.style.opacity = 1; continue; }
+      g.style.transform = "translateY(" + (58 * easeIn(t)).toFixed(1) + "%) rotateX(" + (-84 * t).toFixed(1) + "deg) scaleY(" + (1 - 0.34 * t).toFixed(3) + ")";
+      g.style.opacity = (1 - t).toFixed(3);
+    }
+
+    /* eyebrow and proof drift out early */
+    var pTop = seg(p, 0.1, 0.4);
+    eyebrow.style.opacity = (1 - pTop).toFixed(3);
+    proof.style.opacity = (1 - pTop).toFixed(3);
+    eyebrow.style.transform = "translateY(" + (-18 * pTop).toFixed(1) + "px)";
+    proof.style.transform = "translateY(" + (-18 * pTop).toFixed(1) + "px)";
+
+    /* the after-beat rises once the title has folded */
+    afterBeat.style.opacity = pBeat.toFixed(3);
+    afterBeat.style.transform = "translateY(" + (36 * (1 - easeOut(pBeat))).toFixed(1) + "px)";
+
+    cue.style.opacity = (0.6 * (1 - seg(p, 0.02, 0.15))).toFixed(3);
+  }
+
+  window.addEventListener("scroll", render, { passive: true });
+  window.addEventListener("resize", render);
+  setInterval(render, 300);
+
+  /* scroll-scrubbed hero video (desktop only; phones and reduced-motion get the still) */
+  var heroVid = document.getElementById("heroVid");
+  var vidReady = false;
+  var vidTarget = 0;
+  var vidCurrent = 0;
+  var wantVideo = !prm && window.innerWidth >= 900 && heroVid && heroVid.canPlayType && heroVid.canPlayType("video/mp4");
+  if (wantVideo) {
+    /* Blob road: fetched bytes are fully seekable no matter what the server
+       says about Range requests. A plain src off a Range-less server gives
+       seekable [0,0] and the playhead sticks at 0 forever. */
+    fetch("assets/old-fashioned_hf.mp4")
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.blob(); })
+      .then(function (b) {
+        heroVid.removeAttribute("preload");
+        heroVid.innerHTML = "";
+        heroVid.src = URL.createObjectURL(b);
+        heroVid.addEventListener("loadedmetadata", function () {
+          if (vidReady) return;
+          vidReady = true;
+          drinkWrap.classList.add("vid");
+          render();
+        });
+        heroVid.load();
+      })
+      .catch(function () { /* the still carries it */ });
+    (function scrubLoop() {
+      if (vidReady && heroVid.duration) {
+        vidCurrent += (vidTarget - vidCurrent) * 0.14;
+        if (Math.abs(vidTarget - vidCurrent) > 0.004) {
+          try { heroVid.currentTime = vidCurrent; } catch (e) {}
+        }
+      }
+      requestAnimationFrame(scrubLoop);
+    })();
+    setInterval(function () {
+      if (vidReady && heroVid.duration && Math.abs(heroVid.currentTime - vidTarget) > 0.5) {
+        try { heroVid.currentTime = vidTarget; vidCurrent = vidTarget; } catch (e) {}
+      }
+    }, 400);
+  }
+
+  render();
+
+  /* section reveals + the footer rule draw */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll(".reveal, footer").forEach(function (el) { io.observe(el); });
+
+  /* widget accent: Jake's amber */
+  var css = [
+    "#he-bubble { background: #d08428 !important; box-shadow: 0 4px 20px rgba(208,132,40,0.35), 0 2px 8px rgba(0,0,0,0.4) !important; }",
+    "#he-avatar { background: #d08428 !important; }",
+    "#he-send { background: #d08428 !important; }",
+    ".he-msg.user .he-bubble-text { background: #d08428 !important; color: #140a02 !important; }",
+    ".he-dot { background: #d08428 !important; }",
+    "#he-input:focus { border-color: #d08428 !important; }"
+  ].join("\n");
+  var tag = document.createElement("style");
+  tag.textContent = css;
+  document.head.appendChild(tag);
+
+  document.querySelectorAll(".js-open-chat").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var bubble = document.getElementById("he-bubble");
+      if (bubble) bubble.click();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
