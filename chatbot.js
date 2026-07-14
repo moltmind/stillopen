@@ -126,19 +126,24 @@
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-    /* Force pointer-events on all StillOpen UI. Some host sites (Duda, Televet's
+    /* Force pointer-events on StillOpen UI. Some host sites (Duda, Televet's
        iframe-resizer, certain WordPress themes) inject transparent overlays that
-       absorb clicks before they reach our widget. !important + auto on every
-       interactive element guarantees the widget wins. */
+       absorb clicks before they reach our widget. !important + auto guarantees
+       the widget wins. BUT the force only applies to the bubble, the badge, and
+       the OPEN window. The old blanket rule also forced the CLOSED window and
+       its children, which made an invisible 350x500 click-eater float over every
+       host page (nearly full-screen on phones). Found and fixed 2026-07-13. */
     #he-chat-root,
     #he-bubble,
-    #he-window,
-    #he-input,
-    #he-send,
-    #he-messages,
-    #he-input-row,
-    #he-header,
     #he-badge {
+      pointer-events: auto !important;
+    }
+    #he-window,
+    #he-window * {
+      pointer-events: none !important;
+    }
+    #he-window.open,
+    #he-window.open * {
       pointer-events: auto !important;
     }
 
