@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Michele's Restaurant &amp; Catering · Stevens Point, WI</title>
+<meta property="og:title" content="Michele's Restaurant &amp; Catering · Stevens Point">
+<meta property="og:description" content="Steak. Seafood. Spirits. Family owned for 30+ years, 96% recommend across 294 reviews. The Saturday prime rib is a Stevens Point ritual.">
+<meta property="og:image" content="https://stillopen.ai/micheles/assets/og-card.jpg">
+<meta property="og:url" content="https://stillopen.ai/micheles/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/jpeg" href="assets/og-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe9d9;
+    --paper-dim: rgba(239,233,217,0.55);
+    --ink: #b0322e;
+    --ink-bright: #d24a45;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Archivo', sans-serif; background: #000; color: var(--paper); line-height: 1.6; font-weight: 500; overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  button { font-family: inherit; }
+
+  #topRule { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 41;
+    background: linear-gradient(90deg, transparent 0%, var(--ink) 18%, var(--ink) 82%, transparent 100%); }
+  nav { position: fixed; top: 2px; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 20px 30px; }
+  .brand { font-family: 'Anton', sans-serif; font-size: 17px; letter-spacing: 0.14em; text-decoration: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a, .nav-links button { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; color: var(--paper); text-decoration: none; background: none; border: none; cursor: pointer; white-space: nowrap; opacity: 0.85; transition: opacity 0.2s ease, color 0.2s ease; }
+  .nav-links a:hover, .nav-links button:hover { opacity: 1; color: var(--ink-bright); }
+  .nav-links .call { border: 1px solid rgba(239,233,217,0.3); padding: 10px 16px; border-radius: 999px; transition: border-color 0.2s ease, background 0.2s ease; }
+  .nav-links .call:hover { border-color: var(--ink); background: rgba(176,50,46,0.12); color: var(--paper); }
+  .call .m-label { display: none; }
+  @media (max-width: 700px) {
+    nav { padding: 14px 16px; }
+    .brand { font-size: 14px; }
+    .nav-links { gap: 14px; }
+    .nav-links a.hide-m { display: none; }
+    .nav-links a, .nav-links button { font-size: 10px; letter-spacing: 0.2em; }
+    .nav-links .call { padding: 8px 12px; }
+    .call .m-label { display: inline; }
+    .call .d-label { display: none; }
+  }
+
+  #scene-hero { height: 300vh; position: relative; }
+  .pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+
+  #drinkWrap {
+    position: absolute; z-index: 2; left: 50%; top: 44%;
+    width: min(160vh, 100vw);
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(closest-side, #000 74%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 74%, transparent 100%);
+  }
+  #drinkWrap img, #drinkWrap video { width: 100%; height: auto; display: block; }
+  #drinkWrap video { display: none; }
+  #drinkWrap.vid video { display: block; }
+  #drinkWrap.vid img { display: none; }
+
+  .hero-eyebrow {
+    position: absolute; left: 2.4vw; bottom: 46vh; z-index: 3;
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1.05vw, 13px);
+    font-weight: 700; letter-spacing: 0.42em; color: var(--ink-bright);
+    will-change: transform, opacity; text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+  }
+  .hero-proof {
+    position: absolute; left: 2.4vw; bottom: 41.5vh; z-index: 3;
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(9.5px, 0.95vw, 11.5px);
+    letter-spacing: 0.18em; color: rgba(239,233,217,0.6); line-height: 2;
+    will-change: transform, opacity; text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+  }
+  .hero-proof b { color: var(--paper); font-weight: 700; }
+
+  #heroTitle {
+    position: absolute; left: 0; right: 0; bottom: -3vh; z-index: 3;
+    font-family: 'Anton', 'Archivo', sans-serif; font-weight: 400;
+    line-height: 0.82; letter-spacing: 0.005em;
+    color: var(--paper); user-select: none;
+    text-align: left; padding-left: 1.4vw; white-space: nowrap;
+    font-size: clamp(120px, 21vw, 30rem);
+  }
+  #heroTitle .ch { display: inline-block; will-change: transform, opacity; transform-origin: 50% 100%; }
+
+  #beatShade { position: absolute; left: 0; right: 0; bottom: 0; height: 58vh; z-index: 5;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 62%, #000 100%);
+    opacity: 0; will-change: opacity; pointer-events: none; }
+  #afterBeat { position: absolute; left: 0; right: 0; bottom: 10vh; z-index: 6; text-align: center; opacity: 0; will-change: transform, opacity; }
+  #afterBeat h2 { font-size: clamp(26px, 3.6vw, 46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; font-variation-settings: "wdth" 110; }
+  #afterBeat h2 em { font-style: normal; color: var(--ink-bright); }
+  #afterBeat p { margin: 14px auto 0; max-width: 540px; font-size: clamp(14px, 1.4vw, 16.5px); color: rgba(239,233,217,0.72); padding: 0 22px; }
+  #afterBeat .ctas { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; padding: 0 22px; }
+  .btn-primary { background: var(--ink); color: #fff7ef; text-decoration: none; border: none; cursor: pointer; font-weight: 800; font-size: 15px; padding: 15px 26px; border-radius: 10px; transition: background 0.2s ease, transform 0.2s ease; }
+  .btn-primary:hover { background: var(--ink-bright); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--paper); text-decoration: none; cursor: pointer; font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 10px; border: 1.5px solid rgba(239,233,217,0.3); transition: border-color 0.2s ease, background 0.2s ease; }
+  .btn-ghost:hover { border-color: var(--paper); background: rgba(239,233,217,0.07); }
+
+  .scroll-cue { position: absolute; right: 28px; bottom: 48px; z-index: 6; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.26em; color: rgba(239,233,217,0.6); text-align: right; }
+  .scroll-cue .bar { display: block; width: 1.5px; height: 44px; margin: 10px 0 0 auto; background: linear-gradient(180deg, var(--ink), transparent); animation: cue-slide 1.8s ease-in-out infinite; }
+  @keyframes cue-slide { 0%,100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(10px); opacity: 0.4; } }
+
+  #grain { position: fixed; inset: -50%; z-index: 30; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    animation: grain-drift 1.6s steps(3) infinite; }
+  @keyframes grain-drift { 0%,100% { transform: translate(0,0); } 33% { transform: translate(-2.5%,1.5%); } 66% { transform: translate(2%, -2%); } }
+
+  @media (max-width: 700px) {
+    #drinkWrap { width: min(120vh, 180vw); top: 42%; }
+    .hero-eyebrow { left: 18px; bottom: auto; top: 11vh; font-size: 9.5px; letter-spacing: 0.3em; }
+    .hero-proof { left: 18px; bottom: auto; top: calc(11vh + 22px); font-size: 9px; }
+    #heroTitle { bottom: 7vh; font-size: 21vw; padding-left: 2vw; }
+    #afterBeat { bottom: 13vh; }
+    .scroll-cue { left: 18px; right: auto; bottom: 100px; text-align: left; }
+    .scroll-cue .bar { margin: 10px auto 0 0; }
+  }
+
+  section { position: relative; background: #000; }
+  .sec-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.4em; color: var(--ink-bright); margin-bottom: 18px; }
+  .sec-title { font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(40px, 6vw, 88px); line-height: 0.95; color: var(--paper); }
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  html.prm .reveal { opacity: 1; transform: none; transition: none; }
+
+  #cabin { padding: 0; }
+  #cabin .photo-wrap { position: relative; height: 92vh; overflow: hidden; }
+  #cabin .photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  #cabin .photo-shade { position: absolute; inset: 0; background: linear-gradient(180deg, #000 0%, rgba(0,0,0,0.18) 30%, rgba(0,0,0,0.18) 55%, #000 100%); }
+  #cabin .cabin-copy { position: absolute; left: 0; right: 0; bottom: 10vh; text-align: center; padding: 0 24px; }
+  #cabin .cabin-copy p { margin: 16px auto 0; max-width: 560px; font-size: clamp(14.5px, 1.5vw, 17px); color: rgba(239,233,217,0.88); text-shadow: 0 1px 10px rgba(0,0,0,0.8); }
+  #cabin .mono-note { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.24em; color: var(--ink-bright); }
+
+  #menu { padding: 18vh 6vw 14vh; }
+  .ledger { margin-top: 7vh; border-top: 1px solid rgba(239,233,217,0.14); }
+  .ledger-row { display: grid; grid-template-columns: 90px 1fr auto; gap: 18px; align-items: baseline; padding: 30px 6px; border-bottom: 1px solid rgba(239,233,217,0.14); transition: background 0.25s ease, padding-left 0.25s ease; }
+  .ledger-row:hover { background: rgba(239,233,217,0.03); padding-left: 14px; }
+  .ledger-row .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-bright); font-weight: 700; }
+  .ledger-row h3 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(24px, 3.2vw, 44px); letter-spacing: 0.015em; color: var(--paper); line-height: 1.05; }
+  .ledger-row .note { font-size: clamp(12.5px, 1.15vw, 15px); color: rgba(239,233,217,0.55); max-width: 340px; text-align: right; }
+  @media (max-width: 700px) { .ledger-row { grid-template-columns: 44px 1fr; } .ledger-row .note { grid-column: 2; text-align: left; margin-top: 6px; } }
+  .menu-cta { margin-top: 5vh; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  #steak { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 78vh; }
+  #steak .s-photo { position: relative; overflow: hidden; }
+  #steak .s-photo img { width: 100%; height: 100%; object-fit: cover; }
+  #steak .s-copy { display: flex; flex-direction: column; justify-content: center; padding: 12vh 6vw; }
+  #steak .s-copy p { margin-top: 20px; max-width: 460px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); }
+  @media (max-width: 900px) { #steak { grid-template-columns: 1fr; } #steak .s-photo { height: 52vh; } #steak .s-copy { padding: 9vh 8vw; } }
+
+  #reviews { padding: 16vh 6vw; }
+  .rev-grid { margin-top: 7vh; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  @media (max-width: 900px) { .rev-grid { grid-template-columns: 1fr; } }
+  .rev { border-top: 2px solid var(--ink); padding-top: 22px; display: flex; flex-direction: column; gap: 16px; }
+  .rev blockquote { font-size: clamp(15px, 1.35vw, 17.5px); line-height: 1.65; color: rgba(239,233,217,0.88); }
+  .rev cite { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(239,233,217,0.5); }
+  .rev-foot { margin-top: 6vh; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: rgba(239,233,217,0.45); }
+  .rev-foot b { color: var(--ink-bright); }
+
+  #owners { padding: 16vh 6vw; display: grid; grid-template-columns: minmax(260px, 420px) 1fr; gap: 6vw; align-items: center; }
+  @media (max-width: 900px) { #owners { grid-template-columns: 1fr; gap: 6vh; } }
+  #owners .o-photo { position: relative; }
+  #owners .o-photo img { width: 100%; height: auto; border-radius: 4px; }
+  #owners .o-photo::after { content: ""; position: absolute; inset: 0; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(239,233,217,0.12); }
+  #owners .o-copy p { margin-top: 20px; max-width: 520px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); }
+
+  #hours { padding: 16vh 6vw 14vh; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; }
+  @media (max-width: 900px) { #hours { grid-template-columns: 1fr; gap: 7vh; } }
+  .hours-note { margin-top: 5vh; font-family: 'JetBrains Mono', monospace; font-size: clamp(12px, 1.15vw, 14px); letter-spacing: 0.1em; line-height: 2.4; }
+  .hours-note b { color: var(--ink-bright); }
+  .find p { margin-top: 20px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); max-width: 440px; }
+  .find .addr { margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: clamp(12px, 1.1vw, 14px); letter-spacing: 0.12em; line-height: 2.1; color: var(--paper); }
+  .find .addr a { color: var(--ink-bright); text-decoration: none; }
+  .find .addr a:hover { text-decoration: underline; }
+
+  footer { padding: 12vh 6vw 16vh; text-align: center; border-top: 1px solid rgba(239,233,217,0.1); position: relative; }
+  #footRule { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); height: 2px; width: 0; background: var(--ink); transition: width 1.4s ease; }
+  footer.on #footRule { width: min(560px, 80vw); }
+  footer .f-mark { font-family: 'Anton', sans-serif; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: 0.1em; }
+  footer .f-phone { display: inline-block; margin-top: 22px; font-family: 'Anton', sans-serif; font-size: clamp(28px, 4vw, 52px); color: var(--paper); text-decoration: none; letter-spacing: 0.02em; }
+  footer .f-phone:hover { color: var(--ink-bright); }
+  footer .f-note { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: rgba(239,233,217,0.4); }
+
+  .disclaimer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483645; background: #0d0505; color: #e2d6bd;
+    font: 500 11.5px/1.5 'JetBrains Mono', monospace; letter-spacing: 0.03em; text-align: center; padding: 9px 96px 9px 14px;
+    border-top: 1px solid rgba(176,50,46,0.3); }
+  @media (max-width: 600px) { .disclaimer { padding-right: 84px; font-size: 10px; } }
+  #he-bubble { bottom: 78px !important; }
+  @media (min-width: 601px) { #he-window { bottom: 152px !important; } }
+  @media (max-width: 600px) { #he-bubble { bottom: 92px !important; } }
+  html.prm #scene-hero { height: 100vh; }
+  html.prm .scroll-cue { display: none; }
+</style>
+</head>
+<body>
+
+<div id="topRule" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+
+<nav>
+  <a class="brand" href="#">MICHELE&rsquo;S</a>
+  <div class="nav-links">
+    <a href="#menu" class="hide-m">DINE</a>
+    <button class="js-open-chat" type="button">ASK US</button>
+    <a class="call" href="tel:+17153413363"><span class="d-label">RESERVE · (715) 341-3363</span><span class="m-label">RESERVE</span></a>
+  </div>
+</nav>
+
+<div id="scene-hero">
+  <div class="pin">
+    <div id="drinkWrap">
+      <img src="assets/hero_hf.jpg" alt="A martini mid-pour beside a cut of prime rib, Michele's calling cards" fetchpriority="high">
+      <video id="heroVid" muted playsinline preload="auto" poster="assets/hero_hf.jpg" aria-hidden="true">
+        <source src="assets/hero_hf.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="hero-eyebrow">STEVENS POINT &middot; STEAK. SEAFOOD. SPIRITS.</div>
+    <div class="hero-proof"><b>96%</b> RECOMMEND &middot; <b>294</b> FACEBOOK REVIEWS</div>
+
+    <h1 id="heroTitle" aria-label="Michele's">MICHELE&rsquo;S</h1>
+
+    <div id="beatShade" aria-hidden="true"></div>
+
+    <div id="afterBeat">
+      <h2>Thirty years of Saturday nights.<br><em>The prime rib is the reason.</em></h2>
+      <p>A family-run supper club in the heart of Stevens Point: prime grade steaks, fresh seafood, a proper martini, and a catering kitchen that takes the show on the road.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:+17153413363">Call for a table</a>
+        <button class="btn-ghost js-open-chat" type="button">Ask about tonight</button>
+      </div>
+    </div>
+
+    <div class="scroll-cue">SCROLL<span class="bar"></span></div>
+  </div>
+</div>
+
+<section id="room">
+  <div class="photo-wrap">
+    <img src="assets/interior.jpg" alt="Inside Michele's Restaurant in Stevens Point" loading="lazy">
+    <div class="photo-shade" aria-hidden="true"></div>
+    <div class="cabin-copy reveal">
+      <div class="sec-head">513 DIVISION STREET</div>
+      <h2 class="sec-title">THE ROOM FEELS LIKE A RESERVATION</h2>
+      <p>White tablecloth service without the fuss, a bar that pours a serious martini, and a dining room that fills up by six on a Saturday.</p>
+      <div class="mono-note">WEDNESDAY THROUGH SATURDAY · FROM 4 PM</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="reveal">
+    <div class="sec-head">THE HOUSE CLASSICS</div>
+    <h2 class="sec-title">ORDER LIKE A REGULAR</h2>
+  </div>
+  <div class="ledger reveal">
+    <div class="ledger-row"><span class="num">01</span><h3>SATURDAY PRIME RIB</h3><span class="note">The weekly ritual. Regulars call it the best in the area.</span></div>
+    <div class="ledger-row"><span class="num">02</span><h3>PRIME GRADE RIBEYE</h3><span class="note">With mushrooms and a baked potato doing exactly its job.</span></div>
+    <div class="ledger-row"><span class="num">03</span><h3>LOBSTER MAC &amp; CHEESE</h3><span class="note">Plated at the bar, gone in minutes.</span></div>
+    <div class="ledger-row"><span class="num">04</span><h3>THE MARTINI</h3><span class="note">It's on the sign for a reason. Gin or vodka, done properly.</span></div>
+    <div class="ledger-row"><span class="num">05</span><h3>CATERING</h3><span class="note">The same kitchen, brought to your event.</span></div>
+  </div>
+  <div class="menu-cta reveal">
+    <a class="btn-primary" href="tel:+17153413363">Call for tonight's menu</a>
+    <button class="btn-ghost js-open-chat" type="button">Ask what's on special</button>
+  </div>
+</section>
+
+<section id="steak">
+  <div class="s-photo"><img src="assets/ribeye.jpg" alt="Prime grade ribeye with mushrooms and baked potato at Michele's" loading="lazy"></div>
+  <div class="s-copy reveal">
+    <div class="sec-head">FROM THE KITCHEN</div>
+    <h2 class="sec-title">PRIME GRADE, NO SHORTCUTS</h2>
+    <p>Steaks come off the broiler the way thirty years of practice teaches, and the seafood side of the menu holds its own. Save room for the cheesecake.</p>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="reveal">
+    <div class="sec-head">IN THEIR WORDS</div>
+    <h2 class="sec-title">EVERY WEEK, SAME ORDER</h2>
+  </div>
+  <div class="rev-grid">
+    <div class="rev reveal">
+      <blockquote>&ldquo;I go here every week for the Prime Rib special on Saturday night and it's by far the best in the area. It has great flavor and they cook it perfectly.&rdquo;</blockquote>
+      <cite>YELP REVIEW</cite>
+    </div>
+    <div class="rev reveal">
+      <blockquote>&ldquo;Good food, good cocktails, taxidermy, and great service.&rdquo;</blockquote>
+      <cite>TRIPADVISOR REVIEW</cite>
+    </div>
+  </div>
+  <div class="rev-foot reveal">QUOTED WORD FOR WORD · <b>96% RECOMMEND ON 294 FACEBOOK REVIEWS · TRIPADVISOR 4.2</b> AT LAST COUNT</div>
+</section>
+
+<section id="owners">
+  <div class="o-photo reveal"><img src="assets/plating.jpg" alt="Plating a steak with haystack onions in Michele's kitchen" loading="lazy"></div>
+  <div class="o-copy reveal">
+    <div class="sec-head">KEEPING THE TRADITION</div>
+    <h2 class="sec-title">THE KLASINSKI FAMILY, 30+ YEARS</h2>
+    <p>Barb Klasinski and the late "Doc" Klasinski built Michele's into what Stevens Point knows it as: a family-owned supper club where the kitchen is the family business. Three decades on, it still runs that way.</p>
+    <p>Ask about the bourbon shelf while you're at it. It's deeper than it has any right to be.</p>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="reveal">
+    <div class="sec-head">WHEN TO COME</div>
+    <h2 class="sec-title">HOURS</h2>
+    <div class="hours-note">
+      OPEN <b>WEDNESDAY THROUGH SATURDAY</b><br>
+      FROM 4 PM TO CLOSE<br>
+      RESERVATIONS RECOMMENDED · CALL AHEAD
+    </div>
+  </div>
+  <div class="find reveal">
+    <div class="sec-head">WHERE WE ARE</div>
+    <h2 class="sec-title">FIND MICHELE'S</h2>
+    <p>On Division Street in the heart of Stevens Point. Park once, dinner and a nightcap are both handled.</p>
+    <div class="addr">
+      513 DIVISION ST<br>
+      STEVENS POINT, WI 54481<br>
+      <a href="tel:+17153413363">(715) 341-3363</a><br>
+      <a href="https://maps.google.com/?q=Michele's+Restaurant+Stevens+Point+WI" target="_blank" rel="noopener">OPEN IN MAPS →</a>
+    </div>
+  </div>
+</section>
+
+<footer id="foot">
+  <div id="footRule" aria-hidden="true"></div>
+  <div class="f-mark">MICHELE&rsquo;S RESTAURANT &amp; CATERING</div>
+  <div><a class="f-phone" href="tel:+17153413363">(715) 341-3363</a></div>
+  <div class="f-note">STEVENS POINT, WISCONSIN · FAMILY OWNED 30+ YEARS</div>
+</footer>
+
+<div class="disclaimer">Sample design by Cole Cummings &middot; Demo for evaluation only &middot; Not affiliated with Michele's Restaurant &amp; Catering</div>
+
+<!-- ── StillOpen widget (embed marker: stillopen-chatbot) ── -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-micheles"></script>
+
+<script>
+(function () {
+  "use strict";
+  var prm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prm) document.documentElement.classList.add("prm");
+
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function seg(p, a, b) { return clamp((p - a) / (b - a), 0, 1); }
+  function easeIn(t) { return t * t; }
+  function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+
+  var title = document.getElementById("heroTitle");
+  var glyphs = [];
+  (function () {
+    var text = title.textContent;
+    title.textContent = "";
+    for (var i = 0; i < text.length; i++) {
+      var s = document.createElement("span");
+      s.className = "ch";
+      s.textContent = text[i];
+      if (text[i] === " ") s.style.width = "0.22em";
+      title.appendChild(s);
+      glyphs.push(s);
+    }
+  })();
+
+  var drinkWrap = document.getElementById("drinkWrap");
+  var afterBeat = document.getElementById("afterBeat");
+  var beatShade = document.getElementById("beatShade");
+  var cue = document.querySelector(".scroll-cue");
+  var eyebrow = document.querySelector(".hero-eyebrow");
+  var proof = document.querySelector(".hero-proof");
+  var sceneEl = document.getElementById("scene-hero");
+
+  function render() {
+    if (prm) return;
+    var y = window.scrollY || window.pageYOffset;
+    var vh = window.innerHeight;
+    var run = sceneEl.offsetHeight - vh;
+    var p = run > 0 ? clamp((y - sceneEl.offsetTop) / run, 0, 1) : 0;
+
+    var pBeat = seg(p, 0.6, 0.85);
+    var dy = 3 - 8 * p - 5 * pBeat;
+    var ds = 0.98 + 0.08 * easeOut(p) - 0.1 * pBeat;
+    drinkWrap.style.transform = "translate(-50%, calc(-50% + " + dy.toFixed(2) + "vh)) scale(" + ds.toFixed(3) + ")";
+    drinkWrap.style.opacity = (1 - 0.55 * pBeat).toFixed(3);
+    beatShade.style.opacity = pBeat.toFixed(3);
+
+    if (vidReady) vidTarget = p * (heroVid.duration - 0.05);
+
+    var pFold = seg(p, 0.12, 0.62);
+    var n = glyphs.length;
+    for (var i = 0; i < n; i++) {
+      var t = seg(pFold, (i / n) * 0.7, (i / n) * 0.7 + 0.3);
+      var g = glyphs[i];
+      if (t === 0) { g.style.transform = ""; g.style.opacity = 1; continue; }
+      g.style.transform = "translateY(" + (58 * easeIn(t)).toFixed(1) + "%) rotateX(" + (-84 * t).toFixed(1) + "deg) scaleY(" + (1 - 0.34 * t).toFixed(3) + ")";
+      g.style.opacity = (1 - t).toFixed(3);
+    }
+
+    var pTop = seg(p, 0.1, 0.4);
+    eyebrow.style.opacity = (1 - pTop).toFixed(3);
+    proof.style.opacity = (1 - pTop).toFixed(3);
+    eyebrow.style.transform = "translateY(" + (-18 * pTop).toFixed(1) + "px)";
+    proof.style.transform = "translateY(" + (-18 * pTop).toFixed(1) + "px)";
+
+    afterBeat.style.opacity = pBeat.toFixed(3);
+    afterBeat.style.transform = "translateY(" + (36 * (1 - easeOut(pBeat))).toFixed(1) + "px)";
+    cue.style.opacity = (0.6 * (1 - seg(p, 0.02, 0.15))).toFixed(3);
+  }
+
+  window.addEventListener("scroll", render, { passive: true });
+  window.addEventListener("resize", render);
+  setInterval(render, 300);
+
+  var heroVid = document.getElementById("heroVid");
+  var vidReady = false;
+  var vidTarget = 0;
+  var vidCurrent = 0;
+  /* Blob road, self-healing: re-check the gate and retry the load until it
+     lands. A one-shot width check at load time can miss (pane resizes), and a
+     cold server can fail the first fetch. */
+  var vidLoading = false, vidTries = 0;
+  function ensureVideo() {
+    if (vidReady || vidLoading || prm) return;
+    if (vidTries > 20) return;
+    var w = window.innerWidth;
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return;
+    if (w > 0 && w < 900) return;
+    if (!(heroVid && heroVid.canPlayType && heroVid.canPlayType("video/mp4"))) return;
+    vidLoading = true; vidTries++;
+    fetch("assets/hero_hf.mp4")
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.blob(); })
+      .then(function (b) {
+        heroVid.removeAttribute("preload");
+        heroVid.innerHTML = "";
+        heroVid.src = URL.createObjectURL(b);
+        heroVid.addEventListener("loadedmetadata", function () {
+          if (vidReady) return;
+          vidReady = true;
+          drinkWrap.classList.add("vid");
+          render();
+        });
+        heroVid.load();
+      })
+      .catch(function () { vidLoading = false; /* retry on the next tick */ });
+  }
+  ensureVideo();
+  window.addEventListener("resize", ensureVideo);
+  setInterval(ensureVideo, 1000);
+  if (true) {
+    (function scrubLoop() {
+      if (vidReady && heroVid.duration) {
+        vidCurrent += (vidTarget - vidCurrent) * 0.14;
+        if (Math.abs(vidTarget - vidCurrent) > 0.004) {
+          try { heroVid.currentTime = vidCurrent; } catch (e) {}
+        }
+      }
+      requestAnimationFrame(scrubLoop);
+    })();
+    setInterval(function () {
+      if (vidReady && heroVid.duration && Math.abs(heroVid.currentTime - vidTarget) > 0.5) {
+        try { heroVid.currentTime = vidTarget; vidCurrent = vidTarget; } catch (e) {}
+      }
+    }, 400);
+  }
+
+  render();
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll(".reveal, footer").forEach(function (el) { io.observe(el); });
+
+  var css = [
+    "#he-bubble { background: #b0322e !important; box-shadow: 0 4px 20px rgba(176,50,46,0.35), 0 2px 8px rgba(0,0,0,0.4) !important; }",
+    "#he-avatar { background: #b0322e !important; }",
+    "#he-send { background: #b0322e !important; }",
+    ".he-msg.user .he-bubble-text { background: #b0322e !important; color: #fff7ef !important; }",
+    ".he-dot { background: #b0322e !important; }",
+    "#he-input:focus { border-color: #b0322e !important; }"
+  ].join("\n");
+  var tag = document.createElement("style");
+  tag.textContent = css;
+  document.head.appendChild(tag);
+
+  document.querySelectorAll(".js-open-chat").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var bubble = document.getElementById("he-bubble");
+      if (bubble) bubble.click();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

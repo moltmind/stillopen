@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Norwood Pines Supper Club · Minocqua, WI</title>
+<meta property="og:title" content="Norwood Pines Supper Club · Minocqua">
+<meta property="og:description" content="The fireplace draws you in. 96% recommend across 834 reviews. One of Northern Wisconsin's oldest and finest supper clubs, on Highway 70 in Minocqua.">
+<meta property="og:image" content="https://stillopen.ai/norwoodpines/assets/og-card.jpg">
+<meta property="og:url" content="https://stillopen.ai/norwoodpines/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/jpeg" href="assets/og-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe9d9;
+    --paper-dim: rgba(239,233,217,0.55);
+    --ink: #d97f2e;
+    --ink-bright: #eb924a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Archivo', sans-serif; background: #000; color: var(--paper); line-height: 1.6; font-weight: 500; overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  button { font-family: inherit; }
+
+  #topRule { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 41;
+    background: linear-gradient(90deg, transparent 0%, var(--ink) 18%, var(--ink) 82%, transparent 100%); }
+  nav { position: fixed; top: 2px; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 20px 30px; }
+  .brand { font-family: 'Anton', sans-serif; font-size: 17px; letter-spacing: 0.14em; text-decoration: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a, .nav-links button { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; color: var(--paper); text-decoration: none; background: none; border: none; cursor: pointer; white-space: nowrap; opacity: 0.85; transition: opacity 0.2s ease, color 0.2s ease; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
+  .nav-links a:hover, .nav-links button:hover { opacity: 1; color: var(--ink-bright); }
+  .nav-links .call { border: 1px solid rgba(239,233,217,0.35); padding: 10px 16px; border-radius: 999px; transition: border-color 0.2s ease, background 0.2s ease; }
+  .nav-links .call:hover { border-color: var(--ink); background: rgba(217,127,46,0.12); color: var(--paper); }
+  .call .m-label { display: none; }
+  @media (max-width: 700px) {
+    nav { padding: 14px 16px; }
+    .brand { font-size: 14px; }
+    .nav-links { gap: 14px; }
+    .nav-links a.hide-m { display: none; }
+    .nav-links a, .nav-links button { font-size: 10px; letter-spacing: 0.2em; }
+    .nav-links .call { padding: 8px 12px; }
+    .call .m-label { display: inline; }
+    .call .d-label { display: none; }
+  }
+
+  /* ── the flight: two chained scroll-scrubbed legs ── */
+  #scene-hero { height: 520vh; position: relative; }
+  .pin { position: sticky; top: 0; height: 100vh; overflow: hidden; background: #000; }
+  .flight { position: absolute; inset: 0; }
+  .flight img, .flight video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .flight video { opacity: 0; will-change: opacity; }
+  .flight img { z-index: 0; }
+
+  .hero-eyebrow {
+    position: absolute; left: 2.4vw; bottom: 42vh; z-index: 3;
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1.05vw, 13px);
+    font-weight: 700; letter-spacing: 0.42em; color: var(--ink-bright);
+    will-change: transform, opacity; text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+  }
+  .hero-proof {
+    position: absolute; left: 2.4vw; bottom: 37.5vh; z-index: 3;
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(9.5px, 0.95vw, 11.5px);
+    letter-spacing: 0.18em; color: rgba(239,233,217,0.66); line-height: 2;
+    will-change: transform, opacity; text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+  }
+  .hero-proof b { color: var(--paper); font-weight: 700; }
+
+  #heroTitle {
+    position: absolute; left: 0; right: 0; bottom: -2vh; z-index: 3;
+    font-family: 'Anton', 'Archivo', sans-serif; font-weight: 400;
+    line-height: 0.82; letter-spacing: 0.005em;
+    color: var(--paper); user-select: none;
+    text-align: left; padding-left: 1.2vw; white-space: nowrap;
+    font-size: clamp(96px, 12.8vw, 24rem);
+    text-shadow: 0 4px 30px rgba(0,0,0,0.55);
+  }
+  #heroTitle .ch { display: inline-block; will-change: transform, opacity; transform-origin: 50% 100%; }
+
+  /* mid-flight copy beats */
+  .beat {
+    position: absolute; z-index: 4; opacity: 0; will-change: transform, opacity;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.85);
+  }
+  .beat h3 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(30px, 4.6vw, 64px); line-height: 1.02; letter-spacing: 0.01em; }
+  .beat .k { font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1vw, 12px); font-weight: 700; letter-spacing: 0.4em; color: var(--ink-bright); margin-bottom: 14px; }
+  #beat2 { left: 6vw; top: 24vh; max-width: 44vw; }
+  #beat3 { right: 6vw; bottom: 26vh; text-align: right; }
+  @media (max-width: 700px) {
+    #beat2 { left: 18px; right: 18px; max-width: none; top: 20vh; }
+    #beat3 { right: 18px; left: 18px; bottom: 30vh; }
+  }
+
+  #beatShade { position: absolute; left: 0; right: 0; bottom: 0; height: 62vh; z-index: 5;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 62%, #000 100%);
+    opacity: 0; will-change: opacity; pointer-events: none; }
+  #afterBeat { position: absolute; left: 0; right: 0; bottom: 10vh; z-index: 6; text-align: center; opacity: 0; will-change: transform, opacity; }
+  #afterBeat h2 { font-size: clamp(26px, 3.6vw, 46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; font-variation-settings: "wdth" 110; }
+  #afterBeat h2 em { font-style: normal; color: var(--ink-bright); }
+  #afterBeat p { margin: 14px auto 0; max-width: 540px; font-size: clamp(14px, 1.4vw, 16.5px); color: rgba(239,233,217,0.72); padding: 0 22px; }
+  #afterBeat .ctas { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; padding: 0 22px; }
+  .btn-primary { background: var(--ink); color: #190d02; text-decoration: none; border: none; cursor: pointer; font-weight: 800; font-size: 15px; padding: 15px 26px; border-radius: 10px; transition: background 0.2s ease, transform 0.2s ease; }
+  .btn-primary:hover { background: var(--ink-bright); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--paper); text-decoration: none; cursor: pointer; font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 10px; border: 1.5px solid rgba(239,233,217,0.3); transition: border-color 0.2s ease, background 0.2s ease; }
+  .btn-ghost:hover { border-color: var(--paper); background: rgba(239,233,217,0.07); }
+
+  .scroll-cue { position: absolute; right: 28px; bottom: 48px; z-index: 6; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.26em; color: rgba(239,233,217,0.6); text-align: right; }
+  .scroll-cue .bar { display: block; width: 1.5px; height: 44px; margin: 10px 0 0 auto; background: linear-gradient(180deg, var(--ink), transparent); animation: cue-slide 1.8s ease-in-out infinite; }
+  @keyframes cue-slide { 0%,100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(10px); opacity: 0.4; } }
+
+  #grain { position: fixed; inset: -50%; z-index: 30; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    animation: grain-drift 1.6s steps(3) infinite; }
+  @keyframes grain-drift { 0%,100% { transform: translate(0,0); } 33% { transform: translate(-2.5%,1.5%); } 66% { transform: translate(2%, -2%); } }
+
+  @media (max-width: 700px) {
+    .hero-eyebrow { left: 18px; bottom: auto; top: 11vh; font-size: 9.5px; letter-spacing: 0.3em; }
+    .hero-proof { left: 18px; bottom: auto; top: calc(11vh + 22px); font-size: 9px; }
+    #heroTitle { bottom: 5vh; font-size: 13.5vw; padding-left: 2vw; }
+    #afterBeat { bottom: 13vh; }
+    .scroll-cue { left: 18px; right: auto; bottom: 100px; text-align: left; }
+    .scroll-cue .bar { margin: 10px auto 0 0; }
+  }
+
+  section { position: relative; background: #000; }
+  .sec-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.4em; color: var(--ink-bright); margin-bottom: 18px; }
+  .sec-title { font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(40px, 6vw, 88px); line-height: 0.95; color: var(--paper); }
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  html.prm .reveal { opacity: 1; transform: none; transition: none; }
+
+  #porch { padding: 0; }
+  #porch .photo-wrap { position: relative; height: 92vh; overflow: hidden; }
+  #porch .photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  #porch .photo-shade { position: absolute; inset: 0; background: linear-gradient(180deg, #000 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.25) 55%, #000 100%); }
+  #porch .porch-copy { position: absolute; left: 0; right: 0; bottom: 10vh; text-align: center; padding: 0 24px; }
+  #porch .porch-copy p { margin: 16px auto 0; max-width: 560px; font-size: clamp(14.5px, 1.5vw, 17px); color: rgba(239,233,217,0.88); text-shadow: 0 1px 10px rgba(0,0,0,0.8); }
+  #porch .mono-note { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.24em; color: var(--ink-bright); }
+
+  #menu { padding: 18vh 6vw 14vh; }
+  .ledger { margin-top: 7vh; border-top: 1px solid rgba(239,233,217,0.14); }
+  .ledger-row { display: grid; grid-template-columns: 90px 1fr auto; gap: 18px; align-items: baseline; padding: 30px 6px; border-bottom: 1px solid rgba(239,233,217,0.14); transition: background 0.25s ease, padding-left 0.25s ease; }
+  .ledger-row:hover { background: rgba(239,233,217,0.03); padding-left: 14px; }
+  .ledger-row .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink-bright); font-weight: 700; }
+  .ledger-row h3 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(24px, 3.2vw, 44px); letter-spacing: 0.015em; color: var(--paper); line-height: 1.05; }
+  .ledger-row .note { font-size: clamp(12.5px, 1.15vw, 15px); color: rgba(239,233,217,0.55); max-width: 340px; text-align: right; }
+  @media (max-width: 700px) { .ledger-row { grid-template-columns: 44px 1fr; } .ledger-row .note { grid-column: 2; text-align: left; margin-top: 6px; } }
+  .menu-cta { margin-top: 5vh; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  #ribs { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 78vh; }
+  #ribs .r-photo { position: relative; overflow: hidden; }
+  #ribs .r-photo img { width: 100%; height: 100%; object-fit: cover; }
+  #ribs .r-copy { display: flex; flex-direction: column; justify-content: center; padding: 12vh 6vw; }
+  #ribs .r-copy p { margin-top: 20px; max-width: 460px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); }
+  @media (max-width: 900px) { #ribs { grid-template-columns: 1fr; } #ribs .r-photo { height: 52vh; } #ribs .r-copy { padding: 9vh 8vw; } }
+
+  #reviews { padding: 16vh 6vw; }
+  .rev-grid { margin-top: 7vh; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  @media (max-width: 900px) { .rev-grid { grid-template-columns: 1fr; } }
+  .rev { border-top: 2px solid var(--ink); padding-top: 22px; display: flex; flex-direction: column; gap: 16px; }
+  .rev blockquote { font-size: clamp(15px, 1.35vw, 17.5px); line-height: 1.65; color: rgba(239,233,217,0.88); }
+  .rev cite { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(239,233,217,0.5); }
+  .rev-foot { margin-top: 6vh; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: rgba(239,233,217,0.45); }
+  .rev-foot b { color: var(--ink-bright); }
+
+  #owners { padding: 16vh 6vw; display: grid; grid-template-columns: minmax(260px, 420px) 1fr; gap: 6vw; align-items: center; }
+  @media (max-width: 900px) { #owners { grid-template-columns: 1fr; gap: 6vh; } }
+  #owners .o-photo { position: relative; }
+  #owners .o-photo img { width: 100%; height: auto; border-radius: 4px; }
+  #owners .o-photo::after { content: ""; position: absolute; inset: 0; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(239,233,217,0.12); }
+  #owners .o-copy p { margin-top: 20px; max-width: 520px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); }
+
+  #hours { padding: 16vh 6vw 14vh; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; }
+  @media (max-width: 900px) { #hours { grid-template-columns: 1fr; gap: 7vh; } }
+  .hours-table { margin-top: 5vh; width: 100%; border-collapse: collapse; max-width: 480px; }
+  .hours-table td { padding: 13px 6px; border-bottom: 1px solid rgba(239,233,217,0.12); font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.05vw, 13px); letter-spacing: 0.08em; }
+  .hours-table td:first-child { color: rgba(239,233,217,0.55); }
+  .hours-table td:last-child { text-align: right; color: var(--paper); }
+  .hours-table tr.closed td:last-child { color: var(--ink-bright); }
+  .hours-foot { margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; color: rgba(239,233,217,0.45); }
+  .find p { margin-top: 20px; font-size: clamp(14.5px, 1.4vw, 16.5px); color: rgba(239,233,217,0.75); max-width: 440px; }
+  .find .addr { margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: clamp(12px, 1.1vw, 14px); letter-spacing: 0.12em; line-height: 2.1; color: var(--paper); }
+  .find .addr a { color: var(--ink-bright); text-decoration: none; }
+  .find .addr a:hover { text-decoration: underline; }
+
+  footer { padding: 12vh 6vw 16vh; text-align: center; border-top: 1px solid rgba(239,233,217,0.1); position: relative; }
+  #footRule { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); height: 2px; width: 0; background: var(--ink); transition: width 1.4s ease; }
+  footer.on #footRule { width: min(560px, 80vw); }
+  footer .f-mark { font-family: 'Anton', sans-serif; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: 0.1em; }
+  footer .f-phone { display: inline-block; margin-top: 22px; font-family: 'Anton', sans-serif; font-size: clamp(28px, 4vw, 52px); color: var(--paper); text-decoration: none; letter-spacing: 0.02em; }
+  footer .f-phone:hover { color: var(--ink-bright); }
+  footer .f-note { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: rgba(239,233,217,0.4); }
+
+  .disclaimer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483645; background: #0d0802; color: #e2d6bd;
+    font: 500 11.5px/1.5 'JetBrains Mono', monospace; letter-spacing: 0.03em; text-align: center; padding: 9px 96px 9px 14px;
+    border-top: 1px solid rgba(217,127,46,0.28); }
+  @media (max-width: 600px) { .disclaimer { padding-right: 84px; font-size: 10px; } }
+  #he-bubble { bottom: 78px !important; }
+  @media (min-width: 601px) { #he-window { bottom: 152px !important; } }
+  @media (max-width: 600px) { #he-bubble { bottom: 92px !important; } }
+  html.prm #scene-hero, html.still #scene-hero { height: 100vh; }
+  html.prm .scroll-cue { display: none; }
+</style>
+</head>
+<body>
+
+<div id="topRule" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+
+<nav>
+  <a class="brand" href="#">NORWOOD PINES</a>
+  <div class="nav-links">
+    <a href="#menu" class="hide-m">MENU</a>
+    <button class="js-open-chat" type="button">ASK US</button>
+    <a class="call" href="tel:+17153563666"><span class="d-label">RESERVE · (715) 356-3666</span><span class="m-label">RESERVE</span></a>
+  </div>
+</nav>
+
+<div id="scene-hero">
+  <div class="pin">
+    <div class="flight">
+      <img id="heroStill" src="assets/hero_hf.jpg" alt="The great fieldstone fireplace at a Minocqua supper club, a musky mounted above the arch" fetchpriority="high">
+      <video id="leg1" muted playsinline preload="auto" aria-hidden="true"></video>
+      <video id="leg2" muted playsinline preload="auto" aria-hidden="true"></video>
+    </div>
+
+    <div class="hero-eyebrow">MINOCQUA, WISCONSIN &middot; SUPPER CLUB</div>
+    <div class="hero-proof"><b>96%</b> RECOMMEND &middot; <b>834</b> FACEBOOK REVIEWS</div>
+
+    <h1 id="heroTitle" aria-label="Norwood Pines">NORWOOD PINES</h1>
+
+    <div class="beat" id="beat2">
+      <div class="k">THE DINING ROOM</div>
+      <h3>White tablecloths.<br>Candlelight. The old way.</h3>
+    </div>
+    <div class="beat" id="beat3">
+      <div class="k">OUT THE WINDOW</div>
+      <h3>Dinner ends<br>at the water.</h3>
+    </div>
+
+    <div id="beatShade" aria-hidden="true"></div>
+
+    <div id="afterBeat">
+      <h2>The fireplace draws you in.<br><em>The lake keeps you late.</em></h2>
+      <p>One of Northern Wisconsin's oldest and finest supper clubs, on Highway 70 in Minocqua. Log walls, a crackling hearth, and the north woods doing the decorating.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:+17153563666">Call for a table</a>
+        <button class="btn-ghost js-open-chat" type="button">Ask about tonight</button>
+      </div>
+    </div>
+
+    <div class="scroll-cue">SCROLL<span class="bar"></span></div>
+  </div>
+</div>
+
+<section id="porch">
+  <div class="photo-wrap">
+    <img src="assets/porch.jpg" alt="The screen porch dining room at Norwood Pines" loading="lazy">
+    <div class="photo-shade" aria-hidden="true"></div>
+    <div class="porch-copy reveal">
+      <div class="sec-head">THE SCREEN PORCH</div>
+      <h2 class="sec-title">SUMMER'S BEST TABLE</h2>
+      <p>Dinner on the screen porch with the evening air moving through: the seat everybody asks for from June to September.</p>
+      <div class="mono-note">ON HIGHWAY 70 · MINOCQUA</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="reveal">
+    <div class="sec-head">THE HOUSE CLASSICS</div>
+    <h2 class="sec-title">ORDER LIKE YOU'VE BEEN HERE BEFORE</h2>
+  </div>
+  <div class="ledger reveal">
+    <div class="ledger-row"><span class="num">01</span><h3>FRIDAY FISH FRY</h3><span class="note">The Wisconsin institution, done the Norwood way.</span></div>
+    <div class="ledger-row"><span class="num">02</span><h3>BBQ RIBS</h3><span class="note">The house pride. Come hungry.</span></div>
+    <div class="ledger-row"><span class="num">03</span><h3>STUFFED SALMON</h3><span class="note">The one regulars tell first-timers about.</span></div>
+    <div class="ledger-row"><span class="num">04</span><h3>THE SUPPER CLUB BAR</h3><span class="note">Old fashioneds poured right, fireside.</span></div>
+    <div class="ledger-row"><span class="num">05</span><h3>WEDDINGS &amp; BANQUETS</h3><span class="note">The room, the porch, and the kitchen, yours for a night.</span></div>
+  </div>
+  <div class="menu-cta reveal">
+    <a class="btn-primary" href="tel:+17153563666">Call for tonight's menu</a>
+    <button class="btn-ghost js-open-chat" type="button">Ask what's on special</button>
+  </div>
+</section>
+
+<section id="ribs">
+  <div class="r-photo"><img src="assets/ribs.jpg" alt="BBQ ribs at Norwood Pines" loading="lazy"></div>
+  <div class="r-copy reveal">
+    <div class="sec-head">FROM THE KITCHEN</div>
+    <h2 class="sec-title">COOKED LIKE THE NAME'S ON THE SIGN</h2>
+    <p>Supper club cooking with no shortcuts: ribs worth the napkins, fish fry worth the Friday drive, and portions that remember what north woods appetites look like.</p>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="reveal">
+    <div class="sec-head">IN THEIR WORDS</div>
+    <h2 class="sec-title">834 REVIEWS DEEP</h2>
+  </div>
+  <div class="rev-grid">
+    <div class="rev reveal">
+      <blockquote>&ldquo;The best restaurant and dining experience I have had in the Northwoods. There is a romantic and woodsy vibe complete with log cabin and crackling fireplaces.&rdquo;</blockquote>
+      <cite>YELP REVIEW</cite>
+    </div>
+    <div class="rev reveal">
+      <blockquote>&ldquo;The staff was incredibly friendly and the food was delicious.&rdquo;</blockquote>
+      <cite>TRIPADVISOR REVIEW</cite>
+    </div>
+  </div>
+  <div class="rev-foot reveal">QUOTED WORD FOR WORD · <b>96% RECOMMEND ON 834 FACEBOOK REVIEWS · TRIPADVISOR 4.2</b> AT LAST COUNT</div>
+</section>
+
+<section id="owners">
+  <div class="o-photo reveal"><img src="assets/exterior.jpg" alt="The front of Norwood Pines Supper Club in Minocqua" loading="lazy"></div>
+  <div class="o-copy reveal">
+    <div class="sec-head">KEEPING THE TRADITION</div>
+    <h2 class="sec-title">THE TEICHMILLER FAMILY SINCE 1995</h2>
+    <p>Thirty years and counting, the first owners in the building's long history to make it past the 13-year mark. That kind of staying power in a northwoods tourist town says everything about how the place is run.</p>
+    <p>Reservations are recommended most nights. Call ahead, especially in season.</p>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="reveal">
+    <div class="sec-head">WHEN TO COME</div>
+    <h2 class="sec-title">HOURS</h2>
+    <table class="hours-table">
+      <tr><td>MONDAY – THURSDAY</td><td>5 PM – 9:30 PM</td></tr>
+      <tr><td>FRIDAY</td><td>4:30 PM – 9:30 PM</td></tr>
+      <tr><td>SATURDAY</td><td>5 PM – 9:30 PM</td></tr>
+      <tr class="closed"><td>SUNDAY</td><td>CLOSED</td></tr>
+    </table>
+    <div class="hours-foot">SOME MONDAYS DIFFER IN SEASON · WORTH A QUICK CALL</div>
+  </div>
+  <div class="find reveal">
+    <div class="sec-head">WHERE WE ARE</div>
+    <h2 class="sec-title">FIND NORWOOD PINES</h2>
+    <p>On State Highway 70 just west of downtown Minocqua, an easy drive from every chain of lakes in Oneida and Vilas County.</p>
+    <div class="addr">
+      10171 STATE HWY 70<br>
+      MINOCQUA, WI 54548<br>
+      <a href="tel:+17153563666">(715) 356-3666</a><br>
+      <a href="https://maps.google.com/?q=Norwood+Pines+Supper+Club+Minocqua+WI" target="_blank" rel="noopener">OPEN IN MAPS →</a>
+    </div>
+  </div>
+</section>
+
+<footer id="foot">
+  <div id="footRule" aria-hidden="true"></div>
+  <div class="f-mark">NORWOOD PINES SUPPER CLUB</div>
+  <div><a class="f-phone" href="tel:+17153563666">(715) 356-3666</a></div>
+  <div class="f-note">MINOCQUA, WISCONSIN · THE FIREPLACE DRAWS YOU IN</div>
+</footer>
+
+<div class="disclaimer">Sample design by Cole Cummings &middot; Demo for evaluation only &middot; Not affiliated with Norwood Pines Supper Club</div>
+
+<!-- ── StillOpen widget (embed marker: stillopen-chatbot) ── -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-norwoodpines"></script>
+
+<script>
+(function () {
+  "use strict";
+  var prm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prm) document.documentElement.classList.add("prm");
+
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function seg(p, a, b) { return clamp((p - a) / (b - a), 0, 1); }
+  function easeIn(t) { return t * t; }
+  function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+
+  var title = document.getElementById("heroTitle");
+  var glyphs = [];
+  (function () {
+    var text = title.textContent;
+    title.textContent = "";
+    for (var i = 0; i < text.length; i++) {
+      var s = document.createElement("span");
+      s.className = "ch";
+      s.textContent = text[i];
+      if (text[i] === " ") s.style.width = "0.22em";
+      title.appendChild(s);
+      glyphs.push(s);
+    }
+  })();
+
+  var beat2 = document.getElementById("beat2");
+  var beat3 = document.getElementById("beat3");
+  var afterBeat = document.getElementById("afterBeat");
+  var beatShade = document.getElementById("beatShade");
+  var cue = document.querySelector(".scroll-cue");
+  var eyebrow = document.querySelector(".hero-eyebrow");
+  var proof = document.querySelector(".hero-proof");
+  var sceneEl = document.getElementById("scene-hero");
+  var leg1 = document.getElementById("leg1");
+  var leg2 = document.getElementById("leg2");
+
+  /* the flight: leg 1 scrubs over p 0..0.52, leg 2 over p 0.48..1.
+     The 0.48-0.52 band crossfades the frame-locked seam. */
+  var SEAM_IN = 0.48, SEAM_OUT = 0.52;
+  var ready1 = false, ready2 = false;
+  var t1 = 0, c1 = 0, t2 = 0, c2 = 0;
+
+  function beatIn(p, a, b, el, fromY) {
+    var tIn = seg(p, a, a + 0.05);
+    var tOut = 1 - seg(p, b - 0.05, b);
+    var o = Math.min(tIn, tOut);
+    el.style.opacity = o.toFixed(3);
+    el.style.transform = "translateY(" + ((1 - o) * fromY).toFixed(1) + "px)";
+  }
+
+  function render() {
+    if (prm) return;
+    var y = window.scrollY || window.pageYOffset;
+    var vh = window.innerHeight;
+    var run = sceneEl.offsetHeight - vh;
+    var p = run > 0 ? clamp((y - sceneEl.offsetTop) / run, 0, 1) : 0;
+
+    /* playhead targets for the two legs */
+    if (ready1 && leg1.duration) t1 = seg(p, 0, SEAM_OUT) * (leg1.duration - 0.05);
+    if (ready2 && leg2.duration) t2 = seg(p, SEAM_IN, 1) * (leg2.duration - 0.05);
+
+    /* which leg shows */
+    var xf = seg(p, SEAM_IN, SEAM_OUT);
+    if (ready1) leg1.style.opacity = (1 - xf).toFixed(3);
+    if (ready2) leg2.style.opacity = xf.toFixed(3);
+
+    /* title folds early so the flight owns the frame */
+    var pFold = seg(p, 0.05, 0.3);
+    var n = glyphs.length;
+    for (var i = 0; i < n; i++) {
+      var t = seg(pFold, (i / n) * 0.7, (i / n) * 0.7 + 0.3);
+      var g = glyphs[i];
+      if (t === 0) { g.style.transform = ""; g.style.opacity = 1; continue; }
+      g.style.transform = "translateY(" + (58 * easeIn(t)).toFixed(1) + "%) rotateX(" + (-84 * t).toFixed(1) + "deg) scaleY(" + (1 - 0.34 * t).toFixed(3) + ")";
+      g.style.opacity = (1 - t).toFixed(3);
+    }
+
+    var pTop = seg(p, 0.04, 0.22);
+    eyebrow.style.opacity = (1 - pTop).toFixed(3);
+    proof.style.opacity = (1 - pTop).toFixed(3);
+    eyebrow.style.transform = "translateY(" + (-18 * pTop).toFixed(1) + "px)";
+    proof.style.transform = "translateY(" + (-18 * pTop).toFixed(1) + "px)";
+
+    /* mid-flight copy beats */
+    beatIn(p, 0.34, 0.52, beat2, 26);
+    beatIn(p, 0.62, 0.82, beat3, 26);
+
+    /* the landing */
+    var pBeat = seg(p, 0.86, 0.97);
+    beatShade.style.opacity = pBeat.toFixed(3);
+    afterBeat.style.opacity = pBeat.toFixed(3);
+    afterBeat.style.transform = "translateY(" + (36 * (1 - easeOut(pBeat))).toFixed(1) + "px)";
+
+    cue.style.opacity = (0.6 * (1 - seg(p, 0.02, 0.12))).toFixed(3);
+  }
+
+  window.addEventListener("scroll", render, { passive: true });
+  window.addEventListener("resize", render);
+  setInterval(render, 300);
+
+  /* blob-load both legs (desktop only; phones + reduced-motion ride the still) */
+  /* Blob road, self-healing: re-check the gate and retry until both legs land. */
+  var loading1 = false, loading2 = false, tries = 0;
+  function gateOK() {
+    if (prm) return false;
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return false;
+    var w = window.innerWidth;
+    if (w > 0 && w < 900) return false;
+    return leg1.canPlayType && !!leg1.canPlayType("video/mp4");
+  }
+  function loadLeg(el, src, isLoading, setLoading, mark) {
+    if (isLoading()) return;
+    setLoading(true);
+    fetch(src)
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.blob(); })
+      .then(function (b) {
+        el.src = URL.createObjectURL(b);
+        el.addEventListener("loadedmetadata", function () { mark(); render(); });
+        el.load();
+      })
+      .catch(function () { setLoading(false); /* retry on the next tick */ });
+  }
+  function ensureLegs() {
+    if (tries > 20) return;
+    if (!gateOK()) { document.documentElement.classList.add("still"); return; }
+    document.documentElement.classList.remove("still");
+    tries++;
+    if (!ready1) loadLeg(leg1, "assets/leg1.mp4", function(){return loading1;}, function(v){loading1=v;}, function () { ready1 = true; });
+    if (!ready2) loadLeg(leg2, "assets/leg2.mp4", function(){return loading2;}, function(v){loading2=v;}, function () { ready2 = true; });
+  }
+  ensureLegs();
+  window.addEventListener("resize", ensureLegs);
+  setInterval(ensureLegs, 1000);
+  if (true) {
+    (function scrubLoop() {
+      if (ready1 && leg1.duration) {
+        c1 += (t1 - c1) * 0.14;
+        if (Math.abs(t1 - c1) > 0.004) { try { leg1.currentTime = c1; } catch (e) {} }
+      }
+      if (ready2 && leg2.duration) {
+        c2 += (t2 - c2) * 0.14;
+        if (Math.abs(t2 - c2) > 0.004) { try { leg2.currentTime = c2; } catch (e) {} }
+      }
+      requestAnimationFrame(scrubLoop);
+    })();
+    setInterval(function () {
+      if (ready1 && leg1.duration && Math.abs(leg1.currentTime - t1) > 0.5) { try { leg1.currentTime = t1; c1 = t1; } catch (e) {} }
+      if (ready2 && leg2.duration && Math.abs(leg2.currentTime - t2) > 0.5) { try { leg2.currentTime = t2; c2 = t2; } catch (e) {} }
+    }, 400);
+  }
+
+  render();
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll(".reveal, footer").forEach(function (el) { io.observe(el); });
+
+  var css = [
+    "#he-bubble { background: #d97f2e !important; box-shadow: 0 4px 20px rgba(217,127,46,0.35), 0 2px 8px rgba(0,0,0,0.4) !important; }",
+    "#he-avatar { background: #d97f2e !important; }",
+    "#he-send { background: #d97f2e !important; }",
+    ".he-msg.user .he-bubble-text { background: #d97f2e !important; color: #190d02 !important; }",
+    ".he-dot { background: #d97f2e !important; }",
+    "#he-input:focus { border-color: #d97f2e !important; }"
+  ].join("\n");
+  var tag = document.createElement("style");
+  tag.textContent = css;
+  document.head.appendChild(tag);
+
+  document.querySelectorAll(".js-open-chat").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var bubble = document.getElementById("he-bubble");
+      if (bubble) bubble.click();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
