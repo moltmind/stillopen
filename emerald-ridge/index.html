@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Legacy Barn at Emerald Ridge · Menomonie, WI</title>
+<meta property="og:title" content="Emerald Ridge Weddings &amp; Receptions">
+<meta property="og:description" content="Three venues on 200 acres of ridge outside Menomonie. Yours for five days, May through October. 40 years of weddings, up to 320 guests.">
+<meta property="og:image" content="https://stillopen.ai/emerald-ridge/assets/og-card.jpg">
+<meta property="og:url" content="https://stillopen.ai/emerald-ridge/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f2e9;
+    --paper-deep: #ece8db;
+    --ink: #173f2c;
+    --ink-soft: rgba(23,63,44,0.66);
+    --ink-faint: rgba(23,63,44,0.34);
+    --shade: #0b1a12;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  button { font-family: inherit; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .serif { font-family: 'Fraunces', serif; }
+
+  /* ── nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 54px; height: auto; }
+  .brand span {
+    font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700; letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a, .nav-links button {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; color: var(--ink); text-decoration: none;
+    background: none; border: none; cursor: pointer; white-space: nowrap;
+    opacity: 0.85; transition: opacity 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links button:hover { opacity: 1; }
+  .nav-links .call {
+    border: 1.5px solid var(--ink); padding: 10px 16px; border-radius: 0;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .nav-links .call:hover { background: var(--ink); color: var(--paper); }
+  @media (max-width: 700px) {
+    nav { padding: 12px 14px; }
+    .brand img { width: 42px; }
+    .brand span { display: none; }
+    .nav-links { gap: 14px; }
+    .nav-links a, .nav-links button { font-size: 10px; letter-spacing: 0.16em; }
+    .nav-links .call { padding: 8px 11px; }
+  }
+
+  /* ── the doors scene ── */
+  #scene-doors { height: 280vh; position: relative; }
+  .pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+
+  #doorsPhoto {
+    position: absolute; inset: 0; z-index: 1;
+    background: url("assets/doors-open.jpg") center 38% / cover no-repeat;
+    will-change: transform;
+  }
+  #photoShade {
+    position: absolute; inset: 0; z-index: 2; opacity: 0;
+    background: linear-gradient(180deg, rgba(11,26,18,0) 34%, rgba(11,26,18,0.88) 78%, var(--shade) 100%);
+    will-change: opacity; pointer-events: none;
+  }
+
+  .door {
+    position: absolute; top: 0; bottom: 0; width: 50.5%; z-index: 3;
+    background: var(--paper);
+    display: flex; align-items: center;
+    will-change: transform;
+  }
+  #doorL { left: 0; justify-content: flex-end; box-shadow: inset -1px 0 0 var(--ink-faint); }
+  #doorR { right: 0; justify-content: flex-start; box-shadow: inset 1px 0 0 var(--ink-faint); }
+  .door .word {
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(58px, 12.5vw, 200px);
+    line-height: 0.9; color: var(--ink); user-select: none; padding: 0 2.6vw;
+  }
+  .door-meta {
+    position: absolute; top: 88px; left: 28px; z-index: 4;
+    font-family: 'IBM Plex Mono', monospace; font-size: clamp(9.5px, 1vw, 12px);
+    font-weight: 600; letter-spacing: 0.3em; color: var(--ink-soft);
+    will-change: opacity;
+  }
+  .door-proof {
+    position: absolute; top: 88px; right: 28px; z-index: 4; text-align: right;
+    font-family: 'IBM Plex Mono', monospace; font-size: clamp(9.5px, 1vw, 12px);
+    font-weight: 600; letter-spacing: 0.22em; line-height: 2; color: var(--ink-soft);
+    will-change: opacity;
+  }
+  .door-hint {
+    position: absolute; left: 50%; bottom: 44px; transform: translateX(-50%); z-index: 4;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.3em; color: var(--ink-soft); will-change: opacity;
+  }
+
+  #afterBeat {
+    position: absolute; left: 0; right: 0; bottom: 9vh; z-index: 5;
+    text-align: center; opacity: 0; will-change: transform, opacity; padding: 0 22px;
+  }
+  #afterBeat .ab-eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.34em; color: rgba(245,242,233,0.72); margin-bottom: 16px;
+  }
+  #afterBeat h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: 0;
+    font-size: clamp(30px, 4.6vw, 58px); line-height: 1.08; color: var(--paper);
+  }
+  #afterBeat p {
+    margin: 16px auto 0; max-width: 560px; font-size: clamp(14.5px, 1.4vw, 17px);
+    color: rgba(245,242,233,0.88);
+  }
+  #afterBeat .ctas { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--paper); color: var(--ink); text-decoration: none; border: none; cursor: pointer;
+    font-weight: 800; font-size: 15px; padding: 15px 26px; border-radius: 0;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--paper); text-decoration: none; cursor: pointer;
+    font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 0;
+    border: 1.5px solid rgba(245,242,233,0.55);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-ghost:hover { border-color: var(--paper); background: rgba(245,242,233,0.1); }
+
+  @media (max-width: 700px) {
+    .door-meta { top: 70px; left: 16px; letter-spacing: 0.2em; }
+    .door-proof { top: 70px; right: 16px; letter-spacing: 0.14em; }
+    .door .word { font-size: 16.5vw; padding: 0 3vw; }
+    #afterBeat { bottom: 20vh; }
+  }
+
+  /* ── shared section chrome ── */
+  section { position: relative; background: var(--paper); }
+  .wrap { max-width: 1280px; margin: 0 auto; padding-left: 6vw; padding-right: 6vw; }
+  .sec-title {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(34px, 5vw, 72px); line-height: 1.04; color: var(--ink);
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  html.prm .reveal { opacity: 1; transform: none; transition: none; }
+
+  /* ── the three venues ── */
+  #venues { padding: 15vh 0 10vh; }
+  .venue { display: grid; gap: 4vw; align-items: end; margin-top: 9vh; }
+  .venue:first-of-type { margin-top: 7vh; }
+  .venue .v-photo { overflow: hidden; }
+  .venue .v-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s ease; }
+  .venue:hover .v-photo img { transform: scale(1.025); }
+  .venue .v-tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.26em; color: var(--ink-soft); margin-bottom: 12px;
+  }
+  .venue h3 {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(26px, 3.1vw, 44px);
+    line-height: 1.06; color: var(--ink);
+  }
+  .venue p { margin-top: 14px; font-size: clamp(14px, 1.25vw, 16.5px); color: var(--ink-soft); max-width: 420px; }
+  #v-legacy { grid-template-columns: 1.35fr 1fr; }
+  #v-legacy .v-photo { height: 66vh; }
+  #v-rustic { grid-template-columns: 1fr 1.1fr; max-width: 1060px; margin-left: auto; }
+  #v-rustic .v-copy { text-align: right; }
+  #v-rustic .v-copy p { margin-left: auto; }
+  #v-rustic .v-photo { height: 54vh; order: 2; }
+  #v-grand { grid-template-columns: 1fr 1.6fr; }
+  #v-grand .v-photo { height: 58vh; }
+  @media (max-width: 900px) {
+    #v-legacy, #v-rustic, #v-grand { grid-template-columns: 1fr; gap: 20px; align-items: start; }
+    #v-legacy .v-photo, #v-rustic .v-photo, #v-grand .v-photo { height: 46vh; order: 0; }
+    #v-rustic .v-copy { text-align: left; }
+    #v-rustic .v-copy p { margin-left: 0; }
+    .venue { margin-top: 11vh; }
+  }
+
+  /* ── five days ── */
+  #fivedays { padding: 16vh 0; background: var(--paper-deep); }
+  #fivedays .big {
+    font-family: 'Fraunces', serif; font-weight: 600; max-width: 900px;
+    font-size: clamp(32px, 4.6vw, 66px); line-height: 1.1; color: var(--ink);
+  }
+  #fivedays .body { margin-top: 26px; max-width: 620px; font-size: clamp(14.5px, 1.35vw, 17px); color: var(--ink-soft); }
+  .stat-row {
+    margin-top: 7vh; display: grid; grid-template-columns: repeat(4, auto); gap: 5vw;
+    justify-content: start; border-top: 1px solid var(--ink-faint); padding-top: 4vh;
+  }
+  .stat .n {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600;
+    font-size: clamp(26px, 3.4vw, 48px); color: var(--ink); letter-spacing: -0.02em;
+  }
+  .stat .l {
+    margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.26em; color: var(--ink-soft);
+  }
+  @media (max-width: 700px) { .stat-row { grid-template-columns: repeat(2, auto); gap: 5vh 12vw; } }
+
+  /* ── the ridge band ── */
+  #ridge { padding: 0; background: var(--shade); }
+  #ridge .band { position: relative; height: 88vh; overflow: hidden; }
+  #ridge .band img { width: 100%; height: 112%; object-fit: cover; will-change: transform; }
+  #ridge .band-shade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,26,18,0.42) 0%, rgba(11,26,18,0.06) 42%, rgba(11,26,18,0.66) 100%);
+  }
+  #ridge .band-copy { position: absolute; left: 0; right: 0; bottom: 9vh; text-align: center; padding: 0 24px; }
+  #ridge .band-copy h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; color: var(--paper);
+    font-size: clamp(28px, 4.2vw, 56px); line-height: 1.1;
+  }
+  #ridge .band-copy .mono-note {
+    margin-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    font-weight: 600; letter-spacing: 0.3em; color: rgba(245,242,233,0.8);
+  }
+
+  /* ── guestbook ── */
+  #guestbook { padding: 16vh 0; }
+  .gb-grid { margin-top: 7vh; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4vw; }
+  @media (max-width: 900px) { .gb-grid { grid-template-columns: 1fr; gap: 7vh; } }
+  .gb { position: relative; padding-left: 22px; border-left: 1px solid var(--ink-faint); }
+  .gb .qm {
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 54px; line-height: 0.5;
+    color: var(--ink); display: block; margin-bottom: 22px;
+  }
+  .gb blockquote { font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.7; color: var(--ink); }
+  .gb cite {
+    display: block; margin-top: 18px; font-style: normal;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.22em; color: var(--ink-soft);
+  }
+  .gb-foot {
+    margin-top: 7vh; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.2em; color: var(--ink-soft);
+  }
+
+  /* ── hosts ── */
+  #hosts { padding: 15vh 0 16vh; background: var(--paper-deep); }
+  #hosts .pull {
+    font-family: 'Fraunces', serif; font-weight: 400; font-style: italic;
+    font-size: clamp(24px, 3.2vw, 44px); line-height: 1.28; color: var(--ink);
+    max-width: 880px; padding-bottom: 4px;
+  }
+  #hosts .who { margin-top: 5vh; max-width: 620px; font-size: clamp(14.5px, 1.35vw, 17px); color: var(--ink-soft); }
+  #hosts .who b { color: var(--ink); font-weight: 800; }
+
+  /* ── plan ── */
+  #plan { padding: 15vh 0 14vh; }
+  #plan .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; margin-top: 6vh; }
+  @media (max-width: 900px) { #plan .cols { grid-template-columns: 1fr; gap: 8vh; } }
+  #plan h3 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.3em; color: var(--ink-soft); margin-bottom: 22px;
+  }
+  #plan .phone {
+    display: inline-block; font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: clamp(30px, 3.6vw, 52px); color: var(--ink); text-decoration: none; line-height: 1.1;
+  }
+  #plan .phone:hover { text-decoration: underline; text-underline-offset: 8px; }
+  #plan p { margin-top: 16px; font-size: clamp(14px, 1.25vw, 16px); color: var(--ink-soft); max-width: 420px; }
+  #plan .addr {
+    font-family: 'IBM Plex Mono', monospace; font-size: clamp(12px, 1.1vw, 14px);
+    letter-spacing: 0.1em; line-height: 2.2; color: var(--ink); font-weight: 600;
+  }
+  #plan .addr a { color: var(--ink); }
+  #plan .plan-ctas { margin-top: 4vh; display: flex; gap: 12px; flex-wrap: wrap; }
+  #plan .btn-ink {
+    background: var(--ink); color: var(--paper); text-decoration: none; border: none; cursor: pointer;
+    font-weight: 800; font-size: 15px; padding: 15px 26px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  #plan .btn-ink:hover { transform: translateY(-2px); opacity: 0.94; }
+  #plan .btn-line {
+    background: transparent; color: var(--ink); cursor: pointer; text-decoration: none;
+    font-weight: 700; font-size: 15px; padding: 15px 26px; border: 1.5px solid var(--ink);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  #plan .btn-line:hover { background: var(--ink); color: var(--paper); }
+
+  /* ── footer ── */
+  footer { padding: 11vh 6vw 15vh; text-align: center; border-top: 1px solid var(--ink-faint); position: relative; background: var(--paper); }
+  #footRule {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    height: 2px; width: 0; background: var(--ink); transition: width 1.4s ease;
+  }
+  footer.on #footRule { width: min(480px, 76vw); }
+  footer img { width: 92px; margin: 0 auto; }
+  footer .f-name { margin-top: 20px; font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); color: var(--ink); }
+  footer .f-note {
+    margin-top: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.24em; color: var(--ink-soft);
+  }
+
+  .disclaimer {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483645;
+    background: #10281c; color: #e9e4d4;
+    font: 500 11.5px/1.5 'IBM Plex Mono', monospace; letter-spacing: 0.03em;
+    text-align: center; padding: 9px 96px 9px 14px;
+    border-top: 1px solid rgba(245,242,233,0.18);
+  }
+  @media (max-width: 600px) { .disclaimer { padding-right: 84px; font-size: 10px; } }
+
+  #he-bubble { bottom: 78px !important; }
+  @media (min-width: 601px) { #he-window { bottom: 152px !important; } }
+  @media (max-width: 600px) { #he-bubble { bottom: 92px !important; } }
+
+  html.prm #scene-doors { height: 100vh; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#" aria-label="Emerald Ridge Weddings and Receptions">
+    <img src="assets/logo.png" alt="Emerald Ridge logo">
+    <span>Emerald Ridge</span>
+  </a>
+  <div class="nav-links">
+    <a href="#venues" class="hide-m">THE VENUES</a>
+    <button class="js-open-chat" type="button">ASK ABOUT A DATE</button>
+    <a class="call" href="tel:+17153084868">CALL</a>
+  </div>
+</nav>
+
+<div id="scene-doors">
+  <div class="pin">
+    <div id="doorsPhoto" role="img" aria-label="The Legacy Barn doors open wide as a bride walks in on her father's arm"></div>
+    <div id="photoShade" aria-hidden="true"></div>
+
+    <div class="door" id="doorL"><div class="word">Emerald</div></div>
+    <div class="door" id="doorR"><div class="word">Ridge</div></div>
+
+    <div class="door-meta">WEDDINGS &amp; RECEPTIONS · MENOMONIE, WIS.</div>
+    <div class="door-proof">WEDDINGWIRE COUPLES' CHOICE<br>40 YEARS ON THE RIDGE</div>
+    <div class="door-hint">THE DOORS OPEN AS YOU SCROLL</div>
+
+    <div id="afterBeat">
+      <div class="ab-eyebrow">MAY THROUGH OCTOBER · UP TO 320 GUESTS</div>
+      <h2>It's your wedding.<br>Have it your way.</h2>
+      <p>Three venues on 200 acres of ridge outside Menomonie, and the whole place is yours for five days.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:+17153084868">Call about a date</a>
+        <button class="btn-ghost js-open-chat" type="button">Ask anything, any hour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="venues">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Three places<br>to say it.</h2>
+
+    <div class="venue reveal" id="v-legacy">
+      <div class="v-photo"><img src="assets/legacy-interior.jpg" alt="Inside the Legacy Barn: curved timber ribs over a white ceremony aisle" loading="lazy"></div>
+      <div class="v-copy">
+        <div class="v-tag">THE LEGACY BARN</div>
+        <h3>The elegant one.</h3>
+        <p>A white barn with room for the ceremony and the reception, a floor made for dancing the night away, and a large deck off the side. Decor and seating are done in-house to fit your day.</p>
+      </div>
+    </div>
+
+    <div class="venue reveal" id="v-rustic">
+      <div class="v-copy">
+        <div class="v-tag">RUSTIC OAKS</div>
+        <h3>The popular one.</h3>
+        <p>An outdoor ceremony with a covered reception area, a fire pit, and a bar. The hybrid space that gives you the sky and a roof in the same evening.</p>
+      </div>
+      <div class="v-photo"><img src="assets/rustic-lanterns.jpg" alt="Lanterns line the aisle at Rustic Oaks with the valley behind" loading="lazy"></div>
+    </div>
+
+    <div class="venue reveal" id="v-grand">
+      <div class="v-copy">
+        <div class="v-tag">GRANDVIEW POINT</div>
+        <h3>The garden one.</h3>
+        <p>An outdoor ceremony space under mature trees with a new pavilion, surrounded by gardens, with the long view of the valley doing what it does.</p>
+      </div>
+      <div class="v-photo"><img src="assets/grandview-gardens.jpg" alt="Hosta gardens under the trees at Grandview Point with the valley beyond" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="fivedays">
+  <div class="wrap">
+    <div class="big reveal">The place is yours for five days.</div>
+    <p class="body reveal">No rushed Saturday handoff. Set up slow, rehearse easy, celebrate long, and say goodbye when you're ready. There's camping and RV parking on the property, so nobody has to drive at the end of the night.</p>
+    <div class="stat-row reveal">
+      <div class="stat"><div class="n">200</div><div class="l">ACRES</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">VENUES</div></div>
+      <div class="stat"><div class="n">320</div><div class="l">GUESTS</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">DAYS</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ridge">
+  <div class="band">
+    <img id="ridgeImg" src="assets/ridge-sunset.jpg" alt="Sunset from the stone overlook at Emerald Ridge" loading="lazy">
+    <div class="band-shade" aria-hidden="true"></div>
+    <div class="band-copy reveal">
+      <h2>May through October,<br>the ridge does the decorating.</h2>
+      <div class="mono-note">SPRING · SUMMER · FALL</div>
+    </div>
+  </div>
+</section>
+
+<section id="guestbook">
+  <div class="wrap">
+    <h2 class="sec-title reveal">From the guestbook.</h2>
+    <div class="gb-grid">
+      <div class="gb reveal">
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <blockquote>Teresa and Bruce were wonderful to work with! Teresa paid attention to every detail and made us feel so comfortable and stress-free! BEAUTIFUL location.</blockquote>
+        <cite>WEDDINGWIRE REVIEW</cite>
+      </div>
+      <div class="gb reveal">
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <blockquote>We could not be more pleased with how well everything went with our daughter's wedding. The staff at Emerald Ridge were incredibly helpful and thought of everything.</blockquote>
+        <cite>STEPHANIE · GUESTBOOK</cite>
+      </div>
+      <div class="gb reveal">
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <blockquote>Gorgeous venue for a wedding and reception. We appreciated that you can camp on site so there was no need to drive at the end of the night.</blockquote>
+        <cite>KELLY · GUESTBOOK</cite>
+      </div>
+    </div>
+    <div class="gb-foot reveal">PULLED WORD FOR WORD FROM EMERALD RIDGE'S OWN GUESTBOOK AND WEDDINGWIRE REVIEWS</div>
+  </div>
+</section>
+
+<section id="hosts">
+  <div class="wrap">
+    <div class="pull reveal">&ldquo;We have spent 40 years learning that when couples feel genuinely supported, the whole day comes together the way they always imagined it would.&rdquo;</div>
+    <p class="who reveal"><b>Bruce and Teresa</b> have run weddings on this ridge for 40 years. Full service means their team handles setup, teardown, coordinating, catering, and the decorations, and it means couples from all 50 states have found their way to a farm outside Menomonie and been treated like family when they got here.</p>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Come stand on the ridge.</h2>
+    <div class="cols">
+      <div class="reveal">
+        <h3>TOURS BY APPOINTMENT</h3>
+        <a class="phone" href="tel:+17153084868">(715) 308-4868</a>
+        <p>Call Teresa, or tap the chat bubble any hour of the night and leave your date. The good Saturdays go early.</p>
+        <div class="plan-ctas">
+          <button class="btn-ink js-open-chat" type="button">Check my date</button>
+          <a class="btn-line" href="mailto:teresa@emeraldridgeweddings.com">Email Teresa</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>WHERE THE RIDGE IS</h3>
+        <div class="addr">
+          N3954 640TH ST<br>
+          MENOMONIE, WI 54751<br>
+          <a href="https://goo.gl/maps/pr112E73J38ihP3a8" target="_blank" rel="noopener">OPEN IN MAPS →</a>
+        </div>
+        <p>Ten minutes out of town, up on the ridge. Camping and RV sites are on the property for the weekend of.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="foot">
+  <div id="footRule" aria-hidden="true"></div>
+  <img src="assets/logo.png" alt="Emerald Ridge logo" loading="lazy">
+  <div class="f-name">Emerald Ridge Weddings &amp; Receptions</div>
+  <div class="f-note">N3954 640TH ST · MENOMONIE, WISCONSIN · (715) 308-4868</div>
+</footer>
+
+<div class="disclaimer">Sample design by Cole Cummings &middot; Demo for evaluation only &middot; Not affiliated with Emerald Ridge Weddings &amp; Receptions</div>
+
+<!-- ── StillOpen widget (embed marker: stillopen-chatbot) ── -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-emerald-ridge"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  var prm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prm) document.documentElement.classList.add("prm");
+
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function seg(p, a, b) { return clamp((p - a) / (b - a), 0, 1); }
+  function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+  function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+  var scene = document.getElementById("scene-doors");
+  var doorL = document.getElementById("doorL");
+  var doorR = document.getElementById("doorR");
+  var photo = document.getElementById("doorsPhoto");
+  var shade = document.getElementById("photoShade");
+  var afterBeat = document.getElementById("afterBeat");
+  var meta = document.querySelector(".door-meta");
+  var proof = document.querySelector(".door-proof");
+  var hint = document.querySelector(".door-hint");
+  var ridgeImg = document.getElementById("ridgeImg");
+
+  /* self-healing engine: every frame is a pure function of scrollY */
+  function render() {
+    if (prm) return;
+    var y = window.scrollY || window.pageYOffset;
+    var vh = window.innerHeight;
+
+    /* scene 1: the doors */
+    var run = scene.offsetHeight - vh;
+    var p = run > 0 ? clamp((y - scene.offsetTop) / run, 0, 1) : 0;
+
+    var pOpen = easeInOut(seg(p, 0.06, 0.72));
+    doorL.style.transform = "translateX(" + (-104 * pOpen).toFixed(2) + "%)";
+    doorR.style.transform = "translateX(" + (104 * pOpen).toFixed(2) + "%)";
+
+    photo.style.transform = "scale(" + (1.07 - 0.07 * easeOut(pOpen)).toFixed(4) + ")";
+
+    var pText = seg(p, 0.62, 0.9);
+    shade.style.opacity = pText.toFixed(3);
+    afterBeat.style.opacity = pText.toFixed(3);
+    afterBeat.style.transform = "translateY(" + (34 * (1 - easeOut(pText))).toFixed(1) + "px)";
+
+    var pMeta = seg(p, 0.04, 0.3);
+    meta.style.opacity = (1 - pMeta).toFixed(3);
+    proof.style.opacity = (1 - pMeta).toFixed(3);
+    hint.style.opacity = (0.9 * (1 - seg(p, 0.02, 0.14))).toFixed(3);
+
+    /* the ridge band: slow parallax drift */
+    if (ridgeImg) {
+      var band = ridgeImg.parentElement;
+      var r = band.getBoundingClientRect();
+      var t = clamp((vh - r.top) / (vh + r.height), 0, 1);
+      ridgeImg.style.transform = "translateY(" + (-10 * t).toFixed(2) + "%)";
+    }
+  }
+
+  window.addEventListener("scroll", render, { passive: true });
+  window.addEventListener("resize", render);
+  setInterval(render, 300);
+  render();
+
+  /* prm: doors stand open, everything readable */
+  if (prm) {
+    doorL.style.transform = "translateX(-104%)";
+    doorR.style.transform = "translateX(104%)";
+    shade.style.opacity = 1;
+    afterBeat.style.opacity = 1;
+    hint.style.display = "none";
+    meta.style.display = "none";
+    proof.style.display = "none";
+  }
+
+  /* reveals, with an interval fallback because preview panes throttle IO */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.16 });
+  var revealables = document.querySelectorAll(".reveal, footer");
+  revealables.forEach(function (el) { io.observe(el); });
+  setInterval(function () {
+    var vh = window.innerHeight;
+    revealables.forEach(function (el) {
+      if (el.classList.contains("on")) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add("on");
+    });
+  }, 450);
+
+  /* widget accent: Emerald Ridge ink green */
+  var css = [
+    "#he-bubble { background: #173f2c !important; box-shadow: 0 4px 20px rgba(23,63,44,0.35), 0 2px 8px rgba(0,0,0,0.25) !important; }",
+    "#he-avatar { background: #173f2c !important; }",
+    "#he-send { background: #173f2c !important; }",
+    ".he-msg.user .he-bubble-text { background: #173f2c !important; color: #f5f2e9 !important; }",
+    ".he-dot { background: #173f2c !important; }",
+    "#he-input:focus { border-color: #173f2c !important; }"
+  ].join("\n");
+  var tag = document.createElement("style");
+  tag.textContent = css;
+  document.head.appendChild(tag);
+
+  document.querySelectorAll(".js-open-chat").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var bubble = document.getElementById("he-bubble");
+      if (bubble) bubble.click();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
