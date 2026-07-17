@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sailer's Food Market &amp; Meat Processing · Elmwood, WI · Since 1923</title>
+<meta property="og:title" content="Sailer's Food Market &amp; Meat Processing">
+<meta property="og:description" content="Five generations of professional meat processors in Elmwood, Wisconsin. 4.6 stars across 128 Google reviews, over 100 awards, since 1923.">
+<meta property="og:image" content="https://stillopen.ai/sailers-meats/assets/og-card.jpg">
+<meta property="og:url" content="https://stillopen.ai/sailers-meats/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coal: #131110;
+    --coal-2: #1b1816;
+    --bone: #ece5d8;
+    --bone-dim: rgba(236,229,216,0.62);
+    --bone-faint: rgba(236,229,216,0.16);
+    --teal: #4da3b5;
+    --teal-deep: #14424d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--coal);
+    color: var(--bone);
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  button { font-family: inherit; }
+  .mono { font-family: 'Space Mono', monospace; }
+  .disp { font-family: 'Bricolage Grotesque', sans-serif; }
+
+  /* smoke drift, the whole page breathes it, whisper quiet */
+  #smokefield {
+    position: fixed; inset: -60%; z-index: 1; pointer-events: none; opacity: 0.055;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.02' numOctaves='3'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23s)' opacity='0.9'/%3E%3C/svg%3E");
+    animation: smoke-drift 26s linear infinite alternate;
+  }
+  @keyframes smoke-drift {
+    0% { transform: translate(0,0) scale(1); } 100% { transform: translate(4%, -5%) scale(1.08); }
+  }
+  html.prm #smokefield { animation: none; }
+
+  /* ── nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px;
+  }
+  .brand { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+  .brand .b-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: 0.01em; }
+  .brand .b-est { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--bone-dim); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a, .nav-links button {
+    font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; color: var(--bone); text-decoration: none;
+    background: none; border: none; cursor: pointer; white-space: nowrap;
+    opacity: 0.85; transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links button:hover { opacity: 1; color: var(--teal); }
+  .nav-links .call {
+    border: 1.5px solid rgba(236,229,216,0.4); padding: 10px 16px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .nav-links .call:hover { border-color: var(--teal); background: rgba(77,163,181,0.1); color: var(--bone); }
+  @media (max-width: 700px) {
+    nav { padding: 12px 14px; }
+    .brand .b-est { display: none; }
+    .nav-links { gap: 13px; }
+    .nav-links a.hide-m { display: none; }
+    .nav-links a, .nav-links button { font-size: 10px; letter-spacing: 0.14em; }
+    .nav-links .call { padding: 8px 11px; }
+  }
+
+  /* ── the smoke hero ── */
+  #scene-smoke { height: 260vh; position: relative; z-index: 2; }
+  .pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+
+  .hero-eyebrow {
+    position: absolute; top: 84px; left: 28px; z-index: 4;
+    font-family: 'Space Mono', monospace; font-size: clamp(9.5px, 1vw, 12px);
+    font-weight: 700; letter-spacing: 0.3em; color: var(--bone-dim);
+    will-change: opacity;
+  }
+  .hero-proof {
+    position: absolute; top: 84px; right: 28px; z-index: 4; text-align: right;
+    font-family: 'Space Mono', monospace; font-size: clamp(9.5px, 1vw, 12px);
+    font-weight: 700; letter-spacing: 0.18em; line-height: 2; color: var(--bone-dim);
+    will-change: opacity;
+  }
+  .hero-proof b { color: var(--teal); }
+
+  #heroName {
+    position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-58%);
+    z-index: 3; text-align: center; user-select: none;
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(64px, 16.5vw, 260px); line-height: 0.92; letter-spacing: 0.01em;
+    color: var(--bone); will-change: opacity, filter, letter-spacing;
+  }
+  #heroName .est {
+    display: block; margin-top: 3vh;
+    font-family: 'Space Mono', monospace; font-weight: 700;
+    font-size: clamp(11px, 1.4vw, 16px); letter-spacing: 0.52em; color: var(--teal);
+  }
+  #smokeveil {
+    position: absolute; inset: -30%; z-index: 5; pointer-events: none; opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008 0.016' numOctaves='4'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23v)' opacity='1'/%3E%3C/svg%3E");
+    mix-blend-mode: screen; will-change: opacity, transform;
+    animation: veil-drift 18s linear infinite alternate;
+  }
+  @keyframes veil-drift {
+    0% { transform: translate(-2%,1%) scale(1); } 100% { transform: translate(3%,-3%) scale(1.12); }
+  }
+  html.prm #smokeveil { animation: none; opacity: 0.08; }
+
+  #smokeBeat {
+    position: absolute; left: 0; right: 0; bottom: 9vh; z-index: 6;
+    text-align: center; opacity: 0; will-change: transform, opacity; padding: 0 22px;
+  }
+  #smokeBeat h2 {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;
+    font-size: clamp(24px, 3.6vw, 46px); line-height: 1.14;
+  }
+  #smokeBeat h2 em { font-style: normal; color: var(--teal); }
+  #smokeBeat p {
+    margin: 14px auto 0; max-width: 560px; font-size: clamp(14.5px, 1.4vw, 16.5px);
+    color: var(--bone-dim);
+  }
+  #smokeBeat .ctas { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--bone); color: var(--coal); text-decoration: none; border: none; cursor: pointer;
+    font-weight: 700; font-size: 15px; padding: 15px 26px;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--bone); text-decoration: none; cursor: pointer;
+    font-weight: 700; font-size: 15px; padding: 15px 26px;
+    border: 1.5px solid rgba(236,229,216,0.4);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-ghost:hover { border-color: var(--bone); background: rgba(236,229,216,0.07); }
+
+  @media (max-width: 700px) {
+    .hero-eyebrow { top: 66px; left: 16px; letter-spacing: 0.2em; max-width: 60vw; line-height: 1.9; }
+    .hero-proof { top: 66px; right: 16px; letter-spacing: 0.12em; }
+    #heroName { font-size: 19vw; }
+    #smokeBeat { bottom: 18vh; }
+  }
+
+  /* ── shared chrome ── */
+  section { position: relative; background: var(--coal); z-index: 2; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding-left: 6vw; padding-right: 6vw; }
+  .sec-title {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(32px, 4.8vw, 68px); line-height: 1.02; color: var(--bone);
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  html.prm .reveal { opacity: 1; transform: none; transition: none; }
+
+  /* ── the generations rail ── */
+  #line { padding: 16vh 0 12vh; }
+  .rail { margin-top: 7vh; border-left: 1px solid var(--bone-faint); }
+  .gen { position: relative; padding: 0 0 7vh 40px; }
+  .gen::before {
+    content: ""; position: absolute; left: -4px; top: 12px; width: 7px; height: 7px;
+    background: var(--teal); border-radius: 50%;
+  }
+  .gen .yr { font-family: 'Space Mono', monospace; font-weight: 700; font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.28em; color: var(--teal); }
+  .gen h3 {
+    margin-top: 8px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;
+    font-size: clamp(21px, 2.6vw, 34px); line-height: 1.1;
+  }
+  .gen p { margin-top: 10px; max-width: 560px; font-size: clamp(14px, 1.25vw, 16px); color: var(--bone-dim); }
+  @media (min-width: 901px) {
+    .gen:nth-child(even) { margin-left: 18vw; }
+  }
+
+  /* ── the case board ── */
+  #case { padding: 14vh 0 12vh; background: var(--coal-2); }
+  #case .case-note {
+    margin-top: 3vh; max-width: 620px; font-size: clamp(14.5px, 1.35vw, 17px); color: var(--bone-dim);
+  }
+  .board { margin-top: 7vh; display: grid; grid-template-columns: repeat(2, 1fr); gap: 3vw; }
+  @media (max-width: 900px) { .board { grid-template-columns: 1fr; gap: 6vh; } }
+  .dept { border-top: 2px solid var(--teal); padding-top: 22px; }
+  .dept .d-tag {
+    font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.28em; color: var(--teal);
+  }
+  .dept h3 {
+    margin-top: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(22px, 2.8vw, 36px);
+  }
+  .dept ul { margin-top: 16px; list-style: none; columns: 2; column-gap: 26px; }
+  .dept li {
+    font-size: clamp(13px, 1.15vw, 15px); color: var(--bone-dim);
+    padding: 5px 0; break-inside: avoid; border-bottom: 1px solid rgba(236,229,216,0.08);
+  }
+  @media (max-width: 600px) { .dept ul { columns: 1; } }
+  .board-foot {
+    margin-top: 6vh; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; color: var(--bone-dim);
+  }
+  .board-foot b { color: var(--teal); }
+
+  /* ── custom processing ── */
+  #processing { padding: 14vh 0; }
+  .proc-grid { margin-top: 6vh; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3vw; }
+  @media (max-width: 900px) { .proc-grid { grid-template-columns: 1fr; gap: 5vh; } }
+  .step .s-num { font-family: 'Space Mono', monospace; font-weight: 700; font-size: clamp(30px, 4vw, 52px); color: var(--teal); }
+  .step h3 { margin-top: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(19px, 2vw, 26px); }
+  .step p { margin-top: 10px; font-size: clamp(13.5px, 1.2vw, 15.5px); color: var(--bone-dim); max-width: 340px; }
+  .proc-foot { margin-top: 6vh; font-size: clamp(14px, 1.3vw, 16.5px); color: var(--bone-dim); max-width: 640px; }
+  .proc-foot b { color: var(--bone); font-weight: 600; }
+
+  /* ── deer season night card ── */
+  #season { padding: 4vh 0 14vh; }
+  .night-card {
+    background: var(--teal-deep); color: var(--bone); padding: clamp(36px, 6vw, 84px);
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 5vw; align-items: center;
+  }
+  @media (max-width: 900px) { .night-card { grid-template-columns: 1fr; } }
+  .night-card h2 {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(28px, 3.8vw, 54px); line-height: 1.06;
+  }
+  .night-card .nc-body { margin-top: 18px; font-size: clamp(14.5px, 1.3vw, 16.5px); color: rgba(236,229,216,0.85); max-width: 480px; }
+  .night-card .nc-mono {
+    margin-top: 26px; font-family: 'Space Mono', monospace; font-size: 10.5px;
+    font-weight: 700; letter-spacing: 0.24em; color: rgba(236,229,216,0.6);
+  }
+  .chip-stack { display: flex; flex-direction: column; gap: 12px; }
+  .chip {
+    text-align: left; background: rgba(236,229,216,0.06); color: var(--bone);
+    border: 1px solid rgba(236,229,216,0.28); padding: 16px 18px; cursor: pointer;
+    font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: clamp(14px, 1.2vw, 16px);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .chip:hover { background: rgba(236,229,216,0.13); border-color: rgba(236,229,216,0.6); transform: translateY(-2px); }
+  .chip .c-tail {
+    display: block; margin-top: 5px; font-family: 'Space Mono', monospace;
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; color: rgba(236,229,216,0.55);
+  }
+
+  /* ── awards ── */
+  #awards { padding: 12vh 0; background: var(--coal-2); }
+  .award-row { display: grid; grid-template-columns: repeat(3, auto); gap: 5vw; justify-content: start; }
+  @media (max-width: 700px) { .award-row { grid-template-columns: 1fr 1fr; gap: 6vh 10vw; } }
+  .aw .n { font-family: 'Space Mono', monospace; font-weight: 700; font-size: clamp(28px, 3.6vw, 50px); color: var(--bone); }
+  .aw .l { margin-top: 6px; font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.22em; color: var(--bone-dim); max-width: 240px; line-height: 1.9; }
+  .aw .l b { color: var(--teal); }
+
+  /* ── reviews ── */
+  #reviews { padding: 14vh 0; }
+  .rev-grid { margin-top: 6vh; display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; max-width: 1000px; }
+  @media (max-width: 900px) { .rev-grid { grid-template-columns: 1fr; gap: 7vh; } }
+  .rev { border-left: 2px solid var(--teal); padding-left: 22px; }
+  .rev blockquote { font-size: clamp(15px, 1.4vw, 18px); line-height: 1.65; color: var(--bone); }
+  .rev cite {
+    display: block; margin-top: 16px; font-style: normal;
+    font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.2em; color: var(--bone-dim);
+  }
+  .rev-foot { margin-top: 6vh; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--bone-dim); }
+  .rev-foot b { color: var(--teal); }
+
+  /* ── gift boxes ── */
+  #boxes { padding: 4vh 0 14vh; }
+  .box-grid { margin-top: 6vh; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5vw; }
+  @media (max-width: 1000px) { .box-grid { grid-template-columns: 1fr; gap: 4vh; } }
+  .gbox { border: 1px solid var(--bone-faint); padding: 26px; }
+  .gbox h3 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(19px, 1.9vw, 24px); }
+  .gbox .g-price { margin-top: 4px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--teal); }
+  .gbox p { margin-top: 12px; font-size: clamp(13px, 1.1vw, 14.5px); color: var(--bone-dim); }
+  .box-foot { margin-top: 5vh; font-size: clamp(14px, 1.25vw, 16px); color: var(--bone-dim); max-width: 560px; }
+
+  /* ── plan ── */
+  #plan { padding: 14vh 0; background: var(--coal-2); }
+  #plan .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; margin-top: 6vh; }
+  @media (max-width: 900px) { #plan .cols { grid-template-columns: 1fr; gap: 8vh; } }
+  #plan h3 {
+    font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.26em; color: var(--bone-dim); margin-bottom: 22px;
+  }
+  #plan .phone {
+    display: inline-block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(30px, 3.6vw, 52px); color: var(--bone); text-decoration: none; line-height: 1.1;
+  }
+  #plan .phone:hover { color: var(--teal); }
+  #plan p { margin-top: 16px; font-size: clamp(14px, 1.25vw, 16px); color: var(--bone-dim); max-width: 420px; }
+  #plan .addr {
+    font-family: 'Space Mono', monospace; font-size: clamp(12px, 1.1vw, 14px);
+    letter-spacing: 0.1em; line-height: 2.2; color: var(--bone); font-weight: 700;
+  }
+  #plan .addr a { color: var(--teal); text-decoration: none; }
+  #plan .addr a:hover { text-decoration: underline; }
+  #plan .plan-ctas { margin-top: 4vh; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ── footer ── */
+  footer { padding: 11vh 6vw 15vh; text-align: center; border-top: 1px solid var(--bone-faint); position: relative; background: var(--coal); z-index: 2; }
+  #footRule {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    height: 2px; width: 0; background: var(--teal); transition: width 1.4s ease;
+  }
+  footer.on #footRule { width: min(480px, 76vw); }
+  footer .f-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 40px); }
+  footer .f-phone {
+    display: inline-block; margin-top: 18px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;
+    font-size: clamp(22px, 2.6vw, 34px); color: var(--bone); text-decoration: none;
+  }
+  footer .f-phone:hover { color: var(--teal); }
+  footer .f-note {
+    margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.24em; color: var(--bone-dim);
+  }
+
+  .disclaimer {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483645;
+    background: #0c1c21; color: #dfe7e4;
+    font: 500 11.5px/1.5 'Space Mono', monospace; letter-spacing: 0.02em;
+    text-align: center; padding: 9px 96px 9px 14px;
+    border-top: 1px solid rgba(77,163,181,0.3);
+  }
+  @media (max-width: 600px) { .disclaimer { padding-right: 84px; font-size: 9.5px; } }
+
+  #he-bubble { bottom: 78px !important; }
+  @media (min-width: 601px) { #he-window { bottom: 152px !important; } }
+  @media (max-width: 600px) { #he-bubble { bottom: 96px !important; } }
+
+  html.prm #scene-smoke { height: 100vh; }
+</style>
+</head>
+<body>
+
+<div id="smokefield" aria-hidden="true"></div>
+
+<nav>
+  <a class="brand" href="#" aria-label="Sailer's Food Market and Meat Processing">
+    <span class="b-name">Sailer's</span>
+    <span class="b-est">EST. 1923</span>
+  </a>
+  <div class="nav-links">
+    <a href="#case" class="hide-m">THE CASE</a>
+    <button class="js-open-chat" type="button">ASK THE COUNTER</button>
+    <a class="call" href="tel:+17156392191">CALL</a>
+  </div>
+</nav>
+
+<div id="scene-smoke">
+  <div class="pin">
+    <div class="hero-eyebrow">FIVE GENERATIONS OF PROFESSIONAL MEAT PROCESSORS</div>
+    <div class="hero-proof"><b>4.6</b> · 128 GOOGLE REVIEWS<br><b>100+</b> AWARDS ON THE WALL</div>
+
+    <h1 id="heroName">SAILER'S<span class="est">ELMWOOD, WISCONSIN · SINCE 1923</span></h1>
+
+    <div id="smokeveil" aria-hidden="true"></div>
+
+    <div id="smokeBeat">
+      <h2>The hills reminded Frank of Austria.<br><em>He stayed. So did the standard.</em></h2>
+      <p>A state-inspected plant, a full retail case, and custom processing done exactly to your spec, five generations deep.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:+17156392191">Call the shop</a>
+        <button class="btn-ghost js-open-chat" type="button">Ask the counter, any hour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="line">
+  <div class="wrap">
+    <h2 class="sec-title reveal">One family.<br>One hundred and three years.</h2>
+    <div class="rail">
+      <div class="gen reveal">
+        <div class="yr">1923</div>
+        <h3>Frank Sailer Sr. opens on Main Street.</h3>
+        <p>Seventeen when he left Austria, he settled in Elmwood because the hills reminded him of home. A meat market with a full line of groceries, and a son, Frank Jr., born months after the doors opened.</p>
+      </div>
+      <div class="gen reveal">
+        <div class="yr">THE LOCKER YEARS</div>
+        <h3>Frank Jr. &amp; Lorena build the plant.</h3>
+        <p>Long hours turned the market into a full-service locker plant with its own slaughtering area, custom processing for farms across the county.</p>
+      </div>
+      <div class="gen reveal">
+        <div class="yr">1995</div>
+        <h3>Ric &amp; Mary take the counter, with Jake.</h3>
+        <p>The groceries went. The craft stayed. Custom processing and sausage making became the whole story.</p>
+      </div>
+      <div class="gen reveal">
+        <div class="yr">2006</div>
+        <h3>Outgrew the building. They built.</h3>
+        <p>Jake designed the new plant on Winter Avenue himself: bigger coolers, more room, and a retail area worth the drive.</p>
+      </div>
+      <div class="gen reveal">
+        <div class="yr">TODAY</div>
+        <h3>Jake Sailer, fifth generation.</h3>
+        <p>UW-Madison Master Meat Crafter, past president of the Wisconsin Association of Meat Processors, up since two most mornings. The sixth generation is already growing up in the shop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case">
+  <div class="wrap">
+    <h2 class="sec-title reveal">The case runs<br>about 175 deep.</h2>
+    <p class="case-note reveal">No prices printed here on purpose. The market moves, and Sailer's cuts to order. Call for today's numbers or ask the counter bubble.</p>
+    <div class="board">
+      <div class="dept reveal">
+        <div class="d-tag">DEPT. 01</div>
+        <h3>The Stix Wall</h3>
+        <ul>
+          <li>Honey Ham Stix</li><li>Ham &amp; Cheddar Stix</li><li>Ham &amp; Swiss Stix</li>
+          <li>Beef Stix</li><li>Snack Stix</li><li>Summer Stix</li><li>BBQ Stix</li>
+          <li>Teriyaki Stix</li><li>Jalapeno &amp; Cheddar Stix</li><li>Sweet &amp; Hot Stix</li>
+          <li>Habanero Stix</li><li>Beef Strips</li><li>Teriyaki Strips</li><li>Hunter Strips</li><li>Kippered Beef Steak</li>
+        </ul>
+      </div>
+      <div class="dept reveal">
+        <div class="d-tag">DEPT. 02</div>
+        <h3>The Smokehouse</h3>
+        <ul>
+          <li>Award-winning smoked ham</li><li>Smoked beef</li><li>Bacon, regular slice</li>
+          <li>Bacon, thick slice</li><li>Cottage bacon</li><li>Pepper bacon</li>
+          <li>Ring bologna</li><li>Andouille sausage</li><li>Wieners</li>
+        </ul>
+      </div>
+      <div class="dept reveal">
+        <div class="d-tag">DEPT. 03</div>
+        <h3>The Fresh Case</h3>
+        <ul>
+          <li>Retail cuts, your choice</li><li>Brats, house-made</li><li>Summer sausage</li>
+          <li>Garlic summer sausage</li><li>Jalapeno &amp; cheddar summer</li><li>Cranberry &amp; cheddar summer</li>
+          <li>Bologna</li><li>Seasonal specials</li>
+        </ul>
+      </div>
+      <div class="dept reveal">
+        <div class="d-tag">DEPT. 04</div>
+        <h3>The Freezer Order</h3>
+        <ul>
+          <li>Beef by the quarter</li><li>Beef by the half</li><li>Whole beef</li>
+          <li>Pork by the half</li><li>Whole hog</li><li>Cut and wrapped to your spec</li>
+        </ul>
+      </div>
+    </div>
+    <div class="board-foot reveal">EVERY LIST ABOVE PULLED FROM SAILER'S OWN PRODUCT SHEETS · <b>ASK THE COUNTER BUBBLE WHAT'S GOOD</b></div>
+  </div>
+</section>
+
+<section id="processing">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Custom processing,<br>done to your sheet.</h2>
+    <div class="proc-grid">
+      <div class="step reveal">
+        <div class="s-num">01</div>
+        <h3>Call for a date</h3>
+        <p>Beef, pork, lamb, buffalo, or red deer. Haul it in, or they'll come to the farm and pick it up.</p>
+      </div>
+      <div class="step reveal">
+        <div class="s-num">02</div>
+        <h3>Fill the sheet</h3>
+        <p>Your designation sheet says exactly how it's split and cut. They call every customer to walk the instructions before a blade moves.</p>
+      </div>
+      <div class="step reveal">
+        <div class="s-num">03</div>
+        <h3>Pick it up wrapped</h3>
+        <p>State inspected at their own plant, cut to spec, vacuum packed. They call when it's ready.</p>
+      </div>
+    </div>
+    <p class="proc-foot reveal"><b>Filling a freezer?</b> Beef sells by the quarter, half, or whole, pork by the half or whole, and the crew cuts it the way your family actually eats.</p>
+  </div>
+</section>
+
+<section id="season">
+  <div class="wrap">
+    <div class="night-card reveal">
+      <div>
+        <h2>November doesn't make appointments.</h2>
+        <p class="nc-body">During gun season, hunters pull in at all hours with trim in the truck, and the phone rings while everyone's elbow deep at the cutting table. That teal bubble in the corner is a counter that never closes. It knows the trim rules, the freezer-order sizes, and the gift boxes, and it catches names and numbers so nobody's question dies in a voicemail at midnight.</p>
+        <div class="nc-mono">TRY IT. ASK IT WHAT THE DEER RULES ARE.</div>
+      </div>
+      <div class="chip-stack">
+        <button class="chip js-ask" data-q="Can I drop off venison trim during gun season? What are the rules?">"Can I drop off venison trim during gun season?"<span class="c-tail">IT KNOWS THE CLEAN-TRIM RULES COLD</span></button>
+        <button class="chip js-ask" data-q="How do I order a quarter beef for my freezer?">"How do I order a quarter beef?"<span class="c-tail">QUARTER, HALF, OR WHOLE, CUT TO SPEC</span></button>
+        <button class="chip js-ask" data-q="Can you ship a gift box to my brother in Texas?">"Can you ship a gift box to Texas?"<span class="c-tail">IT KNOWS ALL FIVE BOXES</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="award-row">
+      <div class="aw reveal"><div class="n">100+</div><div class="l">AWARDS ON THE WALL, STATE AND NATIONAL</div></div>
+      <div class="aw reveal"><div class="n">2x</div><div class="l"><b>GRAND CHAMPION</b>: SMOKED HAM &amp; TERIYAKI STIX, AAMP NATIONAL</div></div>
+      <div class="aw reveal"><div class="n">2012</div><div class="l">JAKE GRADUATES UW-MADISON A <b>MASTER MEAT CRAFTER</b>, THE TRADE'S HIGHEST SCHOOLING</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Word travels.</h2>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <blockquote>&ldquo;Outstanding meat market. They consistently process exactly how we want our meat cut and packaged.&rdquo;</blockquote>
+        <cite>GOOGLE REVIEW</cite>
+      </div>
+      <div class="rev reveal">
+        <blockquote>&ldquo;Sailers has delicious beef sticks whether it's their honey ham, teriyaki, other varieties.&rdquo;</blockquote>
+        <cite>GOOGLE REVIEW</cite>
+      </div>
+    </div>
+    <div class="rev-foot reveal">PULLED WORD FOR WORD FROM GOOGLE · <b>4.6 STARS ACROSS 128 REVIEWS</b> AT LAST COUNT</div>
+  </div>
+</section>
+
+<section id="boxes">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Five gift boxes,<br>built at the counter.</h2>
+    <div class="box-grid">
+      <div class="gbox reveal">
+        <h3>Taste of Wisconsin</h3>
+        <div class="g-price">THE HOMESICK CURE</div>
+        <p>Two summer sausage chubs of your choice, Ellsworth cheese curds, local honey, and maple syrup from Menomonie.</p>
+      </div>
+      <div class="gbox reveal">
+        <h3>The Snack Pack</h3>
+        <div class="g-price">CHOOSE ANY FIVE</div>
+        <p>Build it off the stix wall: honey ham, teriyaki, habanero, kippered beef steak, any five you want.</p>
+      </div>
+      <div class="gbox reveal">
+        <h3>Bacon Lovers</h3>
+        <div class="g-price">SAYS IT ALL</div>
+        <p>Four packs deep: regular or thick slice, cottage bacon, and a pepper round to finish it.</p>
+      </div>
+    </div>
+    <p class="box-foot reveal">Plus a Some Like It Hot box and an all-award-winners box. Order in store or by phone, and yes, they ship. The counter bubble can take your name and number any hour.</p>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Worth the drive.<br>Everyone says so.</h2>
+    <div class="cols">
+      <div class="reveal">
+        <h3>TALK TO THE SHOP</h3>
+        <a class="phone" href="tel:+17156392191">(715) 639-2191</a>
+        <p>Call for today's hours and pricing, or tap the counter bubble any hour of the night. Closed Sundays; deer season bends the clock, so a quick call is always the safe move.</p>
+        <div class="plan-ctas">
+          <button class="btn-primary js-open-chat" type="button">Ask the counter</button>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>WHERE THE SMOKE IS</h3>
+        <div class="addr">
+          600 W WINTER AVE<br>
+          ELMWOOD, WI 54740<br>
+          <a href="https://maps.google.com/?q=Sailer's+Food+Market+Elmwood+WI" target="_blank" rel="noopener">OPEN IN MAPS →</a>
+        </div>
+        <p>Half an hour of good hills from Menomonie, and the plant Jake drew up himself sits right on Winter Avenue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="foot">
+  <div id="footRule" aria-hidden="true"></div>
+  <div class="f-name">Sailer's</div>
+  <div><a class="f-phone" href="tel:+17156392191">(715) 639-2191</a></div>
+  <div class="f-note">FOOD MARKET &amp; MEAT PROCESSING · ELMWOOD, WISCONSIN · SINCE 1923</div>
+</footer>
+
+<div class="disclaimer">Sample design by Cole Cummings &middot; Demo for evaluation only &middot; Not affiliated with Sailer's Food Market &amp; Meat Processing</div>
+
+<!-- ── StillOpen widget (embed marker: stillopen-chatbot) ── -->
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-sailers-meats"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  var prm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prm) document.documentElement.classList.add("prm");
+
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function seg(p, a, b) { return clamp((p - a) / (b - a), 0, 1); }
+  function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+
+  var scene = document.getElementById("scene-smoke");
+  var name = document.getElementById("heroName");
+  var veil = document.getElementById("smokeveil");
+  var beat = document.getElementById("smokeBeat");
+  var eyebrow = document.querySelector(".hero-eyebrow");
+  var proof = document.querySelector(".hero-proof");
+
+  /* self-healing engine: every frame is a pure function of scrollY */
+  function render() {
+    if (prm) return;
+    var y = window.scrollY || window.pageYOffset;
+    var vh = window.innerHeight;
+    var run = scene.offsetHeight - vh;
+    var p = run > 0 ? clamp((y - scene.offsetTop) / run, 0, 1) : 0;
+
+    /* the name comes out of the smoke */
+    var pName = easeOut(seg(p, 0.02, 0.5));
+    name.style.opacity = (0.18 + 0.82 * pName).toFixed(3);
+    name.style.filter = "blur(" + (16 * (1 - pName)).toFixed(1) + "px)";
+    name.style.letterSpacing = ((1 - pName) * 0.06 + 0.01) + "em";
+
+    /* the veil thins as the name lands, then the beat rises */
+    var pBeat = seg(p, 0.55, 0.85);
+    veil.style.opacity = (0.5 - 0.42 * pName - 0.06 * pBeat).toFixed(3);
+    beat.style.opacity = pBeat.toFixed(3);
+    beat.style.transform = "translateY(" + (34 * (1 - easeOut(pBeat))).toFixed(1) + "px)";
+
+    /* name recedes upward slightly for the beat */
+    name.style.transform = "translateY(calc(-58% - " + (9 * pBeat).toFixed(2) + "vh))";
+
+    var pTop = seg(p, 0.05, 0.3);
+    eyebrow.style.opacity = (1 - 0.55 * pTop).toFixed(3);
+    proof.style.opacity = (1 - 0.55 * pTop).toFixed(3);
+  }
+
+  window.addEventListener("scroll", render, { passive: true });
+  window.addEventListener("resize", render);
+  setInterval(render, 300);
+  render();
+
+  if (prm) {
+    name.style.opacity = 1; name.style.filter = "none";
+    beat.style.opacity = 1;
+    veil.style.opacity = 0.08;
+  }
+
+  /* reveals with interval fallback */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.16 });
+  var revealables = document.querySelectorAll(".reveal, footer");
+  revealables.forEach(function (el) { io.observe(el); });
+  setInterval(function () {
+    var vh = window.innerHeight;
+    revealables.forEach(function (el) {
+      if (el.classList.contains("on")) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add("on");
+    });
+  }, 450);
+
+  /* widget accent: Sailer's teal */
+  var css = [
+    "#he-bubble { background: #14424d !important; box-shadow: 0 4px 20px rgba(20,66,77,0.45), 0 2px 8px rgba(0,0,0,0.4) !important; }",
+    "#he-avatar { background: #14424d !important; }",
+    "#he-send { background: #14424d !important; }",
+    ".he-msg.user .he-bubble-text { background: #14424d !important; color: #ece5d8 !important; }",
+    ".he-dot { background: #4da3b5 !important; }",
+    "#he-input:focus { border-color: #4da3b5 !important; }"
+  ].join("\n");
+  var tag = document.createElement("style");
+  tag.textContent = css;
+  document.head.appendChild(tag);
+
+  document.querySelectorAll(".js-open-chat").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var bubble = document.getElementById("he-bubble");
+      if (bubble) bubble.click();
+    });
+  });
+
+  document.querySelectorAll(".js-ask").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var q = btn.getAttribute("data-q") || "";
+      var win = document.getElementById("he-window");
+      var bubble = document.getElementById("he-bubble");
+      if (bubble && (!win || win.style.display === "none" || !win.style.display)) bubble.click();
+      var tries = 0;
+      (function fill() {
+        var input = document.getElementById("he-input");
+        if (input) {
+          input.value = q;
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          input.focus();
+        } else if (++tries < 10) { setTimeout(fill, 150); }
+      })();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
