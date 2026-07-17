@@ -167,7 +167,10 @@
   }
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .reveal.on { opacity: 1; transform: none; }
+  .reveal .v-photo img, .reveal.photo-settle img { transform: scale(1.05); transition: transform 1.6s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.on .v-photo img, .reveal.on.photo-settle img { transform: scale(1); }
   html.prm .reveal { opacity: 1; transform: none; transition: none; }
+  html.prm .reveal img { transform: none !important; }
 
   /* ── the three venues ── */
   #venues { padding: 15vh 0 10vh; }
@@ -240,8 +243,79 @@
     font-weight: 600; letter-spacing: 0.3em; color: rgba(245,242,233,0.8);
   }
 
+  /* ── the night card: the front desk, demonstrated ── */
+  #nightdesk { padding: 15vh 0; }
+  .night-card {
+    background: var(--ink); color: var(--paper); padding: clamp(36px, 6vw, 84px);
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 5vw; align-items: center;
+  }
+  @media (max-width: 900px) { .night-card { grid-template-columns: 1fr; } }
+  .night-card h2 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(28px, 3.8vw, 54px); line-height: 1.08;
+  }
+  .night-card .nc-body { margin-top: 18px; font-size: clamp(14.5px, 1.3vw, 16.5px); color: rgba(245,242,233,0.82); max-width: 480px; }
+  .night-card .nc-mono {
+    margin-top: 26px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.26em; color: rgba(245,242,233,0.6);
+  }
+  .chip-stack { display: flex; flex-direction: column; gap: 12px; }
+  .chip {
+    text-align: left; background: rgba(245,242,233,0.07); color: var(--paper);
+    border: 1px solid rgba(245,242,233,0.25); padding: 16px 18px; cursor: pointer;
+    font-family: 'Manrope', sans-serif; font-weight: 600; font-size: clamp(14px, 1.2vw, 16px);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .chip:hover { background: rgba(245,242,233,0.14); border-color: rgba(245,242,233,0.55); transform: translateY(-2px); }
+  .chip .c-tail {
+    display: block; margin-top: 5px; font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; font-weight: 600; letter-spacing: 0.22em; color: rgba(245,242,233,0.55);
+  }
+
+  /* ── gallery strip ── */
+  #strip { padding: 8vh 0 15vh; }
+  .strip-head {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.3em; color: var(--ink-soft); margin-bottom: 22px;
+  }
+  .strip-rail {
+    display: flex; gap: 14px; overflow-x: auto; padding: 4px 6vw 18px;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  }
+  .strip-rail::-webkit-scrollbar { height: 4px; }
+  .strip-rail::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+  .strip-rail img {
+    height: clamp(220px, 34vh, 330px); width: auto; flex: 0 0 auto;
+    scroll-snap-align: start; filter: saturate(0.96);
+  }
+
+  /* ── FAQ ── */
+  #faq { padding: 0 0 15vh; }
+  .faq-list { margin-top: 5vh; border-top: 1px solid var(--ink-faint); max-width: 860px; }
+  .faq-list details { border-bottom: 1px solid var(--ink-faint); }
+  .faq-list summary {
+    cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline;
+    gap: 20px; padding: 22px 4px;
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(17px, 1.9vw, 24px); color: var(--ink);
+  }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after {
+    content: "+"; font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: var(--ink-soft);
+    transition: transform 0.25s ease;
+  }
+  .faq-list details[open] summary::after { transform: rotate(45deg); }
+  .faq-list .a { padding: 0 4px 24px; max-width: 640px; font-size: clamp(14px, 1.25vw, 16px); color: var(--ink-soft); }
+
   /* ── guestbook ── */
-  #guestbook { padding: 16vh 0; }
+  #guestbook { padding: 15vh 0 6vh; }
+  .ww-badge {
+    margin-top: 4vh; display: inline-flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+    border: 1.5px solid var(--ink); padding: 14px 20px;
+  }
+  .ww-badge .big { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: clamp(22px, 2.6vw, 34px); }
+  .ww-badge .lbl { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.24em; color: var(--ink-soft); }
+  .gb-grid2 { margin-top: 4vw; display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; max-width: 900px; }
+  @media (max-width: 900px) { .gb-grid2 { grid-template-columns: 1fr; gap: 7vh; } }
   .gb-grid { margin-top: 7vh; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4vw; }
   @media (max-width: 900px) { .gb-grid { grid-template-columns: 1fr; gap: 7vh; } }
   .gb { position: relative; padding-left: 22px; border-left: 1px solid var(--ink-faint); }
@@ -428,9 +502,31 @@
   </div>
 </section>
 
+<section id="nightdesk">
+  <div class="wrap">
+    <div class="night-card reveal">
+      <div>
+        <h2>Couples shop venues at 10 PM.<br>This catches them.</h2>
+        <p class="nc-body">That green bubble in the corner is a front desk that never closes. It answers from Emerald Ridge's real facts, and when somebody asks about a date, it catches the name, the number, and the day they want, so Teresa wakes up to a lead instead of a missed message.</p>
+        <div class="nc-mono">TRY IT. ASK IT SOMETHING HARD.</div>
+      </div>
+      <div class="chip-stack">
+        <button class="chip js-ask" data-q="Is a Saturday in September open next year?">"Is a Saturday in September open next year?"<span class="c-tail">IT CATCHES THE DATE FOR TERESA</span></button>
+        <button class="chip js-ask" data-q="What makes your three venues different?">"What makes your three venues different?"<span class="c-tail">IT KNOWS ALL THREE, TRY TO STUMP IT</span></button>
+        <button class="chip js-ask" data-q="Can our guests camp on the property?">"Can our guests camp on the property?"<span class="c-tail">IT KNOWS ABOUT THE RV SITES TOO</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="guestbook">
   <div class="wrap">
     <h2 class="sec-title reveal">From the guestbook.</h2>
+    <div class="ww-badge reveal">
+      <span class="big">4.7</span>
+      <span class="lbl">WEDDINGWIRE · 34 REVIEWS</span>
+      <span class="lbl">COUPLES' CHOICE AWARD</span>
+    </div>
     <div class="gb-grid">
       <div class="gb reveal">
         <span class="qm" aria-hidden="true">&ldquo;</span>
@@ -448,7 +544,67 @@
         <cite>KELLY · GUESTBOOK</cite>
       </div>
     </div>
+    <div class="gb-grid2">
+      <div class="gb reveal">
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <blockquote>Bruce and Teresa from Emerald Ridge were so incredibly accommodating.</blockquote>
+        <cite>WEDDINGWIRE REVIEW</cite>
+      </div>
+      <div class="gb reveal">
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <blockquote>Both times we have witnessed the generousity, hospitality, help, kindness, and hard working spirits of Teresa and Bruce.</blockquote>
+        <cite>WEDDINGWIRE REVIEW · SPELLING THEIRS</cite>
+      </div>
+    </div>
     <div class="gb-foot reveal">PULLED WORD FOR WORD FROM EMERALD RIDGE'S OWN GUESTBOOK AND WEDDINGWIRE REVIEWS</div>
+  </div>
+</section>
+
+<section id="strip">
+  <div class="wrap"><div class="strip-head reveal">THEIR OWN RIDGE, THEIR OWN SEASONS · SWIPE</div></div>
+  <div class="strip-rail">
+    <img src="assets/strip/gallery2.jpg" alt="A wedding at Emerald Ridge" loading="lazy">
+    <img src="assets/strip/springwedding-1-1.jpg" alt="A spring wedding at Emerald Ridge" loading="lazy">
+    <img src="assets/strip/gallery5.jpg" alt="Guests at an Emerald Ridge wedding" loading="lazy">
+    <img src="assets/strip/barn13.jpg" alt="Inside the Legacy Barn set for a reception" loading="lazy">
+    <img src="assets/strip/summerwedding-1-1.jpg" alt="A summer wedding at Emerald Ridge" loading="lazy">
+    <img src="assets/strip/gallery9.jpg" alt="The Emerald Ridge grounds" loading="lazy">
+    <img src="assets/strip/fallwedding-1.jpg" alt="A fall wedding at Emerald Ridge" loading="lazy">
+    <img src="assets/strip/rustic3.jpg" alt="Rustic Oaks at Emerald Ridge" loading="lazy">
+    <img src="assets/strip/gallery20.jpg" alt="An Emerald Ridge celebration" loading="lazy">
+    <img src="assets/strip/point3.jpg" alt="Grandview Point at Emerald Ridge" loading="lazy">
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Asked all the time.</h2>
+    <div class="faq-list reveal">
+      <details>
+        <summary>What months do you host weddings?</summary>
+        <div class="a">May through October. Spring, summer, and fall each dress the ridge their own way, and the gardens peak in summer.</div>
+      </details>
+      <details>
+        <summary>How many guests can you hold?</summary>
+        <div class="a">Up to 320. Between the Legacy Barn, Rustic Oaks, and Grandview Point, there's a right-sized space for a big day or a small one.</div>
+      </details>
+      <details>
+        <summary>Do we really get the property for five days?</summary>
+        <div class="a">Yes. Setup, rehearsal, the day itself, and the goodbyes, none of it rushed. That's the house rule that makes the weekend feel like a weekend.</div>
+      </details>
+      <details>
+        <summary>Can guests stay overnight?</summary>
+        <div class="a">There are camping and RV sites right on the property, so nobody drives at the end of the night. Guests bring it up in reviews all the time.</div>
+      </details>
+      <details>
+        <summary>Who sets up and tears down?</summary>
+        <div class="a">The Emerald Ridge team. Setup, teardown, cleanup, coordinating, and in-house decor and seating are part of the deal, with catering on site.</div>
+      </details>
+      <details>
+        <summary>How do we see it in person?</summary>
+        <div class="a">Tours are by appointment. Call (715) 308-4868, or tell the chat bubble your name and number any hour and Teresa will set a time.</div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -605,6 +761,25 @@
     btn.addEventListener("click", function () {
       var bubble = document.getElementById("he-bubble");
       if (bubble) bubble.click();
+    });
+  });
+
+  /* the night-card chips: open the desk with the question ready to send */
+  document.querySelectorAll(".js-ask").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var q = btn.getAttribute("data-q") || "";
+      var win = document.getElementById("he-window");
+      var bubble = document.getElementById("he-bubble");
+      if (bubble && (!win || win.style.display === "none" || !win.style.display)) bubble.click();
+      var tries = 0;
+      (function fill() {
+        var input = document.getElementById("he-input");
+        if (input) {
+          input.value = q;
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          input.focus();
+        } else if (++tries < 10) { setTimeout(fill, 150); }
+      })();
     });
   });
 })();
