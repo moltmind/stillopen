@@ -1,5 +1,48 @@
 User-agent: *
 Allow: /
+
+# Prospect and sample demo pages. These name real businesses that have not
+# given written permission to be shown publicly, so they stay out of search.
+# Every page below also carries its own noindex tag; this is the second lock.
+# Added 2026-07-28 after an audit found twelve of them indexable.
 Disallow: /demo/
+Disallow: /alliebrian/
+Disallow: /allure/
+Disallow: /ark/
+Disallow: /baemmert/
+Disallow: /bullis/
+Disallow: /emily/
+Disallow: /hairex/
+Disallow: /kim/
+Disallow: /lotus/
+Disallow: /oakview/
+Disallow: /oakwood/
+Disallow: /estilo-salon/
+Disallow: /79-septic/
+Disallow: /beartrap/
+Disallow: /beauje-salon/
+Disallow: /cedarfalls/
+Disallow: /emerald-ridge/
+Disallow: /freedom-chiro/
+Disallow: /garmisch/
+Disallow: /grandpines/
+Disallow: /halverson/
+Disallow: /herr-well-drilling/
+Disallow: /hudson-pet/
+Disallow: /iburg-electric/
+Disallow: /irvington-towing/
+Disallow: /jakes/
+Disallow: /johnson-lawn/
+Disallow: /menomonie-storage/
+Disallow: /micheles/
+Disallow: /mondovi/
+Disallow: /norwoodpines/
+Disallow: /oakwood-hills-vet/
+Disallow: /sailers-meats/
+Disallow: /seven-medspa/
+Disallow: /tms-tire/
+Disallow: /westgate-vet/
+Disallow: /whisperingpine/
+Disallow: /willow-street-dental/
 
 Sitemap: https://stillopen.ai/sitemap.xml

@@ -57,26 +57,26 @@
     {
       "@type": "Product",
       "name": "StillOpen Express Install",
-      "description": "24/7 AI front desk chatbot for service business websites. Books appointments, takes Stripe deposits. 48-hour install guarantee.",
+      "description": "24/7 AI front desk chat for service business websites. Answers after-hours questions, captures leads, books appointments.",
       "brand": { "@id": "https://stillopen.ai/#organization" },
       "offers": [
         {
           "@type": "Offer",
-          "name": "Express Install",
-          "price": "297",
+          "name": "StillOpen front desk",
+          "price": "47",
           "priceCurrency": "USD",
-          "url": "https://app.stillopen.ai/checkout?tier=starter",
+          "url": "https://app.stillopen.ai/checkout",
           "availability": "https://schema.org/InStock",
-          "description": "One-time install fee, then $47/month after 30-day trial."
+          "description": "14 days free, then $47 a month. No install fee, no contract, cancel any time."
         },
         {
           "@type": "Offer",
-          "name": "Pro Install",
-          "price": "497",
+          "name": "Done-for-you install",
+          "price": "297",
           "priceCurrency": "USD",
-          "url": "https://buy.stripe.com/3cIeV64qq7GgaiebHV7N60m",
+          "url": "https://app.stillopen.ai/checkout?install=1",
           "availability": "https://schema.org/InStock",
-          "description": "One-time install fee, then $97/month after 30-day trial. Fully branded chat, scheduling wired to your booking tool, priority support."
+          "description": "Optional one-time upgrade. Cole does the whole install including putting the code on your site."
         }
       ]
     }
@@ -255,6 +255,9 @@
   footer .fm{max-width:44ch;line-height:1.6;}
   footer .sign{font-family:var(--mono);font-size:.8rem;color:var(--ink-dim);letter-spacing:.02em;}
   footer .sign b{color:var(--accent);font-weight:700;}
+  footer .foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;width:100%;order:3;padding-top:22px;border-top:1px solid var(--line);}
+  footer .foot-links a{color:var(--ink-dim);text-decoration:none;font-size:.82rem;transition:color .2s;}
+  footer .foot-links a:hover{color:var(--accent);}
 
   /* ---------- theme dots (warm only) ---------- */
   #themes{position:fixed;bottom:20px;right:20px;z-index:60;display:flex;gap:9px;padding:9px 11px;border:1px solid var(--line);border-radius:99px;background:rgba(11,9,8,.7);}
@@ -273,6 +276,13 @@
     .rc-body{grid-template-columns:1fr;}
     .rc-agenda{border-left:0;border-top:1px solid var(--line);}
     #pricing .price-card{grid-template-columns:1fr;}
+    /* The chat bubble is fixed to the bottom-right corner. Without this the
+       primary buy button sits under it on a phone, which is the one control
+       on the page that must never be hard to tap. Extra bottom room lets the
+       card scroll clear of the bubble, and full-width buttons keep a big
+       tappable area on the left even while the bubble is over the corner. */
+    #pricing{padding-bottom:132px;}
+    .price-side .btn{width:100%;}
     .factory-row{flex-direction:column;}
     .wake-now form{flex-direction:column;}
     .cbub{max-width:88%;}
@@ -434,29 +444,19 @@
   <div class="glow"></div>
   <div class="wrap">
     <div class="eyebrow reveal">See your own</div>
-    <h2 class="reveal">Type your business name.<br/>Watch your front desk wake up.</h2>
-    <p class="lead reveal">Not a sales call. Not a slideshow. Your actual business, answering like it never closes. Built for you, free, before we've ever spoken.</p>
+    <h2 class="reveal">Type your web address.<br/>Watch your own site wake up.</h2>
+    <p class="lead reveal">Not a sales call. Not a slideshow. Your real website, loaded right here with a front desk on it that actually answers. Ten seconds. Nothing installed, your site untouched.</p>
     <div class="factory-row reveal">
-      <input id="bizName" type="text" placeholder="Your business name" aria-label="Your business name" />
-      <input id="bizEmail" type="email" placeholder="Your email" aria-label="Your email" autocomplete="email" />
-      <button class="btn solid" id="wakeBtn">Wake it up</button>
+      <form id="wakeNowForm" style="display:contents">
+        <input id="wakeUrl" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="yourbusiness.com" aria-label="Your website address" />
+        <button class="btn solid" type="submit">Wake up my site</button>
+      </form>
     </div>
     <div id="factoryMsg" style="margin-top:12px;font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);"></div>
+    <div class="wn-note reveal" style="margin-top:14px">Ask the bubble anything a real customer would ask. It answers for real.</div>
     <div class="wake-now reveal">
-      <span class="wn-or">Already have a website? Skip the wait</span>
-      <form id="wakeNowForm">
-        <input id="wakeUrl" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="yourbusiness.com" aria-label="Your website address" />
-        <button class="btn ghost" type="submit">See it wake up now</button>
-      </form>
-      <div class="wn-note">Loads your real site with the front desk live on it. Ten seconds. Nothing installed, your site untouched.</div>
-    </div>
-    <div id="wakePreview" aria-live="polite">
-      <div class="bar"><i></i><i></i><i></i></div>
-      <div class="body">
-        <div class="bn" id="pvName">Front desk</div>
-        <div class="bub" id="pvBub"></div>
-        <div class="note">Preview. Your real working demo takes about a day. It's free, and it's yours either way.</div>
-      </div>
+      <span class="wn-or">No website yet?</span>
+      <div class="wn-note">Tap the bubble in the corner and tell it what you do. That's the same front desk, and it'll take it from there.</div>
     </div>
   </div>
 </section>
@@ -468,17 +468,17 @@
     <h2 class="reveal">Wake up to this every morning.</h2>
     <div class="price-card reveal">
       <div>
-        <div class="price-big">$297 <small>install</small></div>
+        <div class="price-big">$47 <small>a month</small></div>
         <div class="price-lines">
-          <b>First 30 days free.</b> Then $47 a month.<br/>
-          Set up on your site in about 48 hours. Cancel any time. No contract, no fine print, no hostage fees.
+          <b>First 14 days free.</b> No install fee, no contract, no setup call.<br/>
+          It reads your website and builds itself around your real services and hours. Then you paste one line of code. Cancel any time, in one click, from your own dashboard.
         </div>
       </div>
       <div class="price-side">
-        <a class="btn solid" href="#factory">Start with your free demo</a>
+        <a class="btn solid" href="https://app.stillopen.ai/checkout">Start free &rarr;</a>
         <a class="btn ghost" href="#" id="askBtn">Ask the front desk a question</a>
-        <div class="tiny">30 days free · no card to start</div>
-        <div class="tiny">Already sold? <a href="https://app.stillopen.ai/checkout" style="color:inherit;text-decoration:underline;">Set up my front desk</a></div>
+        <div class="tiny">Card on file at signup. Nothing charged for 14 days.</div>
+        <div class="tiny">Don't want to touch your website? <a href="https://app.stillopen.ai/checkout?install=1" style="color:inherit;text-decoration:underline;">I'll do the whole install for $297.</a></div>
       </div>
     </div>
   </div>
@@ -487,7 +487,16 @@
 <footer>
   <div class="fm">Built in Wisconsin by a guy who thinks nobody who reaches out should get nothing.</div>
   <div class="sign">Your sign says <b>closed</b>. StillOpen stays open.</div>
-  <div>StillOpen · Wisconsin, USA</div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="https://app.stillopen.ai/checkout">Start free</a>
+    <a href="/for-medspas/">For med spas</a>
+    <a href="/for-photographers/">For photographers</a>
+    <a href="/for-plumbers/">For trades</a>
+    <a href="/partners/agencies/">For agencies</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+  </nav>
+  <div>StillOpen · Menomonie, Wisconsin</div>
 </footer>
 
 <div id="grain" aria-hidden="true"></div>
@@ -502,8 +511,10 @@ document.getElementById("wakeNowForm").addEventListener("submit", function (e) {
 });
 </script>
 
-<!-- THEME DOTS (warm accents) -->
-<div id="themes" title="Test accents (keys 1-3)">
+<!-- The accent test dots used to ship here, live, on the production page, sitting
+     on top of the pricing card. Removed 2026-07-28. Keys 1-3 still switch the
+     accent for anyone testing locally; the control just isn't visible anymore. -->
+<div id="themes" title="Test accents (keys 1-3)" hidden style="display:none">
   <button class="t1 on" data-t="ember" aria-label="Ember"></button>
   <button class="t2" data-t="orange" aria-label="Safety orange"></button>
   <button class="t3" data-t="fire" aria-label="Fire coral"></button>
@@ -767,25 +778,10 @@ setInterval(checkReport,600); checkReport();
 // safety net: if the scroll trigger never fires, count up anyway
 setTimeout(()=>{ if(!counted){ counted=true; nums.forEach(countUp); } },4000);
 
-/* ============ FACTORY PREVIEW ============ */
-function wake(){
-  const name=($('#bizName').value||'').trim();
-  const email=($('#bizEmail').value||'').trim();
-  const msg=$('#factoryMsg');
-  if(!name){ $('#bizName').focus(); msg.textContent='Give me your business name first.'; return; }
-  if(!email || !email.includes('@') || email.length<5){ $('#bizEmail').focus(); msg.textContent='And an email, so your demo has somewhere to land.'; return; }
-  msg.textContent='';
-  $('#pvName').innerHTML=name.replace(/[<>&]/g,'')+'<i>.</i> · Front desk';
-  $('#pvBub').textContent='Hi, thanks for reaching out to '+name.replace(/[<>&]/g,'')+'. We are with you even after hours. What do you need tonight?';
-  $('#wakePreview').classList.add('on');
-  fetch('https://app.stillopen.ai/demo-lead',{
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({email:email, demo:name.slice(0,60), page:'v2-morning'})
-  }).then(r=>{ if(r.ok) msg.textContent='Got it. Your real demo lands at '+email+' within a day.'; })
-    .catch(()=>{ msg.textContent='That did not go through. The chat bubble in the corner still works, tell it your name and email.'; });
-}
-$('#wakeBtn').addEventListener('click',wake);
-$('#bizName').addEventListener('keydown',e=>{ if(e.key==='Enter') wake(); });
+/* The old fake preview lived here. It printed one hardcoded sentence into a
+   div, asked for an email, and promised a real demo "within a day". The
+   factory now sends people to /wake, which loads their actual website with a
+   working front desk on it. Removed 2026-07-28. */
 
 /* pricing: "ask a question" opens the chat widget if it's loaded */
 $('#askBtn').addEventListener('click',e=>{
