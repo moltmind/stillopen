@@ -1,5 +1,5 @@
 === StillOpen Front Desk ===
-Contributors: moltmind
+Contributors: stillopenpro
 Tags: chat, chatbot, ai, live chat, customer service
 Requires at least: 6.0
 Tested up to: 7.0
