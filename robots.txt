@@ -46,3 +46,7 @@ Disallow: /whisperingpine/
 Disallow: /willow-street-dental/
 
 Sitemap: https://stillopen.ai/sitemap.xml
+
+# The WordPress plugin source lives in this repo so it's version controlled,
+# but it's a code folder, not a page. Keep it out of the index. Added 2026-08-02.
+Disallow: /wordpress-plugin/
