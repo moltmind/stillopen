@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Put StillOpen on Wix, Squarespace, Shopify, GoDaddy or WordPress | StillOpen</title>
+<meta name="description" content="Your AI front desk is one line of code. Exact steps for adding it on Wix, Squarespace, Shopify, GoDaddy, Weebly, WordPress and plain HTML, checked against each builder's own help pages August 3, 2026.">
+<link rel="canonical" href="https://stillopen.ai/embed-guide/">
+<meta property="og:title" content="Put StillOpen on Wix, Squarespace, Shopify, GoDaddy or WordPress | StillOpen">
+<meta property="og:description" content="Your AI front desk is one line of code. Exact steps for adding it on Wix, Squarespace, Shopify, GoDaddy, Weebly, WordPress and plain HTML, checked against each builder's own help pages August 3, 2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stillopen.ai/embed-guide/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --accent:#f59e0b;--accent-glow:rgba(245,158,11,.55);--accent-soft:rgba(245,158,11,.14);
+  --warm-light:#ffcf87;--bg:#0b0908;--bg-2:#0f0c0a;--ink:#f4ede4;
+  --ink-dim:rgba(244,237,228,.62);--ink-faint:rgba(244,237,228,.38);--line:rgba(244,237,228,.09);
+  --mono:'JetBrains Mono',monospace;--sans:'Manrope',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* nav */
+nav#nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  padding:18px 28px;background:rgba(11,9,8,.86);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.wordmark{font-weight:800;font-size:21px;letter-spacing:-.02em;text-decoration:none}
+.wordmark i{color:var(--accent);font-style:normal}
+.navlinks{display:flex;gap:10px;align-items:center}
+.btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;
+  padding:11px 18px;transition:background .18s ease,color .18s ease,transform .18s ease,border-color .18s ease}
+.btn.solid{background:var(--accent);color:#1a1206}
+.btn.solid:hover{background:var(--warm-light);transform:translateY(-2px)}
+.btn.ghost{border:1px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn.lg{padding:15px 26px;font-size:16px}
+
+/* hero */
+.hero{position:relative;padding:104px 0 88px;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(760px 420px at 76% 30%,var(--accent-soft),transparent 72%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(244,237,228,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(244,237,228,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(900px 460px at 55% 40%,#000 25%,transparent 82%);
+  mask-image:radial-gradient(900px 460px at 55% 40%,#000 25%,transparent 82%)}
+.hero .wrap{position:relative}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:22px}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent-glow)}
+h1{font-size:clamp(40px,6.4vw,74px);font-weight:800;letter-spacing:-.035em;line-height:1.02;max-width:16ch}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{margin-top:24px;font-size:clamp(18px,2.1vw,22px);color:var(--ink-dim);max-width:56ch;line-height:1.55}
+.hero-ctas{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.microline{margin-top:18px;font-size:14px;color:var(--ink-faint)}
+
+/* quick jump */
+.jump{margin-top:36px;display:flex;gap:10px;flex-wrap:wrap}
+.jump a{font-family:var(--mono);font-size:13px;font-weight:700;text-decoration:none;color:var(--ink-dim);
+  border:1px solid var(--line);border-radius:999px;padding:9px 16px;transition:border-color .18s ease,color .18s ease}
+.jump a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* wake box, the wedge */
+.wakebox{margin-top:44px;padding:26px;border:1px solid var(--line);border-radius:16px;background:var(--bg-2);max-width:600px}
+.wakebox h3{font-size:19px;font-weight:800;letter-spacing:-.015em}
+.wakebox p{margin-top:8px;font-size:15px;color:var(--ink-dim)}
+.wakeform{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.wakeform input{flex:1;min-width:220px;background:#080706;border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px;color:var(--ink);font-family:var(--sans);font-size:16px}
+.wakeform input:focus{outline:none;border-color:var(--accent)}
+.wakeform button{border:0;cursor:pointer;font-family:var(--sans)}
+
+/* sections */
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px}
+h2{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.08;max-width:20ch}
+h3{font-size:20px;font-weight:800;letter-spacing:-.015em}
+.sub{margin-top:18px;color:var(--ink-dim);max-width:60ch;font-size:18px}
+
+/* code block */
+.code{margin-top:28px;background:#080706;border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;font-family:var(--mono);font-size:14px;line-height:1.7;overflow-x:auto;white-space:pre;max-width:820px}
+.code .t{color:var(--ink-faint)}
+.code .v{color:var(--accent)}
+.codenote{margin-top:12px;font-size:14px;color:var(--ink-faint);max-width:60ch}
+
+/* ID card */
+.idbox{margin-top:36px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 14px 14px 0;
+  padding:26px 28px;background:var(--bg-2);max-width:720px}
+.idbox h3{margin-bottom:10px}
+.idbox p{color:var(--ink-dim);font-size:16px}
+.idbox p+p{margin-top:12px}
+.idbox code{font-family:var(--mono);font-size:14px;color:var(--ink);background:#080706;border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+
+/* platform blocks */
+.platform{margin-top:44px;border:1px solid var(--line);border-radius:18px;background:var(--bg-2);padding:34px;max-width:820px;scroll-margin-top:96px}
+.platform .plathead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.platform h3{font-size:24px;letter-spacing:-.02em}
+.platform .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.platform .intro{margin-top:12px;color:var(--ink-dim);font-size:16px;max-width:58ch}
+.steps{margin-top:22px;list-style:none;counter-reset:step;display:grid;gap:14px}
+.steps li{counter-increment:step;position:relative;padding-left:44px;color:var(--ink-dim);font-size:16px}
+.steps li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.06em}
+.steps li b{color:var(--ink);font-weight:700}
+.platform .note{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;color:var(--ink-dim);max-width:60ch}
+.platform .note b{color:var(--ink)}
+.platform .note+.note{margin-top:14px;padding-top:0;border-top:0}
+.stamp{margin-top:20px;font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.04em;line-height:1.7}
+.platform .code{margin-top:22px}
+
+/* escape hatch */
+.price{margin-top:40px;border:1px solid var(--line);border-radius:18px;background:var(--bg-2);padding:34px;max-width:520px}
+.price .big{font-size:52px;font-weight:800;letter-spacing:-.04em}
+.price .big span{font-size:19px;color:var(--ink-dim);font-weight:600;letter-spacing:0}
+.price .free{margin-top:6px;color:var(--accent);font-weight:700}
+.price ul{margin:22px 0 0;list-style:none;display:grid;gap:11px}
+.price li{padding-left:26px;position:relative;color:var(--ink-dim);font-size:16px}
+.price li::before{content:"";position:absolute;left:0;top:9px;width:11px;height:2px;background:var(--accent)}
+.price .cta{margin-top:26px}
+.price .fine{margin-top:14px;font-size:13px;color:var(--ink-faint)}
+
+/* faq */
+.faq{margin-top:40px;display:grid;gap:2px;max-width:820px}
+.faq details{border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:20px 24px}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent);font-weight:800}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{margin-top:12px;color:var(--ink-dim);font-size:16px}
+
+/* footer */
+footer{padding:64px 28px 80px;text-align:center;color:var(--ink-faint);font-size:14px}
+footer .fm{max-width:52ch;margin:0 auto;color:var(--ink-dim);font-size:16px}
+footer .sign{margin-top:14px;color:var(--ink)}
+footer .sign b{color:var(--accent)}
+.foot-links{margin:26px 0 18px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.foot-links a{text-decoration:none;color:var(--ink-faint)}
+.foot-links a:hover{color:var(--accent)}
+
+#grain{position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.16;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+
+@media (max-width:640px){
+  section{padding:66px 0}
+  .hero{padding:70px 0 62px}
+  nav#nav{padding:14px 18px}
+  .wrap{padding:0 20px}
+  .platform{padding:24px 20px}
+  .price{padding:26px}
+  .btn{padding:12px 16px}
+  .code{font-size:12.5px;padding:14px 16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="wordmark" href="/">StillOpen<i>.</i></a>
+  <div class="navlinks">
+    <a class="btn ghost" href="/#pricing">Pricing</a>
+    <a class="btn solid" href="https://app.stillopen.ai/checkout">Start free</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker"><span class="dot"></span> The install guide</div>
+    <h1>One line of code.<br>Here's where it goes on <em>your</em> builder.</h1>
+    <p class="lede">Your front desk is a single script tag. Wix, Squarespace, Shopify, GoDaddy, Weebly, WordPress and hand-built HTML all take it, and no two of them take it in the same spot. This page walks every one.</p>
+    <div class="hero-ctas">
+      <a class="btn solid lg" href="https://app.stillopen.ai/checkout?src=embed-guide">Start free, 14 days</a>
+      <a class="btn ghost lg" href="#theline">Show me the line</a>
+    </div>
+    <p class="microline">Steps checked against each builder's own help pages on August 3, 2026.</p>
+    <div class="jump">
+      <a href="#wordpress">WordPress</a>
+      <a href="#wix">Wix</a>
+      <a href="#squarespace">Squarespace</a>
+      <a href="#shopify">Shopify</a>
+      <a href="#godaddy">GoDaddy</a>
+      <a href="#weebly">Weebly</a>
+      <a href="#html">Plain HTML</a>
+    </div>
+  </div>
+</section>
+
+<section id="theline">
+  <div class="wrap">
+    <div class="eyebrow">The whole install</div>
+    <h2>This is the entire thing.</h2>
+    <p class="sub">One script tag, pasted right before the closing <code style="font-family:var(--mono);font-size:15px">&lt;/body&gt;</code> tag of your site. The chat bubble shows up in the bottom corner and starts answering. There's no step two.</p>
+    <div class="code"><span class="t">&lt;script</span> src=<span class="v">"https://app.stillopen.ai/chatbot.js"</span> data-plumber-id=<span class="v">"user_YOURID"</span><span class="t">&gt;&lt;/script&gt;</span></div>
+    <p class="codenote">Swap <b>user_YOURID</b> for your own front desk ID. Better yet, don't type it at all: your welcome email carries the finished line with your ID already in it, ready to copy.</p>
+
+    <div class="idbox">
+      <h3>Where your ID comes from</h3>
+      <p>Start the free trial and the welcome email lands with the subject line <b style="color:var(--ink)">Your front desk is built.</b> Your line of code is printed inside it, ID filled in. The ID starts with <code>user_</code> and it's also on your dashboard any time you need it again.</p>
+      <p>The trial is 14 days free with a card on file, then $47 a month. Walk away inside the two weeks and nothing gets charged.</p>
+    </div>
+  </div>
+</section>
+
+<section id="platforms">
+  <div class="wrap">
+    <div class="eyebrow">Builder by builder</div>
+    <h2>Find yours. Follow the steps. Done.</h2>
+    <p class="sub">Every set of steps below was read off that builder's own help pages on August 3, 2026, not from memory. Where a builder puts a rule in the way, we say so.</p>
+
+    <div class="platform" id="wordpress">
+      <div class="plathead"><h3>WordPress</h3><div class="tag">Plugin, no code</div></div>
+      <p class="intro">WordPress gets the easiest road of the bunch: a plugin. You never touch code.</p>
+      <ol class="steps">
+        <li>In your WordPress dashboard, go to <b>Plugins</b>, then <b>Add Plugin</b>, and search for <b>StillOpen Front Desk</b>. Install it and activate it.</li>
+        <li>Go to <b>Settings</b>, then <b>StillOpen Front Desk</b>.</li>
+        <li>Paste your front desk ID, the one starting with <b>user_</b>, and click <b>Save</b>.</li>
+        <li>Open your site in a new tab and look for the bubble in the bottom corner.</li>
+      </ol>
+      <p class="note"><b>Nothing shows until an ID is saved,</b> so an empty plugin can't break your site. The plugin is brand new; if it hasn't reached your dashboard search yet, the one-line paste at the bottom of this page works on WordPress too. Most themes take it through a custom HTML or footer code box.</p>
+      <p class="stamp">Plugin proven on a clean WordPress 7.0 install on August 1, 2026. Nothing prints on your pages until you save an ID.</p>
+    </div>
+
+    <div class="platform" id="wix">
+      <div class="plathead"><h3>Wix</h3><div class="tag">Site-wide, from the dashboard</div></div>
+      <p class="intro">Wix takes site-wide code through your site's dashboard, not the editor.</p>
+      <ol class="steps">
+        <li>From your site's dashboard, go to <b>Settings</b>, then <b>Custom Code</b>, under Development &amp; integrations.</li>
+        <li>Click <b>+ Add Custom Code</b> at the top right.</li>
+        <li>Paste the line in the box and name it something you'll recognize, like StillOpen.</li>
+        <li>Under <b>Add Code to Pages</b>, pick <b>All pages</b>.</li>
+        <li>Under <b>Place Code in</b>, pick <b>Body - end</b>.</li>
+        <li>Click <b>Apply</b>.</li>
+      </ol>
+      <p class="note"><b>Wix's rule, not ours:</b> custom code only runs on a published site with a connected domain. On the free wixsite.com address, this door stays shut until you connect a domain.</p>
+      <p class="stamp">Read off support.wix.com, "Embedding custom code on your site," on August 3, 2026. Builders move their menus. If a step here has gone stale, tell us and we'll fix it the same day.</p>
+    </div>
+
+    <div class="platform" id="squarespace">
+      <div class="plathead"><h3>Squarespace</h3><div class="tag">Site-wide, code injection</div></div>
+      <p class="intro">Squarespace calls this code injection, and its Footer field lands code exactly where this line wants to live: before the closing body tag on every page.</p>
+      <ol class="steps">
+        <li>Open the <b>Code Injection</b> panel. Squarespace's own help article links straight to it, and searching "code injection" inside your dashboard finds it by name.</li>
+        <li>Paste the line into the <b>Footer</b> field.</li>
+        <li>Click <b>Save</b>.</li>
+      </ol>
+      <p class="note"><b>Plan rule:</b> Squarespace includes code injection on its Core, Plus and Advanced plans, plus some legacy plans. If you don't see the panel, your plan doesn't carry it.</p>
+      <p class="stamp">Read off support.squarespace.com, "Using code injection," on August 3, 2026. Their article was last updated April 9, 2026. If a step here has gone stale, tell us and we'll fix it the same day.</p>
+    </div>
+
+    <div class="platform" id="shopify">
+      <div class="plathead"><h3>Shopify</h3><div class="tag">Site-wide, in the theme</div></div>
+      <p class="intro">Shopify puts the line straight into your theme's code. Sounds scary. It isn't: one paste, one file.</p>
+      <ol class="steps">
+        <li>From your Shopify admin, go to <b>Online Store</b>, then <b>Themes</b>.</li>
+        <li>Shopify's own advice, and it's good advice: <b>duplicate your theme</b> first so you have a backup copy.</li>
+        <li>Click the <b>...</b> menu next to your theme and pick <b>Edit code</b>.</li>
+        <li>Open <b>theme.liquid</b>, inside the layout folder.</li>
+        <li>Paste the line right above the closing <b>&lt;/body&gt;</b> tag, near the bottom of the file.</li>
+        <li>Click <b>Save</b>.</li>
+      </ol>
+      <p class="note"><b>Two things Shopify's docs warn about:</b> a theme update can remove code edits, so re-paste the line after you update your theme. And a paid theme you're still trialing won't let you edit code until you buy it.</p>
+      <p class="stamp">Read off help.shopify.com, "Editing theme code," on August 3, 2026. If a step here has gone stale, tell us and we'll fix it the same day.</p>
+    </div>
+
+    <div class="platform" id="godaddy">
+      <div class="plathead"><h3>GoDaddy Website Builder</h3><div class="tag">Per page, HTML section</div></div>
+      <p class="intro">GoDaddy's Websites + Marketing builder takes code as a section you add to a page, not one site-wide box.</p>
+      <ol class="steps">
+        <li>From your GoDaddy product page, expand <b>Websites + Marketing</b> and click <b>Manage</b> next to your site.</li>
+        <li>Open the page where you want the front desk. Your homepage is the right start.</li>
+        <li>Add a section, search for <b>HTML</b>, and click <b>Add</b>.</li>
+        <li>Paste the line into the <b>Custom Code</b> field.</li>
+        <li>Preview it, then publish.</li>
+      </ol>
+      <p class="note"><b>Because the code rides in a section,</b> it runs on the pages you added it to, not everywhere. Add the section to each page you want covered, and drop it near the bottom. If the bubble comes out pinned inside a box instead of floating in the corner, that's the section's set height holding it. Reply to your welcome email and we'll sort it with you.</p>
+      <p class="stamp">Read off godaddy.com/help, "Add HTML or custom code to my site," on August 3, 2026. If a step here has gone stale, tell us and we'll fix it the same day.</p>
+    </div>
+
+    <div class="platform" id="weebly">
+      <div class="plathead"><h3>Weebly</h3><div class="tag">Per page, Embed Code element</div></div>
+      <p class="intro">Weebly takes outside code through its Embed Code element, dragged onto the page like any other block.</p>
+      <ol class="steps">
+        <li>In the Weebly editor, find the <b>Embed Code</b> element and drag it onto the page where you want the front desk.</li>
+        <li>Click inside the element and choose <b>Edit Custom HTML</b>.</li>
+        <li>Paste the line.</li>
+        <li>Click anywhere outside the element, then <b>publish</b>.</li>
+      </ol>
+      <p class="note"><b>Weebly's own help says</b> some embedded code shows nothing inside the editor, and a chat bubble is that kind of code. Publish, then check your live site. This element rides per page, so drop it on each page you want covered.</p>
+      <p class="note">Plenty of guides point at a site-wide Footer Code box under Settings, then SEO. Weebly's own help pages don't document that box today, so we're not writing steps we couldn't check. If your account shows it, the same line pasted there covers every page at once.</p>
+      <p class="stamp">Read off Weebly Support, "Add External Content and Widgets With Embedded Code," on August 3, 2026. If a step here has gone stale, tell us and we'll fix it the same day.</p>
+    </div>
+
+    <div class="platform" id="html">
+      <div class="plathead"><h3>Plain HTML</h3><div class="tag">Any hand-built site</div></div>
+      <p class="intro">You built it yourself, or somebody built it for you in real files. Easiest install on the list.</p>
+      <ol class="steps">
+        <li>Open the page file, or the shared footer file if your site is built from templates.</li>
+        <li>Paste the line right before the closing <b>&lt;/body&gt;</b> tag.</li>
+        <li>Save and upload the way you always do.</li>
+      </ol>
+      <p class="note"><b>Builder not on this page?</b> Any builder with a custom HTML or footer code box works the same way: give it the line. If it takes HTML, it takes this.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="see-it">
+  <div class="wrap">
+    <div class="eyebrow">Before you paste anything</div>
+    <h2>See it on your own site first.</h2>
+    <p class="sub">You don't have to imagine what the bubble looks like on your pages. Type your web address and look at it.</p>
+    <div class="wakebox">
+      <h3>Ten seconds, no signup</h3>
+      <p>Type your web address. Ten seconds later you're looking at your real site with a working front desk on it. No email, no signup, no call.</p>
+      <form class="wakeform" id="wakeForm">
+        <input id="wakeUrl" type="text" inputmode="url" placeholder="yourshop.com" aria-label="Your website address">
+        <button class="btn solid" type="submit">Wake it up</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="done-for-you">
+  <div class="wrap">
+    <div class="eyebrow">The escape hatch</div>
+    <h2>Rather not touch any of this?</h2>
+    <p class="sub">Fair. Some people like pasting code about as much as they like paperwork. There's a road for you too.</p>
+    <div class="price">
+      <div class="big">$297<span> one time</span></div>
+      <div class="free">Done-for-you install, and it's optional.</div>
+      <ul>
+        <li>You start the free trial like everybody else</li>
+        <li>Reply to your welcome email and say the word</li>
+        <li>Your front desk goes on your site without you opening an editor</li>
+        <li>The $47 a month stays the same either way</li>
+      </ul>
+      <div class="cta"><a class="btn solid lg" href="https://app.stillopen.ai/checkout?src=embed-guide">Start free</a></div>
+      <div class="fine">Most people never need this. The paste takes about two minutes on every builder above.</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Straight answers</div>
+    <h2>The questions people ask before pasting.</h2>
+    <div class="faq">
+      <details><summary>Is the line different on each platform?</summary><p>No. It's the same script tag everywhere. The only thing that changes from builder to builder is which door you walk it through.</p></details>
+      <details><summary>Where do I find my front desk ID again?</summary><p>In your welcome email, on the line with the code, and on your dashboard. It starts with user_. If you've lost both, reply to any email from us and we'll send it again.</p></details>
+      <details><summary>Can it break my site?</summary><p>The widget wraps its own startup, so if anything goes wrong on our side it quietly does nothing instead of taking your page down. And it's one line: pull the line out and it's gone completely.</p></details>
+      <details><summary>What does it cost?</summary><p>14 days free with a card on file, then $47 a month, cancel in one click. The $297 done-for-you install is optional and one time. No setup fee otherwise, no per-message meter, no contract.</p></details>
+      <details><summary>What shows up before I've trained anything?</summary><p>Training happens before your welcome email even lands: at checkout you give your website address, and your front desk reads your site. By the time you paste the line, it already knows your services, hours and prices.</p></details>
+    </div>
+    <div class="hero-ctas" style="margin-top:44px">
+      <a class="btn solid lg" href="https://app.stillopen.ai/checkout?src=embed-guide">Start free, 14 days</a>
+      <a class="btn ghost lg" href="/wake/">See it on your site</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fm">Built in Wisconsin by a guy who thinks nobody who reaches out should get nothing.</div>
+  <div class="sign">Your sign says <b>closed</b>. StillOpen stays open.</div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="https://app.stillopen.ai/checkout">Start free</a>
+    <a href="/">Home</a>
+    <a href="/for-plumbers/">For plumbers</a>
+    <a href="/for-hvac/">For HVAC</a>
+    <a href="/for-electricians/">For electricians</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+  </nav>
+  <div>StillOpen &middot; Menomonie, Wisconsin</div>
+</footer>
+
+<div id="grain" aria-hidden="true"></div>
+
+<script>
+(function(){
+  var f = document.getElementById("wakeForm");
+  if (!f) return;
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = (document.getElementById("wakeUrl").value || "").trim();
+    if (!v) return;
+    if (!/^https?:\/\//i.test(v)) v = "https://" + v;
+    window.location.href = "https://app.stillopen.ai/wake?url=" + encodeURIComponent(v);
+  });
+})();
+</script>
+</body>
+</html>
