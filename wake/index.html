@@ -22,8 +22,10 @@
   input{flex:1;min-width:220px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;color:var(--ink);font:500 16px 'JetBrains Mono',monospace;padding:16px 18px;outline:none;transition:border-color .2s}
   input:focus{border-color:var(--accent)}
   input::placeholder{color:var(--faint)}
-  button{background:var(--accent);color:#fff;border:0;border-radius:12px;font:800 16px 'Manrope',sans-serif;padding:16px 26px;cursor:pointer;transition:background .2s,transform .15s}
-  button:hover{background:var(--accent-hi);transform:translateY(-2px)}
+  button,.buy{background:var(--accent);color:#fff;border:0;border-radius:12px;font:800 16px 'Manrope',sans-serif;padding:16px 26px;cursor:pointer;transition:background .2s,transform .15s}
+  button:hover,.buy:hover{background:var(--accent-hi);transform:translateY(-2px)}
+  .buy{display:inline-block;margin-top:30px;text-decoration:none}
+  .buyline{margin-top:11px;font-size:13px;color:var(--faint);line-height:1.6}
   .hint{margin-top:16px;font-size:13px;color:var(--faint);line-height:1.6}
   .hint b{color:var(--dim);font-weight:600}
   .foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint);line-height:1.7}
@@ -42,6 +44,8 @@
   </form>
   <div class="waking" id="waking">Waking it up, give it a few seconds&hellip;</div>
   <p class="hint"><b>How it works:</b> we load your public homepage, add the chat bubble, and show it back to you. Your real site is untouched and your visitors see nothing. The bubble answers for real, ask it anything.</p>
+  <a class="buy" href="https://app.stillopen.ai/checkout?src=wake">Start free, 14 days on us</a>
+  <p class="buyline">$47 a month after. Cancel anytime.</p>
   <div class="foot">
     Preview only, not affiliated with any business shown &middot; Built by <a href="https://stillopen.ai/">StillOpen</a> &middot; Your sign says closed. StillOpen stays open.
   </div>
