@@ -59,6 +59,18 @@ Full doctrine: `Synchronize/Team/Moses/MosesV1/_archive_from_homeedge_memory/bra
 - Backend industry codes missing the May verticals (using "other").
 - KV conversation logs have never been mined; needs `npx wrangler login` from Cole, then read-only analysis of what real visitors asked.
 
+## Cloud operations (added 2026-08-05)
+
+A cloud CEO session now runs alongside local work. Cole granted it on 2026-08-05:
+
+- **Repo control from the cloud.** A fine-grained token (this repo only, contents read/write, expires Nov 2 2026) lets cloud sessions pull, edit, and push without Cole's Mac in the loop. The token lives only inside the CEO session, not in any scheduled task prompt.
+- **The daily shift.** A scheduled task fires 6:00 AM Central every day in a fresh cloud session: site and widget health checks, Stripe deltas, Gmail reply scan, five verified Wisconsin prospects in a rotating vertical, up to three outreach drafts in Cole's voice, then a morning report ending in a DECISIONS NEEDED list. It cannot send email, spend money, or push code.
+- **Outreach send policy, set by Cole.** Auto-send approved, capped at 5 per day, once sending runs through Resend on the stillopen.ai domain. The Gmail connector is draft-only by design, so until the Resend key exists everything stays a Gmail draft Cole sends himself. Replies from real humans always get drafted for Cole, never auto-answered.
+- **Spending.** A monthly ceiling is agreed. Every new charge gets named to Cole before it happens. Committed so far: nothing.
+- **The one goal until further notice:** first paying customer, then the first ten. Build only what selling demands.
+
+Status notes for the July section above: `/founders/` and `/partners/cal/` are clean noindexed redirects now, off the debt list.
+
 ## Deploy workflow
 
 1. Edit local files here.
