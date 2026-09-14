@@ -95,3 +95,6 @@ Disallow: /dons-hvac-wells/
 Disallow: /macatawa-plumbing/
 Disallow: /koegel-plumbing/
 Disallow: /rhinos-plumbing-hvac/
+Disallow: /deml-heating/
+Disallow: /rdw-plumbing/
+Disallow: /bergman-plumbing/
