@@ -81,3 +81,5 @@ Disallow: /river-valley-plumbing/
 Disallow: /kens-service-center/
 Disallow: /genrich-plumbing/
 Disallow: /klasinski-plumbing/
+Disallow: /bd-plumbing-wausau/
+Disallow: /brauns-automotive/
