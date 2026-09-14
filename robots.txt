@@ -57,3 +57,7 @@ Disallow: /accuflo-air/
 Disallow: /big-jims-towing/
 Disallow: /darnell-air/
 Disallow: /jims-auto-service/
+Disallow: /daves-heating/
+Disallow: /andersons-sheet-metal/
+Disallow: /melstrom-towing/
+Disallow: /hook-n-go-towing/

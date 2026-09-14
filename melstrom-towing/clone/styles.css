@@ -1,0 +1,347 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333; }
+  @media screen and (min-width: 768px) {
+    body {
+      font-family: Arial, Helvetica, sans-serif; } }
+
+/***************************************************************************************************
+Generic Typography
+****************************************************************************************************/
+.generic {
+  padding: 28px; }
+  .generic h1, .generic h2, .generic h3 {
+    font-family: "Merriweather Sans", sans-serif;
+    color: #2a4f84; }
+  .generic h1 {
+    font-size: 24px;
+    padding-bottom: 14px; }
+  .generic h2 {
+    font-size: 18px;
+    margin: 14px 0; }
+  .generic h3 {
+    font-size: 18px;
+    margin-bottom: 0px;
+    float: left;
+    line-height: 20px;
+    padding-right: 14px;
+    margin-right: 14px;
+    border-right: 1px solid #2a4f84; }
+  .generic h5 {
+    display: block;
+    color: #FFF;
+    background: #2a4f84;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 0;
+    margin: 0 auto 14px auto;
+    font-size: 18px;
+    max-width: 290px; }
+  .generic p {
+    margin: 0 0 14px 0;
+    line-height: 20px; }
+  .generic a {
+    color: #2a4f84;
+    text-decoration: none; }
+  .generic a:hover {
+    border-bottom: 1px dotted #2a4f84; }
+  .generic a.button {
+    background: #2a4f84;
+    padding: 14px;
+    color: #FFF;
+    font-weight: bold;
+    border: 2px solid;
+    width: 80%;
+    display: block;
+    margin: 0px auto;
+    border-radius: 14px;
+    text-decoration: none;
+    text-align: center; }
+  .generic a.button:hover {
+    background-image: none; }
+  .generic ul {
+    margin: 0 0 14px 28px; }
+  .generic hr {
+    margin-bottom: 14px;
+    border: none;
+    border-bottom: 1px solid #eaeaea; }
+  .generic table {
+    margin-bottom: 14px; }
+
+* {
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  background: url(images/towing-page-bg.jpg) top center no-repeat black;
+  margin: 0 0 0 0;
+  padding: 0px; }
+
+/***************************************************************************************************
+Layout Foundation
+****************************************************************************************************/
+.clearfix {
+  clear: both; }
+
+#wrapper {
+  margin: 0px auto;
+  padding: 0px;
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  clear: both; }
+  @media screen and (min-width: 740px) {
+    #wrapper {
+      padding-top: 28px; } }
+
+.content {
+  background: #FFF; }
+
+@media screen and (min-width: 740px) {
+  .content-left {
+    float: left;
+    width: 65%; } }
+.content-left img {
+  max-width: 100%;
+  height: inherit;
+  display: block; }
+
+.content-right {
+  border-top: 1px solid #eaeaea;
+  margin-top: 14px;
+  padding-top: 14px; }
+  @media screen and (min-width: 740px) {
+    .content-right {
+      float: right;
+      width: 30%;
+      margin-top: 0px;
+      padding-left: 14px;
+      padding-top: 0px;
+      border-top: none;
+      border-left: 1px solid #eaeaea; } }
+  .content-right img {
+    max-width: 100%;
+    height: inherit;
+    display: block;
+    margin: 0px auto; }
+
+/***************************************************************************************************
+Header Elements
+****************************************************************************************************/
+.header {
+  max-width: 1600px;
+  margin: 0px auto; }
+
+.logo {
+  background: url(images/logo-bg.png) top center no-repeat;
+  display: block;
+  text-align: center;
+  float: none;
+  margin: 14px auto;
+  padding: 14px 0px; }
+  @media screen and (min-width: 740px) {
+    .logo {
+      float: left;
+      margin: -28px 0 0 0;
+      width: 380px; } }
+  @media screen and (min-width: 1000px) {
+    .logo {
+      margin-left: 28px; } }
+  .logo h1, .logo h3 {
+    color: #FFF;
+    font-family: "Merriweather Sans", sans-serif;
+    text-transform: uppercase;
+    font-style: italic; }
+  .logo h1 {
+    font-size: 32px;
+    text-shadow: -1px -1px 0 #2d548f, 1px -1px 0 #2d548f, -1px 1px 0 #2d548f, 1px 1px 0 #2d548f; }
+    .logo h1 .small {
+      font-size: 14px; }
+  .logo h3 {
+    font-size: 18px;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; }
+
+.callout-left {
+  line-height: 44px;
+  text-align: center;
+  background: url(images/nav-bg.gif) top repeat-x #2d548f; }
+  @media screen and (min-width: 740px) {
+    .callout-left {
+      line-height: inherit;
+      background: none;
+      float: right;
+      text-align: left;
+      padding: 14px 0;
+      width: 100px; } }
+  @media screen and (min-width: 860px) {
+    .callout-left {
+      background: url(images/24-hr-towing.png) 25px no-repeat;
+      width: 80px;
+      padding: 14px 25px 14px 81px; } }
+  .callout-left h1 {
+    font-size: 20px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: "Merriweather Sans", sans-serif; }
+    @media screen and (min-width: 860px) {
+      .callout-left h1 .hide {
+        display: none; } }
+
+.callout-right {
+  padding: 11px 28px 11px 14px;
+  text-align: center; }
+  @media screen and (min-width: 740px) {
+    .callout-right {
+      float: right; } }
+  @media screen and (min-width: 860px) {
+    .callout-right {
+      background: url(images/phone-bg.png) left no-repeat;
+      padding: 11px 28px 11px 60px; } }
+  .callout-right h1, .callout-right h3 {
+    color: #FFF;
+    text-transform: uppercase; }
+  .callout-right h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px; }
+  .callout-right h3 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    display: none; }
+    @media screen and (min-width: 740px) {
+      .callout-right h3 {
+        display: inherit; } }
+
+/***************************************************************************************************
+Navigation Menu
+****************************************************************************************************/
+.nav {
+  background: url(images/nav-bg.gif) top repeat-x #343434;
+  display: block;
+  height: 34px;
+  margin: 0;
+  padding-top: 10px; }
+  @media screen and (min-width: 740px) {
+    .nav {
+      height: 44px;
+      padding-top: 0px; } }
+  .nav select {
+    margin: 0px  auto;
+    font-size: 16px;
+    width: 300px;
+    display: block; }
+    @media screen and (min-width: 740px) {
+      .nav select {
+        float: right;
+        margin: 10px 28px 0 0; } }
+    @media screen and (min-width: 900px) {
+      .nav select {
+        display: none; } }
+  .nav ul, .nav li {
+    list-style: none;
+    display: none; }
+    @media screen and (min-width: 900px) {
+      .nav ul, .nav li {
+        display: inherit; } }
+  .nav li a {
+    float: right;
+    display: block;
+    line-height: 44px;
+    color: #FFF;
+    font-family: "Merriweather Sans", sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 0 14px; }
+    @media screen and (min-width: 1024px) {
+      .nav li a {
+        font-size: 18px;
+        padding: 0 14px; } }
+    @media screen and (min-width: 1160px) {
+      .nav li a {
+        font-size: 18px;
+        padding: 0 28px; } }
+  .nav li a:hover {
+    background: #000;
+    color: #ffde16; }
+
+/***************************************************************************************************
+Homepage Elements
+****************************************************************************************************/
+.home-content {
+  padding: 0;
+  color: #FFF;
+  background: url(images/li-bg.png); }
+  @media screen and (min-width: 740px) {
+    .home-content {
+      float: left;
+      width: 45%; } }
+  @media screen and (min-width: 1024px) {
+    .home-content {
+      width: 35%; } }
+  .home-content h3 {
+    background: url(images/nav-bg.gif) top repeat-x #343434;
+    font-family: "Merriweather Sans", sans-serif;
+    text-transform: uppercase;
+    line-height: 44px;
+    margin: 0px;
+    padding: 0px 14px; }
+  .home-content ul {
+    margin: 0px 14px;
+    padding-left: 0px; }
+  .home-content li {
+    list-style-image: url(images/list-image.png);
+    line-height: 44px;
+    margin: 0 0 0 20px;
+    padding: 0px;
+    text-transform: capitalize; }
+
+.primary-image {
+  background: url(images/nav-bg.gif) top repeat-x #343434;
+  display: block;
+  width: auto; }
+  @media screen and (min-width: 740px) {
+    .primary-image {
+      width: 55%;
+      float: right;
+      padding-top: 44px;
+      height: 308px; } }
+  @media screen and (min-width: 1024px) {
+    .primary-image {
+      width: 65%;
+      padding-top: 0px;
+      height: 352px; } }
+  .primary-image img {
+    display: block;
+    max-width: 100%;
+    height: auto; }
+
+/***************************************************************************************************
+Footer
+****************************************************************************************************/
+.footer {
+  background: url(images/nav-bg.gif) top repeat-x #343434;
+  color: #FFF;
+  line-height: 44px;
+  text-align: center;
+  font-size: 14px; }
+  .footer .pipe {
+    color: #666;
+    padding: 0 14px; }
+
+/***************************************************************************************************
+Special Styling Elements
+****************************************************************************************************/
+.address {
+  padding-left: 38px;
+  background: url(images/map-icon.gif) top left no-repeat;
+  min-height: 22px; }
+
+.phone {
+  padding-left: 38px;
+  background: url(images/phone-icon.gif) top left no-repeat;
+  min-height: 22px; }
+
+.email {
+  padding-left: 38px;
+  background: url(images/email-icon.gif) top left no-repeat;
+  min-height: 22px; }
