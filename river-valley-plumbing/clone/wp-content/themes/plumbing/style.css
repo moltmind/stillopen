@@ -1,0 +1,32 @@
+﻿/*!
+Theme Name: Plumbing
+Theme URI: http://demos.pixelatethemes.com/plumbingwplst
+Author: DesignArc
+Author URI: https://themeforest.net/user/designarc
+Description: Plumbing - A WordPress theme.
+Version: 2.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: plumbing
+Tags:two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-image-header, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
+*/
+
+html {
+	font-size: 100%;}
+body {
+  color: #333; }
+body.error404 {
+    background-size: cover !important; }
+body.error404 #main {
+    background-color: transparent; }
+body.error404 .content_wrapper {
+    background: none; }
+ 
+#main {
+  position: relative;
+  z-index: 10; }
+
+#wrapper {
+  position: relative;
+  overflow: hidden; }
+  

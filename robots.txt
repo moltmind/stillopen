@@ -74,3 +74,8 @@ Disallow: /under-aire/
 Disallow: /wise-heating/
 Disallow: /day-nite-towing/
 Disallow: /brians-heat-air/
+Disallow: /touchtons-heating/
+Disallow: /compass-hvac/
+Disallow: /four-seasons-techs/
+Disallow: /river-valley-plumbing/
+Disallow: /kens-service-center/
