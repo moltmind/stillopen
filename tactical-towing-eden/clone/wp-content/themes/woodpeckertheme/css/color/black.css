@@ -1,0 +1,150 @@
+::selection {
+background: #5c5c5c;
+}
+
+.nav-wrapper {
+	background: #363636;
+}
+
+.nav-border-container {
+	border-top: 1px solid #5c5c5c;
+	border-bottom: 1px solid #5c5c5c;
+}
+
+.nav-wrapper .sf-menu > li {
+	border-right: 1px solid #363636;
+	border-top: 1px solid #363636;
+	border-bottom: 1px solid #363636;
+}
+.nav-wrapper .slicknav_nav > li {
+	border-bottom: 1px solid #363636;
+}
+
+.nav-wrapper ul li a:hover, .nav-wrapper ul li.current-menu-item a, .nav-wrapper ul li.current_page_item a{
+	background: #5c5c5c;
+}
+
+.sf-menu ul li {
+background: #363636;
+}
+
+li.menu-item-has-children {
+	background: url(images/sub-menu-drop-icon-blue.png) no-repeat 95% 50%;
+}
+
+li.menu-item-has-children:hover {
+	background: #5c5c5c url(images/sub-menu-close-icon-blue.png) no-repeat 95% 50%;
+}
+ .slicknav_nav li.menu-item-has-children:hover {
+	background: #5c5c5c;
+}
+.slicknav_nav > li.menu-item-has-children:hover,  .nav-wrapper ul.sf-menu li.menu-item-has-children > a:hover, .slicknav_nav li.menu-item-has-children, .slicknav_nav ul li li > li,  .slicknav_nav > li.menu-item-has-children {
+	background: none;
+}
+/* nav ends */
+
+/* slider */
+.nivo-prevNav {
+	background: url('images/slider-nav-black.png') no-repeat 0 0;
+}
+.nivo-nextNav {
+	background: url('images/slider-nav-black.png') no-repeat -51px 0;
+}
+
+/* slider end */
+
+/* content */
+input#submit {
+	-moz-box-shadow:inset 0px 1px 0px 0px #908e8e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #908e8e;
+	box-shadow:inset 0px 1px 0px 0px #908e8e;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #727272), color-stop(1, #4e4e4e) );
+	background:-moz-linear-gradient( center top, #727272 5%, #4e4e4e 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#727272', endColorstr='#4e4e4e');
+	background-color:#727272;
+	border:1px solid #363636;
+	text-shadow:1px 1px 0px #727272;
+}
+input#submit:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4e4e4e), color-stop(1, #727272) );
+	background:-moz-linear-gradient( center top, #4e4e4e 5%, #727272 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e', endColorstr='#727272');
+	background-color:#4e4e4e;
+}
+
+.content-container {
+	border-top: 6px solid #3f3f3f;
+}
+.page-post-container-wrapper {
+border-top: 6px solid #3f3f3f;
+}
+.feature-page-wt-thumb-container {
+	border-bottom: 3px solid #ccc;
+}
+a.wpanch {
+	color: #000 !important;
+}
+a.wpanch:hover{
+	color: #fff !important;
+	background: #000;
+}
+.bottom-feature-textbox {
+	border-left: 5px solid #818181;
+}
+code {
+color: #363636;
+}
+/* content ends */
+
+/* footer */
+.footer ul li {
+	background: url('images/footer-li-icon-black.png') no-repeat 0 6px;
+}
+.footer .searchform #searchsubmit {
+	background: #fff url('images/submit-icon-black.png') center no-repeat;
+}
+.footer li.menu-item-has-children:hover {
+	background: url('images/footer-li-icon-black.png') no-repeat 0 6px;
+}
+.footer-wrapper {
+border-top: 5px solid #818181;
+}
+/* footer ends */
+
+/* sidebar */
+.sidebar .searchform #search, .sidebar .searchform #s {
+border: 1px solid #5c5c5c;
+-moz-box-shadow: inset 0px 4px 1px 0px rgba(0,0,0,0.1);
+-webkit-box-shadow: inset 0px 4px 1px 0px rgba(0,0,0,0.1);
+box-shadow: inset 0px 4px 1px 0px rgba(0,0,0,0.1);
+}
+.sidebar .searchform #searchsubmit {
+background: #414141 url('images/sidebar-submit-btn-black.png') center no-repeat;
+}
+.sidebar ul li {
+	background: url(images/sidebar-li-icon-black.png) no-repeat 0 8px;
+}
+.sidebar li.menu-item-has-children:hover {
+	background: url(images/sidebar-li-icon-black.png) no-repeat 0 8px;
+}
+.sidebar select {
+border: 1px solid #5c5c5c;
+}
+/* sidebar */
+/* comment */
+.commentlist .comment-author img {
+border: 5px solid #414141;
+}
+.commentlist .reply a {
+background: #414141;
+}
+.nav-wrapper ul.sf-menu li.page_item_has_children > a:hover  {
+    background: #5c5c5c url(images/sub-menu-close-icon-black.png) no-repeat 95% 50%;
+}
+.nav-wrapper ul.sf-menu li.page_item_has_children > a  {
+    background: #363636 url(images/sub-menu-close-icon-black.png) no-repeat 95% 50%;
+}
+li.menu-item-has-children:hover, li.page_item_has_children:hover {
+background: #363636 url(images/sub-menu-close-icon-black.png) no-repeat 95% 50%;
+}
+/* comment */
