@@ -93,3 +93,5 @@ Disallow: /kalkbrenner-plumbing/
 Disallow: /bills-plumbing-platteville/
 Disallow: /dons-hvac-wells/
 Disallow: /macatawa-plumbing/
+Disallow: /koegel-plumbing/
+Disallow: /rhinos-plumbing-hvac/
