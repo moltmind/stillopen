@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#B51217"/>
+  <g transform="translate(6, 3) scale(0.8)">
+    <path d="M12 22c-4 0-7-3.5-7-7.5c0-2.5 1-4.5 2.5-6c1.5-1.5 3-3.5 3-6.5c1 1.2 3 5.5 1 8.5c2.5-3.5 4-6 3-9c3 3 5 6.5 5 10c0 4-3 7.5-7 7.5z" fill="url(#fflame)"/>
+    <path d="M12 22c-2.5 0-4.5-2-4.5-4.5c0-2 1.5-3.5 2.5-4.5c0.5 1.5 1.5 2.5 2 3c0-1 0-3.5-0.5-5c2 2 3 4 3 6.5c0 2.5-1.5 4.5-2.5 4.5z" fill="url(#fflame2)"/>
+  </g>
+  <defs>
+    <linearGradient id="fflame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F57C00"/>
+      <stop offset="100%" stop-color="#FFC62A"/>
+    </linearGradient>
+    <linearGradient id="fflame2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF8A00"/>
+      <stop offset="60%" stop-color="#FFDD57"/>
+    </linearGradient>
+  </defs>
+</svg>

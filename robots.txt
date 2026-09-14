@@ -88,3 +88,6 @@ Disallow: /scotts-towing-chilton/
 Disallow: /liberty-heating/
 Disallow: /tactical-towing-eden/
 Disallow: /high-temp-heating/
+Disallow: /design-heating-duluth/
+Disallow: /kalkbrenner-plumbing/
+Disallow: /bills-plumbing-platteville/

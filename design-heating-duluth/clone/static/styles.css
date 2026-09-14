@@ -1,0 +1,70 @@
+/* ── Design Heating — Custom Styles ── */
+
+/* Scroll-reveal animations.
+   Kept VERY subtle and short so the page doesn't feel like elements are
+   "popping in" one by one. The View Transition crossfade between routes
+   does the heavy lifting for cross-page smoothness; per-element reveals
+   only run on the very first hard load. */
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+}
+[data-animate].animate-in {
+  opacity: 1;
+}
+/* After a SPA route swap, html.spa-swapped flips ALL data-animate elements
+   visible instantly — no staggered fade-in chaos on top of the view
+   transition. */
+html.spa-swapped [data-animate] {
+  opacity: 1;
+  transition: none;
+}
+/* People who prefer reduced motion never see the reveal animation. */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/* Scroll-padding for in-page anchor jumps; scroll-behavior is intentionally
+   NOT 'smooth' globally because it fights with programmatic scrollTo(0,0)
+   on route changes and produces a visible scroll glide. */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* FAQ transition */
+[data-faq-icon] {
+  transition: transform 0.3s ease;
+}
+
+/* Selection color */
+::selection {
+  background: #D6C3A5;
+  color: #222222;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid #C85A2B;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Header transition */
+#site-header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Service section alternating direction fix */
+@media (min-width: 1024px) {
+  [style*="direction:rtl"] > * {
+    direction: ltr;
+  }
+}
