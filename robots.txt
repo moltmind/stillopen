@@ -79,3 +79,5 @@ Disallow: /compass-hvac/
 Disallow: /four-seasons-techs/
 Disallow: /river-valley-plumbing/
 Disallow: /kens-service-center/
+Disallow: /genrich-plumbing/
+Disallow: /klasinski-plumbing/
