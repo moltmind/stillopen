@@ -61,3 +61,8 @@ Disallow: /daves-heating/
 Disallow: /andersons-sheet-metal/
 Disallow: /melstrom-towing/
 Disallow: /hook-n-go-towing/
+Disallow: /scott-schmidt-plumbing/
+Disallow: /river-falls-heating/
+Disallow: /air-repair-tulsa/
+Disallow: /pelke-plumbing/
+Disallow: /logic-heating-air/
