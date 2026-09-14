@@ -1,5 +1,5 @@
 /**
- * StillOpen Chatbot — Standalone embed script
+ * StillOpen Chatbot. Standalone embed script
  *
  * The 24/7 AI front desk widget. Plumbers (and other home services trades)
  * drop this single script tag into their site and get a floating chat bubble
@@ -735,7 +735,7 @@
       if (data.limitReached) {
         isLimited = true;
         setInputDisabled(true);
-        input.placeholder = "Chat session ended — see above to connect.";
+        input.placeholder = "Chat session ended. See above to connect.";
       } else {
         setInputDisabled(false);
         input.focus();
