@@ -66,3 +66,9 @@ Disallow: /river-falls-heating/
 Disallow: /air-repair-tulsa/
 Disallow: /pelke-plumbing/
 Disallow: /logic-heating-air/
+Disallow: /dowd-heat-air/
+Disallow: /up-front-heating/
+Disallow: /hamilton-heat-air/
+Disallow: /solution-heating/
+Disallow: /under-aire/
+Disallow: /wise-heating/
