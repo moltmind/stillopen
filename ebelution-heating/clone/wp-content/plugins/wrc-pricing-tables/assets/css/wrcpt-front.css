@@ -1,0 +1,772 @@
+/*!
+ * WRC Pricing Tables v2.7.1 - 11 June, 2026
+ * by @realwebcare - https://www.realwebcare.com
+ */
+* {
+    outline: none
+}
+
+.wrcpt_container {
+    max-width: 1100px;
+    margin: 0 auto
+}
+
+.wrcpt_container:before,
+.wrcpt_container:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    overflow: visible
+}
+
+.wrcpt_container:after {
+    clear: both
+}
+
+.wrcpt_content {
+    width: 100%;
+    font-weight: normal;
+    color: #333;
+    line-height: normal !important;
+    margin: 30px auto
+}
+
+.wrcpt_content h3.caption {
+    width: 95%;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: left
+}
+
+.wrcpt_row:before,
+.wrcpt_row:after {
+    display: table;
+    line-height: 0;
+    content: ""
+}
+
+.wrcpt_row:after {
+    clear: both
+}
+
+.wrc_pricing_table {
+    font-family: 'Roboto Condensed', serif;
+    width: 98%;
+    margin: 0 auto
+}
+
+.wrc_pricing_table div {
+    border: none;
+    white-space: normal;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+div.wrc_pricing_table a {
+    color: #000;
+    text-decoration: none
+}
+
+div.wrc_pricing_table h2 {
+    font-size: 60px
+}
+
+div.wrc_pricing_table h3 {
+    font-size: 24px
+}
+
+div.wrc_pricing_table h2.package_plan {
+    width: auto !important
+}
+
+div.wrc_pricing_table h2 span.unit {
+    font-size: 28px;
+    margin: 0;
+    vertical-align: top
+}
+
+div.wrc_pricing_table h2 span.price {
+    font-size: 60px;
+    font-weight: 700
+}
+
+div.wrc_pricing_table h2 span.cent {
+    font-size: 28px;
+    position: absolute;
+    z-index: 98
+}
+
+div.wrc_pricing_table h2 span.plan {
+    font-size: 16px;
+    vertical-align: baseline;
+    line-height: 0
+}
+
+div.wrc_pricing_table ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+div.wrc_pricing_table ul li {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+div.wrc_pricing_table ul li:before {
+    background: none !important;
+}
+
+div.wrc_pricing_table h2,
+div.wrc_pricing_table h3,
+div.wrc_pricing_table h4 {
+    font-family: 'Roboto Condensed', serif;
+    font-weight: 400;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0 !important;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal
+}
+
+div.wrc_pricing_table div,
+div.wrc_pricing_table input,
+div.wrc_pricing_table p {
+    display: inline-table
+}
+
+div.wrc_pricing_table p {
+    margin: 0 0 25px
+}
+
+div.wrc_pricing_table .center {
+    text-align: center
+}
+
+p.wrcpt_notice {
+    background-color: #FFF;
+    padding: 15px 20px;
+    font-size: 24px;
+    line-height: 24px;
+    border-left: 4px solid #7ad03a;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .1);
+    display: inline-block
+}
+
+/* pricing column caption */
+div.wrc_pricing_table div.package_caption {
+    float: left;
+    margin-top: 40px;
+    width: 100%
+}
+
+div.wrc_pricing_table div.package_caption li.pricing_table_plan {
+    height: 121px;
+    color: #304153
+}
+
+div.wrc_pricing_table div.package_caption li.top_left {
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -khtml-border-top-left-radius: 10px;
+    border-top-left-radius: 10px
+}
+
+div.wrc_pricing_table div.package_caption li.bottom_left {
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -khtml-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px
+}
+
+div.wrc_pricing_table div.package_caption li.feature_style_2 {
+    background-color: #DFDFDF
+}
+
+div.wrc_pricing_table div.package_caption li.feature_style_3 {
+    background-color: #F5F5F5
+}
+
+div.wrc_pricing_table div.package_caption li.feature_style_2,
+div.wrc_pricing_table div.package_caption li.feature_style_3 {
+    margin: -1px 0;
+    padding: 0 10px;
+    text-align: left
+}
+
+div.wrc_pricing_table div.package_caption li.feature_style_2 span.caption,
+div.wrc_pricing_table div.package_caption li.feature_style_3 span.caption {
+    font-weight: 400;
+    line-height: normal;
+    margin: 0
+}
+
+div.wrc_pricing_table div.package_caption li:last-child {
+    border-bottom: none;
+    margin: 0
+}
+
+/* common */
+div.wrc_pricing_table div.package_caption li.pricing_table_title,
+div.wrc_pricing_table div.package_details li.pricing_table_title {
+    height: 62px;
+    line-height: 62px;
+    text-align: center
+}
+
+div.wrc_pricing_table div.package_caption li.pricing_table_plan,
+div.wrc_pricing_table div.package_details li.pricing_table_plan {
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    margin-top: -1px;
+    margin-bottom: -1px
+}
+
+div.wrc_pricing_table div.package_caption li.feature_style_2,
+div.wrc_pricing_table div.package_caption li.feature_style_3,
+div.wrc_pricing_table div.package_details li.feature_style_1 {
+    font-family: 'Droid Sans', sans-serif;
+    height: 52px;
+    line-height: 52px;
+    font-size: 14px
+}
+
+div.wrc_pricing_table div.package_caption li.feature_style_2 .caption_lists,
+div.wrc_pricing_table div.package_caption li.feature_style_3 .caption_lists,
+div.wrc_pricing_table div.package_details li.feature_style_1 .feature_lists {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_1 .feature_lists {
+    position: relative
+}
+
+div.wrc_pricing_table div.package_details li.last-feature {
+    margin: 0;
+    border-bottom-width: 1px !important
+}
+
+/* pricing column details */
+div.wrc_pricing_table div.package_details {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 0;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -khtml-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+    -moz-transition: all 0.15s ease-in-out;
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    z-index: 98
+}
+
+div.wrc_pricing_table div.package_details:hover {
+    position: relative;
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    -moz-box-shadow: 0px 0px 5px #333;
+    -webkit-box-shadow: 0px 0px 5px #333;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=0, Color='#333333');
+    -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=0, Color='#333333');
+    box-shadow: 0px 0px 5px #333;
+    z-index: 999
+}
+
+div.wrc_pricing_table div.package_details span {
+    background: none;
+    border: 0
+}
+
+div.wrc_pricing_table div.package_details h3 span.package_desc {
+    margin: 2px 5px 5px;
+    line-height: normal;
+    display: block;
+    font-size: 14px
+}
+
+div.wrc_pricing_table h2 span.price_desc {
+    font-size: 14px;
+    margin: 0 10px;
+    line-height: normal;
+    display: block
+}
+
+div.wrc_pricing_table div.package_details div.feat_cap {
+    font-weight: 600;
+    padding-left: 4px;
+    display: inline-block;
+    line-height: normal
+}
+
+div.wrc_pricing_table div.package_details li.title_top_radius {
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -khtml-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+div.wrc_pricing_table div.package_details li.pricing_table_title,
+div.wrc_pricing_table div.package_details li.pricing_table_plan {
+    background: -moz-linear-gradient(#64C3DE, #3591CA);
+    background: -webkit-gradient(linear, center top, center bottom, from(#64C3DE), to(#3591CA));
+    background: -webkit-linear-gradient(#64C3DE, #3591CA);
+    background: -o-linear-gradient(#64C3DE, #3591CA);
+    background: -ms-linear-gradient(#64C3DE, #3591CA);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#64C3DE', endColorstr='#3591CA', GradientType=1);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#64C3DE', endColorstr='#3591CA', GradientType=1);
+    background: linear-gradient(#64C3DE, #3591CA)
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_1,
+div.wrc_pricing_table div.package_details li.feature_style_2,
+div.wrc_pricing_table div.package_details li.feature_style_3 {
+    position: relative;
+    color: #364D55;
+    font-weight: 700;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    padding: 0 5px 0 10px
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_1 span.feat_value {
+    margin: 1px 0 0 0;
+    padding: 0
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_1 span.media_screen {
+    margin: 1px 0 0 2px
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_1 span.not-available {
+    text-decoration: line-through
+}
+
+div.wrc_pricing_table div.package_details li.rowcolor {
+    background-color: #EEEEEE
+}
+
+div.wrc_pricing_table div.package_details li.altrowcolor {
+    background-color: #FAFAFA
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_2 {
+    background-color: #DFDFDF
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_3 {
+    background-color: #F5F5F5
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_1 span,
+div.wrc_pricing_table div.package_details li.feature_style_2 span,
+div.wrc_pricing_table div.package_details li.feature_style_3 span {
+    line-height: normal;
+    padding: 0 5px 0 0;
+    color: #2F4F4F;
+    font-weight: 400
+}
+
+div.wrc_pricing_table div.package_details li.feature_style_2 span,
+div.wrc_pricing_table div.package_details li.feature_style_3 span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal
+}
+
+div.wrc_pricing_table div.package_details span.feature_yes,
+div.wrc_pricing_table div.package_details span.feature_no,
+div.wrc_pricing_table div.package_details span.feature_empty {
+    display: inline-block;
+    line-height: normal;
+    padding: 0 !important
+}
+
+div.wrc_pricing_table div.package_details span.feature_yes:before {
+    background: url(../images/wrcpt-buttons.png) no-repeat -24px -41px;
+}
+
+div.wrc_pricing_table div.package_details span.feature_no:before {
+    background: url(../images/wrcpt-buttons.png) no-repeat -24px -91px;
+}
+
+div.wrc_pricing_table div.package_details span.feature_yes:before,
+div.wrc_pricing_table div.package_details span.feature_no:before {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    content: "";
+    vertical-align: middle;
+    line-height: normal
+}
+
+/* pricing column button */
+div.wrc_pricing_table div.package_details li.pricing_table_button {
+    background-color: #ccc;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 1px;
+    display: table;
+    text-align: center
+}
+
+div.wrc_pricing_table div.package_details li.pricing_table_button.btn-empty {
+    height: 1px;
+    line-height: 1px
+}
+
+div.wrc_pricing_table div.package_details li.pricing_table_button .action_button {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    background: -moz-linear-gradient(#64C3DE, #3591CA);
+    background: -webkit-gradient(linear, center top, center bottom, from(#64C3DE), to(#3591CA));
+    background: -webkit-linear-gradient(#64C3DE, #3591CA);
+    background: -o-linear-gradient(#64C3DE, #3591CA);
+    background: -ms-linear-gradient(#64C3DE, #3591CA);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#64C3DE', endColorstr='#3591CA', GradientType=1);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#64C3DE', endColorstr='#3591CA', GradientType=1);
+    background: linear-gradient(#64C3DE, #3591CA);
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 80%;
+    width: 170px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px
+}
+
+div.wrc_pricing_table div.package_details li.pricing_table_button .action_button:hover {
+    background: -moz-linear-gradient(#666, #333);
+    background: -webkit-gradient(linear, center top, center bottom, from(#666666), to(#333333));
+    background: -webkit-linear-gradient(#666, #333);
+    background: -o-linear-gradient(#666, #333);
+    background: -ms-linear-gradient(#666, #333);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#333333', GradientType=1);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#333333', GradientType=1);
+    background: linear-gradient(#666, #333);
+    color: #000000
+}
+
+div.wrc_pricing_table div.package_details li.pricing_table_button .button_code {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle
+}
+
+/* pricing column tooltip */
+div.wrc_pricing_table div.package_details span.text_tooltip,
+div.wrc_pricing_table div.package_details span.icon_tooltip {
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+}
+
+div.wrc_pricing_table div.package_details span.text_tooltip {
+    margin-left: 5px
+}
+
+div.wrc_pricing_table div.package_details span.icon_tooltip {
+    position: absolute;
+    top: 4px;
+    right: -25px
+}
+
+div.wrc_pricing_table div.package_details span.text_tooltip,
+div.wrc_pricing_table div.package_details span.icon_tooltip {
+    position: absolute;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    content: "";
+    vertical-align: middle;
+    line-height: normal
+}
+
+div.wrc_pricing_table div.package_details span.text_tooltip,
+div.wrc_pricing_table div.package_details span.icon_tooltip {
+    background: url(../images/wrcpt-buttons.png) no-repeat -520px -94px
+}
+
+div.wrc_pricing_table div.package_details span.text_tooltip:hover:after,
+div.wrc_pricing_table div.package_details span.icon_tooltip:hover:after {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background: #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 27px;
+    left: -30px;
+    color: #fff;
+    content: attr(rel);
+    padding: 10px 15px;
+    z-index: 99;
+    width: 130px;
+    text-align: left
+}
+
+div.wrc_pricing_table div.package_details span.text_tooltip:hover:before,
+div.wrc_pricing_table div.package_details span.icon_tooltip:hover:before {
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 10px 6px 0 6px;
+    bottom: 18px;
+    content: "";
+    left: 0;
+    position: absolute;
+    z-index: 99
+}
+
+/* pricing caption tooltip */
+div.wrc_pricing_table div.package_caption span.cap_tooltip {
+    font-family: 'Droid Sans', sans-serif;
+    text-decoration: none;
+    position: absolute;
+    right: 8px;
+    font-weight: 400;
+    color: #364D55;
+    z-index: 999
+}
+
+div.wrc_pricing_table div.package_caption span.cap_tooltip:hover:after {
+    background: #F8F8FF;
+    border: 1px solid #aaa;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    top: -20px;
+    left: 35px;
+    color: #333;
+    content: attr(rel);
+    padding: 10px 20px;
+    position: absolute;
+    z-index: 98;
+    width: 150px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+}
+
+div.wrc_pricing_table div.package_caption span.cap_tooltip:hover:before {
+    border: solid;
+    border-color: transparent #aaa transparent transparent;
+    border-width: 10px;
+    bottom: -4px;
+    content: "";
+    left: 16px;
+    position: absolute;
+    z-index: 99;
+}
+
+/* pricing column ribbon 1 */
+div.wrc_pricing_table div.package_details li .wrc-ribbon {
+    position: absolute;
+    top: 63px;
+    right: -7px;
+    overflow: visible;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    z-index: 9999
+}
+
+div.wrc_pricing_table div.package_details li .wrc-ribbon:before {
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    border-color: transparent rgba(0, 0, 0, 0.3) transparent transparent;
+    border-width: 12px 24px 12px 0;
+    border-style: solid
+}
+
+div.wrc_pricing_table div.package_details li .wrc-ribbon:after {
+    content: "";
+    height: 2px;
+    background: rgba(0, 0, 0, 0.3);
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 27px;
+    right: 5px
+}
+
+div.wrc_pricing_table div.package_details li .wrc-ribbon a {
+    display: block;
+    padding: 0 20px 0 5px;
+    position: relative;
+    background: #cb0000;
+    background: -moz-linear-gradient(left, #fe0000, #cb0000);
+    background: -webkit-linear-gradient(left, #fe0000, #cb0000);
+    background: -o-linear-gradient(left, #fe0000, #cb0000);
+    background: -ms-linear-gradient(left, #fe0000, #cb0000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe0000', endColorstr='#cb0000', GradientType=1);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe0000', endColorstr='#cb0000', GradientType=1);
+    background: linear-gradient(to right, #fe0000, #cb0000);
+    overflow: visible;
+    height: 24px;
+    margin-left: 29px;
+    color: #fff;
+    text-decoration: none
+}
+
+div.wrc_pricing_table div.package_details li .wrc-ribbon a:after {
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    border-top: 8px solid #4F0000;
+    border-right: 8px solid transparent
+}
+
+div.wrc_pricing_table div.package_details li .wrc-ribbon a:before {
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: -24px;
+    border-color: transparent #fe0000 transparent transparent;
+    border-width: 12px 24px 12px 0px;
+    border-style: solid
+}
+
+div.wrc_pricing_table div.package_details:hover li .wrc-ribbon a:before {
+    left: -23px
+}
+
+.wrcpt_content .price-toggle-two {
+    display: none
+}
+
+div.wrc_clear {
+    clear: both
+}
+
+@media only screen and (max-width : 480px) {
+    div.wrc_pricing_table .center {
+        text-align: left
+    }
+
+    div.wrc_pricing_table div.package_caption {
+        display: none
+    }
+
+    div.wrc_pricing_table div.package_details {
+        width: 98%
+    }
+
+    div.wrc_pricing_table div.package_details span.feature_empty {
+        display: none !important
+    }
+
+    div.wrc_pricing_table .package_details span.text_tooltip:hover:after,
+    div.wrc_pricing_table .package_details span.icon_tooltip:hover:after {
+        left: auto !important;
+        right: -30px !important
+    }
+}
+
+@media only screen and (min-width : 481px) and (max-width: 1023px) {
+    div.wrc_pricing_table .center {
+        text-align: left
+    }
+
+    div.wrc_pricing_table div.package_caption {
+        display: none
+    }
+
+    div.wrc_pricing_table div.package_details {
+        width: 49.75%
+    }
+
+    div.wrc_pricing_table div.package_details span.feature_empty {
+        display: none !important
+    }
+}
+
+@media only screen and (min-width : 768px) and (max-width: 860px) {
+    .wrcpt_content h3.caption {
+        font-size: 24px !important
+    }
+
+    div.wrc_pricing_table div.package_details li.pricing_table_button .action_button {
+        font-size: 10px !important
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    div.wrc_pricing_table h2 {
+        font-size: 48px
+    }
+
+    div.wrc_pricing_table div.package_caption {
+        width: 23%
+    }
+
+    div.wrc_pricing_table div.package_details {
+        width: 19.144%;
+        margin-bottom: 10px
+    }
+
+    div.wrc_pricing_table div.package_details li.feature_style_1 span.hide-fa-icon,
+    div.wrc_pricing_table div.package_details span.media_screen {
+        display: none !important
+    }
+
+    div.wrc_pricing_table .package_details:last-child span.text_tooltip:hover:after,
+    div.wrc_pricing_table .package_details:last-child span.icon_tooltip:hover:after {
+        left: auto !important;
+        right: -30px !important
+    }
+}

@@ -1,0 +1,203 @@
+@media only screen and (min-width:761px) and (max-width:1164px) {
+img {max-width:100%; height:auto;}
+.topsection-main{ width:99%; margin:0px auto;}
+.topsection-main-right{ width:590px;}
+
+.logosection{ width:98%; margin:0px auto;}
+.logosection-main-right ul li a{ font-size:13px; padding:0px 7px;}
+.banner-section-main{ width:98%; margin:0px auto;}
+.banner-section-main-left{ width:47%}.banner-section-main-left h3{font-size:32px; line-height:36px; margin-bottom: 0px;}
+.banner-section-main-left h2{font-size:42px; line-height:42px; }
+.banner-section-main-left h2 span{font-size:42px; line-height:42px;}
+.banner-section-main-left h5{ color:#9bd6ff; font-size:14px; line-height:normal; font-weight:600; margin-bottom:15px; }
+
+.manpic{ display:none;}
+
+.homeabout-main{ width:98%; margin:0px auto;}
+.homeabout-main-right{ width:30%;}
+.homeabout-main-left{ width:68%;}
+.choose-section-main{ width:98%; margin:0px auto;}
+.choose-section-main-left{ width:100%; float:none; padding:0px; margin:0px auto 15px auto;}
+.choose-section-main-right{ float:none; padding:0px; margin:0px auto 15px auto;}
+
+
+.homeabout-main{ width:98%; margin:0px auto;}
+.homeabout-main-right{ width:310px; margin:0px auto 15px auto; float:none;}
+.homeabout-main-left{ width:100%; float:none; padding:0px; margin:0px auto;}
+
+.choose-section-main{ width:98%; margin:0px auto;}
+.choose-section-main h2{ font-size:21px; line-height:normal;}
+.choose-section-main-left{ width:100%; float:left; padding:0px; margin:0px auto 10px auto;}
+.choose-section-main-right{ width:310px; float:none; padding:0px; margin:0px auto;}
+
+.choose-section-main-left01{ width:370px; float:none; padding:0px; margin:0px auto;}
+.choose-section-main-left02{ width:370px; float:none; padding:0px; margin:0px auto;}
+
+.homenews-section-main{ width:98%; margin:0px auto;}
+.homenews-section-main-left{ width:98%; float:none; padding:0px; margin:0px auto 15px auto;}
+.homenews-section-main-middle{ width:98%; float:none; margin:0px auto 15px auto;}
+.homenews-section-main-right{width:98%; float:none; margin:0px auto 15px auto;}
+.graysection-main{ width:98%; margin:0px auto;}
+.graysection-main01{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main02{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main03{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main04{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.collapsible, .page_collapsible, .accordion{ font-size:14px;}
+
+.bannersection-inner-main{ width:96%; margin:0px auto;}
+.innercontent-main{ width:98%; margin:0px auto;}
+.aboutsection-right{ width:60%; }
+.aboutsection-left{ width:38%;}
+
+.contact-section-left{ width:45%;}
+.contact-section-right{ width:54%; }
+
+
+
+}
+
+@media only screen and (min-width:480px) and (max-width:760px) {
+img {max-width:100%; height:auto;}
+
+.topsection-main{ width:98%; padding:5px 0px; margin:0px auto;}
+.topsection-main-left{ width:157px; float:none; padding:0px; margin:0px auto;}
+.topsection-main-right{ width:100%; float:none; padding:0px; margin:0px auto;}
+.topsection-main-right01{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.topsection-main-right01 ul li{ border:none;}
+.topsection-main-right02{ float:none; padding:0px; margin:0px auto;}
+
+.logosection-main{ width:98%; margin:0px auto;}
+.logosection-main-left{ width:100%; float:none;  margin:0px auto; text-align:center;}
+
+.banner-section-main{ width:98%; margin:0px auto; padding:20px 0px;}
+.banner-section-main-left{ width:100%; float:none; padding:0px; margin:0px auto;}
+.banner-section-main-left h3{font-size:32px; line-height:36px; margin-bottom: 0px;}
+.banner-section-main-left h2{font-size:42px; line-height:42px; }
+.banner-section-main-left h2 span{font-size:42px; line-height:42px;}
+.banner-section-main-left h5{ color:#9bd6ff; font-size:14px; line-height:normal; font-weight:600; margin-bottom:15px; }
+.manpic{ display:none;}
+.banner-section-main-right{ width:370px; float:none; padding:0px; margin:0px auto;}
+.namesec{ width:98%;}
+
+
+.services-section-main{ width:98%; height:auto; padding:20px 0px; margin:0px auto;}
+.services-section-main p{ font-size:14px; line-height:23px; font-weight:400;}
+
+
+
+.homeabout-main{ width:98%; margin:0px auto;}
+.homeabout-main-right{ width:310px; margin:0px auto 15px auto; float:none;}
+.homeabout-main-left{ width:100%; float:none; padding:0px; margin:0px auto;}
+
+.choose-section-main{ width:98%; margin:0px auto;}
+.choose-section-main h2{ font-size:21px; line-height:normal;}
+.choose-section-main-left{ width:100%; float:left; padding:0px; margin:0px auto 10px auto;}
+.choose-section-main-right{ width:310px; float:none; padding:0px; margin:0px auto;}
+
+.choose-section-main-left01{ width:370px; float:none; padding:0px; margin:0px auto;}
+.choose-section-main-left02{ width:370px; float:none; padding:0px; margin:0px auto;}
+
+.homenews-section-main{ width:98%; margin:0px auto;}
+.homenews-section-main-left{ width:98%; float:none; padding:0px; margin:0px auto 15px auto;}
+.homenews-section-main-middle{ width:98%; float:none; margin:0px auto 15px auto;}
+.homenews-section-main-right{width:98%; float:none; margin:0px auto 15px auto;}
+
+.graysection-main{ width:98%; margin:0px auto;}
+.graysection-main01{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main02{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main03{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main04{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.collapsible, .page_collapsible, .accordion{ font-size:14px;}
+
+.bannersection-inner-main{ width:96%; margin:0px auto;}
+.innercontent-main{ width:98%; margin:0px auto;}
+.aboutsection-right{ width:100%; float:none; padding:0px; margin:0px auto 25px auto;}
+.aboutsection-left{ width:310px; float:none; margin:0px auto 20px auto;}
+
+.contact-section-left{ width:460px; float:none; padding:4%; margin:0px auto 15px auto;}
+.contact-section-right{ width:460px; float:none; padding:4%; margin:0px auto 15px auto;}
+
+
+
+
+
+}
+
+
+@media only screen and (min-width:320px) and (max-width:479px){
+img {max-width:100%; height:auto;}
+.topsection-main{ width:98%; padding:5px 0px; margin:0px auto;}
+.topsection-main-left{ width:157px; float:none; padding:0px; margin:0px auto;}
+.topsection-main-right{ width:100%; float:none; padding:0px; margin:0px auto;}
+.topsection-main-right01{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.topsection-main-right01 ul li{ border:none;}
+.topsection-main-right02{ float:none; padding:0px; margin:0px auto;}
+
+.logosection-main{ width:98%; margin:0px auto;}
+.logosection-main-left{ width:100%; float:none;  margin:0px auto; text-align:center;}
+
+.banner-section-main{ width:98%; margin:0px auto; padding:20px 0px;}
+.banner-section-main-left{ width:100%; float:none; padding:0px; margin:0px auto;}
+.banner-section-main-left h3{font-size:32px; line-height:36px; margin-bottom: 0px;}
+.banner-section-main-left h2{font-size:42px; line-height:42px; }
+.banner-section-main-left h2 span{font-size:42px; line-height:42px;}
+.banner-section-main-left h5{ color:#9bd6ff; font-size:14px; line-height:normal; font-weight:600; margin-bottom:15px; }
+
+.manpic{ display:none;}
+.banner-section-main-right{ width:312px; float:none; padding:0px; margin:0px auto;}
+.namesec{ width:98%;}
+.banner-section-main-right01-right{ width:211px;}
+.banner-section-main-right01-right h6{ font-size:10px;}
+
+.services-section-main{ width:98%; height:auto; padding:20px 0px; margin:0px auto;}
+.services-section-main p{ font-size:14px; line-height:23px; font-weight:400;}
+
+.services-section-main01{ width:98%; margin:0px auto 25px auto;}
+.services-section-main01-right h5{ display:none;}
+.services-section-main01-right{ margin:0px auto 10px auto; float:none;}
+.services-section-main01-left{ width:100%; float:none; margin:0px auto;}
+
+.homeabout-main{ width:98%; margin:0px auto;}
+.homeabout-main-right{ width:310px; margin:0px auto 15px auto; float:none;}
+.homeabout-main-left{ width:100%; float:none; padding:0px; margin:0px auto;}
+
+.choose-section-main{ width:98%; margin:0px auto;}
+.choose-section-main h2{ font-size:21px; line-height:normal;}
+.choose-section-main-left{ width:100%; float:left; padding:0px; margin:0px auto 10px auto;}
+.choose-section-main-right{ width:310px; float:none; padding:0px; margin:0px auto;}
+
+.choose-section-main-left01{ width:100%; float:none; padding:0px; margin:0px auto;}
+.choose-section-main-left02{ width:100%; float:none; padding:0px; margin:0px auto;}
+
+.choose-box-left{ float:none; margin:0px auto 15px auto;}
+.choose-box-right{ float:none; margin:0px auto 15px auto;}
+
+.homenews-section-main{ width:98%; margin:0px auto;}
+.homenews-section-main-left{ width:98%; float:none; padding:0px; margin:0px auto 15px auto;}
+.homenews-section-main-middle{ width:98%; float:none; margin:0px auto 15px auto;}
+.homenews-section-main-right{width:98%; float:none; margin:0px auto 15px auto;}
+
+.graysection-main{ width:98%; margin:0px auto;}
+.graysection-main01{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main02{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main03{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.graysection-main04{ width:100%; float:none; padding:0px; margin:0px auto 20px auto;}
+.collapsible, .page_collapsible, .accordion{ font-size:14px;}
+
+.bannersection-inner-main{ width:96%; margin:0px auto;}
+.innercontent-main{ width:98%; margin:0px auto;}
+.aboutsection-right{ width:100%; float:none; padding:0px; margin:0px auto 25px auto;}
+.aboutsection-right h4{ font-size:15px; line-height:22px; padding-left:5px;}
+.aboutsection-left{ width:310px; float:none; margin:0px auto 20px auto;}
+.titelsec h6{ font-size:14px;}
+.innerservices01 .leftpic{ width:230px; float:none; padding:0px; margin:0px auto 25px auto; }
+
+.contact-section-left{ width:312px; float:none; padding:2%; margin:0px auto 15px auto;}
+.contact-section-right{ width:312px; float:none; padding:2%; margin:0px auto 15px auto;}
+
+
+
+}
+
+
+

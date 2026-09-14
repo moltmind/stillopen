@@ -1,0 +1,69 @@
+
+.collapsible,
+.page_collapsible,
+.accordion {
+	margin: 0;
+    padding:2px;
+    height:26px;
+    text-decoration:none;
+    color:#727272;
+    font-size:12px; line-height:17px; font-weight:400;
+    width:100%;
+	cursor:pointer;
+}
+.accordion-open,
+.collapse-open {
+	color:#2877d1;
+	
+}
+.accordion-open span,
+.collapse-open span {
+	display:block;
+	float:left;
+	padding:10px;
+    width:auto;
+	margin-right:6px;
+
+}
+.accordion-open span,
+.collapse-open span {
+    width:auto;
+	background:url(../images/minus.png) left center no-repeat;
+}
+.accordion-close span,
+.collapse-close span {
+	display:block;
+	float:left;
+	background:url(../images/accord-plus.png) left center no-repeat;
+	padding:10px;
+	margin-right:6px;
+
+}
+div.container {
+	padding:0;
+	margin:0;
+}
+div.content {
+	background:#f0f0f0;
+	margin: 0;
+    padding:10px;
+	font-size:.9em;
+	line-height:1.5em;
+	font-family:"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+div.content ul, div.content p {
+	padding:0;
+	margin:0;
+	padding:3px;
+}
+div.content ul li {
+	list-style-position:inside;
+	line-height:25px;
+}
+div.content ul li a {
+	color:#555555;
+}
+code {
+	overflow:auto;
+}
+
