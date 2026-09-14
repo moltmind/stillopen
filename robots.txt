@@ -83,3 +83,4 @@ Disallow: /genrich-plumbing/
 Disallow: /klasinski-plumbing/
 Disallow: /bd-plumbing-wausau/
 Disallow: /brauns-automotive/
+Disallow: /jays-plumbing-wausau/
