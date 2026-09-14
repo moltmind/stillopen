@@ -91,3 +91,5 @@ Disallow: /high-temp-heating/
 Disallow: /design-heating-duluth/
 Disallow: /kalkbrenner-plumbing/
 Disallow: /bills-plumbing-platteville/
+Disallow: /dons-hvac-wells/
+Disallow: /macatawa-plumbing/
