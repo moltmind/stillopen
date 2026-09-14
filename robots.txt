@@ -84,3 +84,4 @@ Disallow: /klasinski-plumbing/
 Disallow: /bd-plumbing-wausau/
 Disallow: /brauns-automotive/
 Disallow: /jays-plumbing-wausau/
+Disallow: /scotts-towing-chilton/
