@@ -144,3 +144,5 @@ Disallow: /optimum-heating-clarksville/
 Disallow: /c-and-e-heating-athens/
 Disallow: /freds-plumbing-missoula/
 Disallow: /shedhorn-plumbing-helena/
+Disallow: /robinson-heating-rocky-mount/
+Disallow: /city-plumbing-hot-springs/
