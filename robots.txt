@@ -149,3 +149,4 @@ Disallow: /city-plumbing-hot-springs/
 Disallow: /pilewski-plumbing-fairview/
 Disallow: /to-plumbing-fayetteville/
 Disallow: /32-heating-crawfordsville/
+Disallow: /wallpe-heating-greensburg/
