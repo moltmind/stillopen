@@ -140,3 +140,4 @@ Disallow: /partners/cal/
 Disallow: /partners/walkthrough/
 Disallow: /mountain-plumbing-laconia/
 Disallow: /grafs-tin-shop-cullman/
+Disallow: /optimum-heating-clarksville/
