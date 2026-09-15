@@ -76,10 +76,17 @@
   })();
 
   const IS_SALES_MODE = !PLUMBER_ID || PLUMBER_ID === "stillopen" || PLUMBER_ID === "stillopen-sales";
+  // A demo (id starting "demo-") is a sample front desk on a copy of a
+  // prospect's site: no calendar behind it, so it must not open by promising
+  // to book. It takes the details and the shop calls back. Paid bots keep the
+  // booking line because they really do book. (Caught 2026-09-14 by the crew.)
+  const IS_DEMO = !!PLUMBER_ID && PLUMBER_ID.indexOf("demo-") === 0;
 
   const OPENING_MESSAGE = IS_SALES_MODE
     ? "Hi, I'm Paul, the AI front desk on this site. Ask me anything about StillOpen, the pricing, how it works, or what it would do for your shop. I can also book you a 10 minute demo with Cole if you want to talk to the guy who built it."
-    : "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book an appointment for you right now. What's going on?";
+    : IS_DEMO
+      ? "Hi there. I'm the front desk. Ask me about our services or hours, or tell me what's going on and I'll get your details to the owner so he can call you back. What do you need?"
+      : "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book an appointment for you right now. What's going on?";
 
   // ─── COLORS (Day 2 placeholder palette) ──────────────────────────────────────
   // PLACEHOLDER from the Day 2 rip pass. Neutral white-bg + dark slate text +
