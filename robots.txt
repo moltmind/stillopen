@@ -109,3 +109,4 @@ Disallow: /ott-plumbing-toledo/
 Disallow: /fs-williams-lafayette/
 Disallow: /advanced-plumbing-gladwin/
 Disallow: /pine-tree-heating-lapeer/
+Disallow: /thiele-heating-beloit/
