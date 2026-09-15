@@ -111,3 +111,30 @@ Disallow: /advanced-plumbing-gladwin/
 Disallow: /pine-tree-heating-lapeer/
 Disallow: /thiele-heating-beloit/
 Disallow: /r-plumbing-watertown/
+
+# Code, build output, drafts and internal tools. These live in the repo because
+# it's version controlled, but none of them are pages. Added 2026-09-14 after an
+# SEO pass found them crawlable.
+Disallow: /app/
+Disallow: /drafts/
+Disallow: /scripts/
+Disallow: /tools/
+Disallow: /test/
+Disallow: /hooks/
+Disallow: /functions/
+Disallow: /backups/
+Disallow: /node_modules/
+Disallow: /hero-landscape-60s/
+Disallow: /video-promo-15s/
+Disallow: /video-ad-2026-04-23/
+Disallow: /v2/index.html
+Disallow: /index-v1.html
+Disallow: /checkout-error.html
+Disallow: /retired.html
+Disallow: /pro-install-confirmed/
+
+# Private tools and redirect stubs. Each one also carries its own noindex tag.
+Disallow: /wake/
+Disallow: /founders/
+Disallow: /partners/cal/
+Disallow: /partners/walkthrough/
