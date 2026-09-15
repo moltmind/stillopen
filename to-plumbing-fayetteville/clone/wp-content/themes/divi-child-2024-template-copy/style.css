@@ -1,0 +1,137 @@
+/*
+ Theme Name:     CGI Digital Divi Child
+ Theme URI:      https://www.elegantthemes.com/gallery/divi/
+ Description:    Divi Child Theme
+ Author:         Elegant Themes
+ Author URI:     https://www.elegantthemes.com
+ Template:       Divi
+ Version:        1.0.0
+*/
+ 
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+
+/**** DEFAULT DIVI CHILD TEMPLATE STYLES ****/
+
+/*Bug Fix - Remove unwanted text link decoration*/
+.et_pb_text_inner a, .et_pb_button, .nav a, .et_mobile_menu a, .menu-item a, .et-pb-slider-arrows a {
+	Text-decoration:none;
+}
+
+/*** HEADER ***/
+/*"Default header - Adjusted width for tablet and mobile*/
+/**makes menu dropdown wider**/
+@media (max-width: 981px) {
+	.container {
+		max-width: 100%!important;
+		width: 90%!important;
+	}
+}/*end*/
+/*** HEADER END ***/
+
+/*** FOOTER ***/
+/*Default footer - Menu items alignment*/
+.bottom-nav {
+text-align: center;
+}/*end*/
+
+/*Default footer - Copyright information*/
+#footer-info {
+	float: none;
+	text-align: center;
+	line-height: 1.4em;
+}/*end*/
+/*** FOOTER END ***/
+
+/*Button Module > Display inline */
+/* Use to inline buttons */
+.btn-inline .et_pb_button_module_wrapper {
+  display: inline-block;
+  padding-bottom: 12px;
+  margin: 0 10px;
+}
+
+/* Use .btn-inline-center for inline and centered */
+.btn-inline-center .et_pb_button_module_wrapper {
+  display: inline-block;
+  padding-bottom: 12px;
+  margin: 0 10px;
+}
+.btn-inline-center {
+  text-align:center;
+} /*end*/
+
+/* WPForms */
+/* Submit button */ /*
+.wpforms-form button[type=submit] {
+	background-color: #000000 !important;
+	border: 0px solid #000000!important;
+	border-radius: 0px!important;
+	font-size: 16px !important;
+	font-family:kepler-std,serif!important;
+	font-weight:300!important;
+	text-transform:uppercase!important;
+	color: #fff !important;
+	transition: all 300ms ease 0ms;
+} */
+
+/** Submit button hover **/ /*
+.wpforms-form button[type=submit]:hover {
+	background-color: #5B5B5B !important;
+} */ /*end*/
+
+/** Hide Secondary menu in mobile **/ 
+/*#mobile_menu li:not([id]) { display:none !important; }*/
+
+.mobile-cta {text-align:center; padding:5px;}
+
+@media (min-width: 991px) {
+.mobile-cta {display:none;}
+}
+
+.mfp-title{
+ display: none;   
+}
+
+.et_pb_blurb_content, .et_pb_circle_counter, .et_pb_contact_main_title, .et_pb_countdown_timer_container, .et_pb_counter_title, .et_pb_gallery_item, .et_pb_newsletter_description, .et_pb_number_counter, .et_pb_portfolio_item, .et_pb_post, .et_pb_pricing_content, .et_pb_pricing_heading, .et_pb_promo_description, .et_pb_slide_description, .et_pb_tab, .et_pb_tabs_controls, .et_pb_team_member, .et_pb_testimonial_description_inner,.et_pb_text,.et_pb_toggle_content, .et_pb_toggle_title, .et_pb_widget, .product{
+	word-wrap: normal !important;}
+
+.offscreen{
+ display: none;   
+}
+
+.tbox {
+    z-index: 200050 !important;
+}
+ul#top-menu li.footer-menu-only, ul#mobile_menu li.footer-menu-only, ul#mobile_menu_slide li.footer-menu-only {
+	display:none;
+}
+
+#left-area {
+	width:100%;
+	float:none;
+}
+
+#main-content .container:before, #sidebar {
+	display:none;
+}
+
+/*
+.et_pb_menu__menu {
+	display:block !important;
+}
+.et_mobile_nav_menu {
+	display:none !important;
+}
+/*disable hamburger on mobile menus*/
+.cgi-hide-mobile-menu.et_pb_menu .et_pb_menu__menu,.cgi-hide-mobile-menu.et_pb_fullwidth_menu .et_pb_menu__menu {
+    display: flex!important;
+}
+ 
+.cgi-hide-mobile-menu .et_mobile_nav_menu {
+    display: none;
+}
+/*end*/
+
+/**** END DEFAULT DIVI CHILD TEMPLATE STYLES ****/
