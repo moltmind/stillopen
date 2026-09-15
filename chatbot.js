@@ -809,12 +809,14 @@
   // Once per browser session, tell the worker this client's site got a pageview
   // so the client's Morning Report can show real website traffic. Fire-and-forget:
   // wrapped in try/catch and .catch so the widget works even if the ping fails.
-  // Only a real client embed pings (not the sales widget on stillopen.ai, not a
-  // demo widget). The worker records a client hit only when the id is a real
-  // user_ id, so a stray demo/sales id writes nothing. sessionStorage guards
+  // Client embeds and demo widgets ping (not the sales widget on stillopen.ai).
+  // The worker records a client hit only for a real user_ id and a demo view
+  // only for a demo- id; anything else writes nothing. sessionStorage guards
   // against re-firing on SPA route changes within the same session.
   try {
-    if (PLUMBER_ID && !IS_SALES_MODE && PLUMBER_ID.indexOf("demo-") !== 0) {
+    // Demo ids ping too since 2026-09-14: the worker files those as demo page
+    // views (hit:<day>:demo:<id>), never as client traffic.
+    if (PLUMBER_ID && !IS_SALES_MODE) {
       var beaconKey = "so_beacon_" + PLUMBER_ID;
       if (!sessionStorage.getItem(beaconKey)) {
         sessionStorage.setItem(beaconKey, "1");
