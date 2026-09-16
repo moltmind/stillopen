@@ -1,0 +1,7 @@
+/* put here your custom css styles */
+
+@media screen and (max-width: 767px) {
+	.header .logo {
+		padding-right: 50px;
+	}
+}

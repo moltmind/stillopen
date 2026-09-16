@@ -150,3 +150,13 @@ Disallow: /pilewski-plumbing-fairview/
 Disallow: /to-plumbing-fayetteville/
 Disallow: /32-heating-crawfordsville/
 Disallow: /wallpe-heating-greensburg/
+Disallow: /oak-creek-heating-cottonwood/
+Disallow: /raytech-refrigeration-alamogordo/
+Disallow: /campbells-ac-flagstaff/
+Disallow: /guys-heating-thomaston/
+Disallow: /girard-heating-westfield/
+Disallow: /pranges-heating-madison-lake/
+Disallow: /haltys-plumbing-iron-mountain/
+Disallow: /new-holland-hvac/
+Disallow: /kinn-brothers-bucyrus/
+Disallow: /consolidated-hunter-celina/

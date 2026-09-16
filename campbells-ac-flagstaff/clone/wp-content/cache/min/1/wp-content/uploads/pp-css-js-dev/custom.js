@@ -1,0 +1,1 @@
+jQuery(function(){if('undefined'!=typeof FLBuilderLayoutConfig){FLBuilderLayoutConfig.anchorLinkAnimations.duration=1000;FLBuilderLayoutConfig.anchorLinkAnimations.easing='swing';FLBuilderLayoutConfig.anchorLinkAnimations.offset=250}})
