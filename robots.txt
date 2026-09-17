@@ -165,3 +165,5 @@ Disallow: /ramsey-heating-burley/
 Disallow: /three-peaks-heating-redmond/
 Disallow: /gills-heating-winchester/
 Disallow: /marshall-well-drilling-wisconsin-dells/
+Disallow: /earl-sanders-well-drilling-lawton/
+Disallow: /fritz-bros-honesdale/

@@ -1,0 +1,36 @@
+/*
+Theme Name: Imperial IPA
+Description: A custom child theme for Jump Start v2
+Author: Rumspeed
+Author URI: http://rumspeed.com
+Version: 1.0.0
+Template: jumpstart2
+*/
+
+/* Your custom CSS here */
+
+
+/* start GRAVITY FORMS */
+.tb-gforms-compat .gform_wrapper input[type=text],
+.tb-gforms-compat .gform_wrapper input[type=url],
+.tb-gforms-compat .gform_wrapper input[type=email],
+.tb-gforms-compat .gform_wrapper input[type=tel],
+.tb-gforms-compat .gform_wrapper input[type=number],
+.tb-gforms-compat .gform_wrapper input[type=password],
+.tb-gforms-compat .gform_wrapper textarea,
+.tb-gforms-compat .gform_wrapper select {
+	font-size: 20px;
+	background-color: #D6D6D6;
+	color: #000;
+	font-weight: 700;
+	height: 2.3rem;
+	}
+.tb-gforms-compat .gform_wrapper textarea {
+	height: 8rem;
+	}
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type=submit] {
+	background-color: #009004;
+	color: #FFF;
+	}
+/* end GRAVITY FORMS */
