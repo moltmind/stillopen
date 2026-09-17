@@ -168,3 +168,5 @@ Disallow: /marshall-well-drilling-wisconsin-dells/
 Disallow: /earl-sanders-well-drilling-lawton/
 Disallow: /fritz-bros-honesdale/
 Disallow: /montgomery-well-drilling-plymouth/
+Disallow: /clampitts-well-systems-gray/
+Disallow: /georgia-well-co-newnan/
