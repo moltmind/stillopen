@@ -163,3 +163,5 @@ Disallow: /consolidated-hunter-celina/
 Disallow: /edwardson-plumbing-edgerton/
 Disallow: /ramsey-heating-burley/
 Disallow: /three-peaks-heating-redmond/
+Disallow: /gills-heating-winchester/
+Disallow: /marshall-well-drilling-wisconsin-dells/
