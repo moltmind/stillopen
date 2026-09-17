@@ -160,3 +160,4 @@ Disallow: /haltys-plumbing-iron-mountain/
 Disallow: /new-holland-hvac/
 Disallow: /kinn-brothers-bucyrus/
 Disallow: /consolidated-hunter-celina/
+Disallow: /edwardson-plumbing-edgerton/
