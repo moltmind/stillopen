@@ -1,0 +1,83 @@
+﻿/* Volkhov */
+.font-body,
+.font-body-Volkhov,
+.font-body-Volkhov .form label,
+.font-body-Volkhov .businessinfo label,
+.font-body-Volkhov .products .filter-item label.form-check-label,
+.font-body-Volkhov .contact-details,
+.font-body-Volkhov .gallery-img-text {
+    font-family: "Volkhov", serif;
+    font-weight: 400;
+}
+
+    .font-body-Volkhov .font-bold,
+    .font-body-Volkhov .header .nav-link,
+    .font-body-Volkhov .header .dropdown-item,
+    .font-body-Volkhov .footer .nav-link,
+    .font-body-Volkhov .footer .dropdown-item,
+    .font-body-Volkhov .gallery .gallery-img-wrap,
+    .font-body-Volkhov .btn,
+    .font-body-Volkhov .eCommerce label,
+    .font-body-Volkhov .product-results,
+    .font-body-Volkhov .btn-link,
+    .font-body-Volkhov .employees .employees-title,
+    .font-body-Volkhov .page-item.active .page-link,
+    .font-body-Volkhov .modal-success .modal-title {
+        font-family: "Volkhov", serif;
+        font-weight: 700;
+    }
+
+    .font-body-Volkhov .form a,
+    .font-body-Volkhov .businessinfo .form-wrap a {
+        font-weight: 700;
+    }
+
+    .font-body-Volkhov .shoppingcart-message.alert-primary {
+        font-weight: 700;
+    }
+
+.products-popover .popover-body {
+    font-size: .8rem;
+}
+
+.font-body-Volkhov .employees .employees-title,
+.font-body-Volkhov .productdetails-share-link {
+    text-transform: none;
+}
+
+.font-body-Volkhov .btn {
+    line-height: 1.7;
+}
+
+.font-body-Volkhov .btn-group-sm > .btn,
+.font-body-Volkhov .btn-sm {
+    line-height: 1.8;
+    padding-bottom: .5em;
+}
+
+.font-body-Volkhov .btn-group-xs > .btn,
+.font-body-Volkhov .btn-xs {
+    line-height: 1.5;
+}
+
+.font-body-Volkhov .products .product-price-currency,
+.font-body-Volkhov .products .product-price-change {
+    margin-top: -.3em;
+}
+
+.font-body-Volkhov .products .product-price-sale-beforeprice:after {
+    top: 43%;
+}
+
+.font-body-Volkhov .products-modal .product-price-currency,
+.font-body-Volkhov .products-modal .product-price-change {
+    margin-top: -.15em;
+}
+
+.font-body-Volkhov .quantity-form-group .form-control {
+    padding-top: .5em;
+}
+
+.font-body-Volkhov .contact-details {
+    font-size: .9em;
+}

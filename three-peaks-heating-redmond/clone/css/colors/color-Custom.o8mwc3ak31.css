@@ -1,0 +1,578 @@
+/*===================================================================================================
+  CustomColor 
+===================================================================================================*/
+:root {
+  --color-theme-background: #fff;
+  --color-theme-text: #0F0F0F;
+  --color-theme-primary: #0F0F0F;
+  --color-theme-secondary: #616161;
+  --color-theme-highlight: #a2a3a5;
+  --color-theme-border: #ddd;
+  --color-theme-header: #0F0F0F;
+  --color-theme-text-btn: #fff;
+  --color-theme-text-link: #0F0F0F;
+  --color-theme-trans: transparent;
+}
+
+/* Body
+===================================================================*/
+body,
+.dropdown-menu {
+  background-color: var(--color-theme-background);
+  color: var(--color-theme-text);
+}
+
+/* Border
+===================================================================*/
+hr {
+  border-top-color: var(--color-theme-border);
+}
+
+.dropdown-menu {
+  border-color: var(--color-theme-border);
+}
+
+/* Buttons & Links 
+===================================================================*/
+a {
+  color: var(--color-theme-text-link);
+}
+a:hover {
+  color: var(--color-theme-highlight);
+}
+
+.btn-link {
+  color: var(--color-theme-secondary);
+}
+.btn-link:hover {
+  color: var(--color-theme-highlight);
+}
+
+.btn-primary,
+.btn-primary:focus {
+  background-color: var(--color-theme-primary);
+  color: var(--color-theme-text-btn);
+  border-color: var(--color-theme-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:hover:focus,
+.btn-primary:not([disabled]):not(.disabled).active,
+.btn-primary:not([disabled]):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: var(--color-theme-highlight);
+  color: var(--color-theme-text-btn) !important;
+  border-color: var(--color-theme-highlight);
+}
+
+.btn-primary:before {
+  background: var(--color-theme-highlight);
+}
+
+.btn-secondary,
+.btn-secondary:focus {
+  background-color: var(--color-theme-secondary);
+  color: var(--color-theme-text-btn);
+  border-color: var(--color-theme-secondary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:not([disabled]):not(.disabled).active,
+.btn-secondary:not([disabled]):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  background-color: var(--color-theme-highlight);
+  color: var(--color-theme-text-btn) !important;
+  border-color: var(--color-theme-highlight);
+}
+
+.btn-secondary:before {
+  background: var(--color-theme-highlight);
+}
+
+.btn-outline-secondary,
+.btn-outline-secondary:focus {
+  background-color: var(--color-theme-trans);
+  color: var(--color-theme-text);
+  border-color: var(--color-theme-text);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:not([disabled]):not(.disabled).active,
+.btn-outline-secondary:not([disabled]):not(.disabled):active,
+.show > .btn-outline-secondary.dropdown-toggle {
+  background-color: var(--color-theme-highlight);
+  color: var(--color-theme-text-btn) !important;
+  border-color: var(--color-theme-highlight);
+}
+
+.btn-outline-secondary:before {
+  background: var(--color-theme-highlight);
+}
+
+/* Pagination 
+===================================================================*/
+.page-link,
+.page-link:focus {
+  color: var(--color-theme-text);
+}
+
+.page-link:hover {
+  color: var(--color-theme-text-btn) !important;
+  border-color: var(--color-theme-primary);
+}
+
+.page-link:hover:before {
+  background-color: var(--color-theme-primary);
+}
+
+.page-item.active .page-link {
+  color: var(--color-theme-text-btn);
+  background-color: var(--color-theme-primary);
+  border-color: var(--color-theme-primary);
+}
+
+.page-item.active .page-link:before {
+  background-color: var(--color-theme-primary);
+}
+
+/* Illustrations - Errors & Empty Messages 
+===================================================================*/
+.emer-c1 {
+  fill: var(--color-theme-highlight);
+}
+
+.emer-c1-stroke {
+  stroke: var(--color-theme-highlight);
+}
+
+.emer-c2 {
+  fill: var(--color-theme-text);
+}
+
+.emer-c2-opacity {
+  fill-opacity: 0.15;
+}
+
+.emer-c3 {
+  fill: var(--color-theme-background);
+}
+
+.emer-c4 {
+  fill: var(--color-theme-primary);
+}
+
+.emer-c5 {
+  fill: var(--color-theme-secondary);
+}
+
+#Path_343,
+#Path_350,
+#Path_323 {
+  fill: var(--color-theme-highlight);
+}
+
+/* Forms 
+===================================================================*/
+.form-control:focus,
+.productdetails-payment select:focus {
+  border-color: var(--color-theme-secondary);
+}
+
+[type=checkbox] + label::before,
+[type=radio] + label::before {
+  border-color: var(--color-theme-text);
+  color: var(--color-theme-text);
+}
+
+[type=checkbox]:hover + label::before,
+[type=radio]:hover + label::before {
+  border-color: var(--color-theme-primary);
+}
+
+[type=checkbox] + label::after,
+[type=radio] + label::after {
+  background-color: var(--color-theme-primary);
+}
+
+[type=radio]:checked + label::after {
+  background: var(--color-theme-primary);
+}
+
+[type=radio]:checked + label::before {
+  border-color: var(--color-theme-primary);
+}
+
+[type=checkbox] + label::after {
+  border-color: var(--color-theme-text-btn);
+}
+
+[type=checkbox]:checked + label::before {
+  background: var(--color-theme-primary);
+  border-color: var(--color-theme-primary);
+}
+
+/* Sitemap 
+===================================================================*/
+.sitemap-title {
+  border-bottom-color: var(--color-theme-border);
+  color: var(--color-theme-header);
+}
+
+.sitemap-title .sitemap-title-container {
+  border-bottom-color: var(--color-theme-secondary);
+}
+
+/*===================================================================================================
+  Module Colors
+===================================================================================================*/
+/* Header 
+===================================================================*/
+:root {
+  --header-background: var(--color-theme-background);
+  --header-highlight: var(--color-theme-highlight);
+  --header-text: var(--color-theme-text);
+  --header-primary: var(--color-theme-primary);
+  --header-secondary: var(--color-theme-secondary);
+  --header-navigationbartext: var(--color-theme-text-btn);
+}
+
+/* Footer 
+===================================================================*/
+:root {
+  --footer-background: var(--color-theme-background);
+  --footer-highlight: var(--color-theme-highlight);
+  --footer-text: var(--color-theme-text);
+  --footer-border: var(--color-theme-border);
+}
+
+/* Line 
+===================================================================*/
+:root {
+  --line-background: var(--color-theme-background);
+  --line-border: var(--color-theme-border);
+}
+
+/* Image 
+===================================================================*/
+:root {
+  --image-background: var(--color-theme-background);
+}
+
+/* Text 
+===================================================================*/
+:root {
+  --text-background: var(--color-theme-background);
+  --text-highlight: var(--color-theme-highlight);
+}
+
+.text {
+  color: var(--color-theme-text);
+}
+
+.text a {
+  color: var(--color-theme-text-link);
+}
+
+/* Text with Image
+===================================================================*/
+:root {
+  --textwithimage-background: var(--color-theme-background);
+  --textwithimage-highlight: var(--color-theme-highlight);
+}
+
+.textwithimage {
+  color: var(--color-theme-text);
+}
+
+.textwithimage a {
+  color: var(--color-theme-text-link);
+}
+
+/* Map
+===================================================================*/
+:root {
+  --map-background: var(--color-theme-background);
+  --map-highlight: var(--color-theme-highlight);
+}
+
+.map {
+  color: var(--color-theme-text);
+}
+
+.map a {
+  color: var(--color-theme-text-link);
+}
+
+/* Title
+===================================================================*/
+:root {
+  --title-background: var(--color-theme-background);
+}
+
+.title {
+  color: var(--color-theme-header);
+}
+
+/* Spacer
+===================================================================*/
+:root {
+  --spacer-background: var(--color-theme-background);
+}
+
+/* Slideshow
+===================================================================*/
+:root {
+  --slideshow-background: var(--color-theme-background);
+  --slideshow-highlight: var(--color-theme-highlight);
+}
+
+.slideshow .slideshow-arrow.btn-slideshowarrow {
+  background: var(--color-theme-background) !important;
+  color: var(--color-theme-text) !important;
+  opacity: 0.5 !important;
+}
+
+.slideshow .slideshow-arrow.btn-slideshowarrow:hover {
+  opacity: 1 !important;
+}
+
+/* Summary List
+===================================================================*/
+:root {
+  --list-background: var(--color-theme-background);
+  --list-highlight: var(--color-theme-highlight);
+  --list-btn: var(--color-theme-primary);
+  --list-icon: var(--color-theme-primary);
+  --list-border: var(--color-theme-border);
+}
+
+/* Detailed List
+===================================================================*/
+:root {
+  --detailedlist-background: var(--color-theme-background);
+  --detailedlist-highlight: var(--color-theme-highlight);
+  --detailedlist-primary: var(--color-theme-primary);
+  --detailedlist-border: var(--color-theme-border);
+}
+
+/* Gallery
+===================================================================*/
+:root {
+  --gallery-background: var(--color-theme-background);
+  --gallery-highlight: var(--color-theme-highlight);
+  --gallery-primary: var(--color-theme-primary);
+  --gallery-title: var(--color-theme-text-btn);
+  --gallery-photocount: var(--color-theme-text-btn);
+  --gallery-buttontext: var(--color-theme-text-btn);
+  --gallery-arrows: var(--color-theme-primary);
+  --gallery-arrowicon: var(--color-theme-text-btn);
+}
+
+/* Gallery Slideshow
+===================================================================*/
+:root {
+  --galleryslideshow-background: var(--color-theme-background);
+  --galleryslideshow-highlight: var(--color-theme-highlight);
+  --galleryslideshow-arrows: var(--color-theme-secondary);
+  --galleryslideshow-arrowicon: var(--color-theme-text-btn);
+}
+
+/* Product Slideshow
+===================================================================*/
+:root {
+  --productslideshow-background: var(--color-theme-background);
+  --productslideshow-highlight: var(--color-theme-highlight);
+  --productslideshow-button: var(--color-theme-primary);
+  --productslideshow-arrows: var(--color-theme-secondary);
+  --productslideshow-header: var(--color-theme-header);
+  --productslideshow-productprice: var(--color-theme-text);
+  --productslideshow-buttontext: var(--color-theme-text-btn);
+  --productslideshow-arrowicon: var(--color-theme-text-btn);
+}
+
+/* Inventory Slideshow
+===================================================================*/
+:root {
+  --inventoryslideshow-background: var(--color-theme-background);
+  --inventoryslideshow-border: var(--color-theme-border);
+  --inventoryslideshow-highlight: var(--color-theme-highlight);
+  --inventoryslideshow-button: var(--color-theme-secondary);
+  --inventoryslideshow-arrows: var(--color-theme-primary);
+  --inventoryslideshow-header: var(--color-theme-text);
+  --inventoryslideshow-inventoryprice: var(--color-theme-text);
+  --inventoryslideshow-buttontext: var(--color-theme-text-btn);
+  --inventoryslideshow-arrowicon: var(--color-theme-text-btn);
+  --inventoryslideshow-primary: var(--color-theme-primary);
+  --inventoryslideshow-text: var(--color-theme-text);
+  --inventoryslideshow-accent: var(--color-theme-accent);
+}
+
+/* Employees
+===================================================================*/
+:root {
+  --employees-background: var(--color-theme-background);
+  --employees-highlight: var(--color-theme-highlight);
+  --employees-contactinfo: var(--color-theme-background);
+  --employees-border: var(--color-theme-border);
+  --employees-name: var(--color-theme-text);
+  --employees-title: var(--color-theme-secondary);
+  --employees-bio: var(--color-theme-text);
+  --employees-link: var(--color-theme-text-link);
+}
+
+/*  Products
+===================================================================*/
+:root {
+  --products-background: var(--color-theme-background);
+  --products-highlight: var(--color-theme-highlight);
+  --products-primary: var(--color-theme-primary);
+  --products-secondary: var(--color-theme-secondary);
+  --products-border: var(--color-theme-border);
+  --products-productname: var(--color-theme-text);
+  --products-price: var(--color-theme-text);
+  --products-text: var(--color-theme-text);
+  --products-buttontext: var(--color-theme-text-btn);
+}
+
+/*  Product Details
+===================================================================*/
+:root {
+  --productdetails-background: var(--color-theme-background);
+  --productdetails-primary: var(--color-theme-primary);
+  --productdetails-secondary: var(--color-theme-secondary);
+  --productdetails-highlight: var(--color-theme-highlight);
+  --productdetails-border: var(--color-theme-border);
+  --productdetails-header: var(--color-theme-header);
+  --productdetails-text: var(--color-theme-text);
+  --productdetails-text-btn: var(--color-theme-text-btn);
+  --productdetails-text-link: var(--color-theme-secondary);
+}
+
+.productdetails-bottom .nav-tabs .nav-item:after {
+  border-color: var(--productdetails-highlight);
+}
+
+/*  Inventory
+===================================================================*/
+:root {
+  --inventory-background: var(--color-theme-background);
+  --inventory-highlight: var(--color-theme-highlight);
+  --inventory-primary: var(--color-theme-primary);
+  --inventory-secondary: var(--color-theme-secondary);
+  --inventory-border: var(--color-theme-border);
+  --inventory-inventoryname: var(--color-theme-text);
+  --inventory-price: var(--color-theme-text);
+  --inventory-text: var(--color-theme-text);
+  --inventory-buttontext: var(--color-theme-text-btn);
+  --inventory-card-background: var(--color-theme-background);
+}
+
+/*  Vehicle Details
+===================================================================*/
+:root {
+  --inventorydetails-background: var(--color-theme-background);
+  --inventorydetails-primary: var(--color-theme-primary);
+  --inventorydetails-secondary: var(--color-theme-secondary);
+  --inventorydetails-highlight: var(--color-theme-highlight);
+  --inventorydetails-border: var(--color-theme-border);
+  --inventorydetails-header: var(--color-theme-header);
+  --inventorydetails-text: var(--color-theme-text);
+  --inventorydetails-text-btn: var(--color-theme-text-btn);
+  --inventorydetails-text-link: var(--color-theme-secondary);
+}
+
+.productdetails-bottom .nav-tabs .nav-item:after {
+  border-color: var(--vehicledetails-highlight);
+}
+
+/*  eCommerce Cart & Checkout Orders / Invoices & Qutoes
+===================================================================*/
+:root {
+  --invoicesandorders-background: var(--color-theme-background);
+  --invoicesandorders-primary: var(--color-theme-primary);
+  --invoicesandorders-secondary: var(--color-theme-secondary);
+  --invoicesandorders-highlight: var(--color-theme-highlight);
+  --invoicesandorders-border: var(--color-theme-border);
+  --invoicesandorders-header: var(--color-theme-header);
+  --invoicesandorders-text: var(--color-theme-text);
+  --invoicesandorders-text-btn: var(--color-theme-text-btn);
+  --invoicesandorders-text-link: var(--color-theme-primary);
+}
+
+.eCommerce .btn-primary,
+.eCommerce .btn-primary:focus,
+.invoicesquotes .btn-primary,
+.invoicesquotes .btn-primary:focus {
+  background-color: var(--invoicesandorders-primary);
+  border-color: var(--invoicesandorders-primary);
+}
+
+.eCommerce .btn-primary:hover,
+.eCommerce .btn-primary:hover:focus,
+.eCommerce .btn-primary:active,
+.eCommerce .btn-primary:active:focus,
+.eCommerce .btn-primary:active:hover,
+.invoicesquotes .btn-primary:hover,
+.invoicesquotes .btn-primary:hover:focus,
+.invoicesquotes .btn-primary:active,
+.invoicesquotes .btn-primary:active:focus,
+.invoicesquotes .btn-primary:active:hover {
+  background-color: var(--invoicesandorders-highlight);
+  border-color: var(--invoicesandorders-highlight);
+}
+
+.eCommerce .cartandcheckout-creditcard {
+  color: var(--invoicesandorders-primary);
+}
+
+/*  Forms
+===================================================================*/
+:root {
+  --forms-background: var(--color-theme-background);
+  --forms-highlight: var(--color-theme-highlight);
+  --forms-button: var(--color-theme-primary);
+  --forms-border: var(--color-theme-border);
+  --forms-titles: var(--color-theme-header);
+  --forms-label: var(--color-theme-text);
+  --forms-buttontext: var(--color-theme-text-btn);
+  --forms-link: var(--color-theme-text-link);
+}
+
+/*  Loan App
+===================================================================*/
+:root {
+  --loanapp-background: var(--color-theme-background);
+  --loanapp-text: var(--color-theme-text);
+  --loanapp-titles: var(--color-theme-header);
+  --loanapp-label: var(--color-theme-text);
+  --loanapp-border: var(--color-theme-border);
+  --loanapp-button: var(--color-theme-primary);
+  --loanapp-buttontext: var(--color-theme-text-btn);
+  --loanapp-primary: var(--color-theme-primary);
+  --loanapp-secondary: var(--color-theme-secondary);
+  --loanapp-highlight: var(--color-theme-highlight);
+  --loanapp-link: var(--color-theme-text-link);
+}
+
+/*  Business Info
+===================================================================*/
+:root {
+  --businessinfo-background: var(--color-theme-background);
+  --businessinfo-highlight: var(--color-theme-highlight);
+  --businessinfo-button: var(--color-theme-primary);
+  --businessinfo-border: var(--color-theme-border);
+  --businessinfo-titles: var(--color-theme-header);
+  --businessinfo-businessname: var(--color-theme-header);
+  --businessinfo-businessinfo: var(--color-theme-text);
+  --businessinfo-label: var(--color-theme-text);
+  --businessinfo-buttontext: var(--color-theme-text-btn);
+  --businessinfo-link: var(--color-theme-text-link);
+}
+
+.businessinfo .contact-title:not(.contact-businessname) .contact-title-container {
+  border-bottom-color: var(--businessinfo-titles);
+}
+
+.businessinfo .contact-title.contact-businessname .contact-title-container {
+  border-bottom-color: var(--businessinfo-businessname);
+}

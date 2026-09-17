@@ -1,0 +1,1 @@
+window.CSS&&window.CSS.supports&&window.CSS.supports("(--test: 0)")||(console.log("CSS Variables not supported - executing polyfill."),import("./css-variables-polyfill.min.js"));

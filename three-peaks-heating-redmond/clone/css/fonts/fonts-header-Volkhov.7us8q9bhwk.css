@@ -1,0 +1,66 @@
+/* Volkhov */
+.font-header,
+.font-header-Volkhov .error-title,
+.font-header-Volkhov .header .header-business-name,
+.font-header-Volkhov .header .navbar-brand,
+.font-header-Volkhov .footer .footer-business-name,
+.font-header-Volkhov .title .title-heading,
+.font-header-Volkhov .businessinfo .contact-title,
+.font-header-Volkhov .employees .employees-name,
+.font-header-Volkhov h5.modal-title,
+.font-header-Volkhov .gallery .gallery-album-name,
+.font-header-Volkhov .list .list-text-title,
+.font-header-Volkhov .productslideshow .productslideshow-title-heading,
+.font-header-Volkhov .productslideshow .productslideshow-item h3.product-title,
+.font-header-Volkhov .products .product-title,
+.font-header-Volkhov .productdetails .productdetails-info-name,
+.font-header-Volkhov .detailedlist .detailedlist-item-title,
+.font-header-Volkhov .products .filter-item-title,
+.font-header-Volkhov .products-loading-container .loader-text,
+.font-header-Volkhov .productdetails-bottom .nav-tabs .nav-item.nav-link,
+.font-header-Volkhov .eCommerce .shoppingcart-titles,
+.font-header-Volkhov h1,
+.font-header-Volkhov h2,
+.font-header-Volkhov h3,
+.font-header-Volkhov h4,
+.font-header-Volkhov h5,
+.font-header-Volkhov h6 {
+    font-family: "Volkhov", serif;
+    font-weight: 700;
+    -webkit-text-stroke: 0;
+}
+
+.font-header-Volkhov .contact-details,
+.font-header-Volkhov .gallery-img-text,
+.font-header-Volkhov .employees-title {
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+.font-header-Volkhov .contact-title .contact-title-container {
+    padding-bottom: .3em;
+    text-transform: none;
+}
+
+.font-header-Volkhov .title .title-heading {
+    font-size: 2.4em;
+}
+
+.font-header-Volkhov .error-title {
+    font-size: 2.1rem;
+}
+
+.font-header-Volkhov .detailedlist .detailedlist-item-title {
+    font-size: 1.7rem;
+}
+
+.font-header-Volkhov .eCommerce .title-heading .title-cart-count::before,
+.font-header-Volkhov .eCommerce .title-heading .title-cart-count::after {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 4px;
+}
+
+.font-header-Volkhov .contact-title {
+    font-size: 1.05rem;
+}
