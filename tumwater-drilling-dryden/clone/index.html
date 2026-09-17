@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<script>/* demo: this copy never sends a form to the shop or to Homestead */
+(function(){
+ function toast(){var t=document.getElementById("so-toast");if(t){t.style.display="block";setTimeout(function(){t.style.display="none";},4000);}}
+ function inChat(el){return el&&el.closest&&el.closest("#he-window");}
+ window.soFormOff=function(e){if(e){if(e.preventDefault)e.preventDefault();if(e.stopPropagation)e.stopPropagation();}toast();return false;};
+ var fs=HTMLFormElement.prototype.submit;
+ HTMLFormElement.prototype.submit=function(){if(inChat(this))return fs.apply(this,arguments);toast();};
+ var BAD=/homestead\.com|tumwaterdrilling\.com|CustomFormSubmission|realtracker|seogears/i;
+ if(window.fetch){var of=window.fetch;window.fetch=function(u,o){var s=(u&&u.url)||String(u);if(BAD.test(s))return Promise.reject(new Error("demo: blocked"));return of.apply(this,arguments);};}
+ var oo=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(m,u){if(BAD.test(String(u)))throw new Error("demo: blocked");return oo.apply(this,arguments);};
+ if(navigator.sendBeacon){var ob=navigator.sendBeacon.bind(navigator);navigator.sendBeacon=function(u,d){if(BAD.test(String(u)))return false;return ob(u,d);};}
+ document.addEventListener("click",function(e){var b=e.target&&e.target.closest&&e.target.closest("form[data-so-off] input[type=button],form[data-so-off] input[type=submit],form[data-so-off] button,input[name^=FORM_SUBMIT_]");if(b&&!inChat(b)){e.preventDefault();e.stopPropagation();toast();}},true);
+ document.addEventListener("keydown",function(e){if(e.key!=="Enter")return;var f=e.target&&e.target.closest&&e.target.closest("form");if(f&&!inChat(f)&&e.target.tagName!=="TEXTAREA"){e.preventDefault();e.stopPropagation();toast();}},true);
+ document.addEventListener("submit",function(e){if(inChat(e.target))return;e.preventDefault();e.stopPropagation();toast();},true);
+})();
+</script>
+<meta name="robots" content="noindex, nofollow">
+		<!-- <hs:metatags> -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content="Tumwater Drilling and Pump Inc. specializes in Washington drilling, pump installation, water treatment, and Ellensburg water wells.">
+		<meta name="generator" content="Homestead SiteBuilder">
+		<!-- </hs:metatags> --><!-- <hs:headinclude> -->
+		<link rel="stylesheet" href="hs-master/master_css.css">
+		<script src="hs-site/javascript/jquery-1.4.2.min.js" type="text/javascript">
+		</script>
+		
+		<STYLE type="text/css">
+			<!--
+							.navBackgroundQuickSiteMain { background-image:none; background-position: undefined; background-repeat:no-repeat }
+							.navBackgroundSelectedQuickSiteMain { background-image:none; background-position: undefined; background-repeat:no-repeat }
+						-->
+		</STYLE>
+		<!-- Homestead form sender removed for demo -->
+	<!-- </hs:headinclude> -->
+		<style>
+h1{ font-family:Arial; font-weight:normal;color:#000000; font-size:20px; text-align:left
+}
+</style>
+<link rel="canonical" href="index.html">
+	
+		<!-- <hs:title> -->
+		<title>Washington Drilling | Tumwater Drilling and Pump Inc. | 509-548-5361</title>
+		<!-- </hs:title> -->
+		<script type="text/javascript">
+			<!--
+						function reDo() {
+						        top.location.reload();
+						}
+						if (navigator.appName == 'Netscape' && parseInt(navigator.appVersion) < 5) {
+						        top.onresize = reDo;
+						}
+						dom=document.getElementById
+					//-->
+		</script>
+		<script type="text/javascript">
+			<!--
+							  
+						
+  var strRelativePagePath = "index.html".toLowerCase();
+  
+						
+  var strRelativePathToRoot = "";
+  
+
+
+
+						//-->
+		</script>
+		<link rel="stylesheet" href="hs-media/elements/Text/font_styles_ns4.css" type="text/css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Allerta|Arvo|Bitter|Bree+Serif|Cabin|Cookie|Domine|Droid+Sans|Droid+Serif|Grand+Hotel|Josefin+Slab|Lato|Lobster|Lora|Merriweather|Monda|Montserrat|Offside|Old+Standard+TT|Open+Sans|Open+Sans+Condensed|Oswald|Playfair+Display|PT+Sans|PT+Serif|Raleway|Roboto|Roboto+Condensed|Roboto+Slab|Sanchez|Source+Sans+Pro|Tangerine|Ubuntu|Vollkorn|Yanone+Kaffeesatz" type="text/css">
+		<style type="text/css">
+			@import url(hs-media/elements/Text/font_styles.css);
+			div.lpxcenterpageouter { text-align: center; position: absolute; top: 0px; left: 0px; width: 100% }
+		</style>
+		<script type="text/javascript">
+			<!--
+							var unique_id = new Array();
+			var form_name = new Array();
+			var required = new Array();
+			var req_message = new Array();
+unique_id[unique_id.length] = "element79";form_name[form_name.length] = "FORM_Name__";required[required.length] = "true";req_message[req_message.length] = "Please enter your name";
+unique_id[unique_id.length] = "element81";form_name[form_name.length] = "FORM_Email__";required[required.length] = "true";req_message[req_message.length] = "Please enter your email";
+unique_id[unique_id.length] = "element83";form_name[form_name.length] = "FORM_Phone__";required[required.length] = "false";req_message[req_message.length] = "";
+unique_id[unique_id.length] = "element85";form_name[form_name.length] = "FORM_Message__";required[required.length] = "false";req_message[req_message.length] = "[Description] is required";
+
+						//-->
+		</script>
+		
+		<STYLE type="text/css">
+			<!--
+							.navBackgroundfooterlinks { background-image:none; background-position: undefined; background-repeat:no-repeat }
+							.navBackgroundSelectedfooterlinks { background-image:none; background-position: undefined; background-repeat:no-repeat }
+						-->
+		</STYLE>
+		<!-- Homestead form sender removed for demo -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>/* demo: their broken map embed (403 on their own site) is removed */
+#so-none{display:none!important}
+/* demo: desktop keeps their layout; the spacer keeps the footer clear of the disclaimer bar */
+/* demo: phone fit only (their site has no phone layout); same blocks, same words, stacked in reading order */
+@media (max-width:767px){
+ html,body{overflow-x:hidden}
+ body{padding-bottom:120px;margin:0!important;background:#fff!important}
+ .lpxcenterpageinner>div,.lpxcenterpageinner>div *{text-align:left!important}
+ .lpxcenterpageinner>div p{margin:0 0 10px!important}
+ #master16{padding-top:12px!important}
+ #master23{flex:0 0 auto!important;padding:8px 8px 10px 16px!important}#master24{flex:1 1 auto!important;padding:10px 16px 10px 0!important}
+ #so-spacer{display:none}
+ .lpxcenterpageouter{position:static!important}
+ .lpxcenterpageinner{position:static!important;width:auto!important;display:flex;flex-wrap:wrap;background:#fff}
+ .lpxcenterpageinner>div{position:static!important;flex:0 0 100%;width:auto!important;height:auto!important;box-sizing:border-box;padding:6px 16px!important;margin:0!important}
+ .lpxcenterpageinner>div div{width:auto!important;height:auto!important;overflow:visible!important}
+ .lpxcenterpageinner>div img{max-width:100%!important;height:auto!important}
+ .lpxcenterpageinner div[style*="line-height: 1px"]{line-height:1.5!important;font-size:16px!important}
+ .lpxcenterpageinner font{line-height:1.5!important}
+ .lpxcenterpageinner .size8,.lpxcenterpageinner .size9,.lpxcenterpageinner .size10,.lpxcenterpageinner .size11{font-size:16px!important}
+ .lpxcenterpageinner .size12{font-size:18px!important}
+ .lpxcenterpageinner .size14{font-size:20px!important;line-height:1.3!important}
+ .lpxcenterpageinner .size16{font-size:22px!important;line-height:1.3!important}
+ .lpxcenterpageinner .size18{font-size:24px!important;line-height:1.3!important}
+ .lpxcenterpageinner input[type=text],.lpxcenterpageinner textarea{width:100%!important;box-sizing:border-box;font-size:16px!important}
+ #master22 table,#master22 tbody,#master22 tr{display:block!important;width:auto!important}#master22 td{display:inline-block!important;white-space:normal!important;padding:6px 14px 6px 0!important}#master22 td[width="1"]{display:none!important}#master22 img{display:none!important}#master22 font{font-size:17px!important;line-height:1.4!important}#element89 table,#element89 tbody,#element89 tr{display:block!important;width:auto!important}#element89 td{display:inline-block!important;white-space:normal!important;padding:6px 14px 6px 0!important}#element89 td[width="1"]{display:none!important}#element89 img{display:none!important}#element89 font{font-size:17px!important;line-height:1.4!important}
+ #master16{order:1;background:rgb(255,255,255)}
+ #master25{order:2;background:rgb(255,255,255)}
+ #master17{order:3;background:rgb(255,255,255)}
+ #master22{order:4;background:rgb(28,57,236)}
+ #master23{order:5;background:rgb(28,57,236)}
+ #master24{order:6;background:rgb(28,57,236)}
+ #element66{order:7}
+ #element67{order:8}
+ #element92{order:9;background:rgb(255,255,255)}
+ #element73{order:10;background:rgb(255,255,255)}
+ #element78{order:11;background:rgb(200,200,200)}
+ #element80{order:12;background:rgb(200,200,200)}
+ #element79{order:13;background:rgb(200,200,200)}
+ #element82{order:14;background:rgb(200,200,200)}
+ #element81{order:15;background:rgb(200,200,200)}
+ #element84{order:16;background:rgb(200,200,200)}
+ #element83{order:17;background:rgb(200,200,200)}
+ #element86{order:18;background:rgb(200,200,200)}
+ #element85{order:19;background:rgb(200,200,200)}
+ #element87{order:20;background:rgb(200,200,200)}
+ #element88{order:21;background:rgb(255,255,255)}
+ #element91{order:22;background:rgb(255,255,255)}
+ #element115{order:23;background:rgb(255,255,255)}
+ #element90{order:24;background:rgb(28,57,236)}
+ #element89{order:25;background:rgb(28,57,236)}
+ #element80{flex:0 0 96px!important;padding-right:0!important}#element79{flex:1 1 calc(100% - 96px)!important;padding-left:0!important}
+ #element82{flex:0 0 96px!important;padding-right:0!important}#element81{flex:1 1 calc(100% - 96px)!important;padding-left:0!important}
+ #element84{flex:0 0 96px!important;padding-right:0!important}#element83{flex:1 1 calc(100% - 96px)!important;padding-left:0!important}
+ #element86{flex:0 0 96px!important;padding-right:0!important}#element85{flex:1 1 calc(100% - 96px)!important;padding-left:0!important}
+ #master20,#master21,#element68,#element69,#element70,#element71,#element72,#element74,#element77,#element93{display:none!important}
+}
+</style>
+</head>
+	<body onload="" id="element1" onunload="" scroll="auto">
+		<noscript>
+			<img height="40" width="373" border="0" alt="" src="hs-media/elements/shared/javascript_disabled.gif">
+		</noscript>
+		<div class="lpxcenterpageouter"><div class="lpxcenterpageinner"><div id="so-spacer" style="position:absolute;top:1584px;left:0;width:1px;height:70px"></div><!-- <hs:bodyinclude> --><!-- <hs:master20> --><div id="master20" style="position: absolute; width: 1004px; height: 203px; z-index: 0;"><table cellspacing="0" border="0" cellpadding="0"><tr><td height="203" bgcolor="#FFFFFF" width="1004"><img height="203" width="1004" title="" alt="" style="display: block;" src="hs-shapes/rect-255-255-255.gif"></td></tr></table></div><!-- </hs:master20> --><!-- <hs:master25> --><div id="master25" style="position: absolute; top: 56px; left: 746px; width: 233px; height: 56px; z-index: 1;"><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Arial, Helvetica, sans-serif" color="#000000" class="size10 Arial10"><b></b><br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Arial, Helvetica, sans-serif" color="#000000" class="size16 Arial16"><b>Need Well Service?  </b><br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b></b><br></font></div></div><!-- </hs:master25> --><!-- <hs:master16> --><div id="master16" style="position: absolute; left: 12px; width: 276px; height: 202px; z-index: 2;"><div style="overflow: hidden; height: 202px; width: 276px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><a target="_self" href="index.html"><img height="202" width="276" style="display: block; border-radius: 0px; border-width: 0;" title="Tumwater Drilling and Pump Inc." alt="Tumwater Drilling and Pump Inc." src="logo.jpg" /></a></div></div><!-- </hs:master16> --><!-- <hs:master17> --><div id="master17" style="position: absolute; top: 105px; left: 753px; width: 233px; height: 69px; z-index: 3;"><div style="font-size: 1px; line-height: 1px;" align="center"><font face="Arial, Helvetica, sans-serif" color="#000000" class="size14 Arial14"><b>Call us at 509-548-5361</b><br></font></div><div style="font-size: 1px; line-height: 1px;" align="center"><font face="Arial, Helvetica, sans-serif" color="#000000" class="size10 Arial10"><b></b><br></font></div><div style="font-size: 1px; line-height: 1px;" align="center"><font face="Arial, Helvetica, sans-serif" color="#000000" class="size10 Arial10"><b>Email: </b></font><font face="Arial, Helvetica, sans-serif" color="#000000" class="size10 Arial10"><b><a target="_self" href="mailto:info@tumwaterdrilling.com">info@tumwaterdrilling.com</a></b><br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b></b><br></font></div></div><!-- </hs:master17> --><!-- <hs:master21> --><div id="master21" style="position: absolute; top: 203px; width: 1004px; height: 47px; z-index: 4;"><table cellspacing="0" border="0" cellpadding="0"><tr><td height="47" bgcolor="#1C39EC" width="1004"><img height="47" width="1004" title="" alt="" style="display: block;" src="hs-shapes/rect-28-57-236.gif"></td></tr></table></div><!-- </hs:master21> --><!-- <hs:master22> --><div id="master22" style="position: absolute; top: 217px; left: 18px; width: 563px; height: 18px; z-index: 5;"><div align="left"><SCRIPT type="text/javascript">var nav_element_id="master22";</SCRIPT><div id="nav_version" style="display:none;">1</div><SCRIPT TYPE="text/javascript" SRC="hs-navs/QuickSiteMain.js"></SCRIPT><TABLE ID="ntb" CELLSPACING="0" CELLPADDING="0" BORDER="0" ><TR ALIGN="CENTER" VALIGN="MIDDLE"><TD><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="QuickSiteMain_Link1" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_QuickSiteMain,this,'1',true);" onmouseout="doMouseChange(nav_QuickSiteMain,this,'1',false);"><A HREF="index.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Home"><FONT ID="QuickSiteMain_f1" FACE="Arial, Helvetica, sans-serif" CLASS="size12 Arial12" STYLE="color:#FFFFFF">Home</FONT><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="QuickSiteMain_Link2" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_QuickSiteMain,this,'2',true);" onmouseout="doMouseChange(nav_QuickSiteMain,this,'2',false);"><A HREF="washington-drilling-about.html" TARGET="_self" STYLE="text-decoration:none;" NAME="About Us"><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"><FONT ID="QuickSiteMain_f2" FACE="Arial, Helvetica, sans-serif" CLASS="size12 Arial12" STYLE="color:#FFFFFF">About&nbsp;Us</FONT><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="QuickSiteMain_Link3" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_QuickSiteMain,this,'3',true);" onmouseout="doMouseChange(nav_QuickSiteMain,this,'3',false);"><A HREF="washington-drilling-services.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Products and Services"><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"><FONT ID="QuickSiteMain_f3" FACE="Arial, Helvetica, sans-serif" CLASS="size12 Arial12" STYLE="color:#FFFFFF">Products&nbsp;and&nbsp;Services</FONT><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="QuickSiteMain_Link4" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_QuickSiteMain,this,'4',true);" onmouseout="doMouseChange(nav_QuickSiteMain,this,'4',false);"><A HREF="washington-drilling-links.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Helpful Links"><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"><FONT ID="QuickSiteMain_f4" FACE="Arial, Helvetica, sans-serif" CLASS="size12 Arial12" STYLE="color:#FFFFFF">Helpful&nbsp;Links</FONT><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="QuickSiteMain_Link5" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_QuickSiteMain,this,'5',true);" onmouseout="doMouseChange(nav_QuickSiteMain,this,'5',false);"><A HREF="contact-washington-drilling.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Contact Us"><IMG SRC="tp.gif" WIDTH="15.0" HEIGHT="1" BORDER="0"><FONT ID="QuickSiteMain_f5" FACE="Arial, Helvetica, sans-serif" CLASS="size12 Arial12" STYLE="color:#FFFFFF">Contact&nbsp;Us</FONT></A></TD></TR></TABLE></TD></TR></TABLE><BR/><script type="text/javascript">
+	if(typeof(addMouseAndStyleSupportQuickSiteMain) == 'undefined' && typeof(nav_element_id) != 'undefined'){
+		var elementDefnDiv = document.getElementById(nav_element_id);
+		var tbWasIdentified = 'false';
+		for(var i=0;i<elementDefnDiv.childNodes.length;i++){
+			if(elementDefnDiv.childNodes[i].tagName == 'DIV') {
+				var childDiv = elementDefnDiv.childNodes[i];
+				for(var j=0;j<childDiv.childNodes.length;j++){
+					if(childDiv.childNodes[j].tagName == 'TABLE' && childDiv.childNodes[j].id == 'ntb'){
+						childDiv.childNodes[j].style.display='none';
+						tbWasIdentified = 'true';
+					}
+					if(tbWasIdentified == 'true'){
+						break;
+					}
+				}
+			}
+			if(tbWasIdentified == 'true'){
+				break;
+			}
+		}
+	} else {
+		addMouseAndStyleSupportQuickSiteMain(nav_QuickSiteMain);
+	}
+</script></div></div><!-- </hs:master22> --><!-- <hs:master23> --><div id="master23" style="position: absolute; top: 216px; left: 857px; width: 23px; height: 23px; z-index: 6;"><div style="overflow: hidden; height: 23px; width: 23px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><a target="_blank" href="http://www.facebook.com/tumwaterdrilling"><img height="23" width="23" style="display: block; border-radius: 0px; border-width: 0;" title="Facebook" alt="Facebook" src="icon_facebook.jpg" /></a></div></div><!-- </hs:master23> --><!-- <hs:master24> --><div id="master24" style="position: absolute; top: 220px; left: 879px; width: 108px; height: 16px; z-index: 7;"><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" class="size10 Arial10"><b>KEEP IN TOUCH</b><br></font></div></div><!-- </hs:master24> --><!-- <hs:footer> --><!-- </hs:footer> --><!-- </hs:bodyinclude> --><!-- <hs:element66> --><div id="element66" style="position: absolute; top: 258px; width: 736px; height: 337px; z-index: 1000;"><div style="overflow: hidden; height: 337px; width: 736px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><img height="337" width="736" style="display: block; border-radius: 0px;" title="" alt="" src="publishImages/index~~element66.JPG" /></div></div><!-- </hs:element66> --><!-- <hs:element67> --><div id="element67" style="position: absolute; top: 258px; left: 737px; width: 267px; height: 337px; z-index: 1001;"><div style="overflow: hidden; height: 337px; width: 267px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><img height="337" width="267" style="display: block; border-radius: 0px;" title="" alt="" src="publishImages/index~~element67.jpg" /></div></div><!-- </hs:element67> --><!-- <hs:element68> --><div id="element68" style="position: absolute; top: 258px; left: 736px; width: 1px; height: 337px; z-index: 1002;"><table cellspacing="0" border="0" cellpadding="0"><tr><td height="337" bgcolor="#A7B7CD" width="1"><img height="337" width="1" title="" alt="" style="display: block;" src="hs-shapes/rect-167-183-205.gif"></td></tr></table></div><!-- </hs:element68> --><!-- <hs:element69> --><div id="element69" style="position: absolute; top: 595px; width: 1004px; height: 25px; z-index: 1003;"><div style="overflow: hidden; height: 25px; width: 1004px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><img height="25" width="1004" style="display: block; border-radius: 0px;" title="" alt="" src="shadow_header.jpg" /></div></div><!-- </hs:element69> --><!-- <hs:element70> --><div id="element70" style="position: absolute; top: 620px; width: 1004px; height: 848px; z-index: 1004;"><table cellspacing="0" border="0" cellpadding="0"><tr><td height="848" bgcolor="#FFFFFF" width="1004"><img height="848" width="1004" title="" alt="" style="display: block;" src="hs-shapes/rect-255-255-255.gif"></td></tr></table></div><!-- </hs:element70> --><!-- <hs:element71> --><div id="element71" style="position: absolute; top: 1465px; width: 1004px; height: 24px; z-index: 1005;"><div style="overflow: hidden; height: 24px; width: 1004px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><img height="24" width="1004" style="display: block; border-radius: 0px;" title="" alt="" src="shadow_bottom.jpg" /></div></div><!-- </hs:element71> --><!-- <hs:element72> --><div id="element72" style="position: absolute; top: 1495px; width: 1004px; height: 75px; z-index: 1006;"><table cellspacing="0" border="0" cellpadding="0"><tr><td height="75" bgcolor="#1C39EC" width="1004"><img height="75" width="1004" title="" alt="" style="display: block;" src="hs-shapes/rect-28-57-236.gif"></td></tr></table></div><!-- </hs:element72> --><!-- <hs:element73> --><div id="element73" style="position: absolute; top: 699px; left: 20px; width: 702px; height: 688px; z-index: 1007;"><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Why should You use Tumwater Drilling and Pump Inc? Because we are a full service water well resource. Since 1974, we have been providing the highest standard of </font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><a target="_self" href="washington-drilling-services.html">Washington well drilling</a></font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"> services to Chelan, Douglas, Kittitas, and Grant Counties. With well over 100 years of combined well experience, our staff will help you accomplish your goals. Whether you need a new </font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><a target="_self" href="washington-drilling-about.html">water well in Ellensburg</a></font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"> or surrounding areas, need pump service, need to test your water for bacteria, iron, sulfur or hardness, or simply need an irrigation part our staff can help. We use quality products with the goal that they will give you years of service. Most importantly, we carry all of the necessary licenses and certifications for drilling water wells, installing pumps and performing water treatment in Washington State so be assured we are here to serve you in a reliable and professional manner. <br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Water Well Drilling</b><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Specialize in 6&quot;-10&quot; domestic and irrigation wells. We can do a complimentary water viability assessment, meet on-site, and provide expert advice and service. <br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Pump Sales and Service</b><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Submersible Pumps, Above Ground Pumps, Solar Pumps, Hand Pumps, Pressure Tanks, Switches and Control Boxes and Constant Pressure Conversion<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Water Treatment, Conditioning, Softening, Purification, UV and Filtration</b></font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"> <br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Our water treatment specialist can test your water in-house or on-site and provide a solution to treat your troubled well water.<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Maintenance</b><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Ongoing maintenance serves as prevention to keep minor problems from turning into major repairs. We are available for system maintenance, helping to minimize system failures.<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Repairs</b><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">We stock a full line of submersible pumps and motors and can have repairs completed in a timely manner. <br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Retail Shop</b><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Our Retail Shop offers a selection of irrigation supplies, sewer pipe and fittings, electrical conduit and fittings, replacement filters, salt, pex and brass fittings.<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Flow Tests</b><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Whether you have a pump or not, we can test your well flow production and provide an accurate report for your Health Department, personal information, real estate transactions, and Group B Designs. We have a large selection of test pumps.<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>System Checks</b><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">We can give your water system an assessment and provide a detailed report for preventative maintenance or real estate transactions.<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">For more information about </font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><b>Moses Lake drilling </b></font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">or any water well services for surrounding areas, call us today.<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><br></font></div></div><!-- </hs:element73> --><!-- <hs:element74> --><div id="element74" style="position: absolute; top: 643px; left: 750px; width: 233px; height: 302px; z-index: 1008;"><table cellspacing="0" border="0" cellpadding="0"><tr><td height="302" bgcolor="#C8C8C8" width="233"><img height="302" width="233" title="" alt="" style="display: block;" src="hs-shapes/rect-200-200-200.gif"></td></tr></table></div><!-- </hs:element74> --><!-- <hs:element77> --><div id="element77" style="position: absolute; top: 649px; left: 754px; width: 233px; height: 24px; z-index: 1009;"><div style="overflow: hidden; height: 24px; width: 233px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><img height="24" width="233" style="display: block; border-radius: 0px;" title="" alt="" src="bghead_contactus.png" /></div></div><!-- </hs:element77> --><!-- <hs:element78> --><div id="element78" style="position: absolute; top: 648px; left: 758px; width: 96px; height: 21px; z-index: 1010;"><div style="font-size: 1px; line-height: 1px;"><font face="Arial, Helvetica, sans-serif" color="#000000" class="size14 Arial14">Contact Us<br></font></div></div><!-- </hs:element78> --><!-- <hs:element80> --><div id="element80" style="position: absolute; top: 696px; left: 784px; width: 48px; height: 17px; z-index: 1011;"><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Name:<br></font></div></div><!-- </hs:element80> --><!-- <hs:element82> --><div id="element82" style="position: absolute; top: 731px; left: 785px; width: 48px; height: 17px; z-index: 1012;"><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Email:<br></font></div></div><!-- </hs:element82> --><!-- <hs:element84> --><div id="element84" style="position: absolute; top: 764px; left: 779px; width: 48px; height: 17px; z-index: 1013;"><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Phone:<br></font></div></div><!-- </hs:element84> --><!-- <hs:element86> --><div id="element86" style="position: absolute; top: 795px; left: 770px; width: 58px; height: 16px; z-index: 1014;"><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Message:<br></font></div></div><!-- </hs:element86> --><!-- <hs:element88> --><div id="element88" style="position: absolute; top: 963px; left: 754px; width: 135px; height: 28px; z-index: 1015;"><div style="font-size: 1px; line-height: 1px;"><font face="Arial, Helvetica, sans-serif" color="#000000" class="size18 Arial18">Testimonials <br></font></div></div><!-- </hs:element88> --><!-- <hs:element89> --><div id="element89" style="position: absolute; top: 1519px; left: 18px; width: 424px; height: 15px; z-index: 1016;"><div align="left"><SCRIPT type="text/javascript">var nav_element_id="element89";</SCRIPT><div id="nav_version" style="display:none;">1</div><SCRIPT TYPE="text/javascript" SRC="hs-navs/footerlinks.js"></SCRIPT><TABLE ID="ntb" CELLSPACING="0" CELLPADDING="0" BORDER="0" ><TR ALIGN="CENTER" VALIGN="MIDDLE"><TD><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="footerlinks_Link1" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_footerlinks,this,'1',true);" onmouseout="doMouseChange(nav_footerlinks,this,'1',false);"><A HREF="index.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Home"><FONT ID="footerlinks_f1" FACE="Arial, Helvetica, sans-serif" CLASS="size9 Arial9" STYLE="color:#FFFFFF">Home</FONT><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="footerlinks_Link2" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_footerlinks,this,'2',true);" onmouseout="doMouseChange(nav_footerlinks,this,'2',false);"><A HREF="washington-drilling-about.html" TARGET="_self" STYLE="text-decoration:none;" NAME="About Us"><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"><FONT ID="footerlinks_f2" FACE="Arial, Helvetica, sans-serif" CLASS="size9 Arial9" STYLE="color:#FFFFFF">About&nbsp;Us</FONT><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="footerlinks_Link3" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_footerlinks,this,'3',true);" onmouseout="doMouseChange(nav_footerlinks,this,'3',false);"><A HREF="washington-drilling-services.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Products and Services"><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"><FONT ID="footerlinks_f3" FACE="Arial, Helvetica, sans-serif" CLASS="size9 Arial9" STYLE="color:#FFFFFF">Products&nbsp;and&nbsp;Services</FONT><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="footerlinks_Link4" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_footerlinks,this,'4',true);" onmouseout="doMouseChange(nav_footerlinks,this,'4',false);"><A HREF="washington-drilling-links.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Helpful Links"><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"><FONT ID="footerlinks_f4" FACE="Arial, Helvetica, sans-serif" CLASS="size9 Arial9" STYLE="color:#FFFFFF">Helpful&nbsp;Links</FONT><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"></A></TD><TD WIDTH="1" BGCOLOR="#FFFFFF"><IMG style="display: block;" SRC="tp.gif" WIDTH="1"></TD><TD ALIGN="center" VALIGN="MIDDLE" NOWRAP="NOWRAP" id="footerlinks_Link5" style="cursor: pointer;cursor: hand;color:#FFFFFF;font-size: 1px; line-height: 1px;" onmouseover="doMouseChange(nav_footerlinks,this,'5',true);" onmouseout="doMouseChange(nav_footerlinks,this,'5',false);"><A HREF="contact-washington-drilling.html" TARGET="_self" STYLE="text-decoration:none;" NAME="Contact Us"><IMG SRC="tp.gif" WIDTH="10.0" HEIGHT="1" BORDER="0"><FONT ID="footerlinks_f5" FACE="Arial, Helvetica, sans-serif" CLASS="size9 Arial9" STYLE="color:#FFFFFF">Contact&nbsp;Us</FONT></A></TD></TR></TABLE></TD></TR></TABLE><BR/><script type="text/javascript">
+	if(typeof(addMouseAndStyleSupportfooterlinks) == 'undefined' && typeof(nav_element_id) != 'undefined'){
+		var elementDefnDiv = document.getElementById(nav_element_id);
+		var tbWasIdentified = 'false';
+		for(var i=0;i<elementDefnDiv.childNodes.length;i++){
+			if(elementDefnDiv.childNodes[i].tagName == 'DIV') {
+				var childDiv = elementDefnDiv.childNodes[i];
+				for(var j=0;j<childDiv.childNodes.length;j++){
+					if(childDiv.childNodes[j].tagName == 'TABLE' && childDiv.childNodes[j].id == 'ntb'){
+						childDiv.childNodes[j].style.display='none';
+						tbWasIdentified = 'true';
+					}
+					if(tbWasIdentified == 'true'){
+						break;
+					}
+				}
+			}
+			if(tbWasIdentified == 'true'){
+				break;
+			}
+		}
+	} else {
+		addMouseAndStyleSupportfooterlinks(nav_footerlinks);
+	}
+</script></div></div><!-- </hs:element89> --><!-- <hs:element90> --><div id="element90" style="position: absolute; top: 1510px; left: 500px; width: 496px; height: 74px; z-index: 1017;"><div style="font-size: 1px; line-height: 1px;"><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" class="size9 Arial9">Copyright 2013: Tumwater Drilling &amp; Pump, Inc. | Washington Drilling |  All rights reserved. <br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" class="size9 Arial9">9290 Hwy 2, Dryden, WA 98821<br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" class="size9 Arial9">509-548-5361 | </font><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" class="size9 Arial9"><a target="_self" href="mailto:info@tumwaterdrilling.com">info@tumwaterdrilling.com</a><br></font></div><div style="font-size: 1px; line-height: 1px;"><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" class="size9 Arial9"><br></font></div></div><!-- </hs:element90> --><!-- <hs:element91> --><div id="element91" style="position: absolute; top: 1000px; left: 748px; width: 233px; height: 175px; z-index: 1018;"><div style="overflow: hidden; height: 175px; width: 233px; border: 0px solid #52A8EC; border-radius: 0px; box-shadow: none;"><img height="175" width="233" style="display: block; border-radius: 0px;" title="" alt="" src="P5200049_800x600.jpg" /></div></div><!-- </hs:element91> --><!-- <hs:element92> --><div id="element92" style="position: absolute; top: 638px; left: 15px; width: 723px; height: 36px; z-index: 1019;"><h1>Get Expert Washington Drilling Services Today</h1></div><!-- </hs:element92> --><!-- <hs:element93> --><div id="element93" style="position: absolute; top: 1548px; left: 9px; width: 138px; height: 15px; z-index: 1020;"><!-- SEOGears Piwik tracker removed for demo --></div><!-- </hs:element93> --><!-- <hs:element115> --><div id="element115" style="position: absolute; top: 1190px; left: 752px; width: 234px; height: 256px; z-index: 1021;"><div style="font-size: 1px; line-height: 1px;"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><i>&quot;​For over 30 years, I&#39;ve had Tumwater Drilling do work for me and I have always been satisfied.&quot; </i><br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">-Rollie Schmitten<br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Lake Wenatchee, WA<br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">&quot;​<br></font></div><div style="font-size: 1px; line-height: 1px;" align="left"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"><i>&quot;The quality of service provided by Tumwater Drilling &amp; Pump far exceeded our expectations. From our first contactwith Steve, to the personal touch provided by the crew throughout their work, Tumwater Drilling &amp; Pump was exemplary. They have our highest recommendation for superior service.&quot;</i></font><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10"> <br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">-Gene and Carol Sharrat <br></font></div><div style="font-size: 1px; line-height: 1px;" align="right"><font face="Helvetica, Arial, sans-serif" color="#000000" class="size10 Helvetica10">Wenatchee, WA<br></font></div></div><!-- </hs:element115> --><!-- <hs:element79> --><div id="element79" style="position: absolute; top: 692px; left: 829px; width: 138px; height: 24px; z-index: 1022;"><form method="post" name="FORM_element79" action="#" data-so-off="1"><input name="FORM_Name__" type="text" value="" maxlength="500" tabindex="" style="width:100%;font:13px Arial,Helvetica,adobe-helvetica,Arial Narrow;"></form></div><!-- </hs:element79> --><!-- <hs:element81> --><div id="element81" style="position: absolute; top: 727px; left: 829px; width: 138px; height: 24px; z-index: 1023;"><form method="post" name="FORM_element81" action="#" data-so-off="1"><input name="FORM_Email__" type="text" value="" maxlength="500" tabindex="" style="width:100%;font:13px Arial,Helvetica,adobe-helvetica,Arial Narrow;"></form></div><!-- </hs:element81> --><!-- <hs:element83> --><div id="element83" style="position: absolute; top: 761px; left: 829px; width: 138px; height: 24px; z-index: 1024;"><form method="post" name="FORM_element83" action="#" data-so-off="1"><input name="FORM_Phone__" type="text" value="" maxlength="500" tabindex="" style="width:100%;font:13px Arial,Helvetica,adobe-helvetica,Arial Narrow;"></form></div><!-- </hs:element83> --><!-- <hs:element85> --><div id="element85" style="position: absolute; top: 815px; left: 769px; width: 197px; height: 71px; z-index: 1025;"><form method="post" name="FORM_element85" action="#" data-so-off="1" style="height:100%"><textarea name="FORM_Message__" wrap="hard" tabindex="" style="width:100%;height:65px;font:13px Arial,Helvetica,adobe-helvetica,Arial Narrow;"></textarea></form></div><!-- </hs:element85> --><!-- <hs:element87> --><div id="element87" style="position: absolute; top: 889px; left: 769px; width: 65px; height: 25px; z-index: 1026;"><form method="post" name="FORM_element87" target="_parent" action="#" data-so-off="1"><input value="CMDSubmitFormElement" name="CMD" type="hidden"><input value="http://tumwaterdrilling.com/index.html" name="BACKPAGEURL" type="hidden"><input tabindex="" name="FORM_SUBMIT_Submit_Button_1" type="button" value="Submit" onClick="return soFormOff(event)"><div style="display: none"><input name="MESSAGE" type="text" style="" size="1" maxlength="30"></div><input value="FORM_Name__;FORM_Email__;FORM_Phone__;FORM_Message__;" name="FORM_SUBMIT_FIELDS_Submit_Button_1" type="hidden"><input value="Thank you.  Your information has been submitted." name="FORM_SUBMIT_THANKYOU_MSG_Submit_Button_1" type="hidden"><input value="default" name="FORM_SUBMIT_THANKYOU_URL_Submit_Button_1" type="hidden"><input value="BOTH" name="SUBMITMETHOD" type="hidden"><input value="1759568749" name="HSID_" type="hidden"><input value="7a6f2e471821d8890639f7dfaf467fc209aff322e123338da3d56ae9ec908fff7bfcdd037fb2fdec696e672e636f6d" name="ENC_ARGS" type="hidden"><input value="index" name="FORMNAME_" type="hidden"><input value=" 3/29/2017 22:12:26" name="FORM_PUBLISH_TIME_" type="hidden"><input name="FORM_Name__" type="hidden"><input name="FORM_TAB_INDEX_Name__" value="" type="hidden"><input name="FORM_Email__" type="hidden"><input name="FORM_TAB_INDEX_Email__" value="" type="hidden"><input name="FORM_Phone__" type="hidden"><input name="FORM_TAB_INDEX_Phone__" value="" type="hidden"><input name="FORM_Message__" type="hidden"><input name="FORM_TAB_INDEX_Message__" value="" type="hidden"></form></div><!-- </hs:element87> --></div></div>
+		<script type="text/javascript">
+		var nPageBottom = 1584;</script>
+		<!-- RealTracker removed for demo -->
+	
+<!-- ── StillOpen demo layer (added; everything above is the original site) ── -->
+<style>
+#so-disc{position:fixed;bottom:0;left:0;right:0;z-index:99990;background:#0d1626;color:#cfd8e6;
+ font:12px/1.5 -apple-system,Arial,sans-serif;text-align:center;padding:7px 90px 7px 14px;opacity:.96}
+#so-disc b{color:#fff}
+#so-disc a{color:#fff;text-decoration:underline}#so-disc #so-offer{color:#e8eef8}
+@media(max-width:640px){#so-disc .so-more{display:none}}
+#so-switch{position:fixed;bottom:44px;left:16px;z-index:99991;background:#213772;color:#fff;
+ font:600 12.5px -apple-system,Arial,sans-serif;padding:9px 14px;border-radius:999px;text-decoration:none;
+ box-shadow:0 3px 14px rgba(0,0,0,.35)}
+#so-switch:hover{background:#2c4a97}
+@media(max-width:640px){#so-disc{padding:7px 84px 7px 10px;font-size:11px;text-align:left}#so-switch{bottom:88px}}
+#so-toast{position:fixed;bottom:140px;left:16px;z-index:99992;background:#111;color:#fff;
+ font:13px -apple-system,Arial,sans-serif;padding:10px 14px;border-radius:8px;display:none;max-width:280px}
+</style>
+<div id="so-disc"><b>Sample demo by Cole Cummings</b> &middot; For evaluation only &middot; Not affiliated with Tumwater Drilling &amp; Pump, Inc. &middot; Your site, plus the chat front desk (bottom right). <span id="so-offer">&middot; Want it on your real site? <a href="https://stillopen.ai/#pricing">$497 to go live, then $197 a month</a>. <span class="so-more">Cancel any time. Live in 48 hours or your $497 back. </span>Text Cole: <a href="sms:+15349010258">(534) 901-0258</a>.</span></div>
+
+<div id="so-toast">Demo mode: forms are switched off here. Try the chat bubble instead, it answers for real.</div>
+<script src="https://app.stillopen.ai/chatbot.js" data-plumber-id="demo-tumwater-drilling-dryden"></script>
+<script>
+(function(){"use strict";
+ var c={main:"#1C39EC",hover:"#4058f0",glow:"rgba(28,57,236,0.35)",text:"#ffffff"};
+ var s=document.createElement("style");
+ s.textContent=["#he-bubble{background:"+c.main+" !important;box-shadow:0 4px 20px "+c.glow+",0 2px 8px rgba(0,0,0,0.4) !important;}",
+ "#he-bubble:hover{box-shadow:0 6px 28px "+c.glow+",0 2px 10px rgba(0,0,0,0.4) !important;}",
+ "#he-avatar{background:"+c.main+" !important;}","#he-send{background:"+c.main+" !important;}",
+ "#he-send:hover:not(:disabled){background:"+c.hover+" !important;}",
+ ".he-msg.user .he-bubble-text{background:"+c.main+" !important;color:"+c.text+" !important;}",
+ ".he-dot{background:"+c.main+" !important;}","#he-badge{background:"+c.hover+" !important;color:#fff !important;}",
+ "#he-input:focus{border-color:"+c.main+" !important;}"].join("\n");
+ document.head.appendChild(s);
+ document.addEventListener("submit",function(e){
+   if(e.target && e.target.closest && e.target.closest("#he-window")) return;
+   e.preventDefault();e.stopPropagation();
+   var t=document.getElementById("so-toast");t.style.display="block";
+   setTimeout(function(){t.style.display="none";},4000);},true);
+})();
+</script>
+
+</body>
+</html>

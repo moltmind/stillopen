@@ -170,3 +170,4 @@ Disallow: /fritz-bros-honesdale/
 Disallow: /montgomery-well-drilling-plymouth/
 Disallow: /clampitts-well-systems-gray/
 Disallow: /georgia-well-co-newnan/
+Disallow: /tumwater-drilling-dryden/
