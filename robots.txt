@@ -173,3 +173,4 @@ Disallow: /georgia-well-co-newnan/
 Disallow: /tumwater-drilling-dryden/
 Disallow: /hobbs-mechanical-wellington/
 Disallow: /hier-drilling-castle-rock/
+Disallow: /ark-city-service-arkansas-city/
