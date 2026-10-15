@@ -51,6 +51,15 @@ Full doctrine: `Synchronize/Team/Moses/MosesV1/_archive_from_homeedge_memory/bra
 - **family.stillopen.ai**: separate worker in `../family/`.
 - **Prospecting**: `../stillopen-prospector/` (Python) with dental/med-spa CSVs.
 
+## Voice is live (added 2026-10-14)
+
+- **The front desk answers phones.** Twilio ConversationRelay (speech in, ElevenLabs voice out, about $0.07/min plus the voice minute) opens a WebSocket to `app.stillopen.ai/voice/relay`, which hands each call to a `CallSession` Durable Object (SQLite-backed, runs on the free plan). Every caller utterance becomes a chat turn against the worker's own chat handler in-process (`WORKER.fetch`, `channel:"voice"`), so voice uses the same KB, prompts, `[BOOK:]` `[DEPOSIT:]` `[LEAD:]` parsing, calendar, Stripe, and logs as the widget. Entry is `POST /voice/answer` (Twilio Voice webhook), live transfer runs through `POST /voice/after`. Voice-only tags: `[END]` hangs up after the goodbye, `[TRANSFER]` dials the number's `onCall`.
+- **Config per Twilio number** lives in the same `mc:{E164}` KV record the missed-call rail used, with `voice: true`, `greeting`, `onCall`, `hints`, `voiceId`, and the existing `forwardTo` + `forwardHours` (ring a real phone first by day).
+- **Admin (test-key gated):** `/admin/twilio-numbers`, `/admin/voice-config` (GET and POST), `/admin/twilio-wire-voice`, `/admin/voice-test-call`, `/admin/voice-loop-test` (Twilio calls itself with a scripted customer), `/admin/voice-calls` (transcripts), `/admin/twilio-call` (Twilio's view of a call). Scripts that run them live in `tools/cowork/`.
+- **The StillOpen line, (920) 332-6113,** rings Cole 7 AM to 9 PM and otherwise answers as StillOpen's own front desk (Paul, by voice). Call records land at `call:{plumberId}:{ts}` in KV and ring the alert rail.
+- **Demo lines for prospects:** one Twilio number per demo ($1.15/mo), config `plumberId` set to the prospect's existing `demo-*` KB, so the line answers as their shop. Scott Schmidt Plumbing (`demo-scott-schmidt-plumbing`) is first in line.
+- **Still true:** the number must be A2P-registered before the desk's texts (deposit links, confirmations) deliver. Until then the desk speaks everything and texts fail quietly.
+
 ## Known debt (carried over, still true)
 
 - `/founders/` page has dead Founding 5 content. `partners/cal/` orphaned.
