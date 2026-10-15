@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>AI front desk that answers your phone for plumbing and HVAC shops | StillOpen</title>
-<meta name="description" content="When nobody picks up after four rings, StillOpen answers as your shop, takes the name, number, and address, books the visit, and texts you what happened. Call (920) 332-6113 to hear it. $497 to go live, then $197 a month." />
+<meta name="description" content="When nobody picks up after a few rings, StillOpen answers as your shop, takes the name, number, and address, books the visit, and sends you what happened. Call (920) 332-6113 to hear it. $497 to go live, then $197 a month." />
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 <link rel="canonical" href="https://stillopen.ai/" />
 <link rel="icon" href="/app-icon.png" />
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="894" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The 2 AM call gets answered. | StillOpen" />
-<meta name="twitter:description" content="Your number stays the same. When nobody picks up after four rings, the front desk answers as your shop. Call (920) 332-6113 to hear it." />
+<meta name="twitter:description" content="Your number stays the same. When nobody picks up after a few rings, the front desk answers as your shop. Call (920) 332-6113 to hear it." />
 <meta name="twitter:image" content="https://stillopen.ai/assets/trade-heroes/for-plumbers_hf.jpg" />
 <script type="application/ld+json">
 {
@@ -40,7 +40,7 @@
       "@type": "Product",
       "@id": "https://stillopen.ai/#product",
       "name": "StillOpen front desk",
-      "description": "AI front desk for plumbing and heating shops. Answers calls that roll over after four rings as the shop itself, takes details, books visits, texts the owner. Also answers the website chat.",
+      "description": "AI front desk for plumbing and heating shops. Answers calls that roll over after a few rings as the shop itself, takes details, books visits, sends the owner what happened. Also answers the website chat.",
       "brand": { "@id": "https://stillopen.ai/#organization" },
       "offers": [
         { "@type": "Offer", "name": "StillOpen monthly", "price": "197", "priceCurrency": "USD", "url": "https://buy.stripe.com/00w7sEaOO2lWduq4ft7N60E", "availability": "https://schema.org/InStock", "description": "Per month after setup. Cancel any time.",
@@ -53,9 +53,12 @@
       "@type": "FAQPage",
       "@id": "https://stillopen.ai/#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "Does it answer phone calls?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your number stays the same. When nobody picks up after four rings, the call rolls to the front desk, which answers as your shop, takes the details, books the visit, and texts you what happened. Call (920) 332-6113 to hear it." } },
-        { "@type": "Question", "name": "Does it quote repair prices?", "acceptedAnswer": { "@type": "Answer", "text": "No. It quotes your published service call or diagnostic fee and books the visit. It never guesses a price." } },
-        { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "$497 once to go live, then $197 a month. No contract. Cancel any time. If it hasn't caught you a job in 30 days, the $497 comes back." } }
+        { "@type": "Question", "name": "Does my number change?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your phone rings like always. Only the calls nobody picks up roll to the desk. You can turn the forwarding off from your phone any time." } },
+        { "@type": "Question", "name": "What if it books something wrong?", "acceptedAnswer": { "@type": "Answer", "text": "It only uses what you told it: your hours, services, area, and fees. It books two-hour windows into your Google Calendar and never over an existing job. If a caller wants something it can't confirm, it takes a message instead of promising." } },
+        { "@type": "Question", "name": "Half my calls are price shoppers and robocalls.", "acceptedAnswer": { "@type": "Answer", "text": "Good, that's why it answers them instead of you. Shoppers get your service-call fee and an offer to book. Robocalls get nothing. You only get a message for a real person with a real job." } },
+        { "@type": "Question", "name": "Does it sound like a robot?", "acceptedAnswer": { "@type": "Answer", "text": "Call (920) 332-6113 and decide for yourself. If a caller asks plainly whether they're talking to a person, it says it's the front desk the owner set up, and keeps helping." } },
+        { "@type": "Question", "name": "Can it take a deposit on a midnight call?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, through your own Stripe. In the website chat it hands over the deposit link right there. On the phone it books the slot and sends the deposit link by text." } },
+        { "@type": "Question", "name": "How long does setup take?", "acceptedAnswer": { "@type": "Answer", "text": "You give us your website, or ten minutes on the phone if you don't have one. We build the desk around your real services, hours, and fees, hand you a number to forward to, and you're live within 48 hours." } }
       ]
     }
   ]
@@ -137,19 +140,22 @@
   .call{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:0;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);}
   .call .head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);}
   .call .live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
-  .call .live b{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(249,115,22,.6);animation:pulse 1.6s infinite;}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(249,115,22,.55)}70%{box-shadow:0 0 0 9px rgba(249,115,22,0)}100%{box-shadow:0 0 0 0 rgba(249,115,22,0)}}
+  .call .live svg.i{width:14px;height:14px;}
   .call .who{font-weight:700;font-size:.95rem;}
   .call .who small{display:block;font-weight:500;color:var(--ink-faint);font-size:.78rem;}
   .call .tm{font-family:var(--mono);font-size:.85rem;color:var(--ink-dim);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;}
   .call .who{min-width:0;}
-  @media (max-width:520px){ .call .live span{display:none;} .call .tm{font-size:.78rem;} }
-  .call .lines{padding:18px;display:flex;flex-direction:column;gap:10px;min-height:300px;}
-  .ln{max-width:88%;padding:11px 14px;border-radius:14px;font-size:.95rem;line-height:1.4;opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease;}
+  @media (max-width:520px){ .call .live{font-size:.62rem;letter-spacing:.12em;} .call .tm{font-size:.78rem;} .call .head{gap:10px;padding:12px 14px;} }
+  .call .lines{padding:18px;display:flex;flex-direction:column;gap:12px;min-height:300px;}
+  .ln{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;font-size:.95rem;line-height:1.45;opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease;}
+  .ln::before{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);padding-top:4px;}
   .ln.on{opacity:1;transform:none;}
-  .ln.c{align-self:flex-start;background:rgba(244,237,228,.07);border-bottom-left-radius:4px;}
-  .ln.d{align-self:flex-end;background:var(--accent);color:#100b07;border-bottom-right-radius:4px;}
-  .ln.d.booked{background:rgba(134,209,154,.16);color:var(--ink);border:1px solid rgba(134,209,154,.35);font-family:var(--mono);font-size:.82rem;}
+  .ln.c{color:var(--ink-dim);}
+  .ln.c::before{content:"Caller";}
+  .ln.d{color:var(--ink);}
+  .ln.d::before{content:"Desk";color:var(--accent);}
+  .ln.d.booked{display:block;margin-top:4px;padding:10px 12px;border-radius:10px;background:rgba(134,209,154,.14);border:1px solid rgba(134,209,154,.35);font-family:var(--mono);font-size:.8rem;color:var(--ink);}
+  .ln.d.booked::before{content:none;}
   .call .foot{padding:12px 18px 14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);letter-spacing:.02em;line-height:1.5;}
   @media (max-width:900px){
     #hero{min-height:auto;padding-top:calc(90px + env(safe-area-inset-top,0px));}
@@ -206,6 +212,7 @@
   .tx .row.c p{color:var(--ink-dim);}
   .tx .foot{padding:12px 18px 14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);line-height:1.6;}
   .tx .foot i{color:var(--good);font-style:normal;}
+  .tx .foot a{color:var(--accent);text-decoration:none;font-weight:700;}
 
   /* honest */
   .honest{border-left:4px solid var(--accent);background:var(--panel);border-radius:14px;padding:22px 24px;max-width:760px;margin-top:30px;}
@@ -269,7 +276,7 @@
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none;}
     .ln{opacity:1;transform:none;transition:none;}
-    .call .live b{animation:none;}
+    .ln{transition:none;}
     .btn:hover,.callnum:hover{transform:none;}
     html{scroll-behavior:auto;}
   }
@@ -281,7 +288,7 @@
   <a class="wordmark" href="/">StillOpen<i>.</i></a>
   <div class="navlinks">
     <a class="btn ghost hide-sm" href="#price">Price</a>
-    <a class="btn ghost" href="tel:+19203326113"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><span class="hide-sm">Call it</span></a>
+    <a class="btn ghost" href="tel:+19203326113" aria-label="Call the desk at (920) 332-6113"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><span class="hide-sm">Call it</span></a>
     <a class="btn solid" href="https://buy.stripe.com/00w7sEaOO2lWduq4ft7N60E">Go live</a>
   </div>
 </nav>
@@ -294,7 +301,7 @@
     <div class="hero-copy">
       <div class="eyebrow"><span class="dot"></span> For plumbing and heating shops</div>
       <h1>The 2 AM call gets <em>answered</em>.</h1>
-      <p class="lead">You're under a sink or asleep. Your phone rings. After four rings it rolls to a front desk that answers as your shop, gets the name, number, and address, books the visit, and texts you what happened. Your number never changes.</p>
+      <p class="lead">You're under a sink or asleep. Your phone rings. When nobody picks up, it rolls to a front desk that answers as your shop, gets the name, number, and address, books the visit, and sends you what happened. Your number never changes.</p>
       <div class="hero-ctas">
         <a class="callnum" href="tel:+19203326113"><span class="k">Hear it right now</span><span class="n">(920) 332-6113</span></a>
         <a class="btn ghost big" href="#price">See the price</a>
@@ -302,10 +309,10 @@
       <p class="microline">That line answers as StillOpen, the same way yours would answer as you. $497 to go live, then $197 a month.</p>
     </div>
 
-    <div class="call" aria-label="Sample after-hours call">
+    <div class="call" aria-label="Sample after-hours call, transcript">
       <div class="head">
-        <span class="live"><b></b><span>Live call</span></span>
-        <div class="who">(715) 555-0142<small>Hollow Creek Plumbing, after hours</small></div>
+        <span class="live"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><span>Sample call</span></span>
+        <div class="who">Hollow Creek Plumbing<small>Caller (715) 555-0142, after hours</small></div>
         <span class="tm" id="callTimer">2:14 AM<br>0:00</span>
       </div>
       <div class="lines" id="callLines">
@@ -314,10 +321,10 @@
         <div class="ln c">Now. It's getting into the furnace room.</div>
         <div class="ln d">Okay. What's your name and the address?</div>
         <div class="ln c">Dave Olson. 88 Birch Street in Menomonie.</div>
-        <div class="ln d">Got it, Dave. I'm texting you the seventy-five dollar emergency deposit link at this number, and I'm connecting you to Wes now. Hold on.</div>
-        <div class="ln d booked">Transferred · 2:16 AM · Dave Olson · 88 Birch St · water heater, active leak · deposit link texted</div>
+        <div class="ln d">Got it, Dave. I'm putting you through to Wes on the on-call line now. Hold on.</div>
+        <div class="ln d booked">Transferred · 2:16 AM · Dave Olson · 88 Birch St · water heater, active leak · sent to the owner</div>
       </div>
-      <div class="foot">Sample call. Hollow Creek Plumbing is a made-up shop, so no real customer is quoted. The front desk is the real one. Call the number to hear it.</div>
+      <div class="foot">Sample call, written out. Hollow Creek Plumbing is a made-up shop, so no real customer is quoted. The front desk is the real one. Call the number to hear it.</div>
     </div>
   </div>
 </section>
@@ -328,10 +335,10 @@
     <div class="nums">
       <div class="num reveal"><div class="v"><i>27</i>%</div><div class="l">of calls to home-service shops go unanswered.</div></div>
       <div class="num reveal"><div class="v">&lt;<i>3</i>%</div><div class="l">of callers who hit voicemail leave a message. The rest dial the next shop.</div></div>
-      <div class="num reveal"><div class="v">35<i> to </i>45%</div><div class="l">of plumbing and HVAC calls come in after hours.</div></div>
+      <div class="num reveal"><div class="v">25<i> to </i>40%</div><div class="l">of home-service calls come in outside business hours.</div></div>
       <div class="num reveal"><div class="v">$<i>600</i>+</div><div class="l">for the after-hours job that just went to whoever picked up. Water heaters and sewer lines run higher.</div></div>
     </div>
-    <div class="srcline reveal">Where the numbers come from: <a href="https://stealthagents.com/research/home-services-missed-call-revenue-statistics-2026" rel="noopener" target="_blank">Invoca 2026 home-services benchmark</a>, <a href="https://thecontentlabs.ai/resources/missed-call-statistics-2026" rel="noopener" target="_blank">voicemail abandonment</a>, <a href="https://www.higrovi.com/blog/contractor-missed-call-report-2026" rel="noopener" target="_blank">ServiceTitan 2026 after-hours panel</a>, <a href="https://automeit.ai/trades-blog/emergency-calls-cost-plumbers/" rel="noopener" target="_blank">emergency plumbing ticket sizes</a>.</div>
+    <div class="srcline reveal">Where the numbers come from: <a href="https://stealthagents.com/research/home-services-missed-call-revenue-statistics-2026" rel="noopener" target="_blank">Invoca answer-rate benchmark, via Stealth Agents</a>, <a href="https://thecontentlabs.ai/resources/missed-call-statistics-2026" rel="noopener" target="_blank">voicemail abandonment</a>, <a href="https://www.higrovi.com/blog/contractor-missed-call-report-2026" rel="noopener" target="_blank">after-hours call-tracking data</a>, <a href="https://automeit.ai/trades-blog/emergency-calls-cost-plumbers/" rel="noopener" target="_blank">emergency plumbing ticket sizes</a>.</div>
   </div>
 </section>
 
@@ -345,7 +352,7 @@
       <div class="step reveal">
         <span class="k">Step one, you</span>
         <div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/><path d="M15 3h6v6"/><path d="m21 3-7 7"/></svg></div>
-        <h3>Forward after four rings.</h3>
+        <h3>Forward after a few rings.</h3>
         <p>Your carrier's "forward when busy or unanswered" setting points at a number we give you. Your phone still rings first, every time. Turn it off by dialing a code.</p>
       </div>
       <div class="step reveal">
@@ -357,7 +364,7 @@
       <div class="step reveal">
         <span class="k">Step three, you again</span>
         <div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <h3>You get the text.</h3>
+        <h3>You get the message.</h3>
         <p>Who called, what they need, where they are, and what got booked. One message per real job, nothing for the robocalls. In the morning, the whole night in one report.</p>
       </div>
     </div>
@@ -377,14 +384,6 @@
       <a class="btn solid big" href="tel:+19203326113"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>Call it now</a>
     </div>
     <p class="fine reveal">Days, 7 AM to 9 PM Central, it rings Cole's cell for twenty seconds first, the same way yours would ring you. If he can't grab it, the desk does. After 9 PM the desk picks up on the first ring.</p>
-    <div class="orline reveal">
-      <div class="k">Or see the chat version on your own site</div>
-      <form id="wakeNowForm" class="factory-row">
-        <input id="wakeUrl" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="yourshop.com" aria-label="Your website address" />
-        <button class="btn ghost" type="submit">Wake up my site</button>
-      </form>
-      <div id="factoryMsg" class="fine"></div>
-    </div>
   </div>
 </section>
 
@@ -393,14 +392,14 @@
   <div class="wrap">
     <div class="eyebrow reveal"><span class="dot"></span> The call log</div>
     <h2 class="reveal">The first real call goes here.</h2>
-    <p class="lead reveal">The line went live October 14, 2026. The scripted test calls that night caught two mistakes, a phone number read back with one wrong digit and a greeting said twice. Both were fixed before midnight. Test calls aren't proof, so none of them are posted here. The first call from a real person goes up the same day, unedited.</p>
+    <p class="lead reveal">The line went live October 14, 2026. The scripted test calls that night caught two mistakes, a phone number read back with one wrong digit and a greeting said twice. Both were fixed before midnight. Test calls aren't proof, so none of them are posted here. The first call from a real person goes up the same day, unedited except for the caller's name and number.</p>
     <div class="tx reveal">
       <div class="head"><span><b>Call</b> #1</span><span>Not yet</span><span>Line live since Oct 14, 2026</span></div>
       <div class="body">
         <div class="row d"><span class="w">Desk</span><p>Thanks for calling StillOpen. Cole is on a job site, so you have got the front desk he built. What can I help with?</p></div>
         <div class="row c"><span class="w">Caller</span><p>Could be you.</p></div>
       </div>
-      <div class="foot">That's the real greeting, word for word. The rest is up to whoever calls first. <i>(920) 332-6113</i></div>
+      <div class="foot">That's the real greeting, word for word. The rest is up to whoever calls first. <a href="tel:+19203326113">(920) 332-6113</a></div>
     </div>
   </div>
 </section>
@@ -417,9 +416,9 @@
     <div class="faq reveal">
       <details><summary>Does my number change? <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>No. Your phone rings like always. Only the calls nobody picks up roll to the desk. You can turn the forwarding off from your phone any time.</p></details>
       <details><summary>What if it books something wrong? <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>It only uses what you told it: your hours, services, area, and fees. It books two-hour windows into your Google Calendar and never over an existing job. If a caller wants something it can't confirm, it takes a message instead of promising.</p></details>
-      <details><summary>Half my calls are price shoppers and robocalls. <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>Good, that's why it answers them instead of you. Shoppers get your service-call fee and an offer to book. Robocalls get nothing. You only get a text for a real person with a real job.</p></details>
+      <details><summary>Half my calls are price shoppers and robocalls. <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>Good, that's why it answers them instead of you. Shoppers get your service-call fee and an offer to book. Robocalls get nothing. You only get a message for a real person with a real job.</p></details>
       <details><summary>Does it sound like a robot? <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>Call (920) 332-6113 and decide for yourself. If a caller asks plainly whether they're talking to a person, it says it's the front desk the owner set up, and keeps helping.</p></details>
-      <details><summary>Can it take a deposit on a midnight call? <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>Yes, through your own Stripe. It texts the caller a deposit link for the emergency slot, so you stop driving out at 1 AM for somebody who changed their mind.</p></details>
+      <details><summary>Can it take a deposit on a midnight call? <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>Yes, through your own Stripe. In the website chat it hands over the deposit link right there. On the phone it books the slot and sends the deposit link by text, so you stop driving out at 1 AM for somebody who changed their mind.</p></details>
       <details><summary>How long does setup take? <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary><p>You give us your website, or ten minutes on the phone if you don't have one. We build the desk around your real services, hours, and fees, hand you a number to forward to, and you're live within 48 hours.</p></details>
     </div>
   </div>
@@ -429,7 +428,7 @@
 <section id="price">
   <div class="wrap">
     <div class="eyebrow reveal"><span class="dot"></span> One price</div>
-    <h2 class="reveal">One missed water heater pays for the year.</h2>
+    <h2 class="reveal">One missed water heater pays for months of it.</h2>
     <div class="card reveal">
       <div class="left">
         <div class="pricebig">$197<small> / month</small></div>
@@ -437,7 +436,7 @@
         <ul>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Answers your phone when you can't, as your shop</li>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Answers your website chat too, day or night, in the visitor's language</li>
-          <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Books into your Google Calendar, texts you every real job</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Books into your Google Calendar, sends you every real job</li>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Takes a Stripe deposit on emergency slots</li>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No per-minute meter, no contract, cancel in one click</li>
         </ul>
@@ -479,7 +478,7 @@
 <section id="founder">
   <div class="wrap">
     <div class="eyebrow reveal"><span class="dot"></span> Who built this</div>
-    <p class="reveal"><b>I'm Cole. I put up steel buildings in western Wisconsin.</b> Six years of hospitals, warehouses, and aircraft hangars. I'm not a software guy. I built this because every job site I've stood on has a plumber or a tin knocker who lost a call that day, and the call that gets lost at 2 AM is the one that would've paid the truck payment.</p>
+    <p class="reveal"><b>I'm Cole. I put up steel buildings in western Wisconsin.</b> Six years of hospitals, warehouses, and aircraft hangars. I'm not a software guy. I built this because most job sites I've stood on have a plumber or a tin knocker who lost a call that day, and the call that gets lost at 2 AM is the one that would've paid the truck payment.</p>
     <p class="reveal">So the front desk talks like somebody who's been in a basement. Short. Straight. No "how are you today." It gets the address and it gets off the phone. If that's how you'd want your own phone answered, call the number and listen.</p>
     <div class="sig reveal">Cole Cummings · Menomonie, Wisconsin · (534) 901-0258</div>
   </div>
@@ -541,21 +540,11 @@
     },700);
   }
 
-  // Wake form: hands the address to the preview worker.
-  var f=document.getElementById('wakeNowForm');
-  if(f){ f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var v=(document.getElementById('wakeUrl').value||'').trim();
-    if(!v) return;
-    if(!/^https?:\/\//i.test(v)) v='https://'+v;
-    document.getElementById('factoryMsg').textContent='Loading your site with the front desk on it.';
-    window.location.href='https://app.stillopen.ai/wake?url='+encodeURIComponent(v);
-  }); }
 })();
 </script>
 
 <!-- StillOpen chat widget: the same front desk clients get, answering as StillOpen -->
-<script defer src="https://app.stillopen.ai/chatbot.js" data-stillopen-id="stillopen"></script>
+<script defer src="https://app.stillopen.ai/chatbot.js" data-plumber-id="stillopen"></script>
 
 <!-- self-owned pageview beacon: no cookies, nothing personal -->
 <script>
