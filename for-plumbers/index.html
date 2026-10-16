@@ -4,29 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI front desk for plumbers | StillOpen</title>
-<meta name="description" content="The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers in your voice and books the truck. $497 to go live, then $197 a month.">
+<meta name="description" content="The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers as your shop and books the truck. $497 to go live, then $197 a month.">
 <link rel="canonical" href="https://stillopen.ai/for-plumbers/">
 <meta property="og:title" content="AI front desk for plumbers | StillOpen">
-<meta property="og:description" content="The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers in your voice and books the truck. $497 to go live, then $197 a month.">
+<meta property="og:description" content="The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers as your shop and books the truck. $497 to go live, then $197 a month.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://stillopen.ai/for-plumbers/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:site_name" content="StillOpen">
-<meta property="og:image" content="https://stillopen.ai/v2/og-morning.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="https://stillopen.ai/assets/trade-heroes/for-plumbers_hf.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="894">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI front desk for plumbers | StillOpen">
-<meta name="twitter:description" content="The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers in your voice and books the truck. $497 to go live, then $197 a month.">
-<meta name="twitter:image" content="https://stillopen.ai/v2/og-morning.jpg">
+<meta name="twitter:description" content="The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers as your shop and books the truck. $497 to go live, then $197 a month.">
+<meta name="twitter:image" content="https://stillopen.ai/assets/trade-heroes/for-plumbers_hf.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --accent:#f97316;--accent-glow:rgba(245,158,11,.55);--accent-soft:rgba(245,158,11,.14);
-  --warm-light:#ffcf87;--bg:#0b0908;--bg-2:#0f0c0a;--ink:#f4ede4;
+  --accent:#f97316;--accent-glow:rgba(249,115,22,.55);--accent-soft:rgba(249,115,22,.14);
+  --bg:#0b0908;--bg-2:#0f0c0a;--ink:#f4ede4;
   --ink-dim:rgba(244,237,228,.62);--ink-faint:rgba(244,237,228,.38);--line:rgba(244,237,228,.09);
   --mono:'JetBrains Mono',monospace;--sans:'Manrope',sans-serif;
 }
@@ -39,23 +39,23 @@ a{color:inherit}
 
 /* nav */
 nav#nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
-  padding:18px 28px;background:rgba(11,9,8,.86);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+  padding:18px 28px;background:var(--bg);border-bottom:1px solid var(--line)}
 .wordmark{font-weight:800;font-size:21px;letter-spacing:-.02em;text-decoration:none}
 .wordmark i{color:var(--accent);font-style:normal}
 .navlinks{display:flex;gap:10px;align-items:center}
 .btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;
   padding:11px 18px;transition:background .18s ease,color .18s ease,transform .18s ease,border-color .18s ease}
 .btn.solid{background:var(--accent);color:#1a1206}
-.btn.solid:hover{background:var(--warm-light);transform:translateY(-2px)}
+.btn.solid:hover{background:#ea6a0c;transform:translateY(-2px)}
 .btn.ghost{border:1px solid var(--line);color:var(--ink)}
 .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
 .btn.lg{padding:15px 26px;font-size:16px}
 
 /* hero */
 .hero{position:relative;padding:104px 0 88px;overflow:hidden;border-bottom:1px solid var(--line)}
-/* Photography sits UNDER the type, never behind the words. It's a real
-   jobsite at night, dropped to the right so the headline keeps a clean
-   left edge, and washed into the background so nothing competes. */
+/* Photography sits UNDER the type, never behind the words. Jobsite photo,
+   dropped to the right so the headline keeps a clean left edge, and
+   washed into the background so nothing competes. */
 .hero .shot{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .hero .shot img{position:absolute;right:-4%;top:50%;transform:translateY(-50%);
   width:62%;min-width:620px;height:auto;opacity:.5;filter:saturate(.82) contrast(1.05);
@@ -67,13 +67,6 @@ nav#nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify
   .hero .shot img{width:118%;min-width:0;right:-24%;opacity:.30}
   .hero .shot::after{background:linear-gradient(180deg,rgba(11,9,8,.62) 0%,rgba(11,9,8,.90) 62%,var(--bg) 100%)}
 }
-.hero::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(760px 420px at 76% 30%,var(--accent-soft),transparent 72%);pointer-events:none}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(244,237,228,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(244,237,228,.028) 1px,transparent 1px);
-  background-size:64px 64px;
-  -webkit-mask-image:radial-gradient(900px 460px at 55% 40%,#000 25%,transparent 82%);
-  mask-image:radial-gradient(900px 460px at 55% 40%,#000 25%,transparent 82%)}
 .hero .wrap{position:relative}
 .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;
   letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:22px}
@@ -104,7 +97,7 @@ h3{font-size:20px;font-weight:800;letter-spacing:-.015em}
 /* night cards */
 .nights{margin-top:48px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .night{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--bg-2);position:relative}
-.night .time{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.12em;font-weight:700}
+.night .kind{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.12em;font-weight:700;text-transform:uppercase}
 .night p{margin-top:12px;color:var(--ink-dim);font-size:16px}
 .night .worth{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-faint)}
 .night .worth b{color:var(--ink);font-weight:700}
@@ -163,9 +156,6 @@ footer .sign b{color:var(--accent)}
 .foot-links a:hover{color:var(--accent)}
 .foot-links .foot-trade-label{width:100%;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2px}
 
-#grain{position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.16;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
-
 @media (max-width:640px){
   section{padding:66px 0}
   .hero{padding:70px 0 62px}
@@ -174,6 +164,7 @@ footer .sign b{color:var(--accent)}
   .price{padding:26px}
   .btn{padding:12px 16px}
 }
+@media (max-width:480px){h1 br{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 <script type="application/ld+json">
@@ -185,7 +176,7 @@ footer .sign b{color:var(--accent)}
       "@id": "https://stillopen.ai/#organization",
       "name": "StillOpen",
       "url": "https://stillopen.ai/",
-      "description": "A 24/7 AI front desk chat widget for service business websites. Answers after hours, books the job, and emails the owner a morning report.",
+      "description": "A 24/7 AI front desk for plumbing and HVAC shops. Answers the phone when nobody picks up, answers the website chat, books jobs into Google Calendar, takes deposits on Stripe.",
       "founder": {
         "@type": "Person",
         "name": "Cole Cummings"
@@ -197,7 +188,7 @@ footer .sign b{color:var(--accent)}
       "@id": "https://stillopen.ai/for-plumbers/#webpage",
       "url": "https://stillopen.ai/for-plumbers/",
       "name": "AI front desk for plumbers | StillOpen",
-      "description": "The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers in your voice and books the truck. $497 to go live, then $197 a month.",
+      "description": "The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers as your shop and books the truck. $497 to go live, then $197 a month.",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://stillopen.ai/#website",
@@ -209,7 +200,7 @@ footer .sign b{color:var(--accent)}
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://stillopen.ai/v2/og-morning.jpg"
+        "url": "https://stillopen.ai/assets/trade-heroes/for-plumbers_hf.jpg"
       },
       "breadcrumb": {
         "@id": "https://stillopen.ai/for-plumbers/#breadcrumb"
@@ -237,7 +228,7 @@ footer .sign b{color:var(--accent)}
       "@type": "Service",
       "@id": "https://stillopen.ai/for-plumbers/#service",
       "name": "AI front desk for plumbers",
-      "serviceType": "24/7 AI front desk chat for service business websites",
+      "serviceType": "24/7 AI front desk for plumbing and HVAC shops, phone and website chat",
       "provider": {
         "@id": "https://stillopen.ai/#organization"
       },
@@ -249,7 +240,7 @@ footer .sign b{color:var(--accent)}
         "@type": "BusinessAudience",
         "name": "Plumbing companies"
       },
-      "description": "The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers in your voice and books the truck. $497 to go live, then $197 a month.",
+      "description": "The 2 AM burst pipe goes to the plumber who answers first. StillOpen answers as your shop and books the truck. $497 to go live, then $197 a month.",
       "offers": [
         {
           "@type": "Offer",
@@ -258,7 +249,7 @@ footer .sign b{color:var(--accent)}
           "priceCurrency": "USD",
           "url": "https://buy.stripe.com/00w7sEaOO2lWduq4ft7N60E",
           "availability": "https://schema.org/InStock",
-          "description": "One time, to go live. We install the front desk on your site. Live in 48 hours or your $497 back."
+          "description": "One time, to go live. We install the front desk on your site. Live in 48 hours. If it hasn't caught you a job in 30 days, the $497 comes back."
         },
         {
           "@type": "Offer",
@@ -306,7 +297,7 @@ footer .sign b{color:var(--accent)}
           "name": "Can it take a deposit for a midnight call?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, through your own Stripe. That's how you stop driving out at 1am for somebody who changed their mind."
+            "text": "Yes, through your own Stripe. That's how you stop driving out at 1 AM for somebody who changed their mind."
           }
         },
         {
@@ -314,7 +305,7 @@ footer .sign b{color:var(--accent)}
           "name": "How long does setup take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You give your website address at checkout, it reads your site, and your front desk knows your business before the welcome email lands. Then we put the one line of code on your site for you. On WordPress it's a plugin and there's no code at all. Live in 48 hours or you get the $497 back."
+            "text": "You give your website address at checkout, it reads your site, and your front desk knows your business before the welcome email lands. For the phone, we hand you a number to forward to and you turn forwarding on from your own phone in about ninety seconds. For the website, we put the one line of code on your site for you. On WordPress it's a plugin and there's no code at all. Live in 48 hours. If it hasn't caught you a job in 30 days, the $497 comes back."
           }
         },
         {
@@ -330,7 +321,7 @@ footer .sign b{color:var(--accent)}
           "name": "What does it cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "$497 once to put it live, then $197 a month. That's the whole price. No setup fee on top of it, no per-minute meter, no annual contract, no free trial and no other tier. Install is included, so there’s nothing for you to code."
+            "text": "$497 once to put it live, then $197 a month. That's the whole price. No other fee on top of it, no per-minute meter, no annual contract, no free trial and no other tier. Install is included, so there's nothing for you to code."
           }
         },
         {
@@ -338,7 +329,7 @@ footer .sign b{color:var(--accent)}
           "name": "Can I cancel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, any time, in one click. There’s no phone call to sit through and no cancellation window to catch. You keep every job it booked while it was running."
+            "text": "Yes, any time, in one click. There's no phone call to sit through and no cancellation window to catch. You keep every job it booked while it was running."
           }
         },
         {
@@ -346,7 +337,7 @@ footer .sign b{color:var(--accent)}
           "name": "Does it answer phone calls?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Your number stays the same. When nobody picks up after four rings, the call rolls to the front desk, which answers as your shop, takes the details, books the visit, and texts you what happened. Call (920) 332-6113 to hear it."
+            "text": "Yes. Your number stays the same. When nobody picks up after a few rings, the call rolls to the front desk, which answers as your shop, takes the details, books the visit, and sends you what happened. Call (920) 332-6113 to hear it."
           }
         }
       ]
@@ -360,7 +351,7 @@ footer .sign b{color:var(--accent)}
 <nav id="nav">
   <a class="wordmark" href="/">StillOpen<i>.</i></a>
   <div class="navlinks">
-    <a class="btn ghost" href="/#pricing">Pricing</a>
+    <a class="btn ghost" href="#pricing">Pricing</a>
     <a class="btn solid" href="https://buy.stripe.com/00w7sEaOO2lWduq4ft7N60E?client_reference_id=for-plumbers">Go live</a>
   </div>
 </nav>
@@ -369,45 +360,36 @@ footer .sign b{color:var(--accent)}
   <div class="shot"><img src="/assets/trade-heroes/for-plumbers_hf.jpg" alt="" width="1600" height="893" loading="eager" decoding="async"></div>
   <div class="wrap">
     <div class="kicker"><span class="dot"></span> For plumbers</div>
-    <h1>The 2am burst pipe<br>doesn't go to <em>voicemail</em>.</h1>
-    <p class="lede">Your front desk answers the panicked call at 2am, gets the name, the number and the address, and has the job on your calendar before you're out of bed.</p>
+    <h1>The 2 AM burst pipe <br>doesn't go to <em>voicemail</em>.</h1>
+    <p class="lede">Your front desk answers the panicked call at 2 AM, gets the name, the number and the address, and has the job on your calendar before you're out of bed.</p>
     <div class="hero-ctas">
       <a class="btn solid lg" href="https://buy.stripe.com/00w7sEaOO2lWduq4ft7N60E?client_reference_id=for-plumbers">Go live for $497</a>
-      <a class="btn ghost lg" href="tel:+19203326113">Call one right now: (920) 332-6113</a>
+      <a class="btn ghost lg" href="tel:+19203326113">Hear it: (920) 332-6113</a>
     </div>
-    <p class="microline">$197 a month, and $497 once to go live. We install it. Cancel any time.</p>
-
-      <div class="wakebox">
-        <h3>See it on your own site first</h3>
-        <p>Type your web address. Ten seconds later you're looking at your real plumbing site with a working front desk on it. No email, no signup, no call.</p>
-        <form class="wakeform" id="wakeForm">
-          <input id="wakeUrl" type="text" inputmode="url" placeholder="yourshop.com" aria-label="Your website address">
-          <button class="btn solid" type="submit">Wake it up</button>
-        </form>
-      </div>
+    <p class="microline">$197 a month, and $497 once to go live. We install it. Cancel any time. Days it rings Cole first for twenty seconds, then the desk picks up. After 9 PM it answers on the first ring.</p>
   </div>
 </section>
 
 <section id="night">
   <div class="wrap">
     <div class="eyebrow">While you slept</div>
-    <h2>Three messages your phone would have missed.</h2>
-    <p class="sub">Every one of these is the shape of a real after-hours message. Your front desk answers all of them, in your words, using your prices.</p>
+    <h2>Three calls it would catch.</h2>
+    <p class="sub">Every one of these is the shape of a real after-hours call. Your front desk would answer all of them as your shop, using your published prices.</p>
     <div class="nights">
       <div class="night">
-        <div class="time">11:48 PM</div>
-        <p>Water heater let go in a finished basement. She wanted to know if anybody could come tonight and what it would cost.</p>
-        <div class="worth">A <b>$1,400</b> emergency call that usually goes to whoever answers first.</div>
+        <div class="kind">Burst pipe</div>
+        <p>Pipe lets go at 2 AM and water is coming through the kitchen ceiling. It would get the name, number and address, book the first open window, and send you the details.</p>
+        <div class="worth">The call that goes to <b>whoever answers first</b>.</div>
       </div>
       <div class="night">
-        <div class="time">6:10 AM</div>
-        <p>Landlord with a unit turning over asked whether you do commercial and if you're licensed and bonded.</p>
-        <div class="worth">A property manager with <b>eleven units</b> asks once and never asks twice.</div>
+        <div class="kind">Water heater</div>
+        <p>Water heater let go in a finished basement. She wants to know if anybody can come tonight and what it costs. It would quote your published service-call fee and book the visit.</p>
+        <div class="worth">It quotes your <b>published fee</b>, never a repair it hasn't seen.</div>
       </div>
       <div class="night">
-        <div class="time">9:22 PM</div>
-        <p>Somebody comparing three quotes on a water softener install. Got your real number and your real timeline.</p>
-        <div class="worth">The quote that gets answered first usually wins.</div>
+        <div class="kind">Sewer backup</div>
+        <p>Sewer backing up into the basement floor drain on a Sunday night. It would take the details, book a window, and for a true emergency ring your on-call phone straight through.</p>
+        <div class="worth">A real emergency can <b>reach you directly</b>. Everything else waits for morning.</div>
       </div>
     </div>
   </div>
@@ -433,13 +415,13 @@ footer .sign b{color:var(--accent)}
   <div class="wrap">
     <div class="eyebrow">One price</div>
     <h2>$497 to go live. Then $197 a month.</h2>
-    <p class="sub">We put it on your site, no sales call, no per-minute meter, no annual contract. If it isn't earning its keep, cancel any time.</p>
+    <p class="sub">We put it on your phone line and your website, no sales call, no per-minute meter, no annual contract. If it isn't earning its keep, cancel any time.</p>
 
         <div class="price">
           <div class="big">$197<span> / month</span></div>
-          <div class="free">$497 to go live. We install it on your site within 48 hours.</div>
+          <div class="free">$497 to go live. We build it and install it within 48 hours. If it hasn't caught you a job in 30 days, the $497 comes back.</div>
           <ul>
-            <li>Answers your phone when you can't. Calls roll to it after four rings, nothing changes on your trucks</li>
+            <li>Answers your phone when you can't. Calls roll to it after a few rings, nothing changes on your trucks</li>
             <li>Answers every website message too, day or night, in the visitor's own language</li>
             <li>Trained on your real services, hours, and published prices</li>
             <li>Books into your Google Calendar</li>
@@ -464,12 +446,12 @@ footer .sign b{color:var(--accent)}
     <div class="faq">
       <details><summary>Does it quote repair prices?</summary><p>No, and that's on purpose. A good plumber doesn't price a fix he hasn't seen. It quotes your published diagnostic or service-call fee, explains that it goes toward the job, and books the visit.</p></details>
       <details><summary>What if it doesn't know something?</summary><p>It says so and takes a message. It never invents a price, a service, or a service area. If it isn't on your site, it isn't in its mouth.</p></details>
-      <details><summary>Can it take a deposit for a midnight call?</summary><p>Yes, through your own Stripe. That's how you stop driving out at 1am for somebody who changed their mind.</p></details>
-      <details><summary>How long does setup take?</summary><p>You give your website address at checkout, it reads your site, and your front desk knows your business before the welcome email lands. Then we put the one line of code on your site for you. On WordPress it's a plugin and there's no code at all. Live in 48 hours or you get the $497 back.</p></details>
+      <details><summary>Can it take a deposit for a midnight call?</summary><p>Yes, through your own Stripe. That's how you stop driving out at 1 AM for somebody who changed their mind.</p></details>
+      <details><summary>How long does setup take?</summary><p>You give your website address at checkout, it reads your site, and your front desk knows your business before the welcome email lands. For the phone, we hand you a number to forward to and you turn forwarding on from your own phone in about ninety seconds. For the website, we put the one line of code on your site for you. On WordPress it's a plugin and there's no code at all. Live in 48 hours. If it hasn't caught you a job in 30 days, the $497 comes back.</p></details>
       <details><summary>What if it says something wrong?</summary><p>Tell it what to fix from your dashboard and rescan your site. It only knows what your site says, so most wrong answers are a page on your site that's out of date.</p></details>
-      <details><summary>What does it cost?</summary><p>$497 once to put it live, then $197 a month. That's the whole price. No setup fee on top of it, no per-minute meter, no annual contract, no free trial and no other tier. Install is included, so there’s nothing for you to code.</p></details>
-      <details><summary>Can I cancel?</summary><p>Yes, any time, in one click. There’s no phone call to sit through and no cancellation window to catch. You keep every job it booked while it was running.</p></details>
-      <details><summary>Does it answer phone calls?</summary><p>Yes. Your number stays the same. Your phone rings like always, and when nobody picks up after four rings the call rolls to the front desk, which answers as your shop. It knows your hours, services, and service area, takes the details, books the visit, and texts you what happened. Hear it yourself: call <span style="white-space:nowrap">(920) 332-6113</span>. That line answers as StillOpen, the same way yours would answer as you.</p></details>
+      <details><summary>What does it cost?</summary><p>$497 once to put it live, then $197 a month. That's the whole price. No other fee on top of it, no per-minute meter, no annual contract, no free trial and no other tier. Install is included, so there's nothing for you to code.</p></details>
+      <details><summary>Can I cancel?</summary><p>Yes, any time, in one click. There's no phone call to sit through and no cancellation window to catch. You keep every job it booked while it was running.</p></details>
+      <details><summary>Does it answer phone calls?</summary><p>Yes. Your number stays the same. Your phone rings like always, and when nobody picks up after a few rings the call rolls to the front desk, which answers as your shop. It knows your hours, services, and service area, takes the details, books the visit, and sends you what happened. Hear it yourself: call <span style="white-space:nowrap">(920) 332-6113</span>. That line answers as StillOpen, the same way yours would answer as you.</p></details>
     </div>
     <div class="hero-ctas" style="margin-top:44px">
       <a class="btn solid lg" href="https://buy.stripe.com/00w7sEaOO2lWduq4ft7N60E?client_reference_id=for-plumbers">Go live for $497</a>
@@ -512,7 +494,6 @@ footer .sign b{color:var(--accent)}
   <nav class="foot-links" aria-label="Footer">
     <a href="https://buy.stripe.com/00w7sEaOO2lWduq4ft7N60E?client_reference_id=for-plumbers">Go live</a>
     <a href="/">Home</a>
-    <a href="/for-medspas/">For med spas</a>
     <a href="/for-photographers/">For photographers</a>
     <a href="/partners/agencies/">For agencies</a>
     <a href="/terms.html">Terms</a>
@@ -520,6 +501,7 @@ footer .sign b{color:var(--accent)}
   </nav>
   <nav class="foot-links" aria-label="StillOpen by trade">
     <span class="foot-trade-label">Front desks by trade</span>
+    <a href="/for-plumbers/">Plumbers</a>
     <a href="/for-hvac/">HVAC</a>
     <a href="/for-electricians/">Electricians</a>
     <a href="/for-roofers/">Roofers</a>
@@ -545,20 +527,5 @@ footer .sign b{color:var(--accent)}
   <div>StillOpen &middot; Menomonie, Wisconsin</div>
 </footer>
 
-<div id="grain" aria-hidden="true"></div>
-
-<script>
-(function(){
-  var f = document.getElementById("wakeForm");
-  if (!f) return;
-  f.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var v = (document.getElementById("wakeUrl").value || "").trim();
-    if (!v) return;
-    if (!/^https?:\/\//i.test(v)) v = "https://" + v;
-    window.location.href = "https://app.stillopen.ai/wake?url=" + encodeURIComponent(v);
-  });
-})();
-</script>
 </body>
 </html>
