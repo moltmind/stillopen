@@ -7,7 +7,7 @@ Preview: https://remodel.stillopen-preview.pages.dev (rebuild + deploy: `bash sc
 - [x] 1. Brain start, read Claude.md, copy brief to REMODEL-BRIEF.md, read competitor-brief.md
 - [x] 2. Branch remodel-2026-11
 - [x] 3. This task file
-- [ ] 4. Preview pipeline: scripts/build-preview.sh, Pages project stillopen-preview created (free), first deploy done, curl 200 confirmed
+- [x] 4. Preview pipeline: scripts/build-preview.sh, Pages project stillopen-preview created (free), first deploy done, curl 200 confirmed
 
 ## Research
 - [ ] 5. Competitor homepages (avoca, goodcall, heyrosie, dialzara), palette and type decision in REMODEL-DESIGN.md
