@@ -10,7 +10,7 @@ Preview: https://remodel.stillopen-preview.pages.dev (rebuild + deploy: `bash sc
 - [x] 4. Preview pipeline: scripts/build-preview.sh, Pages project stillopen-preview created (free), first deploy done, curl 200 confirmed
 
 ## Research
-- [ ] 5. Competitor homepages (avoca, goodcall, heyrosie, dialzara), palette and type decision in REMODEL-DESIGN.md
+- [x] 5. Competitor homepages (avoca, goodcall, heyrosie, dialzara), palette and type decision in REMODEL-DESIGN.md
 
 ## Build
 - [ ] 6. index.html (phone + desktop, sections in brief order)

@@ -109,8 +109,8 @@ Nothing under 16px except the legal line in the footer (15px). Headlines in sent
 - **768:** one column, 24px gutters, text held to `--measure`, transcript max 600px wide, buttons sit side by side at natural width. Sections 64px apart.
 - **1280:** hero is two columns inside `--content-max`: claim, number and buttons left (7 of 12), transcript right (5 of 12), tops aligned. 32px gutters, 48px column gap. Sections 96px apart. Price block is a single card, not a three-tier table: one price, one guarantee.
 - **1440:** same as 1280. Content stays capped at 1200px and centered; bone fills the sides. Nothing stretches, type does not grow past the desktop sizes.
-- Photo: only `cole-founder-portrait.jpg`, in the founder section, no filters, `--radius`. Empty honest blocks everywhere else (the call log stays "Call #1, not yet").
-- Provenance flag on that portrait: a byte-identical copy sits in `drafts/leonardo-downloads/`, next to `medspa-hero.jpg` and `photographer-hero.jpg`. Leonardo is an AI image tool. The brief calls it a real photo, but Cole confirms before it ships. If he can't, the founder section goes text-only.
+- Photo: none tonight. The founder block gets an honest empty photo block (bone panel, rule-line border, small caption in Cole's voice saying a real photo goes here). Empty honest blocks everywhere else too (the call log stays "Call #1, not yet").
+- Why no portrait: `cole-founder-portrait.jpg` is byte-identical to a file in `drafts/leonardo-downloads/`, saved minutes apart from AI hero images. Leonardo is an AI image tool. Unknown provenance means it stays off the site until Cole confirms it is a real photo of him. Swapping it in later is one `<img>` tag.
 - Footer: `--steel` band, `--on-steel` text, orange allowed for links there.
 
 ## Not allowed (restating the locks)

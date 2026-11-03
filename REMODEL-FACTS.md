@@ -22,7 +22,7 @@ Pulled 2026-11-02 from the live worker source (read only) and the brief. If copy
 - Price: $497 to go live, $197 a month, cancel any time. Live in 48 hours. If it hasn't caught a job in 30 days, the $497 comes back. Pay online, no sales call needed.
 - Who it's for: plumbing and heating shops, 1 to 5 trucks, within about 60 miles of Menomonie, WI (Dunn, Chippewa, Eau Claire first).
 - Paying customers: 0. Real customer calls: 0. Call log block: "Call #1, not yet." Morning report sample shows honest zeros or is clearly labeled a sample.
-- Founder: Cole Cummings, steel erector, Menomonie WI, builds this at night. Photo: `/cole-founder-portrait.jpg` (real). No other photos. `assets/trade-heroes/*_hf.jpg` provenance unknown: never use.
+- Founder: Cole Cummings, steel erector, Menomonie WI. NO PHOTO tonight: `cole-founder-portrait.jpg` matches a file in an AI-image download folder, so the founder block uses an honest empty photo block. No other photos. `assets/trade-heroes/*_hf.jpg` provenance unknown: never use.
 
 ## Copy rules
 First person Cole. Contractions. No em-dashes anywhere, including comments and attributes. No testimonials, no stats without a source, no "24/7 AI" buzzwords without a concrete scene. Every sample transcript is labeled "Sample". Read every line as a Wisconsin steel erector would say it.
