@@ -30,4 +30,4 @@ Preview: https://remodel.stillopen-preview.pages.dev (rebuild + deploy: `bash sc
 
 ## Finish
 - [x] 12. Final preview deploy, REMODEL-MORNING-NOTE.md, push branch to origin
-- [ ] 13. Brain: decide lines, card next_move, index, check
+- [x] 13. Brain: decide lines, card next_move, index, check
