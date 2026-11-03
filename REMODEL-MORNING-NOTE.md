@@ -9,5 +9,6 @@
 7. Sample callers, addresses and Cole-voice lines are made up for the samples. Read the founder block out loud and fix anything you wouldn't say.
 8. Also decided without you: 20 chat-era pages noindexed and out of the sitemap; old on-page chat demo on the trade pages dropped for the phone number.
 9. Lighthouse mobile, homepage: performance 90, accessibility 100.
-10. QA: PENDING
-11. Put it live: cd ~/Code/stillopen && git checkout main && git merge remodel-2026-11 && git push origin main
+10. QA: a separate checker failed every page once, mostly exact wording (greeting, gas line). All fixed; the final fixes got a mechanical check (no dashes, no "911" digits, both numbers on every page) but no last full QA pass. Reports in remodel-qa/.
+11. Spanish: pages say it answers in English or Spanish (per the brief), but the Spanish gas line isn't advertised until a native speaker reads it.
+12. Put it live: cd ~/Code/stillopen && git checkout main && git merge remodel-2026-11 && git push origin main  (the REMODEL-*.md notes and remodel-qa/ ride along to the public site; say the word and I strip them first)

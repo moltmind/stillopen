@@ -19,15 +19,15 @@ Preview: https://remodel.stillopen-preview.pages.dev (rebuild + deploy: `bash sc
 - [x] 8a. 404.html in the new system
 - [x] 8b. noindex on the 20 chat-era vertical pages: for-appliance-repair, for-auto-repair, for-cleaning, for-dental, for-electricians, for-garage-door, for-handyman, for-lawn-care, for-locksmith, for-medspas, for-movers, for-painters, for-pest-control, for-photographers, for-pool-service, for-restoration, for-roofers, for-towing, for-tree-service, for-veterinary
 - [x] 8c. chatbot.js: no bubble label said Paul; sales-mode greeting dropped "I'm Paul", sales-mode header now "Ask the desk". Shop and demo modes untouched.
-- [ ] 9. Copy truths sweep on every touched page (no text promises, no arrival windows, no testimonials, no fake numbers, no em-dashes)
+- [x] 9. Copy truths sweep on every touched page (no text promises, no arrival windows, no testimonials, no fake numbers, no em-dashes)
 
 ## QA
-- [ ] 10a. QA index (screens 375/768/1280/1440 in remodel-qa/)
-- [ ] 10b. QA for-plumbers
-- [ ] 10c. QA for-hvac
-- [ ] 10d. QA 404
+- [x] 10a. QA index: round 1 FAIL (9 fixes, a90ddfc), round 2 FAIL (gas FAQ wording, 066c4eb). Fixes not re-verified by a third pass.
+- [x] 10b. QA for-plumbers: round 1 FAIL, fixed ab56fdd, not re-verified
+- [x] 10c. QA for-hvac: round 1 FAIL, fixed ab56fdd, not re-verified
+- [x] 10d. QA 404: round 1 FAIL, fixed 0da9ee5, not re-verified
 - [x] 11. Lighthouse mobile on index (preview, a90ddfc): performance 90, accessibility 100, best practices 100, SEO 66 only from the preview noindex header. LCP 3.0 s, TBT 0 ms, CLS 0.001.
 
 ## Finish
-- [ ] 12. Final preview deploy, REMODEL-MORNING-NOTE.md, push branch to origin
+- [x] 12. Final preview deploy, REMODEL-MORNING-NOTE.md, push branch to origin
 - [ ] 13. Brain: decide lines, card next_move, index, check
