@@ -33,6 +33,17 @@
   // The worker uses this to load kb:{plumberId} from KV and prepend the
   // per-plumber context block to the base SYSTEM_PROMPT. If absent, the
   // worker falls back to a generic home-services front-desk prompt.
+  // No shop id: the StillOpen sales desk runs only on stillopen.ai (and local
+  // previews). Anywhere else it's a shop's site with a broken embed, so the
+  // customer gets a plain answering-service desk, never the sales pitch.
+  // (Cole, 2026-11-02.) The worker knows "desk-fallback".
+  const FALLBACK_DESK_ID = "desk-fallback";
+  const ON_STILLOPEN = (function () {
+    try {
+      var h = (location.hostname || "").toLowerCase();
+      return h === "" || h === "stillopen.ai" || h === "www.stillopen.ai" || h === "localhost" || h === "127.0.0.1";
+    } catch (e) { return true; }
+  })();
   const PLUMBER_ID = (function () {
     try {
       if (document.currentScript && document.currentScript.dataset) {
@@ -44,7 +55,8 @@
       }
     } catch (e) {}
     return null;
-  })();
+  })() || (ON_STILLOPEN ? null : FALLBACK_DESK_ID);
+  const IS_FALLBACK = PLUMBER_ID === FALLBACK_DESK_ID;
 
   // Inline mode: renders inside a container div instead of as a floating bubble.
   // Used by the demo funnel on the landing page.
@@ -82,7 +94,9 @@
   // booking line because they really do book. (Caught 2026-09-14 by the crew.)
   const IS_DEMO = !!PLUMBER_ID && PLUMBER_ID.indexOf("demo-") === 0;
 
-  const OPENING_MESSAGE = IS_SALES_MODE
+  const OPENING_MESSAGE = IS_FALLBACK
+    ? "Hi there. This is the after-hours answering service. Tell me what's going on and I'll get your details to the shop."
+    : IS_SALES_MODE
     ? "Hi, I'm Paul, the AI front desk on this site. Ask me anything about StillOpen, the pricing, how it works, or what it would do for your shop. I can also book you a 10 minute demo with Cole if you want to talk to the guy who built it."
     : IS_DEMO
       ? "Hi there. I'm the front desk. Ask me about our services or hours, or tell me what's going on and I'll get your details to the owner so he can call you back. What do you need?"
@@ -816,7 +830,7 @@
   try {
     // Demo ids ping too since 2026-09-14: the worker files those as demo page
     // views (hit:<day>:demo:<id>), never as client traffic.
-    if (PLUMBER_ID && !IS_SALES_MODE) {
+    if (PLUMBER_ID && !IS_SALES_MODE && !IS_FALLBACK) {
       var beaconKey = "so_beacon_" + PLUMBER_ID;
       if (!sessionStorage.getItem(beaconKey)) {
         sessionStorage.setItem(beaconKey, "1");
