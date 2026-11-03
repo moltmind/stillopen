@@ -14,8 +14,8 @@ Preview: https://remodel.stillopen-preview.pages.dev (rebuild + deploy: `bash sc
 
 ## Build
 - [x] 6. index.html (phone + desktop, sections in brief order)
-- [ ] 7a. for-plumbers/index.html
-- [ ] 7b. for-hvac/index.html (leads with no heat and the gas rule)
+- [x] 7a. for-plumbers/index.html
+- [x] 7b. for-hvac/index.html (leads with no heat and the gas rule)
 - [x] 8a. 404.html in the new system
 - [x] 8b. noindex on the 20 chat-era vertical pages: for-appliance-repair, for-auto-repair, for-cleaning, for-dental, for-electricians, for-garage-door, for-handyman, for-lawn-care, for-locksmith, for-medspas, for-movers, for-painters, for-pest-control, for-photographers, for-pool-service, for-restoration, for-roofers, for-towing, for-tree-service, for-veterinary
 - [x] 8c. chatbot.js: no bubble label said Paul; sales-mode greeting dropped "I'm Paul", sales-mode header now "Ask the desk". Shop and demo modes untouched.
