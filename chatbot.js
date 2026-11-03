@@ -97,7 +97,7 @@
   const OPENING_MESSAGE = IS_FALLBACK
     ? "Hi there. This is the after-hours answering service. Tell me what's going on and I'll get your details to the shop."
     : IS_SALES_MODE
-    ? "Hi, I'm Paul, the AI front desk on this site. Ask me anything about StillOpen, the pricing, how it works, or what it would do for your shop. I can also book you a 10 minute demo with Cole if you want to talk to the guy who built it."
+    ? "Hi, this is the desk. Ask me anything about StillOpen, the pricing, how it works, or what it would do for your shop. I can also book you a 10 minute demo with Cole if you want to talk to the guy who built it."
     : IS_DEMO
       ? "Hi there. I'm the front desk. Ask me about our services or hours, or tell me what's going on and I'll get your details to the owner so he can call you back. What do you need?"
       : "Hi there. I'm the front desk. I can answer questions about our services, check availability, and book an appointment for you right now. What's going on?";
@@ -565,7 +565,7 @@
           <div id="he-online-dot"></div>
         </div>
         <div id="he-header-info">
-          <div id="he-header-title">Front Desk</div>
+          <div id="he-header-title">${IS_SALES_MODE ? "Ask the desk" : "Front Desk"}</div>
           <div id="he-header-status">Online</div>
         </div>
       </div>

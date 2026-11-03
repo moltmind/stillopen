@@ -51,3 +51,9 @@ hero-landscape-*/
 .~*
 
 .dev.vars
+
+# Preview build output
+dist/
+
+# Remodel QA screenshots and reports (kept in the brain, not the site)
+remodel-qa/
