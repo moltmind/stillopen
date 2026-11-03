@@ -26,7 +26,7 @@ Preview: https://remodel.stillopen-preview.pages.dev (rebuild + deploy: `bash sc
 - [ ] 10b. QA for-plumbers
 - [ ] 10c. QA for-hvac
 - [ ] 10d. QA 404
-- [ ] 11. Lighthouse mobile on index (target 90 perf / 95 a11y)
+- [x] 11. Lighthouse mobile on index (preview, a90ddfc): performance 90, accessibility 100, best practices 100, SEO 66 only from the preview noindex header. LCP 3.0 s, TBT 0 ms, CLS 0.001.
 
 ## Finish
 - [ ] 12. Final preview deploy, REMODEL-MORNING-NOTE.md, push branch to origin
