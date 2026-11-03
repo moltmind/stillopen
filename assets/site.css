@@ -206,7 +206,7 @@ h3 { font-size: var(--fs-h3); line-height: 1.15; font-weight: 600; }
 .link-call {
   display: inline-flex; align-items: center; gap: var(--s2);
   font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px;
-  text-decoration-thickness: 2px; text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px; text-decoration-color: var(--ink-muted);
   min-height: 44px;
 }
 .link-call:hover { text-decoration-color: var(--ink); }
@@ -348,3 +348,7 @@ p .link-call .icon { display: inline-block; vertical-align: -3px; margin-right: 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* desktop-only nudge under the demo button; a tel: link does nothing on most desktops */
+.hero-desk-note { display: none; }
+@media (min-width: 1024px) { .hero-desk-note { display: block; margin-top: var(--s2); color: var(--ink-muted); font-size: 0.95rem; } }
