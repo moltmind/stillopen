@@ -92,6 +92,7 @@
   .report-stat:last-child { border-right: 0; }
   .report-stat dt { font-size: var(--fs-small); line-height: 1.3; color: var(--ink-muted); }
   .report-stat dd { font-family: var(--font-head); font-weight: 700; font-size: 3rem; line-height: 1; margin-top: var(--s2); font-variant-numeric: tabular-nums; }
+  @media (min-width: 480px) { .report-stat { display: flex; flex-direction: column; justify-content: space-between; } }
   @media (max-width: 479px) {
     .report-stats { grid-template-columns: 1fr; }
     .report-stat { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); border-right: 0; border-bottom: 1px solid var(--rule); padding: var(--s3) var(--s4); }
@@ -179,7 +180,7 @@
             <span class="transcript-scene">Tue, 10:12 PM. No heat.</span>
           </figcaption>
           <ol class="transcript-rows">
-            <li><span class="who who-desk">Desk</span><p class="line">Hollow Creek Plumbing and Heating, after-hours answering service. What's going on?</p></li>
+            <li><span class="who who-desk">Desk</span><p class="line">Hollow Creek Plumbing and Heating, after-hours answering service. Quick heads-up: this is a demo. Hollow Creek isn't a real shop, but the desk you're talking to is. Try me like you've got a real problem.</p></li>
             <li><span class="who who-caller">Caller</span><p class="line">Furnace quit. It's blowing cold air and the house is down to 58.</p></li>
             <li><span class="who who-desk">Desk</span><p class="line">That's no fun this time of year. Let's get you on the list. What's your name?</p></li>
             <li><span class="who who-caller">Caller</span><p class="line">Mike Brandt.</p></li>
@@ -213,7 +214,7 @@
             <span class="transcript-scene">Sat, 11:40 PM. Gas smell.</span>
           </figcaption>
           <ol class="transcript-rows">
-            <li><span class="who who-desk">Desk</span><p class="line">Hollow Creek Plumbing and Heating, after-hours answering service. What's going on?</p></li>
+            <li><span class="who who-desk">Desk</span><p class="line">Hollow Creek Plumbing and Heating, after-hours answering service.</p></li>
             <li><span class="who who-caller">Caller</span><p class="line">I think I smell gas in the basement.</p></li>
             <li><span class="who who-desk">Desk</span><p class="line line-safety">Get everyone out of the house right now. Don't flip any switches or use anything electric on the way out. Once you're outside, call the gas company or nine one one.</p></li>
             <li><span class="who who-desk">Desk</span><p class="line">Want me to connect you to the on-call tech?</p></li>
@@ -273,7 +274,7 @@
             <div class="report-stat"><dt>On the list, waiting on you</dt><dd>0</dd></div>
             <div class="report-stat"><dt>Sent to on-call</dt><dd>0</dd></div>
           </dl>
-          <p class="report-empty"><strong>Nothing yet.</strong> This is the real starting point, not a mockup with made-up numbers. The first night it catches a call, this fills in.</p>
+          <p class="report-empty"><strong>Nothing yet.</strong> No shop's live, so there's nothing to count, and I'm not putting made-up numbers in here.</p>
         </figure>
       </div>
     </div>
