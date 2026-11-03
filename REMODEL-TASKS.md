@@ -13,7 +13,7 @@ Preview: https://remodel.stillopen-preview.pages.dev (rebuild + deploy: `bash sc
 - [x] 5. Competitor homepages (avoca, goodcall, heyrosie, dialzara), palette and type decision in REMODEL-DESIGN.md
 
 ## Build
-- [ ] 6. index.html (phone + desktop, sections in brief order)
+- [x] 6. index.html (phone + desktop, sections in brief order)
 - [ ] 7a. for-plumbers/index.html
 - [ ] 7b. for-hvac/index.html (leads with no heat and the gas rule)
 - [ ] 8a. 404.html in the new system
