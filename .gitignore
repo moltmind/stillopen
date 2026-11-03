@@ -51,3 +51,6 @@ hero-landscape-*/
 .~*
 
 .dev.vars
+
+# Preview build output
+dist/
