@@ -1,124 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | StillOpen</title>
-    <meta name="description" content="How StillOpen collects, uses, and protects your information, and what we never do with it.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://stillopen.ai/privacy.html">
-  <meta property="og:title" content="Privacy Policy | StillOpen">
-  <meta property="og:description" content="How StillOpen collects, uses, and protects your information, and what we never do with it.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://stillopen.ai/privacy.html">
-  <meta property="og:site_name" content="StillOpen">
-  <meta property="og:image" content="https://stillopen.ai/v2/og-morning.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privacy Policy | StillOpen">
-  <meta name="twitter:description" content="How StillOpen collects, uses, and protects your information, and what we never do with it.">
-  <meta name="twitter:image" content="https://stillopen.ai/v2/og-morning.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0908;
-      --bg-surface: rgba(245,237,224,0.025);
-      --text-primary: rgba(245,237,224,0.96);
-      --text-secondary: rgba(245,237,224,0.68);
-      --text-tertiary: rgba(245,237,224,0.42);
-      --brand: #ff7a1a;
-      --accent: #ff9248;
-      --border: rgba(245,237,224,0.08);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      font-family: 'Inter', -apple-system, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text-primary);
-      line-height: 1.7;
-    }
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image: radial-gradient(rgba(245,237,224,0.045) 1px, transparent 1px);
-      background-size: 22px 22px;
-    }
-    main { position: relative; z-index: 1; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--brand); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy Policy | StillOpen</title>
+<meta name="description" content="What StillOpen collects from shop owners and callers, why, who handles it, how long it's kept, and how to have it deleted.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://stillopen.ai/privacy.html">
+<link rel="icon" href="/app-icon.png">
+<link rel="apple-touch-icon" href="/app-icon.png">
+<meta name="theme-color" content="#f5f3ee">
 
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(5,5,6,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 900px; margin: 0 auto; padding: 16px 32px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .nav-wordmark {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 18px; font-weight: 700; letter-spacing: -0.03em;
-      color: var(--text-primary);
-    }
-    .nav-wordmark span { color: var(--accent); }
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StillOpen">
+<meta property="og:url" content="https://stillopen.ai/privacy.html">
+<meta property="og:title" content="Privacy Policy | StillOpen">
+<meta property="og:description" content="What StillOpen collects from shop owners and callers, why, who handles it, how long it's kept, and how to have it deleted.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Privacy Policy | StillOpen">
+<meta name="twitter:description" content="What StillOpen collects from shop owners and callers, why, who handles it, how long it's kept, and how to have it deleted.">
 
-    main {
-      max-width: 760px; margin: 0 auto; padding: 64px 32px 96px;
-    }
-    h1 {
-      font-size: 36px; font-weight: 800; letter-spacing: -0.03em;
-      margin-bottom: 8px;
-    }
-    .updated {
-      color: var(--text-tertiary); font-size: 14px; margin-bottom: 48px;
-    }
-    h2 {
-      font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
-      margin-top: 40px; margin-bottom: 14px; color: var(--text-primary);
-    }
-    h3 {
-      font-size: 16px; font-weight: 700;
-      margin-top: 24px; margin-bottom: 8px; color: var(--accent);
-    }
-    p, li { color: var(--text-secondary); font-size: 16px; margin-bottom: 14px; }
-    ul, ol { margin-left: 24px; margin-bottom: 14px; }
-    li { margin-bottom: 6px; }
-    strong { color: var(--text-primary); font-weight: 600; }
-    .footer-back {
-      margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border);
-      font-size: 14px; color: var(--text-tertiary);
-    }
-  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://stillopen.ai/#organization",
-      "name": "StillOpen",
-      "url": "https://stillopen.ai/",
-      "description": "A 24/7 AI front desk chat widget for service business websites. Answers after hours, books the job, and emails the owner a morning report.",
-      "founder": {
-        "@type": "Person",
-        "name": "Cole Cummings"
-      },
-      "areaServed": "US"
-    },
-    {
       "@type": "WebPage",
       "@id": "https://stillopen.ai/privacy.html#webpage",
       "url": "https://stillopen.ai/privacy.html",
       "name": "Privacy Policy | StillOpen",
-      "description": "How StillOpen collects, uses, and protects your information, and what we never do with it.",
+      "description": "What StillOpen collects from shop owners and callers, why, who handles it, how long it's kept, and how to have it deleted.",
+      "dateModified": "2026-11-03",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://stillopen.ai/#website",
@@ -150,121 +62,190 @@
   ]
 }
 </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap"></noscript>
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  /* legal pages: terms, privacy, data deletion */
+  .legal { padding-top: var(--s7); padding-bottom: var(--section-gap); }
+  @media (min-width: 1024px) { .legal { padding-top: var(--s8); } }
+  .legal-body { max-width: var(--measure); }
+  .legal-body > * + * { margin-top: var(--s4); }
+  .legal-body > h2 { margin-top: var(--s7); padding-top: var(--s5); border-top: 1px solid var(--rule); }
+  .legal-body > h3 { margin-top: var(--s6); }
+  .legal-body > h4 { margin-top: var(--s5); }
+  .legal-body > h2 + *, .legal-body > h3 + *, .legal-body > h4 + * { margin-top: var(--s3); }
+  .legal-body > .legal-updated { margin-top: var(--s3); }
+  .legal-body > .legal-updated + * { margin-top: var(--s6); }
+  .legal-body ul, .legal-body ol { padding-left: 1.5em; }
+  .legal-body li + li { margin-top: var(--s2); }
+  .legal-body li::marker { color: var(--ink-muted); }
+  .legal-body a { text-decoration-thickness: 2px; text-underline-offset: 3px; text-decoration-color: var(--ink-muted); }
+  .legal-body a:hover { text-decoration-color: var(--ink); }
+  .legal-body address { font-style: normal; }
+  .legal-body a[href^="tel:"], .legal-body .nobr { white-space: nowrap; }
+  /* vendor table: cells wrap, the page never scrolls sideways */
+  .legal-table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule-strong); border-radius: var(--radius); }
+  .legal-table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); line-height: 1.5; }
+  .legal-table th, .legal-table td { text-align: left; vertical-align: top; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--rule); }
+  .legal-table thead th { font-family: var(--font-head); font-weight: 600; font-size: 1rem; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-muted); border-bottom-color: var(--rule-strong); }
+  .legal-table tbody th { font-weight: 700; white-space: nowrap; }
+  .legal-table tbody tr:last-child > * { border-bottom: 0; }
+  @media (max-width: 479px) { .legal-table th, .legal-table td { padding: var(--s3); } }
+</style>
 </head>
 <body>
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="nav-wordmark">
-        <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <rect x="10" y="8" width="40" height="50" rx="1" fill="none" stroke="#fafafa" stroke-width="3"/>
-          <path d="M10 58 L10 8 L38 14 L38 52 Z" fill="#f97316"/>
-          <circle cx="33" cy="34" r="2" fill="#0a0a0b"/>
-        </svg>
-        Still<span>Open</span>
-      </a>
+<a class="skip-link" href="#main">Skip to the page</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="StillOpen home"><span class="brand-lamp" aria-hidden="true"></span>StillOpen</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#price">Price</a></li>
+        <li><a href="/#founder">Who built it</a></li>
+        <li><a href="/#faq">Questions</a></li>
+      </ul>
+    </nav>
+    <a class="header-call num" href="tel:+17156655255"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="visually-hidden">Call the demo line </span>(715) 665-5255</a>
+  </div>
+</header>
+
+<main id="main">
+  <article class="section legal" aria-labelledby="page-title">
+    <div class="wrap">
+      <div class="legal-body">
+        <h1 id="page-title">Privacy Policy</h1>
+        <p class="small muted legal-updated">Last updated: November 3, 2026</p>
+        <p>StillOpen is an after-hours phone desk for plumbing and heating shops. It is run by me, Cole Cummings, in Menomonie, Wisconsin. StillOpen is operated by Cole Cummings, a sole proprietor doing business as StillOpen.</p>
+        <p>This policy covers two groups of people:</p>
+        <ol>
+          <li><strong>Shop owners</strong> who sign up for StillOpen.</li>
+          <li><strong>Callers</strong> who phone a shop and reach the desk after hours.</li>
+        </ol>
+        <p>The short version: I collect what the desk needs to take a message and get it to the shop. I don't sell anyone's data. You can ask me to delete it.</p>
+        <h2 id="part-1-shop-owners">Part 1: Shop owners</h2>
+        <h3>What I collect from you</h3>
+        <ul>
+          <li>Your name, business name, email and phone numbers, including your on-call number.</li>
+          <li>Your hours, services, service area, and the things the desk should never quote.</li>
+          <li>Your shop's public website, which I read to build the desk's info.</li>
+          <li>Billing info. Stripe handles your card. I see things like the last four digits and whether a payment went through. I never see or store your full card number.</li>
+        </ul>
+        <h3>Why</h3>
+        <p>To set up your desk, answer calls the way you want, send you call details, show you your morning report page, and bill you.</p>
+        <h3>How long I keep it</h3>
+        <p>As long as you're a customer. After you cancel, I delete your setup info within 30 days. I keep billing records as long as tax law requires.</p>
+        <h2 id="part-2-callers">Part 2: Callers</h2>
+        <p>If you called a shop after hours and reached the desk, this part is for you.</p>
+        <h3>What I collect from you</h3>
+        <ul>
+          <li>Your phone number, and the time and length of your call.</li>
+          <li>Your name and address, if you give them.</li>
+          <li>What you said you needed.</li>
+          <li>A transcript: a written version of the call.</li>
+        </ul>
+        <p>The desk does not keep a recording of the call audio. Your words are turned into text during the call so the desk can answer you.</p>
+        <h3>Why</h3>
+        <p>To pass your message to the shop you called, so they can call you back and set up a time. The shop sees your details. I use them to run the desk and fix problems with it.</p>
+        <p>The desk does not take payments, does not send you text messages, and does not promise you a time. The shop confirms the time with you.</p>
+        <h3>How long I keep it</h3>
+        <p>90 days, then it is deleted. The shop you called may keep its own copy of your details from the emails I send them. That copy is under the shop's control, not mine.</p>
+        <h2 id="where-the-data-is-stored">Where the data is stored</h2>
+        <p>StillOpen uses a few companies to run the desk. Your data passes through or is stored with them:</p>
+        <div class="legal-table-wrap">
+          <table class="legal-table">
+            <thead>
+              <tr><th scope="col">Company</th><th scope="col">What it does for StillOpen</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Twilio</th><td>Phone calls: the phone number and connecting the call.</td></tr>
+              <tr><th scope="row">Deepgram</th><td>Turns the caller's speech into text during the call. Runs through Twilio.</td></tr>
+              <tr><th scope="row">ElevenLabs</th><td>The desk's voice. Runs through Twilio.</td></tr>
+              <tr><th scope="row">Anthropic</th><td>The AI model that understands the caller and writes the summary.</td></tr>
+              <tr><th scope="row">Cloudflare</th><td>Hosting and storage. Call details and transcripts are stored here.</td></tr>
+              <tr><th scope="row">Resend</th><td>Sends the emails to shop owners with call details.</td></tr>
+              <tr><th scope="row">Clerk</th><td>Sign-in for the shop owner's morning report page.</td></tr>
+              <tr><th scope="row">Stripe</th><td>Payments from shop owners. Callers never pay through StillOpen.</td></tr>
+              <tr><th scope="row">Firecrawl</th><td>Reads the shop's public website when the desk is set up. No caller data.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Each of these companies has its own privacy policy. I only share what each one needs to do its job.</p>
+        <h2 id="who-sees-it">Who sees it</h2>
+        <ul>
+          <li><strong>Shop owners</strong> see their own shop's calls. Never another shop's.</li>
+          <li><strong>I (Cole)</strong> can see everything, because I run and fix the service.</li>
+          <li><strong>Nobody else</strong>, except the companies listed above as they handle it, or if the law requires me to hand it over.</li>
+        </ul>
+        <h2 id="i-don-t-sell-data">I don't sell data</h2>
+        <p>I don't sell, rent or trade anyone's data. Not shop owners'. Not callers'. I don't use it for ads.</p>
+        <h2 id="deleting-your-data">Deleting your data</h2>
+        <p>You can ask me to delete your data at any time.</p>
+        <ul>
+          <li>Use the <a href="/data-deletion.html">data deletion page</a></li>
+          <li>Or email <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a></li>
+          <li>Or call <a class="num" href="tel:+19203326113">(920) 332-6113</a></li>
+        </ul>
+        <p>Tell me the phone number you called from (callers) or your business name (shop owners). I'll delete it from StillOpen within 30 days and confirm by email or phone. If you're a caller, I'll also let the shop know you asked, since they may have their own copy.</p>
+        <h2 id="security">Security</h2>
+        <p>I keep access to the data locked down to my own accounts and the companies listed above. No system is perfect. If I learn your data was exposed, I'll tell you.</p>
+        <h2 id="kids">Kids</h2>
+        <p>StillOpen is for businesses. It isn't meant for children. If a child calls a shop, the desk treats it like any other call. A parent can ask me to delete it.</p>
+        <h2 id="changes">Changes</h2>
+        <p>If I change this policy, I'll update the date at the top. If the change is big, I'll email shop owners first.</p>
+        <h2 id="contact">Contact</h2>
+        <address>
+          Cole Cummings, StillOpen<br>
+          Menomonie, Wisconsin<br>
+          <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a><br>
+          <a class="num" href="tel:+19203326113">(920) 332-6113</a>
+        </address>
+      </div>
     </div>
-  </nav>
+  </article>
+</main>
 
-  <main>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Effective: May 13, 2026</p>
-
-    <p>This Privacy Policy explains what information StillOpen collects, how we use it, and the choices you have. StillOpen is operated by Cole Cummings (StillOpen.ai). Contact: <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</p>
-
-    <h2>1. Who this applies to</h2>
-    <p>StillOpen serves three groups of people:</p>
-    <ul>
-      <li><strong>Business owners</strong> across any service business (med spas, photographers, vets, gyms, salons, dental practices, therapists, contractors, real estate agents, dog trainers, and home-service operators) who pay for a StillOpen account and run the AI front desk on their website or Facebook Page.</li>
-      <li><strong>Agency partners</strong> who white-label StillOpen and resell it to their client roster of service businesses.</li>
-      <li><strong>End customers and prospects</strong> who chat with a StillOpen-powered bot embedded on a business owner's site or who message a business owner's Facebook Page.</li>
-    </ul>
-
-    <h2>2. Information we collect</h2>
-
-    <h3>From business owners (account holders)</h3>
-    <ul>
-      <li>Name and email address (collected through our authentication provider, Clerk).</li>
-      <li>Business information you provide or that we scrape from your public website with your permission, including business name, services, prices, hours, service area, and owner contact details. We refer to this collectively as your "knowledge base."</li>
-      <li>Payment information processed by Stripe. StillOpen never stores your full card number; Stripe handles all card data per PCI DSS standards.</li>
-      <li>If you connect Google Calendar: an OAuth refresh token that lets us check your availability and create events on your behalf.</li>
-      <li>If you connect a Facebook Page: your Facebook Page ID, Page Name, and a long-lived Page Access Token issued by Meta. We use this token only to receive Messenger events sent to your Page and to reply on your Page's behalf.</li>
-    </ul>
-
-    <h3>From homeowners and prospects (end users)</h3>
-    <ul>
-      <li>The text content of messages you send to a StillOpen-powered bot, including any name, phone number, address, or job description you choose to share.</li>
-      <li>For Facebook Messenger conversations: the Page-Scoped ID (PSID) Meta assigns to you for each Page. The PSID is opaque and unique per Page; it is not your Facebook user ID.</li>
-      <li>Standard request metadata such as timestamps and IP address (used only for rate limiting and abuse prevention).</li>
-    </ul>
-
-    <h2>3. How we use information</h2>
-    <ul>
-      <li>To run the AI front desk: route incoming messages to Claude (Anthropic) and return a reply in the business owner's voice.</li>
-      <li>To send replies through the channel the message arrived on (the website widget, Meta Messenger, etc.).</li>
-      <li>To book jobs into the business owner's connected calendar and notify them of new leads via email.</li>
-      <li>To process payments and manage subscriptions (handled by Stripe).</li>
-      <li>To enforce rate limits, prevent abuse, and protect the service.</li>
-      <li>To communicate with business owners about the service (transactional emails sent via Resend).</li>
-    </ul>
-
-    <h2>4. Who we share information with</h2>
-    <p>StillOpen does not sell your information. We share specific data with the following service providers, only as needed to run the service:</p>
-    <ul>
-      <li><strong>Anthropic</strong> (Claude API): receives the system prompt, conversation history, and the latest user message in order to generate a reply. Anthropic does not train on data sent through their API.</li>
-      <li><strong>Meta Platforms</strong> (Facebook Messenger Send API): receives the reply text and the recipient PSID so the message can be delivered to the customer's Messenger inbox.</li>
-      <li><strong>Stripe</strong>: receives payment information for processing charges.</li>
-      <li><strong>Resend</strong>: receives email addresses and message content for transactional emails (lead notifications, onboarding).</li>
-      <li><strong>Clerk</strong>: receives email and authentication credentials for account login.</li>
-      <li><strong>Google</strong>: if Google Calendar is connected, receives event titles, times, and attendee emails for booking.</li>
-      <li><strong>Cloudflare</strong>: provides hosting, DNS, and edge storage (Cloudflare Workers KV) for our application data.</li>
-    </ul>
-    <p>We may also disclose information when required by law, to protect StillOpen's legal rights, or in connection with a corporate transaction such as a merger or acquisition.</p>
-
-    <h2>5. Where data is stored</h2>
-    <p>Application data (knowledge bases, conversation logs, FB Page tokens, OAuth tokens) is stored in Cloudflare Workers KV, replicated globally and encrypted at rest. Customer payment data is held by Stripe. Authentication data is held by Clerk.</p>
-
-    <h2>6. How long we keep data</h2>
-    <ul>
-      <li>Account and knowledge-base data: for the lifetime of your account, plus up to 90 days after cancellation.</li>
-      <li>Conversation logs: up to 12 months for service-quality and abuse-prevention purposes.</li>
-      <li>FB Page tokens: until you disconnect the Page or delete your account.</li>
-      <li>Rate-limit and abuse logs: up to 30 days.</li>
-      <li>Payment records: held by Stripe per their retention rules.</li>
-    </ul>
-
-    <h2>7. Your rights</h2>
-    <p>You can:</p>
-    <ul>
-      <li><strong>Access</strong> the data we hold about you by emailing <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</li>
-      <li><strong>Correct</strong> inaccurate data we hold about you.</li>
-      <li><strong>Delete</strong> your data at any time. See our <a href="/data-deletion.html">Data Deletion</a> page for the process.</li>
-      <li><strong>Disconnect</strong> connected services (Facebook Page, Google Calendar) directly from the dashboard.</li>
-      <li><strong>Export</strong> your knowledge base content on request.</li>
-    </ul>
-
-    <h2>8. Children</h2>
-    <p>StillOpen is not intended for individuals under 13 years of age. We do not knowingly collect information from children under 13. If you believe a child has provided information to us, contact <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a> and we will delete it.</p>
-
-    <h2>9. Cookies and tracking</h2>
-    <p>StillOpen does not set advertising or analytics cookies on the marketing site. The dashboard uses session cookies set by Clerk strictly for authentication.</p>
-
-    <h2>10. Security</h2>
-    <p>We use industry-standard practices including TLS in transit, encryption at rest, signed webhooks (HMAC-SHA-256 for Meta, signed tokens for Stripe), and short-lived OAuth state to protect your data. No system is perfectly secure, and we encourage you to report any suspected vulnerability to <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a>.</p>
-
-    <h2>11. International users</h2>
-    <p>StillOpen is operated from the United States. If you are accessing the service from outside the US, your information may be transferred to and processed in the US.</p>
-
-    <h2>12. Changes to this policy</h2>
-    <p>We may update this Privacy Policy from time to time. The "Effective" date at the top of this page reflects the latest version. Material changes will be communicated to account holders by email.</p>
-
-    <h2>13. Contact</h2>
-    <p>Questions or requests about this policy:</p>
-    <p><strong>Cole Cummings</strong><br>
-    <a href="mailto:cole@stillopen.ai">cole@stillopen.ai</a></p>
-
-    <div class="footer-back">
-      <a href="/">&larr; Back to StillOpen</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand"><span class="brand-lamp" aria-hidden="true"></span>StillOpen</p>
+        <p class="footer-note">A phone desk for plumbing and heating shops. Built in Menomonie, WI, by a steel erector.</p>
+      </div>
+      <div>
+        <p class="footer-label">Call</p>
+        <ul class="footer-list">
+          <li><a class="footer-tel" href="tel:+17156655255"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>(715) 665-5255</a><br><span class="footer-note">Demo line. Answers as a made-up shop.</span></li>
+          <li><a class="footer-tel" href="tel:+19203326113"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>(920) 332-6113</a><br><span class="footer-note">Me, by day. My desk, by night.</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-label">Pages</p>
+        <ul class="footer-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/for-plumbers/">For plumbers</a></li>
+          <li><a href="/for-hvac/">For heating shops</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+        </ul>
+      </div>
     </div>
-  </main>
+    <p class="footer-legal">© 2026 StillOpen. Menomonie, WI.</p>
+  </div>
+</footer>
+
+<!-- self-owned pageview beacon: no cookies, nothing personal -->
+<script>
+try{ navigator.sendBeacon("https://app.stillopen.ai/beacon", JSON.stringify({ p: location.pathname, r: document.referrer ? new URL(document.referrer).hostname : "" })); }catch(e){}
+</script>
 </body>
 </html>
