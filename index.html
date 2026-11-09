@@ -102,6 +102,16 @@
   }
   .report-empty { padding: var(--s5); color: var(--ink-muted); font-size: var(--fs-small); line-height: 1.5; }
   .report-empty strong { color: var(--ink); }
+  .report-calls { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--rule); }
+  .report-calls li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) auto; column-gap: var(--s4); row-gap: var(--s1); align-items: baseline; padding: var(--s3) var(--s5); border-bottom: 1px solid var(--rule); font-size: var(--fs-small); line-height: 1.4; }
+  .report-calls li:last-child { border-bottom: 0; }
+  .report-time { color: var(--ink-muted); white-space: nowrap; }
+  .report-out { font-weight: 700; white-space: nowrap; }
+  .report-oncall { color: var(--orange-text); }
+  @media (max-width: 479px) {
+    .report-calls li { grid-template-columns: 4.75rem minmax(0, 1fr); padding: var(--s3) var(--s4); }
+    .report-out { grid-column: 2; }
+  }
 
   /* price */
   .price-card { background: var(--surface); border: 2px solid var(--ink); border-top: 8px solid var(--orange); border-radius: var(--radius); padding: var(--s5); display: grid; gap: var(--s6); }
@@ -120,12 +130,9 @@
   @media (min-width: 768px) { .price-actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--s5); } }
 
   /* founder */
-  .founder-photo { max-width: 360px; }
-  @media (min-width: 1024px) { .founder-photo { max-width: none; } }
-  .founder h2 { margin-bottom: var(--s5); }
+  .founder h2 { margin-bottom: 0; }
 
   /* call log */
-  .call-log h2 { margin-bottom: var(--s3); }
 </style>
 </head>
 <body>
@@ -265,20 +272,26 @@
       <div class="col-5">
         <h2 id="report-title">Coffee, then the morning report.</h2>
         <p class="lead" style="margin-top: var(--s4)">Every call it catches, you get the details by email. In the morning you get one report with the night on it.</p>
-        <p class="lead">Here's what it looks like tonight, before the first call. All zeros, because nobody's live yet and I'm not going to fake it.</p>
+        <p class="lead">Here's what one looks like. This is a sample night I made up to show you the layout, not a real shop's numbers.</p>
       </div>
       <div class="col-7">
         <figure class="report" aria-labelledby="report-cap">
           <figcaption class="report-top" id="report-cap">
             <span class="report-title"><svg class="icon icon-24" aria-hidden="true"><use href="#i-sunrise"/></svg>Morning report</span>
-            <span class="tag">Before call #1</span>
+            <span class="tag">Example</span>
           </figcaption>
           <dl class="report-stats">
-            <div class="report-stat"><dt>Calls caught</dt><dd>0</dd></div>
-            <div class="report-stat"><dt>On the list, waiting on you</dt><dd>0</dd></div>
-            <div class="report-stat"><dt>Sent to on-call</dt><dd>0</dd></div>
+            <div class="report-stat"><dt>Calls caught</dt><dd>4</dd></div>
+            <div class="report-stat"><dt>On the list, waiting on you</dt><dd>3</dd></div>
+            <div class="report-stat"><dt>Sent to on-call</dt><dd>1</dd></div>
           </dl>
-          <p class="report-empty"><strong>Nothing yet.</strong> No shop's live, so there's nothing to count, and I'm not putting made-up numbers in here.</p>
+          <ol class="report-calls">
+            <li><span class="report-time num">9:42 PM</span><span class="report-what">Water heater leaking in the basement, Menomonie</span><span class="report-out">On the list</span></li>
+            <li><span class="report-time num">11:18 PM</span><span class="report-what">Gas smell in the kitchen, Elk Mound</span><span class="report-out report-oncall">Sent to on-call</span></li>
+            <li><span class="report-time num">1:05 AM</span><span class="report-what">No heat, 58 inside, Eau Claire</span><span class="report-out">On the list</span></li>
+            <li><span class="report-time num">6:12 AM</span><span class="report-what">Floor drain backing up, Chippewa Falls</span><span class="report-out">On the list</span></li>
+          </ol>
+          <p class="report-empty"><strong>Sample night.</strong> Your real report lists every caller's name, number and address, and each call is in your email the minute it ends.</p>
         </figure>
       </div>
     </div>
@@ -313,17 +326,13 @@
     </div>
   </section>
 
-  <!-- g. founder, no photo on purpose -->
+  <!-- g. founder -->
   <section class="section founder" id="founder" aria-labelledby="founder-title">
     <div class="wrap split">
       <div class="col-4">
-        <div class="photo-empty founder-photo" role="img" aria-label="Empty photo frame. A real photo of Cole goes here.">
-          <svg class="icon" aria-hidden="true"><use href="#i-image"/></svg>
-          <p>A real photo of me goes here. I'd rather leave it blank than put up one I can't vouch for.</p>
-        </div>
+        <h2 id="founder-title">I'm Cole. I put up steel buildings.</h2>
       </div>
       <div class="col-8">
-        <h2 id="founder-title">I'm Cole. I put up steel buildings.</h2>
         <p>I'm Cole Cummings. I'm a steel erector in western Wisconsin, and I live in Menomonie. I like that work and I'm keeping it.</p>
         <p>Most weeks I'm on a job next to plumbing and heating crews from around here. They're good at what they do. They also can't answer a phone with both hands in a furnace, and nobody should have to at 10 at night.</p>
         <p>So I built the desk I'd want if I ran a shop. It picks up when you can't, answers with your name, gets the details, and doesn't promise anything you didn't tell it to. If somebody smells gas, it tells them to get out first.</p>
@@ -368,16 +377,6 @@
     </div>
   </section>
 
-  <!-- i. honest call log -->
-  <section class="section" aria-labelledby="log-title">
-    <div class="wrap">
-      <div class="call-log">
-        <span class="tag">Call log</span>
-        <h2 id="log-title" style="margin-top: var(--s4)">Call #1, not yet.</h2>
-        <p class="lead">No shop is live yet, so there's no real call to show you. When the first real customer calls, that call goes right here, unedited except the caller's name and number.</p>
-      </div>
-    </div>
-  </section>
 
 </main>
 
