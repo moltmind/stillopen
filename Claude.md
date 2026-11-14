@@ -41,7 +41,7 @@ The brain hooks fire when Claude Code is launched from the vault root. When laun
 
 ## What's live (as of 2026-11-02)
 
-- **stillopen.ai**: revival homepage since 2026-11-14 (`index.html`): website and Facebook rebuilds, $997 once and $149 a month, on Cole's yes that day. One self-contained file, built from `_brain/proposed/revival-2026-11-14/index.src.html` in the vault. The phone-desk homepage it replaced is `index-v3-phone-desk.html`, noindexed. `giving-tuesday/` was not touched. Older note follows. Phone-first homepage since 2026-10-15. Hero is the number and a sample after-hours call transcript. Previous homepage preserved as `index-v2-night.html`, noindexed. Plumber and HVAC pages (`for-plumbers/`, `for-hvac/`) sell the phone product.
+- **stillopen.ai**: revival homepage since 2026-11-14 (`index.html`): website and Facebook rebuilds, $997 once and $149 a month, on Cole's yes that day. One self-contained file, built from `_brain/proposed/revival-2026-11-14/index.src.html` in the vault. On Cole's word the same afternoon ("we won't undo anything"), the phone desk pages came down: `for-plumbers/` and `for-hvac/` now redirect to the home page, and the old homepage copies (`index-v1.html`, `index-v2-night.html`, `index-v3-phone-desk.html`) were deleted. They are still in git history. `giving-tuesday/` was not touched. Older note follows. Phone-first homepage since 2026-10-15. Hero is the number and a sample after-hours call transcript. Previous homepage preserved as `index-v2-night.html`, noindexed. Plumber and HVAC pages (`for-plumbers/`, `for-hvac/`) sell the phone product.
 - **app.stillopen.ai**: the worker. Chat API, voice relay (Twilio ConversationRelay, ElevenLabs voice, one Durable Object per call), KV, bookings, Stripe deposits, owner alerts by email, Morning Report dashboard, Clerk-gated.
 - **(920) 332-6113**: the StillOpen line. Rings Cole by day, answers as the StillOpen sales desk otherwise.
 - Demo lines: one Twilio number per prospect demo, pointed at its `demo-*` config. None bought yet besides the StillOpen line; Scott Schmidt's demo brain already exists in KV.
@@ -103,6 +103,6 @@ First-person Cole. No em-dashes. Contractions. Concrete over abstract: "the $1,2
 
 ## Rollback
 
-Site: `index-v3-phone-desk.html` is the previous homepage (set its robots tag back to index,follow and copy it over `index.html`); `index-v2-night.html` is the one before that. Worker: `backups/worker.pre-voice-2026-10-14.js` and `backups/wrangler.pre-voice-2026-10-14.toml` in the private repo; redeploy those and point the number back at `/twilio/missed-call`.
+Site: the old homepages are no longer in the tree. To bring one back, take it from git history (`git show 76cdfc0:index-v3-phone-desk.html`). Worker: `backups/worker.pre-voice-2026-10-14.js` and `backups/wrangler.pre-voice-2026-10-14.toml` in the private repo; redeploy those and point the number back at `/twilio/missed-call`.
 
 Older points: `index-v1.html`, the `v2/` lab copy (Paul's assets), commits `6b754bc` and `f2cc962`.
