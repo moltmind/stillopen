@@ -93,7 +93,7 @@ First-person Cole. No em-dashes. Contractions. Concrete over abstract: "the $1,2
 
 ## Known debt
 
-- ~90 prospect clone folders at the repo root (`scott-schmidt-plumbing/`, `halverson/`, and the rest) are deployed demo pages from the chat era. Retire to `_retired-demos/` with a redirect once Cole confirms no prospect still holds a link.
+- The prospect clone folders (about 95, each `<shop>/clone/`) were deleted on 2026-11-14 on Cole's word ("take them all down"). They are in git history. The other trade pages (`for-*/`), the `vs/` pages, `wake/`, `embed-guide/`, `v2/`, `founders/` and `pro-install-confirmed/` now redirect to the home page.
 - Pro Install checkout links to SMS, not a Stripe product.
 - Backend industry codes still missing most verticals (using "other").
 - KV conversation logs never mined. Read-only analysis of what real visitors asked is still owed.
